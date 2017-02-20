@@ -32,9 +32,9 @@ $(function(){
 //텍스트 입력기 html,text 선택스크립트//
 $(function() {
   $(".flex-box-inner span").click(function() {
-    if ($(this).hasClass('active')) {} else {
-      $(".flex-box-inner span").removeClass("active");
-      $(this).addClass("active");
+    if ($(this).hasClass('text-active')) {} else {
+      $(".flex-box-inner span").removeClass("text-active");
+      $(this).addClass("text-active");
     }
   });
 });
@@ -53,19 +53,38 @@ $(function() {
       $(this).addClass("active");
     }
   });
+  $(".reply-colum-2 img").click(function() {
+    $(".re-reply").show();
+  });
 });
 //검색 버튼 스크립트//
 jQuery(document).ready(function() {
   $(".search_button").on("click", function() {
-    if ($(this).hasClass("active")) {} else {
+    if ($(this).hasClass("active")) {
+      // $(this).removeClass("active");
+      // $(".search-span").removeClass("active");
+      // $(".search_wrap").removeClass("active");
+      // $("input").removeClass("active");
+    } else {
       $(this).addClass("active");
       $(".search_wrap").addClass("active");
-      $(".search_bottun i").addClass("active");
       $("input").addClass("active");
+      $(".search-span").addClass("active");
     }
   });
 });
-
+//
+// jQuery(document).ready(function() {
+//   $("body").on("click", function() {
+// if ($(".search_button").hasClass("active")){
+//        $("span").removeClass("active");
+//      $(".search-span").removeClass("active");
+//        $(".search_wrap").removeClass("active");
+//           $(".search_button").removeClass("active");
+//      $("input").removeClass("active");
+//    }
+//   });
+// });
 //차시 버튼 스크립트//
 $(function() {
   $(".chasi ul li").click(function() {
@@ -145,9 +164,9 @@ $(document).ready(function() {
 });
 //메인슬라이더
 $(document).ready(function() {
-  $('.slider1').bxSlider({slideWidth: 180, minSlides: 1, maxSlides: 4, slideMargin: 20});
-});
+  $('.slider1').bxSlider({slideWidth: 180, minSlides: 1, maxSlides: 4, slideMargin: 20, moveSlides:1 ,auto:true});
 
+});
 //갤러리 드랍다운//
 $(document).ready(function() {
   $('.select-label').click(function() {
@@ -159,6 +178,23 @@ $(document).ready(function() {
     $('.dropdown').removeClass('active');
       $('.dropdown-list li').toggleClass('show');
   });
-
-
+});
+//드랍다운,검색버튼 이외의 버튼을 눌렀을때 disable
+$(document).click(function(e) {
+    var target = e.target;
+    if (!$(target).is('span')) {
+        $('.dropdown').removeClass('active');
+        $('.dropdown ul li').removeClass('show');
+    }
+    if (!$(target).is('span')) {
+        $('.select ul').hide();
+    }
+    if ($(target).is('i')||$(target).is('input')){
+    }else{
+        $('.flex-box-inner span').removeClass('active');
+        $('.search_wrap').removeClass('active');
+        $('.search-span').removeClass('active');
+        $('.search_wrap input').removeClass('active');
+        $('.search_button').removeClass('active');
+    }
 });

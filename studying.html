@@ -1,150 +1,222 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="icon/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/jquery.bxslider.css" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-  <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
-  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
-</head>
-<body>
-  <!--페이지 시작-->
-  <div id="page-wrapper">
-    <div class="studying-page-wrapper">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
+  </head>
+  <body>
+    <!-- 헤더 시작 -->
+    <div id="gnb-wrapper">
       <div class="container">
         <div class="row">
-          <section class="banner-text" style="max-width:100%">
-            <p>
-              코딩퍼즐 학습
-              <span>
-                  <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </span> 교육과정 소개
-              <span>
-                  <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </span> 초급과정
-            </p>
-          </section>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5">
-            <p><img src="img/intro-image.png" alt="리스트 이미지"></p>
-            <h2 class="intro-element-title">초등학생을 위한 15회 교육과정</h2>
-            <p class="lh2">이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입 니다. 각 과정들은 5 ~ 20개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학교 저학년까지도 참여할 수 있으며 학 습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다. 바로 연락주세요.</p>
+          <div class="col-xs-12">
+            <div class='zeta-menu-bar'>
+              <a href="#" style="float: left;line-height: 84px;"><img src="img/logo.png" alt="로고이미지"></a>
+              <ul class="zeta-menu">
+                <li>
+                  <a href="#" class="gnb-info">Info</a>
+                </li>
+                <li>
+                  <a href="#" class="gnb-education">코딩퍼즐학습</a>
+                  <ul>
+                    <li>
+                      <a href="#" class="gnb-edu">초급과정</a>
+                    </li>
+                    <li>
+                      <a href="#" class="gnb-edu">학습진도현황</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="gnb-1hour">1 Hour of code</a>
+                </li>
+                <li>
+                  <a href="#" class="gnb-puzzle-maker">퍼즐메이커</a>
+                  <ul>
+                    <li>
+                      <a href="#" class="gnb-puzzle">퍼즐메이커 소개</a>
+                    </li>
+                    <li>
+                      <a href="#" class="gnb-puzzle">퍼즐메이커</a>
+                    </li>
+                    <li>
+                      <a href="#" class="gnb-puzzle">퍼즐공유하기</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="gnb-community">커뮤니티</a>
+                  <ul>
+                    <li>
+                      <a href="#" class="gnb-board">자유게시판</a>
+                    </li>
+                    <li>
+                      <a href="#" class="gnb-board">Q&A</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <div id="gnb-nav-btn">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-    <div class="intro-page-wrapper-2">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2 col-xs-4 col-md-offset-1">
-            <div class="elements">
-              <img src="img/element-1.png" alt="순차이미지">
-            </div>
+    <div id="Gnb-frame">
+      <div id="Gnb-profile">
+        <div id="Gnb-profile-photo-frame">
+          <div id="Gnb-profile-photo">
+            <img src="./img/gnb-photo.jpg">
           </div>
-          <div class="col-md-2 col-xs-4">
-            <div class="elements">
-              <img src="img/element-2.png" alt="순차이미지">
-            </div>
+        </div>
+        <div id="Gnb-profile-info">
+          <span>
+            isslea
+          </span>
+          <span>
+            ceqretcer@naver.com
+          </span>
+        </div>
+        <div id="gnb-nav-close">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div id="Gnb-menu">
+        <div class="login">
+          <img src="img/logout.png">
+        </div>
+        <ul>
+          <span>
+            <a href="#">About 코딩 퍼즐</a>
+          </span>
+        </ul>
+
+        <ul id="Gnb-downMenu1">
+          <span>코딩퍼즐 학습</span>
+          <li>
+            <a href="#">초급과정</a>
+          </li>
+          <li>
+            <a href="#">학습진도 현황</a>
+          </li>
+        </ul>
+
+        <ul>
+          <span>
+            <a href="#">1Hour of Code</a>
+          </span>
+        </ul>
+
+        <ul id="Gnb-downMenu2">
+          <span>퍼즐메이커</span>
+          <li>
+            <a href="#">퍼즐메이커 소개</a>
+          </li>
+          <li>
+            <a href="#">퍼즐메이커</a>
+          </li>
+          <li>
+            <a href="#">퍼즐 공유하기</a>
+          </li>
+        </ul>
+
+        <ul id="Gnb-downMenu3">
+          <span>커뮤니티</span>
+          <li>
+            <a href="#">자유게시판</a>
+          </li>
+          <li>
+            <a href="#">Q&A</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--헤더 끝-->
+    <!--페이지 시작-->
+    <div id="page-wrapper">
+      <div class="studying-page-wrapper">
+        <div class="container">
+          <div class="row">
+            <section class="banner-text" style="max-width:100%">
+              <p>
+                코딩퍼즐 학습
+                <span>
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </span>
+                교육과정 소개
+                <span>
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </span>
+                초급과정
+              </p>
+            </section>
           </div>
-          <div class="col-md-2 col-xs-4">
-            <div class="elements">
-              <img src="img/element-3.png" alt="순차이미지">
-            </div>
-          </div>
-          <div class="col-md-2 col-xs-6">
-            <div class="elements">
-              <img src="img/element-4.png" alt="순차이미지">
-            </div>
-          </div>
-          <div class="col-md-2 col-xs-6">
-            <div class="elements">
-              <img src="img/element-5.png" alt="순차이미지">
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5">
+              <img src="img/intro-image.png" alt="리스트 이미지">
+              <h2 class="status-page-title">초급과정</h2>
+              <h2 class="intro-element-title">초등학생을 위한 15회 교육과정</h2>
+              <p class="lh2">이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입 니다. 각 과정들은 5 ~ 20개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학교 저학년까지도 참여할 수 있으며 학 습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다. 바로 연락주세요.</p>
             </div>
           </div>
         </div>
       </div>
+      <div class="intro-page-wrapper-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 col-xs-4 col-md-offset-1">
+              <div class="elements">
+                <img src="img/element-1.png" alt="순차이미지">
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-4">
+              <div class="elements">
+                <img src="img/element-2.png" alt="순차이미지">
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-4">
+              <div class="elements">
+                <img src="img/element-3.png" alt="순차이미지">
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-6">
+              <div class="elements">
+                <img src="img/element-4.png" alt="순차이미지">
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-6">
+              <div class="elements">
+                <img src="img/element-5.png" alt="순차이미지">
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <!--웹 차시 선택시작-->
-            <section class="chasi">
-              <ul>
-                <li class="chasi-btn-01">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  1차시
-                </li>
-                <li class="chasi-btn-02">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  2차시
-                </li>
-                <li class="chasi-btn-03">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  3차시
-                </li>
-                <li class="chasi-btn-04">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  4차시
-                </li>
-                <li class="chasi-btn-05">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  5차시
-                </li>
-                <li class="chasi-btn-06">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  6차시
-                </li>
-                <li class="chasi-btn-07">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  7차시
-                </li>
-                <li class="chasi-btn-08">
-                  <div class="chasi-child">
-                    <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
-                    <img src="img/chasi-2.png" alt="차시이미지" class="selected">
-                  </div>
-                  8차시
-                </li>
-              </ul>
-              <!--웹 차시선택 끝-->
-              <!--모바일 차시 선택시작-->
-              <div class="select">
-                <a href="#">차시선택</a>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <!--웹 차시 선택시작-->
+              <section class="chasi">
                 <ul>
                   <li class="chasi-btn-01">
                     <div class="chasi-child">
@@ -203,14 +275,76 @@
                     8차시
                   </li>
                 </ul>
-              </div>
-              <!--모바일 차시 선택 끝-->
-            </section>
-          </div>
+                <!--웹 차시선택 끝-->
+                <!--모바일 차시 선택시작-->
+                <div class="select">
+                  <a href="#">차시선택</a>
+                  <ul>
+                    <li class="chasi-btn-01">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      1차시
+                    </li>
+                    <li class="chasi-btn-02">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      2차시
+                    </li>
+                    <li class="chasi-btn-03">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      3차시
+                    </li>
+                    <li class="chasi-btn-04">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      4차시
+                    </li>
+                    <li class="chasi-btn-05">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      5차시
+                    </li>
+                    <li class="chasi-btn-06">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      6차시
+                    </li>
+                    <li class="chasi-btn-07">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      7차시
+                    </li>
+                    <li class="chasi-btn-08">
+                      <div class="chasi-child">
+                        <img src="img/chasi-1.png" alt="차시이미지" class="unselected">
+                        <img src="img/chasi-2.png" alt="차시이미지" class="selected">
+                      </div>
+                      8차시
+                    </li>
+                  </ul>
+                </div>
+                <!--모바일 차시 선택 끝-->
+              </section>
+            </div>
 
-          <div class="col-md-10">
+            <div class="col-md-10">
 
-             <!--1차시페이지-->
+              <!--1차시페이지-->
               <div id="page_01">
                 <!--모바일뷰 교육과정 시작-->
                 <div class="select">
@@ -326,109 +460,64 @@
                   </div>
                   <!--웹뷰 교육과정 끝-->
 
-              </section>
-              <div class="row">
-                <div class="col-md-6">
-                  <div style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                </section>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div style="text-align:center">
+                      <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <!--슬라이더 시작-->
-                  <div id="carousel-example-generic" class="carousel slide width100 chasi-info" data-ride="carousel" style="margin-bottom:0; overflow:visible;">
-                    <img src="img/chasi_info.png" alt="" style="position:absolute; top:-25px; z-index:99;">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-                    <div class="studying-info">
-                    <div class="carousel-inner" role="listbox">
-                      <div class="item active" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                        <div class="carousel-caption" style="width:100%; bottom:5px;">
-                        <p>Sample</p>
-                        <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
+                  <div class="col-md-6">
+                    <!--슬라이더 시작-->
+                    <div id="carousel-example-generic" class="carousel slide width100 chasi-info" data-ride="carousel" style="margin-bottom:0; overflow:visible;">
+                      <img src="img/chasi_info.png" alt="" style="position:absolute; top:-25px; z-index:99;">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                      </ol>
+                      <div class="studying-info">
+                        <div class="carousel-inner" role="listbox">
+                          <div class="item active" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
+                            <div class="carousel-caption" style="width:100%; bottom:5px;">
+                              <p>Sample</p>
+                              <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
+                            </div>
+                          </div>
+                          <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
+                            <div class="carousel-caption" style="width:100%; bottom:5px;">
+                              <p>Sample2</p>
+                              <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
+                            </div>
+                          </div>
+                          <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
+                            <div class="carousel-caption" style="width:100%; bottom:5px;">
+                              <p>Sample3</p>
+                              <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                        <div class="carousel-caption" style="width:100%; bottom:5px;">
-                        <p>Sample2</p>
-                        <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
-                        </div>
-                      </div>
-                      <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                        <div class="carousel-caption" style="width:100%; bottom:5px;">
-                        <p>Sample3</p>
-                        <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
-                        </div>
+                      <div class="buttons chasi-info-btns">
+                        <a class="left carousel-control chasi-info-prev" href="#carousel-example-generic" role="button" data-slide="prev" style="">
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">이전</span>
+                        </a>
+                        <a class="right carousel-control chasi-info-next" href="#carousel-example-generic" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">다음</span>
+                        </a>
                       </div>
                     </div>
-</div>
-                    <div class="buttons chasi-info-btns">
-                    <a class="left carousel-control chasi-info-prev" href="#carousel-example-generic" role="button" data-slide="prev" style="">
-                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">이전</span>
-                    </a>
-                    <a class="right carousel-control chasi-info-next" href="#carousel-example-generic" role="button" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">다음</span>
-                    </a>
+                    <p class="chasi-info-character"><img src="img/character.png" alt="캐릭터이미지"></p>
                   </div>
-                  </div>
-                  <p class="chasi-info-character"><img src="img/character.png" alt="캐릭터이미지"></p>
+                  <!--슬라이더 끝-->
                 </div>
-                <!--슬라이더 끝-->
               </div>
-            </div>
-            <!--차시페이지 끝-->
-            <!--2차시페이지 2차시페이지는 예시로 만든것입니다.-->
-            <div id="page_02">
-              <!--모바일뷰 교육과정 시작-->
-              <div class="select">
-                <a href="#">교육 과정</a>
-                <ul class="progress-org">
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                  <li>
-                    <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                    <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                  </li>
-                </ul>
-              </div>
-              <!--모바일 교육과정 끝-->
-              <section class="chasi-progress">
-                <h2>SAMPLE2</h2>
-                <h3>프로그램이 결정을 내릴 수 있도록 가르칩시다!</h3>
-                <!--웹뷰 교육과정 시작-->
-                <div class="progress-wrapper">
+              <!--차시페이지 끝-->
+              <!--2차시페이지 2차시페이지는 예시로 만든것입니다.-->
+              <div id="page_02">
+                <!--모바일뷰 교육과정 시작-->
+                <div class="select">
+                  <a href="#">교육 과정</a>
                   <ul class="progress-org">
                     <li>
                       <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
@@ -468,109 +557,167 @@
                     </li>
                   </ul>
                 </div>
-                <div class="progress-wrapper">
-                  <ul class="progress-org">
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                    <li>
-                      <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
-                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>
-                  </ul>
-                </div>
-                <!--웹뷰 교육과정 끝-->
+                <!--모바일 교육과정 끝-->
+                <section class="chasi-progress">
+                  <h2>SAMPLE2</h2>
+                  <h3>프로그램이 결정을 내릴 수 있도록 가르칩시다!</h3>
+                  <!--웹뷰 교육과정 시작-->
+                  <div class="progress-wrapper">
+                    <ul class="progress-org">
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="progress-wrapper">
+                    <ul class="progress-org">
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                      <li>
+                        <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
+                        <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                      </li>
+                    </ul>
+                  </div>
+                  <!--웹뷰 교육과정 끝-->
 
-              </section>
-              <div class="row">
-                <div class="col-md-6">
-                  <div style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <!--슬라이더 시작-->
-                  <div id="carousel-example-generic" class="carousel slide width100 chasi-info" data-ride="carousel" style="margin-bottom:0; overflow:visible;">
-                    <img src="img/chasi_info.png" alt="" style="position:absolute; top:-25px; z-index:99;">
-                    <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-                    <div class="studying-info">
-                    <div class="carousel-inner" role="listbox">
-                      <div class="item active" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                        <div class="carousel-caption" style="width:100%; bottom:5px;">
-                        <p>Sample</p>
-                        <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
-                        </div>
-                      </div>
-                      <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                        <div class="carousel-caption" style="width:100%; bottom:5px;">
-                        <p>Sample2</p>
-                        <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
-                        </div>
-                      </div>
-                      <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                        <div class="carousel-caption" style="width:100%; bottom:5px;">
-                        <p>Sample3</p>
-                        <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
-                        </div>
-                      </div>
-                    </div>
-</div>
-                    <div class="buttons chasi-info-btns">
-                    <a class="left carousel-control chasi-info-prev" href="#carousel-example-generic" role="button" data-slide="prev" style="">
-                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">이전</span>
-                    </a>
-                    <a class="right carousel-control chasi-info-next" href="#carousel-example-generic" role="button" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">다음</span>
-                    </a>
-                  </div>
-                  </div>
-                  <p class="chasi-info-character"><img src="img/character.png" alt="캐릭터이미지"></p>
-                </div>
-                <!--슬라이더 끝-->
+                </section>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div style="text-align:center">
+                      <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
                     </div>
                   </div>
-                  <p class="chasi-info-character"><img src="img/character.png" alt="캐릭터이미지"></p>
+                  <div class="col-md-6">
+                    <!--슬라이더 시작-->
+                    <div id="carousel-example-generic" class="carousel slide width100 chasi-info" data-ride="carousel" style="margin-bottom:0; overflow:visible;">
+                      <img src="img/chasi_info.png" alt="" style="position:absolute; top:-25px; z-index:99;">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                      </ol>
+                      <div class="studying-info">
+                        <div class="carousel-inner" role="listbox">
+                          <div class="item active" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
+                            <div class="carousel-caption" style="width:100%; bottom:5px;">
+                              <p>Sample</p>
+                              <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
+                            </div>
+                          </div>
+                          <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
+                            <div class="carousel-caption" style="width:100%; bottom:5px;">
+                              <p>Sample2</p>
+                              <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
+                            </div>
+                          </div>
+                          <div class="item" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
+                            <div class="carousel-caption" style="width:100%; bottom:5px;">
+                              <p>Sample3</p>
+                              <span>이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입니다. 각 과정들은 5 ~ 20 개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학 교 저학년까지도 참여할 수 있으며 학습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다.</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="buttons chasi-info-btns">
+                        <a class="left carousel-control chasi-info-prev" href="#carousel-example-generic" role="button" data-slide="prev" style="">
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">이전</span>
+                        </a>
+                        <a class="right carousel-control chasi-info-next" href="#carousel-example-generic" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">다음</span>
+                        </a>
+                      </div>
+                    </div>
+                    <p class="chasi-info-character"><img src="img/character.png" alt="캐릭터이미지"></p>
+                  </div>
+                  <!--슬라이더 끝-->
                 </div>
               </div>
-            </div>
-            <!--차시페이지 끝-->
 
+            </div>
           </div>
         </div>
+        <!--차시페이지 끝-->
       </div>
     </div>
-  </div>
-  </div>
+    <!--푸터시작-->
+    <footer>
+      <div class="tail-row">
+        <div class="tail-colum-1">
+          <img src="img/logo2.png" alt="메이커스랩 로고이미지">
+        </div>
+        <div class="tail-colum-2">
+          <p>30018 세종특별자치시 조치원읍 돌마루5길 2 세영오피스텔 메이커스랩© 401호</p>
+          <p>전화: 010-5305-8680 이메일: 김나영</p>
+        </div>
+        <div class="tail-colum-3">
+          <p>본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단이용하는 경우,</p>
+          <p>저작권법 등에 따라 법척책임을 질 수 있습니다.</p>
+          <p>Copyright © 2014 - 2017 MakersLab, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <!--푸터 끝-->
