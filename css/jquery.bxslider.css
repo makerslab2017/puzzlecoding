@@ -203,3 +203,24 @@ letter-spacing: 0.5em;
 	font-size: .85em;
 	padding: 10px;
 }
+@media(max-width:930px){
+	.bx-wrapper .bx-next {
+    right: -30px;
+}
+.bx-wrapper .bx-prev {
+    left: -30px;
+}
+}
+@media(max-width:772px){
+	.bx-wrapper .bx-next {
+    right: 0px;
+}
+.bx-wrapper .bx-prev {
+    left: 0px;
+}
+}
+@media(max-width:480px){
+.partners-slide .slide{
+
+}
+}

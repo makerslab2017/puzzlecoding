@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="icon/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/jquery.bxslider.css" rel="stylesheet"/>
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
-    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
-  </head>
+<!--페이지로딩후 html 노출-->
+<html lang="ko" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+  <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
+</head>
   <body>
     <!-- 헤더 시작 -->
     <div id="gnb-wrapper">
@@ -23,36 +27,36 @@
         <div class="row">
           <div class="col-xs-12">
             <div class='zeta-menu-bar'>
-              <a href="#" style="float: left;line-height: 84px;"><img src="img/logo.png" alt="로고이미지"></a>
+              <a href="index.html" style="float: left;line-height: 84px;"><img src="img/logo.png" alt="로고이미지"></a>
               <ul class="zeta-menu">
                 <li>
-                  <a href="#" class="gnb-info">Info</a>
+                  <a href="about-coding-puzzle.html" class="gnb-info">Info</a>
                 </li>
                 <li>
                   <a href="#" class="gnb-education">코딩퍼즐학습</a>
                   <ul>
                     <li>
-                      <a href="#" class="gnb-edu">초급과정</a>
+                      <a href="introduce.html" class="gnb-edu">교육과정 소개</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-edu-progress">학습진도현황</a>
+                      <a href="progress-status.html" class="gnb-edu">학습진도현황</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#" class="gnb-1hour">1 Hour of code</a>
+                  <a href="1hour-coding-game.html" class="gnb-1hour">1 Hour of code</a>
                 </li>
                 <li>
                   <a href="#" class="gnb-puzzle-maker">퍼즐메이커</a>
                   <ul>
                     <li>
-                      <a href="#" class="gnb-puzzle">퍼즐메이커 소개</a>
+                      <a href="puzzle-intro.html" class="gnb-puzzle">퍼즐메이커 소개</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-puzzle">퍼즐메이커</a>
+                      <a href="puzzle-game.html" class="gnb-puzzle">퍼즐메이커</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-puzzle">퍼즐공유하기</a>
+                      <a href="gallery.html" class="gnb-puzzle">퍼즐공유하기</a>
                     </li>
                   </ul>
                 </li>
@@ -60,10 +64,10 @@
                   <a href="#" class="gnb-community">커뮤니티</a>
                   <ul>
                     <li>
-                      <a href="#" class="gnb-board">자유게시판</a>
+                      <a href="board-list.html" class="gnb-board">자유게시판</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-board">Q&A</a>
+                      <a href="qa-board-list.html" class="gnb-board">Q&A</a>
                     </li>
                   </ul>
                 </li>
@@ -77,6 +81,7 @@
         </div>
       </div>
     </div>
+    <!--모바일 GNB-->
     <div id="Gnb-frame">
       <div id="Gnb-profile">
         <div id="Gnb-profile-photo-frame">
@@ -99,50 +104,50 @@
 
       <div id="Gnb-menu">
         <div class="login">
-          <img src="img/logout.png">
+  <img src="img/logout.png">
         </div>
         <ul>
           <span>
-            <a href="#" class="gnb-info">About 코딩 퍼즐</a>
+            <a href="about-coding-puzzle.html">About 코딩 퍼즐</a>
           </span>
         </ul>
 
         <ul id="Gnb-downMenu1">
           <span>코딩퍼즐 학습</span>
           <li>
-            <a href="#">초급과정</a>
+            <a href="introduce.html">교육과정 소개</a>
           </li>
           <li>
-            <a href="#">학습진도 현황</a>
+            <a href="progress-status.html">학습진도 현황</a>
           </li>
         </ul>
 
         <ul>
           <span>
-            <a href="#">1Hour of Code</a>
+            <a href="1hour-coding-game.html">1Hour of Code</a>
           </span>
         </ul>
 
         <ul id="Gnb-downMenu2">
           <span>퍼즐메이커</span>
           <li>
-            <a href="#">퍼즐메이커 소개</a>
+            <a href="puzzle-intro.html">퍼즐메이커 소개</a>
           </li>
           <li>
-            <a href="#">퍼즐메이커</a>
+            <a href="puzzle-game.html">퍼즐메이커</a>
           </li>
           <li>
-            <a href="#">퍼즐 공유하기</a>
+            <a href="gallery.html">퍼즐 공유하기</a>
           </li>
         </ul>
 
         <ul id="Gnb-downMenu3">
           <span>커뮤니티</span>
           <li>
-            <a href="#">자유게시판</a>
+            <a href="board-list.html">자유게시판</a>
           </li>
           <li>
-            <a href="#">Q&A</a>
+            <a href="qa-board-list.html">Q&A</a>
           </li>
         </ul>
       </div>
@@ -150,241 +155,245 @@
     <!--헤더 끝-->
     <!--페이지 시작-->
     <div id="page-wrapper" class="board-write-wrapper">
-<div class="bg-board">
-  <img src="img/board-cloud-1.png" class="board-cloud-1">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-      <section class="banner-text">
-        <p>커뮤니티
-          <span>
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-          </span>
-          자유게시판</p>
-      </section>
-    </div>
-    </div>
-  </div>
-</div>
-<div class="container board-write-container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="list-box">
-      <section class="board-list">
-        <div class="row board-lines">
-          <div class="col-xs-3 orange-line"></div>
-          <div class="col-xs-3 green-line"></div>
-          <div class="col-xs-3 blue-line"></div>
-          <div class="col-xs-3 red-line"></div>
-        </div>
-
-        <div class="flex-box flex-box-on-view">
-          <h1>자유게시판</h1>
-          <div class="flex-box-inner">
-<span style="margin-right:30px;">
-            <div class="search_wrap">
-              <input type="text" placeholder="검색어를입력하세요">
-              <div class="search_button">
-                <i class="material-icons">search</i>
-              </div>
+      <div class="bg-board">
+        <img src="img/board-cloud-1.png" class="board-cloud-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <section class="banner-text">
+                <p>
+                  <a href="board-list.html">커뮤니티</a>
+                  <span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </span>
+                  <a href="board-list.html">자유게시판</a>
+                </p>
+              </section>
             </div>
-</span>
-
-              <div class="write_wrap">
-                <div class="write_button">
-                  <img src="img/write.png" alt="쓰기 버튼">
-                </div>
-              </div>
-
           </div>
         </div>
-        <table>
-    <tr>
-      <th>번호</th>
-      <th>글제목</th>
-      <th>작성자</th>
-      <th>날짜</th>
-      <th>조회수</th>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>코딩퍼즐은</td>
-      <td>aaa</td>
-      <td>16.11.13</td>
-      <td>21</td>
-    </tr>
-  </table>
-  <div class="pagination-wrapper">
-<ul class="pagination">
-<i class="fa fa-angle-left" aria-hidden="true"></i>
-<li class="active">1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-<li>6</li>
-<li>7</li>
-<li>8</li>
-<li>9</li>
-<li>10</li>
-<i class="fa fa-angle-right" aria-hidden="true"></i>
-</ul>
-</div>
+      </div>
+      <div class="container board-write-container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="list-box">
+              <section class="board-list">
+                <div class="row board-lines">
+                  <div class="col-xs-3 orange-line"></div>
+                  <div class="col-xs-3 green-line"></div>
+                  <div class="col-xs-3 blue-line"></div>
+                  <div class="col-xs-3 red-line"></div>
+                </div>
+
+                <div class="flex-box flex-box-on-view">
+                  <h1>자유게시판</h1>
+                  <div class="flex-box-inner">
+                    <span style="margin-right:30px;">
+                      <div class="search_wrap">
+                        <input type="text" placeholder="검색어를입력하세요">
+                        <div class="search_button">
+                          <i class="material-icons">search</i>
+                        </div>
+                      </div>
+                    </span>
+
+                    <div class="write_wrap">
+                      <a href="board-write.html">
+                      <div class="write_button">
+                        <img src="img/write.png" alt="쓰기 버튼">
+                      </div>
+                    </a>
+                    </div>
+
+                  </div>
+                </div>
+                <table>
+                  <tr>
+                    <th>번호</th>
+                    <th>글제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                    <th>조회수</th>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td><a href="board-view.html">코딩퍼즐은</a></td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>코딩퍼즐은</td>
+                    <td>aaa</td>
+                    <td>16.11.13</td>
+                    <td>21</td>
+                  </tr>
+                </table>
+                <div class="pagination-wrapper">
+                  <ul class="pagination">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
-  </div>
-</div>
-</div>
-</body>
-<!--푸터시작-->
-<footer>
-  <div class="tail-row">
-    <div class="tail-colum-1">
-      <img src="img/logo2.png" alt="메이커스랩 로고이미지">
+  </body>
+  <!--푸터시작-->
+  <footer>
+    <div class="tail-row">
+      <div class="tail-colum-1">
+        <img src="img/logo2.png" alt="메이커스랩 로고이미지">
+      </div>
+      <div class="tail-colum-2">
+        <p>30018 세종특별자치시 조치원읍 돌마루5길 2 세영오피스텔 메이커스랩© 401호</p>
+        <p>전화: 010-5305-8680 이메일: 김나영</p>
+      </div>
+      <div class="tail-colum-3">
+        <p>본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단이용하는 경우,</p>
+        <p>저작권법 등에 따라 법척책임을 질 수 있습니다.</p>
+        <p>Copyright © 2014 - 2017 MakersLab, Inc. All rights reserved.</p>
+      </div>
     </div>
-    <div class="tail-colum-2">
-      <p>30018 세종특별자치시 조치원읍 돌마루5길 2 세영오피스텔 메이커스랩© 401호</p>
-      <p>전화: 010-5305-8680 이메일: 김나영</p>
-    </div>
-    <div class="tail-colum-3">
-      <p>본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단이용하는 경우,</p>
-      <p>저작권법 등에 따라 법척책임을 질 수 있습니다.</p>
-      <p>Copyright © 2014 - 2017 MakersLab, Inc. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-<!--푸터 끝-->
+  </footer>
+  <!--푸터 끝-->

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="icon/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/jquery.bxslider.css" rel="stylesheet"/>
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
-    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
-  </head>
+<!--페이지로딩후 html 노출-->
+<html lang="ko" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+  <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
+</head>
   <body>
     <!-- 헤더 시작 -->
     <div id="gnb-wrapper">
@@ -23,36 +27,36 @@
         <div class="row">
           <div class="col-xs-12">
             <div class='zeta-menu-bar'>
-              <a href="#" style="float: left;line-height: 84px;"><img src="img/logo.png" alt="로고이미지"></a>
+              <a href="index.html" style="float: left;line-height: 84px;"><img src="img/logo.png" alt="로고이미지"></a>
               <ul class="zeta-menu">
                 <li>
-                  <a href="#" class="gnb-info">Info</a>
+                  <a href="about-coding-puzzle.html" class="gnb-info">Info</a>
                 </li>
                 <li>
                   <a href="#" class="gnb-education">코딩퍼즐학습</a>
                   <ul>
                     <li>
-                      <a href="#" class="gnb-edu">초급과정</a>
+                      <a href="introduce.html" class="gnb-edu">교육과정 소개</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-edu">학습진도현황</a>
+                      <a href="progress-status.html" class="gnb-edu">학습진도현황</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#" class="gnb-1hour">1 Hour of code</a>
+                  <a href="1hour-coding-game.html" class="gnb-1hour">1 Hour of code</a>
                 </li>
                 <li>
                   <a href="#" class="gnb-puzzle-maker">퍼즐메이커</a>
                   <ul>
                     <li>
-                      <a href="#" class="gnb-puzzle">퍼즐메이커 소개</a>
+                      <a href="puzzle-intro.html" class="gnb-puzzle">퍼즐메이커 소개</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-puzzle">퍼즐메이커</a>
+                      <a href="puzzle-game.html" class="gnb-puzzle">퍼즐메이커</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-puzzle">퍼즐공유하기</a>
+                      <a href="gallery.html" class="gnb-puzzle">퍼즐공유하기</a>
                     </li>
                   </ul>
                 </li>
@@ -60,10 +64,10 @@
                   <a href="#" class="gnb-community">커뮤니티</a>
                   <ul>
                     <li>
-                      <a href="#" class="gnb-board">자유게시판</a>
+                      <a href="board-list.html" class="gnb-board">자유게시판</a>
                     </li>
                     <li>
-                      <a href="#" class="gnb-board">Q&A</a>
+                      <a href="qa-board-list.html" class="gnb-board">Q&A</a>
                     </li>
                   </ul>
                 </li>
@@ -77,6 +81,7 @@
         </div>
       </div>
     </div>
+    <!--모바일 GNB-->
     <div id="Gnb-frame">
       <div id="Gnb-profile">
         <div id="Gnb-profile-photo-frame">
@@ -99,50 +104,50 @@
 
       <div id="Gnb-menu">
         <div class="login">
-          <img src="img/logout.png">
+  <img src="img/logout.png">
         </div>
         <ul>
           <span>
-            <a href="#">About 코딩 퍼즐</a>
+            <a href="about-coding-puzzle.html">About 코딩 퍼즐</a>
           </span>
         </ul>
 
         <ul id="Gnb-downMenu1">
           <span>코딩퍼즐 학습</span>
           <li>
-            <a href="#">초급과정</a>
+            <a href="introduce.html">교육과정 소개</a>
           </li>
           <li>
-            <a href="#">학습진도 현황</a>
+            <a href="progress-status.html">학습진도 현황</a>
           </li>
         </ul>
 
         <ul>
           <span>
-            <a href="#">1Hour of Code</a>
+            <a href="1hour-coding-game.html">1Hour of Code</a>
           </span>
         </ul>
 
         <ul id="Gnb-downMenu2">
           <span>퍼즐메이커</span>
           <li>
-            <a href="#">퍼즐메이커 소개</a>
+            <a href="puzzle-intro.html">퍼즐메이커 소개</a>
           </li>
           <li>
-            <a href="#">퍼즐메이커</a>
+            <a href="puzzle-game.html">퍼즐메이커</a>
           </li>
           <li>
-            <a href="#">퍼즐 공유하기</a>
+            <a href="gallery.html">퍼즐 공유하기</a>
           </li>
         </ul>
 
         <ul id="Gnb-downMenu3">
           <span>커뮤니티</span>
           <li>
-            <a href="#">자유게시판</a>
+            <a href="board-list.html">자유게시판</a>
           </li>
           <li>
-            <a href="#">Q&A</a>
+            <a href="qa-board-list.html">Q&A</a>
           </li>
         </ul>
       </div>
@@ -153,11 +158,12 @@
       <div class="bg-blue">
         <div class="container">
           <section class="banner-text">
-            <p>퍼즐메이커
+            <p><a href="puzzle-intro.html">퍼즐메이커</a>
               <span>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </span>
-              퍼즐메이커 소개</p>
+              <a href="puzzle-intro.html">
+              퍼즐메이커 소개</a></p>
             <h2><img src="img/gear.png" alt="톱니바퀴 이미지">
               퍼즐메이커
             </h2>
@@ -180,12 +186,16 @@
             <section class="puzzle-intro-box">
               <div class="flex-box">
                 <h2>퍼즐크래프트란?</h2>
+                <!--퍼즐크래프트란?-->
                 <div class="flex-box-inner">
+                    <a href="puzzle-game.html">
                   지금시작하기
                   <div class="orange-circle">
                     <i class="fa fa-play"></i>
                   </div>
+                  </a>
                 </div>
+
               </div>
               <div class="puzzle-intro-content-1">
                 이 과정은 컴퓨터 사용이 전혀 필요 없는 활동들을 온라인, 자기 주도 및 자기 진도에 맞춰 학습 할 수 있는 튜토리얼입니다. 각 과정들은 20개 정도의 레슨들로 구성되어있고, 레슨들은 하나의 유닛을 구성하거나 한 학기 분량으로 이루어집니다. 유치원에 다니는 아이들부터 중학교 저학 년 학생들도 참여할 수 있습니다. 학습을 시작하는 것을 돕기 위해서 무료로 매우 높은 수준의 전문적인 워크샵을 제공합니다. 당신 주변에서 찾아보세요!
@@ -199,11 +209,14 @@
             <section class="puzzle-intro-box">
               <div class="flex-box">
                 <h2>공유하기</h2>
+                <!--공유하기-->
                 <div class="flex-box-inner">
+                  <a href="gallery.html">
                   지금시작하기
                   <div class="orange-circle">
                     <i class="fa fa-play"></i>
                   </div>
+                </a>
                 </div>
               </div>
               <div class="puzzle-intro-content-1">

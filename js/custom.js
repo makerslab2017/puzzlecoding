@@ -1,3 +1,13 @@
+//FOUC 스크립트
+$(function(){
+$('html').removeClass('no-js');
+});
+$(document).ready(function() {
+    $('body').hide();
+    $(window).load(function(){
+        $('body').show();
+    });
+});
 //모바일 GNB스크립트//
 jQuery(document).ready(function() {
   $('#Gnb-downMenu1 span').click(function() {
@@ -31,7 +41,7 @@ $(function(){
 })
 //텍스트 입력기 html,text 선택스크립트//
 $(function() {
-  $(".flex-box-inner span").click(function() {
+  $(".text-html .flex-box-inner span").click(function() {
     if ($(this).hasClass('text-active')) {} else {
       $(".flex-box-inner span").removeClass("text-active");
       $(this).addClass("text-active");
@@ -66,6 +76,7 @@ jQuery(document).ready(function() {
       // $(".search_wrap").removeClass("active");
       // $("input").removeClass("active");
     } else {
+      $('.flex-box-inner span').addClass("active");
       $(this).addClass("active");
       $(".search_wrap").addClass("active");
       $("input").addClass("active");
@@ -104,7 +115,7 @@ function show_progress_page(page_no)
 //차시 페이지 스크립트 //
 $(document).ready(function() {
   show_progress_page(1);
-
+  
   $(".chasi-btn-01").click(function() {
     show_progress_page(1);
   });
@@ -150,9 +161,34 @@ $(document).ready(function() {
 });
 //메인슬라이더
 $(document).ready(function() {
-  $('.slider1').bxSlider({slideWidth: 180, minSlides: 1, maxSlides: 4, slideMargin: 20, moveSlides:1 ,auto:true});
-
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 5,
+    spaceBetween: 50,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    loop: true,
+    breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      }
+    }
+  });
 });
+
+
 //갤러리 드랍다운//
 $(document).ready(function() {
   $('.select-label').click(function() {
@@ -184,44 +220,7 @@ $(document).click(function(e) {
         $('.search_button').removeClass('active');
     }
 });
-// bseo - menu navigation
-$(document).ready(function() {
-  $('.zeta-menu-bar a img').click(function() {
-    window.location = './index.html';
-  });
-  $('.gnb-info').click(function() {
-    window.location = './about-coding-puzzle.html';
-  });
-  $('.gnb-education').click(function() {
-    window.location = './introduce.html';
-  });
-  $('.gnb-edu').click(function() {
-    window.location = './studying.html';
-  });
-  $('.gnb-edu-progress').click(function() {
-    window.location = './progress-status.html';
-  });
-  $('.gnb-1hour').click(function() {
-    window.location = './1hour-coding-game.html';
-  });
-  $('.gnb-1hour').click(function() {
-    window.location = './1hour-coding-game.html';
-  });
-  $('.gnb-1hour-try').click(function() {
-    window.location = './coding-game.html';
-  });
-  $('.page-map-editor, .gnb-puzzle').click(function() {
-    window.location = './puzzle-intro.html';
-  });
-  $('.gnb-board').click(function() {
-    window.location = './board-list.html';
-  });  
-  $('.gnb-qa').click(function() {
-    window.location = './board-list.html';
-  });  
-
-});
-
+// bseo -
 $.threedbot = function(module) {
   return { 
       TOTAL_MEMORY: 268435456,
@@ -235,6 +234,7 @@ $.threedbot = function(module) {
       dynamicLoading: false,
       startTime: null,
       stage: 'stage',
+      moduleName: module,
       nextObj: null
   };
 }
@@ -254,7 +254,7 @@ function loadStage(obj) {
   Module.nextObj = $(obj).next()[0];
   
   if (Module.dynamicLoading === false) {
-    $.ajax({ url: "./per_stage/Release/UnityLoader.js", dataType: "script", cache: false}).done( function() {
+    $.ajax({ url: "./" + Module.moduleName + "/Release/UnityLoader.js", dataType: "script", cache: false}).done( function() {
       Module.dynamicLoading = true;
       $.extend(Module, {
         OnMissionComplete: function() {            

@@ -298,8 +298,8 @@
     border-color: rgba(0, 0, 0, 0);
     width: 222px;
     height: 32px;
-    color: #fff;
-    transition: 1s;
+    color: #78909C;
+    opacity:0;
 }
 
 .search_button {
@@ -440,4 +440,5 @@
 .active input {
     top: 2px;
     width: 100%;
+    opacity: 1;
 }
