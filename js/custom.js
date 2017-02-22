@@ -95,37 +95,22 @@ $(function() {
   });
 });
 
+function show_progress_page(page_no)
+{
+    $("[id^=page_0]").hide();
+    $("#page_0" + page_no).show();
+}
+
 //차시 페이지 스크립트 //
 $(document).ready(function() {
-  $("#page_01").show();
-  $("#page_02").hide();
-  $("#page_03").hide();
-  $("#page_04").hide();
-  $("#page_05").hide();
-  $("#page_06").hide();
-  $("#page_07").hide();
-  $("#page_08").hide();
+  show_progress_page(1);
 
   $(".chasi-btn-01").click(function() {
-    $("#page_01").show();
-    $("#page_02").hide();
-    $("#page_03").hide();
-    $("#page_04").hide();
-    $("#page_05").hide();
-    $("#page_06").hide();
-    $("#page_07").hide();
-    $("#page_08").hide();
+    show_progress_page(1);
   });
 
   $(".chasi-btn-02").click(function() {
-    $("#page_01").hide();
-    $("#page_02").show();
-    $("#page_03").hide();
-    $("#page_04").hide();
-    $("#page_05").hide();
-    $("#page_06").hide();
-    $("#page_07").hide();
-    $("#page_08").hide();
+    show_progress_page(2);
   });
 });
 
@@ -138,6 +123,7 @@ $(document).ready(function() {
     $(".ready-playing", this).hide();
     $(".current-playing").hide();
     $(".current-playing", this).show();
+    loadStage(this);
   });
 });
 //진도 현황-반선택//
@@ -198,3 +184,94 @@ $(document).click(function(e) {
         $('.search_button').removeClass('active');
     }
 });
+// bseo - menu navigation
+$(document).ready(function() {
+  $('.zeta-menu-bar a img').click(function() {
+    window.location = './index.html';
+  });
+  $('.gnb-info').click(function() {
+    window.location = './about-coding-puzzle.html';
+  });
+  $('.gnb-education').click(function() {
+    window.location = './introduce.html';
+  });
+  $('.gnb-edu').click(function() {
+    window.location = './studying.html';
+  });
+  $('.gnb-edu-progress').click(function() {
+    window.location = './progress-status.html';
+  });
+  $('.gnb-1hour').click(function() {
+    window.location = './1hour-coding-game.html';
+  });
+  $('.gnb-1hour').click(function() {
+    window.location = './1hour-coding-game.html';
+  });
+  $('.gnb-1hour-try').click(function() {
+    window.location = './coding-game.html';
+  });
+  $('.page-map-editor, .gnb-puzzle').click(function() {
+    window.location = './puzzle-intro.html';
+  });
+  $('.gnb-board').click(function() {
+    window.location = './board-list.html';
+  });  
+  $('.gnb-qa').click(function() {
+    window.location = './board-list.html';
+  });  
+
+});
+
+$.threedbot = function(module) {
+  return { 
+      TOTAL_MEMORY: 268435456,
+      errorhandler: null, compatibilitycheck: null,
+      splashStyle: "Light",
+      backgroundColor: "#222C36",
+      dataUrl:  "./" + module + "/Release/webbuild.data",
+      codeUrl:  "./" + module + "/Release/webbuild.js",
+      memUrl:   "./" + module + "/Release/webbuild.mem",
+      asmUrl:   "./" + module + "/Release/webbuild.asm.js",
+      dynamicLoading: false,
+      startTime: null,
+      stage: 'stage',
+      nextObj: null
+  };
+}
+Module = $.threedbot('per_stage');
+
+function load_stage(stage) {
+  if (stage == 'latest') {
+    var stageData = localStorage.getItem('latestEditedStage');
+    Module.SendMessage('Level', 'setLevelWithString', stageData);
+  } else {
+    Module.SendMessage("Level", 'setLevelWithTransition', '/puzzlecoding/stage/' + stage + '.json');
+  }
+}
+
+function loadStage(obj) {
+  Module.stage = $(obj).attr('data-stage');
+  Module.nextObj = $(obj).next()[0];
+  
+  if (Module.dynamicLoading === false) {
+    $.ajax({ url: "./per_stage/Release/UnityLoader.js", dataType: "script", cache: false}).done( function() {
+      Module.dynamicLoading = true;
+      $.extend(Module, {
+        OnMissionComplete: function() {            
+          if (Module.nextObj == null) return;
+          setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
+        },
+        onRuntimeInitialized: function() {
+          console.log("STARTED");
+          Module.startTime = new Date().getTime();
+        },
+        OnReady: function() {
+          console.log("DONE " + (new Date().getTime() - Module.startTime) + " ms") ;
+          setTimeout( function() {  loadStage(obj); }, 3000);
+        }
+      });
+    });
+  } else {
+    load_stage(Module.stage);
+  }  
+}

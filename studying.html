@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
@@ -396,39 +397,39 @@
                   <!--웹뷰 교육과정 시작-->
                   <div class="progress-wrapper">
                     <ul class="progress-org">
-                      <li>
+                      <li data-stage="stage01">
                         <img src="img/progress-1.png" alt="진도현황-1" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage02">
                         <img src="img/normal-clear.png" alt="일반완료이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage03">
                         <img src="img/normal.png" alt="일반이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage04">
                         <img src="img/challenge-clear.png" alt="도전완료이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage05">
                         <img src="img/challenge.png" alt="도전이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage06">
                         <img src="img/review-clear.png" alt="복습하기완료이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage07">
                         <img src="img/review.png" alt="복습하기이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage08">
                         <img src="img/battle-clear.png" alt="저장완료이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
-                      <li>
+                      <li data-stage="stage09">
                         <img src="img/battle.png" alt="전장이미지" class="ready-playing">
                         <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                       </li>
@@ -464,7 +465,12 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div style="text-align:center">
-                      <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                      <!--<img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:470px;">-->
+                      <div class="template">
+                        <div class="template-wrap clear">
+                          <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="840px" width="470px" style="border-radius: 10px; border: 10px solid #888;"></canvas>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -721,3 +727,14 @@
       </div>
     </footer>
     <!--푸터 끝-->
+
+<script>
+$(document).ready(function() {
+    
+}).keyup( function(e) {
+  if (e.keyCode == 27) { // 풀스크린 빠져나올 때, 중앙에 위치시키기
+    $('.template-wrap canvas').css('left', '-50%');
+  }
+});
+Module = $.threedbot('per_stage');
+</script>
