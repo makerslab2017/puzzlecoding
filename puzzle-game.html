@@ -17,7 +17,7 @@
   <script src="js/custom.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
 </head>
   <body>
@@ -67,7 +67,7 @@
                       <a href="board-list.html" class="gnb-board">자유게시판</a>
                     </li>
                     <li>
-                      <a href="qa-board-list.html" class="gnb-board">Q&A</a>
+                      <a href="qa-board-list.html" class="gnb-board">Q &amp; A</a>
                     </li>
                   </ul>
                 </li>
@@ -147,7 +147,7 @@
             <a href="board-list.html">자유게시판</a>
           </li>
           <li>
-            <a href="qa-board-list.html">Q&A</a>
+            <a href="qa-board-list.html">Q &amp; A</a>
           </li>
         </ul>
       </div>
@@ -235,7 +235,12 @@
                 <input type="text" placeholder="퍼즐의 제목을 써주세요!"></input>
                 <div class="making-puzzle-game">
                   <!--게임나오는영역 더미 이미지 로대체함-->
-                  <img src="img/dummy.png" alt="게임나오는 영역입니다." style="width:100%;">
+                  <!--<img src="img/dummy.png" alt="게임나오는 영역입니다." style="width:100%;">-->
+                  <div class="template center">
+                    <div class="template-wrap clear">
+                      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" width="854px" height="480px"></canvas>
+                    </div>
+                  </div>
                 </div>
                 <div class="text-html">
                 <div class="flex-box">
@@ -276,11 +281,11 @@
         </div>
         <div class="tail-colum-2">
           <p>30018 세종특별자치시 조치원읍 돌마루5길 2 세영오피스텔 메이커스랩© 401호</p>
-          <p>전화: 010-5305-8680 이메일: 김나영</p>
+          <p>전화: 010-5305-8680 이메일: <a href="mailto:thenayoung@gmail.com">김나영</a></p>
         </div>
         <div class="tail-colum-3">
           <p>본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단이용하는 경우,</p>
-          <p>저작권법 등에 따라 법척책임을 질 수 있습니다.</p>
+          <p>저작권법 등에 따라 법적책임을 질 수 있습니다.</p>
           <p>Copyright © 2014 - 2017 MakersLab, Inc. All rights reserved.</p>
         </div>
       </div>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="즐겁게 즐기는 퍼즐 코딩">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>PuzzleCoding 테스팅 (Q &amph; A - Per Stage 버전)</title>
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="/3dbot_portal/css/nanum-barun-gothic-light.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/puzzlestyles.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="./js/prism.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+    <script src="/3dbot_portal/js/puzzle.js"></script>
+    <style>
+      .command-item { float: left; width: 48px; height: 48px;  background-image: url('/3dbot_portal/img/main_blank panel_1.png'); background-size: cover; }
+    </style>
+    
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="row">
+          <div>
+            <a class="btn-floating" onClick="loading()">시작하기</a>
+            <a class="btn" onClick="loadStage()">스테이지 선택하기
+            </a>
+            <a class="btn" onClick="insert()">실행하기</a>
+          </div>
+          <div class="template center">
+            <div class="template-wrap clear">
+              <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="840px" width="470px"></canvas>
+              <div class="fullscreen">
+                <img src="/3dbot_portal/img/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" />
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script>
+$.threedbot = function(module) {
+  return { 
+      TOTAL_MEMORY: 268435456,
+      errorhandler: null, compatibilitycheck: null,
+      splashStyle: "Light",
+      backgroundColor: "#222C36",
+      dataUrl:  "./" + module + "/Release/webbuild.data",
+      codeUrl:  "./" + module + "/Release/webbuild.js",
+      memUrl:   "./" + module + "/Release/webbuild.mem",
+      asmUrl:   "./" + module + "/Release/webbuild.asm.js",
+      OnMissionComplete: function() {            
+        if (runState == true) {
+          $("#play img").attr('src', './img/bt_play.png');
+          Module.SendMessage("3_Ingame", "Stop");
+          runState = false;
+        }
+      },
+      onRuntimeInitialized: function() {
+        console.log("STARTED");
+        Module.start_time = new Date().getTime();
+      },
+      OnReady: function() {
+        console.log("DONE " + (new Date().getTime() - Module.start_time) + " ms") ;
+        
+      },
+      start_time : null
+  };
+}
+function loading()
+{
+  $.ajax({ url: "./per_stage/Release/UnityLoader.js", dataType: "script", cache: false}).done( function() {
+    
+  });
+}
+
+function loadStage()
+{
+  Module.SendMessage("Level", 'setLevelWithTransition', './stage/stage02.json');
+  Module.SendMessage("3_Ingame", "activeMain");
+}
+
+var runState = false;
+function insert()
+{
+  console.log($(this));
+  if (runState == false) {
+    $(this).find('img').attr('src', './img/bt_stop.png');
+    Module.SendMessage("3_Ingame", 'Play');
+    runState = true;
+    return;
+  }
+  $(this).find('img').attr('src', './img/bt_play.png');
+  Module.SendMessage("3_Ingame", 'Stop');
+  runState = false;
+}
+
+$(document).ready(function() {
+    $('.fullscreen').on('click', function() {
+      $('.template-wrap canvas').css('left', 0); // 풀스크린시, 중앙에 위치시키기
+      SetFullscreen(1);
+    });
+    var editor;
+    window.editor = ace.edit('code-wrapper');
+    window.editor.setTheme("ace/theme/monokai");
+    window.editor.getSession().setMode("ace/mode/javascript");
+    window.msnry = new Masonry('.commands', {
+      itemSelector: '.command-item'
+    });
+    window.main_panel = $('img[data-action="Main"]').parent().next();
+    $('img[data-action]').on('click', function() {
+      var $item = main_panel.find('.command-item:nth-child(' + main_index + ')');
+      $item.append( '<img src="' + $(this).attr('src') + '" class="responsive-img" />');
+      main_index++;
+      switch ($(this).attr('data-action')) {
+        case 'Go':
+          break;
+
+        case 'Jump':
+          break;
+      }
+      window.msnry.layout();
+    });
+    $('div.command-item').on('click', remove_command);
+
+}).keyup( function(e) {
+  if (e.keyCode == 27) { // 풀스크린 빠져나올 때, 중앙에 위치시키기
+    $('.template-wrap canvas').css('left', '-50%');
+  }
+});
+var editor = null;
+var msnry = null;
+var main_panel = null;
+var main_index = 1;
+
+Module = $.threedbot('per_stage');
+    </script>
+
+    <div class="footer-wrapper">
+      <div class="container">
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row grey-text text-darken-1">
+              <div class="col s3">
+                <img src="/3dbot_portal/img/makerslab_logo.png" style="width:100%;"/>
+              </div>
+              <div class="col s9">
+                30018 세종특별자치시 조치원읍 돌마루5길 2 세영오피스텔 메이커스랩© 401호
+                <p>전화: 010-5305-8680 &nbsp; 이메일: <a href="mailto:the.nayoung@gmail.com">김나영</a></p>
+                <hr>
+                <p style="font-size: 0.8rem;">본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단 이용하는 경우, 저작권법 등에 따라 법적책임을 질 수 있습니다. </p>
+              </div>    
+            </div>
+          </div>
+          <div class="container grey-text text-darken-1 center">
+              Copyright © 2014 - 2017 MakersLab, Inc. All rights reserved.
+          <a class="right"></a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>

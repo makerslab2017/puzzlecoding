@@ -1,11 +1,13 @@
 //FOUC 스크립트
 $(function(){
-$('html').removeClass('no-js');
+  $('html').removeClass('no-js');
 });
 $(document).ready(function() {
+    
     $('body').hide();
     $(window).load(function(){
         $('body').show();
+        loadModule();
     });
 });
 //모바일 GNB스크립트//
@@ -97,31 +99,28 @@ jQuery(document).ready(function() {
 //   });
 // });
 //차시 버튼 스크립트//
-$(function() {
-  $(".chasi ul li").click(function() {
-    if ($(this).hasClass('active')) {} else {
-      $(".chasi ul li").removeClass("chasi-active");
-      $(this).addClass('chasi-active');
-    }
-  });
-});
-
 function show_progress_page(page_no)
 {
     $("[id^=page_0]").hide();
     $("#page_0" + page_no).show();
+    var unityContainer = $("#page_0" + page_no + " .unityContainer");
+    if ( unityContainer.find('.emscripten').length > 0) return;
+    Module.unityContainer.detach();
+    unityContainer.empty().append(Module.unityContainer);
+    Module.unityContainer.show();
 }
 
 //차시 페이지 스크립트 //
 $(document).ready(function() {
   show_progress_page(1);
-  
-  $(".chasi-btn-01").click(function() {
-    show_progress_page(1);
-  });
-
-  $(".chasi-btn-02").click(function() {
-    show_progress_page(2);
+  $(".chasi ul li").click(function() {
+    if ($(this).hasClass('chasi-active')) {
+      
+    } else {
+      $(".chasi ul li").removeClass("chasi-active");
+      $(this).addClass('chasi-active');
+    }
+    show_progress_page($(this).attr('data').match(/\d+/)[0]);
   });
 });
 
@@ -140,7 +139,9 @@ $(document).ready(function() {
 //진도 현황-반선택//
 $(function() {
   $(".class-name").click(function() {
-    if ($(this).hasClass('active')) {} else {
+    if ($(this).hasClass('active')) {
+
+    } else {
       $(".class-name").removeClass("chasi-active");
       $(this).addClass('chasi-active');
     }
@@ -223,7 +224,7 @@ $(document).click(function(e) {
 // bseo -
 $.threedbot = function(module) {
   return { 
-      TOTAL_MEMORY: 268435456,
+      TOTAL_MEMORY: 402653184, //268435456,
       errorhandler: null, compatibilitycheck: null,
       splashStyle: "Light",
       backgroundColor: "#222C36",
@@ -235,43 +236,68 @@ $.threedbot = function(module) {
       startTime: null,
       stage: 'stage',
       moduleName: module,
+      unityContainer: null,
       nextObj: null
   };
 }
-Module = $.threedbot('per_stage');
 
-function load_stage(stage) {
-  if (stage == 'latest') {
-    var stageData = localStorage.getItem('latestEditedStage');
-    Module.SendMessage('Level', 'setLevelWithString', stageData);
-  } else {
-    Module.SendMessage("Level", 'setLevelWithTransition', '/puzzlecoding/stage/' + stage + '.json');
-  }
+var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+var moduleName = null;
+if (currentPageName.includes("studying.html")) {
+  moduleName = "per_stage";
+} else if (currentPageName.includes("coding-game.html")) {
+  moduleName = "all_in_one";
+} else if (currentPageName.includes("puzzle-game.html")) {
+  moduleName = "editor";
 }
-
+var Module = null;
+if (moduleName != null) {
+  Module = $.threedbot(moduleName);
+}
+  
 function loadStage(obj) {
+  if (obj == null) return;
   Module.stage = $(obj).attr('data-stage');
   Module.nextObj = $(obj).next()[0];
-  
-  if (Module.dynamicLoading === false) {
-    $.ajax({ url: "./" + Module.moduleName + "/Release/UnityLoader.js", dataType: "script", cache: false}).done( function() {
-      Module.dynamicLoading = true;
-      $.extend(Module, {
-        OnMissionComplete: function() {            
-          if (Module.nextObj == null) return;
-          setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
-        },
-        onRuntimeInitialized: function() {
-          console.log("STARTED");
-          Module.startTime = new Date().getTime();
-        },
-        OnReady: function() {
-          console.log("DONE " + (new Date().getTime() - Module.startTime) + " ms") ;
-          setTimeout( function() {  loadStage(obj); }, 3000);
+
+  if (Module.stage != 'latest') {
+    Module.SendMessage("Level", 'setLevelWithTransition', '/puzzlecoding/stage/' + Module.stage + '.json');
+    return;
+  }
+  var stageData = localStorage.getItem('latestEditedStage');
+  if (stageData == null) return;
+  Module.SendMessage('Level', 'setLevelWithString', stageData);
+}
+
+function loadModule() {
+  if (Module == null) return;
+  if (Module.dynamicLoading === true) return;
+
+  // Module is not loaded yet. Please load it first.
+  Module.dynamicLoading = true;
+  $.ajax({  url: "./" + Module.moduleName + "/Release/UnityLoader.js", 
+            dataType: "script", 
+            cache: false})
+  .done( function() {
+    $.extend(Module, {
+      OnMissionComplete: function() {            
+        if (Module.nextObj == null) return;
+        setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
+      },
+      onRuntimeInitialized: function() {
+        Module.startTime = new Date().getTime();
+      },
+      OnReady: function() {
+        if (Module.moduleName === 'per_stage') {
+          Module.unityContainer = $('#page_01 .template');
         }
-      });
+      },
+      OnCustomizingComplete: function(name, data) {
+        localStorage.setItem('latestCustomizedRobotInfo', data);
+      },
+      OnEditComplete: function(name, data) {
+        localStorage.setItem('latestEditedStage', data);
+      }
     });
-  } else {
-    load_stage(Module.stage);
-  }  
+  });
 }
