@@ -86,6 +86,7 @@ jQuery(document).ready(function() {
     }
   });
 });
+
 //
 // jQuery(document).ready(function() {
 //   $("body").on("click", function() {
@@ -103,7 +104,9 @@ function show_progress_page(page_no)
 {
     $("[id^=page_0]").hide();
     $("#page_0" + page_no).show();
+    $('.slidePage').empty();
     var unityContainer = $("#page_0" + page_no + " .unityContainer");
+    if (unityContainer == null) return;
     if ( unityContainer.find('.emscripten').length > 0) return;
     Module.unityContainer.detach();
     unityContainer.empty().append(Module.unityContainer);
@@ -112,6 +115,8 @@ function show_progress_page(page_no)
 
 //차시 페이지 스크립트 //
 $(document).ready(function() {
+  $.ajaxSetup({cache: false});
+  if (moduleName == null) return;
   show_progress_page(1);
   $(".chasi ul li").click(function() {
     if ($(this).hasClass('chasi-active')) {
@@ -237,6 +242,7 @@ $.threedbot = function(module) {
       stage: 'stage',
       moduleName: module,
       unityContainer: null,
+      obj: null,
       nextObj: null
   };
 }
@@ -257,11 +263,18 @@ if (moduleName != null) {
   
 function loadStage(obj) {
   if (obj == null) return;
+  $(".ready-playing", obj).hide();
+  $(".current-playing", obj).show();
+  Module.obj = $(obj);
   Module.stage = $(obj).attr('data-stage');
   Module.nextObj = $(obj).next()[0];
 
+  $.get('./stage/' + Module.stage + '.html', function(data) {
+    $('.slidePage').empty().append(data);
+  });
+
   if (Module.stage != 'latest') {
-    Module.SendMessage("Level", 'setLevelWithTransition', '/puzzlecoding/stage/' + Module.stage + '.json');
+    Module.SendMessage("Level", 'setLevelWithTransition', './stage/' + Module.stage + '.json');
     return;
   }
   var stageData = localStorage.getItem('latestEditedStage');
@@ -280,7 +293,12 @@ function loadModule() {
             cache: false})
   .done( function() {
     $.extend(Module, {
-      OnMissionComplete: function() {            
+      OnMissionComplete: function() {  
+        if (Module.obj == null) return;
+        $(".ready-playing", Module.obj[0]).show();
+        $(".current-playing", Module.obj[0]).hide();
+        var src = Module.obj.find(".ready-playing").attr('src');
+        $(".ready-playing", Module.obj[0]).attr('src', src.replace('.png', '-clear.png'));
         if (Module.nextObj == null) return;
         setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
       },

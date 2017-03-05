@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="즐겁게 즐기는 퍼즐 코딩">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>퍼즐 에디터</title>
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="/3dbot_portal/css/nanum-barun-gothic-light.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/puzzlestyles.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="/3dbot_portal/js/puzzle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+  </head>
+  <body>
+    <div class="header-wrapper theme-title-map-editor-light">
+      <div class="container">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="/3dbot_portal/index.html" class="brand-logo">
+              <img class="logo-image logo-horizontal" src="/3dbot_portal/img/logo_h.png">
+            </a>
+            <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="./about.html"> About 코딩퍼즐 </a>
+              <li><a href="./practice.html">코딩퍼즐 학습</a>
+              <li><a href="./hour-of-code.html">1 Hour of Code</a>
+              <li><a href="./editor.html">코딩퍼즐 만들기</a>
+            </ul>
+            <ul class="side-nav" id="mobile-side-nav">
+              <a href="./index.html"><img class="logo-image " src="/3dbot_portal/img/logo_colored.png"></a>
+              <li><br>
+              <li><br>
+              <li><a href="./about.html">About 코딩퍼즐</a>
+              <li><a href="./practice.html">코딩퍼즐 학습</a>
+              <li><a href="./hour-of-code.html">1 Hour Of Code</a>          
+              <li><a href="./editor.html">코딩퍼즐 만들기</a>
+            </ul>
+          </div>
+        </nav>
+        
+      </div>
+    </div>
+
+    <div class="main-wrapper theme-title-map-editor">
+      <div class="container">
+        <div class="col s12">
+          <a href="#!" class="breadcrumb"> 학습하기</a>
+          <a href="#!" class="breadcrumb"> 코딩퍼즐 만들기</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="row">
+          <h4>퍼즐크래프트</h4>
+          <p>
+              퍼즐크래프트는 자신이 코딩퍼즐 게임에서 활용할 수 있는 퍼즐을 자신이 직접 만들 수 있는 도구입니다.
+              본 페이지에서 제공하는 앱을 통해 손쉽게 만들 수 있습니다.
+          </p>
+          <p class="center">
+            <img class="responsive-img" src="/3dbot_portal/img/puzzlecraft-1.png">
+          </p>
+
+          <h5 class="puzzlecraft-title" >퍼즐크래프트란?</h5>
+          <div class="input-field">
+            <select onChange="loadStage()">
+              <option value="latest"> 가장최근 저장된 것 불러오기</option>
+              <option value="./stage/puzzle0101">puzzle0101</option>
+              <option value="./stage/puzzle0102">puzzle0102</option>
+              <option value="./stage/puzzle0103">puzzle0103</option>
+              <option value="./stage/puzzle0104">puzzle0104</option>
+              <option value="./stage/puzzle0201">puzzle0201</option>
+              <option value="./stage/puzzle0301">puzzle0301</option>
+              <option value="./stage/puzzle0401">puzzle0401</option>
+              <option value="./stage/puzzle0501">puzzle0501</option>
+              <option value="./stage/puzzle0601">puzzle0601</option>
+              <option value="./stage/puzzle0701">puzzle0701</option>
+              <option value="./stage/puzzle0801">puzzle0801</option>
+            </select>
+            <label> 스테이지 선택하기</label>
+          </div>
+
+          <div class="template center">
+            <div class="template-wrap clear">
+              <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" width="854px" height="480px"></canvas>
+              <div class="fullscreen">
+                <img src="/3dbot_portal/img/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" />
+              </div>
+            </div>
+          </div>
+          
+          <div class="center">
+            <button id="copyTo" class="btn pink" data-clipboard-text="test">
+            현재 작업 결과 클립보드에 복사하기
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+          
+    <div class="footer-wrapper">
+      <div class="container">
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row grey-text text-darken-1">
+              <div class="col s3">
+                <img src="/3dbot_portal/img/makerslab_logo.png" style="width:100%;"/>
+              </div>
+              <div class="col s9">
+                30018 세종특별자치시 조치원읍 돌마루5길 2 세영오피스텔 메이커스랩© 401호
+                <p>전화: 010-5305-8680 &nbsp; 이메일: <a href="mailto:the.nayoung@gmail.com">김나영</a></p>
+                <hr>
+                <p style="font-size: 0.8rem;">본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단 이용하는 경우, 저작권법 등에 따라 법적책임을 질 수 있습니다. </p>
+              </div>    
+            </div>
+          </div>
+          <div class="container grey-text text-darken-1 center">
+              Copyright © 2014 - 2017 MakersLab, Inc. All rights reserved.
+          <a class="right"></a>
+          </div>
+        </footer>
+      </div>            
+               
+
+    <script type="text/javascript">
+    function pad(n, width) {
+      n = n + '';
+      return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+    }
+
+    function loadStage(me) {
+      var current = $('select').val();
+      Module.SendMessage('MapEditor', 'clear');
+      if (current == 'latest') {
+        var stageData = localStorage.getItem('latestEditedStage');
+        Module.SendMessage('UI', 'Load', stageData);
+      } else {
+        $.get( current + '.json', function(data) {
+          Module.SendMessage('UI', 'Load', JSON.stringify(data));
+        });
+      }
+    }
+
+    $(document).ready(function() {
+          $('.logo-image').on('click', function() {
+            window.location = '/3dbot_portal/index.html';
+          });
+          $('.fullscreen').on('click', function() {
+            $('.template-wrap canvas').css('left', 0); // 풀스크린시, 중앙에 위치시키기
+            SetFullscreen(1);
+          });
+          for (i=1; i<=50; i++) {
+            $('.input-field select').append('<option value="./stage/stage' + pad(i,2) + '"> stage' + pad(i,2) + '</option>');
+          }
+          for (i=1; i<=30; i++) {
+            $('.input-field select').append('<option value="./stage/stage01' + pad(i,2) + '"> stage01' + pad(i,2) + '</option>');
+          }
+          $('select').material_select();
+          new Clipboard('#copyTo', {
+            text: function(trigger) {
+              return localStorage.getItem('latestEditedStage');
+            }
+          });
+      }).keyup( function(e) {
+            if (e.keyCode == 27) { // 풀스크린 빠져나올 때, 중앙에 위치시키기
+              $('.template-wrap canvas').css('left', '-50%');
+            }
+      });
+    var Module = { TOTAL_MEMORY: 268435456,
+      errorhandler: null, compatibilitycheck: null,
+      dataUrl:  "/3dbot_portal/editor/Release/webbuild.data", 
+      codeUrl:  "/3dbot_portal/editor/Release/webbuild.js",
+      memUrl:   "/3dbot_portal/editor/Release/webbuild.mem",
+      asmUrl:   "/3dbot_portal/editor/Release/webbuild.asm.js",
+      OnEditComplete: function(name, data) {
+        localStorage.setItem('latestEditedStage', data);
+      }
+    };
+    </script>
+    <script src="/3dbot_portal/editor/Release/UnityLoader.js"></script>
+  </body>
+</html>

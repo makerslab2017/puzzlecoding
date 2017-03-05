@@ -1,0 +1,3483 @@
+{
+	"ListOfBoxData": 
+		[
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0,
+					"z": -3
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0,
+					"z": -3
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Start",
+				"Position": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -3
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": true,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Start",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -3
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": true,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 0.5,
+					"y": 0.5,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.5,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic_Transport01",
+				"Position": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic_Transport01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Basic_Transport01",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic_Transport01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2.25
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1,
+					"y": 0.5,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.5,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.25
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Plague",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": true,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Plague",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": true,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			}
+		],
+	"ListOfObjectData": 
+		[
+			{
+				"Name": "Cactus_Leafy01",
+				"Position": {
+					"x": 1.46299994,
+					"y": 0,
+					"z": -2.43183351
+				},
+				"Scale": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.46299994,
+					"y": 0,
+					"z": -2.43183351
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": 2.098,
+					"y": 0,
+					"z": -3.19
+				},
+				"Scale": {
+					"x": 0.7,
+					"y": 0.700000346,
+					"z": 0.700000346
+				},
+				"Quaternion": {
+					"x": 0.298836231,
+					"y": -0.6408564,
+					"z": -0.6408564,
+					"w": -0.298836231
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 2.098,
+					"y": 0,
+					"z": -3.19
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.7,
+					"y": 0.700000346,
+					"z": 0.700000346
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.298836231,
+					"y": -0.6408564,
+					"z": -0.6408564,
+					"w": -0.298836231
+				}
+			},
+			{
+				"Name": "WarpStructure01",
+				"Position": {
+					"x": 0.84,
+					"y": 0,
+					"z": -3.81
+				},
+				"Scale": {
+					"x": 1.016,
+					"y": 1.27000046,
+					"z": 1.01600039
+				},
+				"Quaternion": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				},
+				
+				"\u003CName>k__BackingField": "WarpStructure01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.84,
+					"y": 0,
+					"z": -3.81
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1.016,
+					"y": 1.27000046,
+					"z": 1.01600039
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				}
+			},
+			{
+				"Name": "Desert_Pollution_L_Pipe01",
+				"Position": {
+					"x": -0.18599999,
+					"y": 0,
+					"z": -2.86
+				},
+				"Scale": {
+					"x": 0.5,
+					"y": 0.500000238,
+					"z": 0.700000346
+				},
+				"Quaternion": {
+					"x": 0.45451948,
+					"y": -0.5416752,
+					"z": -0.5416752,
+					"w": -0.45451948
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Pollution_L_Pipe01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.18599999,
+					"y": 0,
+					"z": -2.86
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.5,
+					"y": 0.500000238,
+					"z": 0.700000346
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.45451948,
+					"y": -0.5416752,
+					"z": -0.5416752,
+					"w": -0.45451948
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": -0.360999942,
+					"y": 0,
+					"z": -3.1
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				"Quaternion": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.360999942,
+					"y": 0,
+					"z": -3.1
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				}
+			},
+			{
+				"Name": "Desert_Stone04",
+				"Position": {
+					"x": 2.45,
+					"y": 0,
+					"z": -2.83
+				},
+				"Scale": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				"Quaternion": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone04",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 2.45,
+					"y": 0,
+					"z": -2.83
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				}
+			},
+			{
+				"Name": "Desert_Stone04",
+				"Position": {
+					"x": 2.602,
+					"y": 0,
+					"z": -2.36055517
+				},
+				"Scale": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone04",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 2.602,
+					"y": 0,
+					"z": -2.36055517
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			},
+			{
+				"Name": "Cactus_Leafy03",
+				"Position": {
+					"x": 1.783,
+					"y": 0,
+					"z": -2.14
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6,
+					"z": 0.6
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0.5,
+					"z": 0,
+					"w": 0.8660254
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy03",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.783,
+					"y": 0,
+					"z": -2.14
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6,
+					"z": 0.6
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0.5,
+					"z": 0,
+					"w": 0.8660254
+				}
+			},
+			{
+				"Name": "WarpStructure01",
+				"Position": {
+					"x": -1.108,
+					"y": 0,
+					"z": -1.58845234
+				},
+				"Scale": {
+					"x": 1.016,
+					"y": 1.52400064,
+					"z": 1.01600039
+				},
+				"Quaternion": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				},
+				
+				"\u003CName>k__BackingField": "WarpStructure01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -1.108,
+					"y": 0,
+					"z": -1.58845234
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1.016,
+					"y": 1.52400064,
+					"z": 1.01600039
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": -0.709000051,
+					"y": 0,
+					"z": -1.9758352
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				"Quaternion": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.709000051,
+					"y": 0,
+					"z": -1.9758352
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				}
+			},
+			{
+				"Name": "Desert_Pollution_L_Pipe01",
+				"Position": {
+					"x": -0.195000008,
+					"y": 0,
+					"z": -2.08092833
+				},
+				"Scale": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				"Quaternion": {
+					"x": -0.122787818,
+					"y": -0.6963643,
+					"z": -0.6963643,
+					"w": 0.122787818
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Pollution_L_Pipe01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.195000008,
+					"y": 0,
+					"z": -2.08092833
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.122787818,
+					"y": -0.6963643,
+					"z": -0.6963643,
+					"w": 0.122787818
+				}
+			},
+			{
+				"Name": "Desert_Oasis",
+				"Position": {
+					"x": -0.175000012,
+					"y": 0,
+					"z": -2.13944173
+				},
+				"Scale": {
+					"x": 0.236765012,
+					"y": 0.2367651,
+					"z": 0.2367651
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Oasis",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.175000012,
+					"y": 0,
+					"z": -2.13944173
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.236765012,
+					"y": 0.2367651,
+					"z": 0.2367651
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": -0.719000041,
+					"y": 0,
+					"z": -0.7646634
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				"Quaternion": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.719000041,
+					"y": 0,
+					"z": -0.7646634
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				}
+			},
+			{
+				"Name": "Desert_Pollution_L_Pipe01",
+				"Position": {
+					"x": -0.201,
+					"y": 0,
+					"z": -0.7767157
+				},
+				"Scale": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				"Quaternion": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Pollution_L_Pipe01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.201,
+					"y": 0,
+					"z": -0.7767157
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				}
+			},
+			{
+				"Name": "Desert_Stone03",
+				"Position": {
+					"x": -0.25,
+					"y": 0,
+					"z": 0.25
+				},
+				"Scale": {
+					"x": 1.01812518,
+					"y": 1.018125,
+					"z": 1.018125
+				},
+				"Quaternion": {
+					"x": -0.596367836,
+					"y": -0.379928231,
+					"z": -0.379928231,
+					"w": 0.596367836
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone03",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.25,
+					"y": 0,
+					"z": 0.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1.01812518,
+					"y": 1.018125,
+					"z": 1.018125
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.596367836,
+					"y": -0.379928231,
+					"z": -0.379928231,
+					"w": 0.596367836
+				}
+			},
+			{
+				"Name": "Desert_Stone03",
+				"Position": {
+					"x": 0.450999975,
+					"y": 0,
+					"z": 0.25
+				},
+				"Scale": {
+					"x": 0.5090626,
+					"y": 0.5090625,
+					"z": 0.5090625
+				},
+				"Quaternion": {
+					"x": -0.153045923,
+					"y": -0.6903455,
+					"z": -0.6903455,
+					"w": 0.153045923
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone03",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.450999975,
+					"y": 0,
+					"z": 0.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.5090626,
+					"y": 0.5090625,
+					"z": 0.5090625
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.153045923,
+					"y": -0.6903455,
+					"z": -0.6903455,
+					"w": 0.153045923
+				}
+			},
+			{
+				"Name": "Cactus_Tall01",
+				"Position": {
+					"x": 0,
+					"y": 0,
+					"z": -0.4218975
+				},
+				"Scale": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Tall01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": -0.4218975
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Plane01",
+				"Position": {
+					"x": 0.59,
+					"y": 0,
+					"z": -2.25
+				},
+				"Scale": {
+					"x": 4,
+					"y": 4.000002,
+					"z": 4.000002
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Plane01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.59,
+					"y": 0,
+					"z": -2.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 4,
+					"y": 4.000002,
+					"z": 4.000002
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			},
+			{
+				"Name": "Cactus_Leafy05",
+				"Position": {
+					"x": 0.25,
+					"y": 0,
+					"z": -0.25
+				},
+				"Scale": {
+					"x": 0.1,
+					"y": 0.1,
+					"z": 0.1
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy05",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.25,
+					"y": 0,
+					"z": -0.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.1,
+					"y": 0.1,
+					"z": 0.1
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Cactus_Leafy01",
+				"Position": {
+					"x": 0.121999994,
+					"y": 0,
+					"z": -0.352351785
+				},
+				"Scale": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.121999994,
+					"y": 0,
+					"z": -0.352351785
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Desert_Oasis",
+				"Position": {
+					"x": -0.119,
+					"y": 0,
+					"z": -0.9047989
+				},
+				"Scale": {
+					"x": 0.3551475,
+					"y": 0.4735302,
+					"z": 0.118382551
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Oasis",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.119,
+					"y": 0,
+					"z": -0.9047989
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.3551475,
+					"y": 0.4735302,
+					"z": 0.118382551
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			}
+		],
+	"LimitedCount": 
+		[
+			6,
+			0,
+			0
+		],
+	"CameraPos": {
+		"x": 14.459054,
+		"y": 18.6213837,
+		"z": -16.07639
+	},
+	"CameraSize": 2.20000529,
+	
+	"\u003CListOfBoxData>k__BackingField": 
+		[
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0,
+					"z": -3
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0,
+					"z": -3
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Start",
+				"Position": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -3
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": true,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Start",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -3
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": true,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 0.5,
+					"y": 0.5,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.5,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic_Transport01",
+				"Position": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic_Transport01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.5,
+					"y": 0.25,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Basic_Transport01",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic_Transport01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2.25
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Column",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -2
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": false,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 1,
+				
+				"\u003CName>k__BackingField": "Tile_Column",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999997,
+					"z": 0.49999997,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": false,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 1
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1,
+					"y": 0.5,
+					"z": -2.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.5,
+					"z": -2.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.25
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Plague",
+				"Position": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": true,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Plague",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0.25,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": true,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			}
+		],
+	
+	"\u003CListOfObjectData>k__BackingField": 
+		[
+			{
+				"Name": "Cactus_Leafy01",
+				"Position": {
+					"x": 1.46299994,
+					"y": 0,
+					"z": -2.43183351
+				},
+				"Scale": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.46299994,
+					"y": 0,
+					"z": -2.43183351
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": 2.098,
+					"y": 0,
+					"z": -3.19
+				},
+				"Scale": {
+					"x": 0.7,
+					"y": 0.700000346,
+					"z": 0.700000346
+				},
+				"Quaternion": {
+					"x": 0.298836231,
+					"y": -0.6408564,
+					"z": -0.6408564,
+					"w": -0.298836231
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 2.098,
+					"y": 0,
+					"z": -3.19
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.7,
+					"y": 0.700000346,
+					"z": 0.700000346
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.298836231,
+					"y": -0.6408564,
+					"z": -0.6408564,
+					"w": -0.298836231
+				}
+			},
+			{
+				"Name": "WarpStructure01",
+				"Position": {
+					"x": 0.84,
+					"y": 0,
+					"z": -3.81
+				},
+				"Scale": {
+					"x": 1.016,
+					"y": 1.27000046,
+					"z": 1.01600039
+				},
+				"Quaternion": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				},
+				
+				"\u003CName>k__BackingField": "WarpStructure01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.84,
+					"y": 0,
+					"z": -3.81
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1.016,
+					"y": 1.27000046,
+					"z": 1.01600039
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				}
+			},
+			{
+				"Name": "Desert_Pollution_L_Pipe01",
+				"Position": {
+					"x": -0.18599999,
+					"y": 0,
+					"z": -2.86
+				},
+				"Scale": {
+					"x": 0.5,
+					"y": 0.500000238,
+					"z": 0.700000346
+				},
+				"Quaternion": {
+					"x": 0.45451948,
+					"y": -0.5416752,
+					"z": -0.5416752,
+					"w": -0.45451948
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Pollution_L_Pipe01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.18599999,
+					"y": 0,
+					"z": -2.86
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.5,
+					"y": 0.500000238,
+					"z": 0.700000346
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.45451948,
+					"y": -0.5416752,
+					"z": -0.5416752,
+					"w": -0.45451948
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": -0.360999942,
+					"y": 0,
+					"z": -3.1
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				"Quaternion": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.360999942,
+					"y": 0,
+					"z": -3.1
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				}
+			},
+			{
+				"Name": "Desert_Stone04",
+				"Position": {
+					"x": 2.45,
+					"y": 0,
+					"z": -2.83
+				},
+				"Scale": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				"Quaternion": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone04",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 2.45,
+					"y": 0,
+					"z": -2.83
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": -0.5
+				}
+			},
+			{
+				"Name": "Desert_Stone04",
+				"Position": {
+					"x": 2.602,
+					"y": 0,
+					"z": -2.36055517
+				},
+				"Scale": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone04",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 2.602,
+					"y": 0,
+					"z": -2.36055517
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			},
+			{
+				"Name": "Cactus_Leafy03",
+				"Position": {
+					"x": 1.783,
+					"y": 0,
+					"z": -2.14
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6,
+					"z": 0.6
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0.5,
+					"z": 0,
+					"w": 0.8660254
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy03",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.783,
+					"y": 0,
+					"z": -2.14
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6,
+					"z": 0.6
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0.5,
+					"z": 0,
+					"w": 0.8660254
+				}
+			},
+			{
+				"Name": "WarpStructure01",
+				"Position": {
+					"x": -1.108,
+					"y": 0,
+					"z": -1.58845234
+				},
+				"Scale": {
+					"x": 1.016,
+					"y": 1.52400064,
+					"z": 1.01600039
+				},
+				"Quaternion": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				},
+				
+				"\u003CName>k__BackingField": "WarpStructure01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -1.108,
+					"y": 0,
+					"z": -1.58845234
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1.016,
+					"y": 1.52400064,
+					"z": 1.01600039
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": -0.709000051,
+					"y": 0,
+					"z": -1.9758352
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				"Quaternion": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.709000051,
+					"y": 0,
+					"z": -1.9758352
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				}
+			},
+			{
+				"Name": "Desert_Pollution_L_Pipe01",
+				"Position": {
+					"x": -0.195000008,
+					"y": 0,
+					"z": -2.08092833
+				},
+				"Scale": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				"Quaternion": {
+					"x": -0.122787818,
+					"y": -0.6963643,
+					"z": -0.6963643,
+					"w": 0.122787818
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Pollution_L_Pipe01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.195000008,
+					"y": 0,
+					"z": -2.08092833
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.122787818,
+					"y": -0.6963643,
+					"z": -0.6963643,
+					"w": 0.122787818
+				}
+			},
+			{
+				"Name": "Desert_Oasis",
+				"Position": {
+					"x": -0.175000012,
+					"y": 0,
+					"z": -2.13944173
+				},
+				"Scale": {
+					"x": 0.236765012,
+					"y": 0.2367651,
+					"z": 0.2367651
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Oasis",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.175000012,
+					"y": 0,
+					"z": -2.13944173
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.236765012,
+					"y": 0.2367651,
+					"z": 0.2367651
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			},
+			{
+				"Name": "Desert_Tong01",
+				"Position": {
+					"x": -0.719000041,
+					"y": 0,
+					"z": -0.7646634
+				},
+				"Scale": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				"Quaternion": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Tong01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.719000041,
+					"y": 0,
+					"z": -0.7646634
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.6,
+					"y": 0.6000003,
+					"z": 0.6000003
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.612372458,
+					"y": -0.3535534,
+					"z": -0.3535534,
+					"w": -0.612372458
+				}
+			},
+			{
+				"Name": "Desert_Pollution_L_Pipe01",
+				"Position": {
+					"x": -0.201,
+					"y": 0,
+					"z": -0.7767157
+				},
+				"Scale": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				"Quaternion": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Pollution_L_Pipe01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.201,
+					"y": 0,
+					"z": -0.7767157
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.4,
+					"y": 0.400000185,
+					"z": 0.400000185
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -3.09086232E-08,
+					"y": -0.7071068,
+					"z": -0.7071068,
+					"w": 3.09086232E-08
+				}
+			},
+			{
+				"Name": "Desert_Stone03",
+				"Position": {
+					"x": -0.25,
+					"y": 0,
+					"z": 0.25
+				},
+				"Scale": {
+					"x": 1.01812518,
+					"y": 1.018125,
+					"z": 1.018125
+				},
+				"Quaternion": {
+					"x": -0.596367836,
+					"y": -0.379928231,
+					"z": -0.379928231,
+					"w": 0.596367836
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone03",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.25,
+					"y": 0,
+					"z": 0.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1.01812518,
+					"y": 1.018125,
+					"z": 1.018125
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.596367836,
+					"y": -0.379928231,
+					"z": -0.379928231,
+					"w": 0.596367836
+				}
+			},
+			{
+				"Name": "Desert_Stone03",
+				"Position": {
+					"x": 0.450999975,
+					"y": 0,
+					"z": 0.25
+				},
+				"Scale": {
+					"x": 0.5090626,
+					"y": 0.5090625,
+					"z": 0.5090625
+				},
+				"Quaternion": {
+					"x": -0.153045923,
+					"y": -0.6903455,
+					"z": -0.6903455,
+					"w": 0.153045923
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Stone03",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.450999975,
+					"y": 0,
+					"z": 0.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.5090626,
+					"y": 0.5090625,
+					"z": 0.5090625
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.153045923,
+					"y": -0.6903455,
+					"z": -0.6903455,
+					"w": 0.153045923
+				}
+			},
+			{
+				"Name": "Cactus_Tall01",
+				"Position": {
+					"x": 0,
+					"y": 0,
+					"z": -0.4218975
+				},
+				"Scale": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Tall01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": -0.4218975
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Plane01",
+				"Position": {
+					"x": 0.59,
+					"y": 0,
+					"z": -2.25
+				},
+				"Scale": {
+					"x": 4,
+					"y": 4.000002,
+					"z": 4.000002
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Plane01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.59,
+					"y": 0,
+					"z": -2.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 4,
+					"y": 4.000002,
+					"z": 4.000002
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			},
+			{
+				"Name": "Cactus_Leafy05",
+				"Position": {
+					"x": 0.25,
+					"y": 0,
+					"z": -0.25
+				},
+				"Scale": {
+					"x": 0.1,
+					"y": 0.1,
+					"z": 0.1
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy05",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.25,
+					"y": 0,
+					"z": -0.25
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.1,
+					"y": 0.1,
+					"z": 0.1
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Cactus_Leafy01",
+				"Position": {
+					"x": 0.121999994,
+					"y": 0,
+					"z": -0.352351785
+				},
+				"Scale": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				"Quaternion": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				
+				"\u003CName>k__BackingField": "Cactus_Leafy01",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 0.121999994,
+					"y": 0,
+					"z": -0.352351785
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.2,
+					"y": 0.2,
+					"z": 0.2
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				}
+			},
+			{
+				"Name": "Desert_Oasis",
+				"Position": {
+					"x": -0.119,
+					"y": 0,
+					"z": -0.9047989
+				},
+				"Scale": {
+					"x": 0.3551475,
+					"y": 0.4735302,
+					"z": 0.118382551
+				},
+				"Quaternion": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				},
+				
+				"\u003CName>k__BackingField": "Desert_Oasis",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": -0.119,
+					"y": 0,
+					"z": -0.9047989
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0.3551475,
+					"y": 0.4735302,
+					"z": 0.118382551
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": 0.7071068,
+					"y": 0,
+					"z": 0,
+					"w": -0.7071068
+				}
+			}
+		],
+	
+	"\u003CLimitedCount>k__BackingField": 
+		[
+			6,
+			0,
+			0
+		],
+	
+	"\u003CCameraPos>k__BackingField": {
+		"x": 14.459054,
+		"y": 18.6213837,
+		"z": -16.07639
+	},
+	
+	"\u003CCameraSize>k__BackingField": 2.20000529
+}
