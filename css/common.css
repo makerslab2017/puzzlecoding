@@ -3467,3 +3467,13 @@ margin-top: 30px;
         display: block;
     }
 }
+
+/* by bseo */
+.chasi-info .lecture-img {
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 64px;
+    width: 64px;
+}

@@ -113,21 +113,7 @@ function show_progress_page(page_no)
     Module.unityContainer.show();
 }
 
-//차시 페이지 스크립트 //
-$(document).ready(function() {
-  $.ajaxSetup({cache: false});
-  if (moduleName == null) return;
-  show_progress_page(1);
-  $(".chasi ul li").click(function() {
-    if ($(this).hasClass('chasi-active')) {
-      
-    } else {
-      $(".chasi ul li").removeClass("chasi-active");
-      $(this).addClass('chasi-active');
-    }
-    show_progress_page($(this).attr('data').match(/\d+/)[0]);
-  });
-});
+
 
 //진도 현황//
 $(document).ready(function() {
@@ -249,11 +235,11 @@ $.threedbot = function(module) {
 
 var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 var moduleName = null;
-if (currentPageName.includes("/studying.html")) {
+if (currentPageName.startsWith("studying.html")) {
   moduleName = "per_stage";
-} else if (currentPageName.includes("/coding-game.html")) {
+} else if (currentPageName.startsWith("coding-game.html")) {
   moduleName = "all_in_one";
-} else if (currentPageName.includes("/puzzle-game.html")) {
+} else if (currentPageName.startsWith("puzzle-game.html")) {
   moduleName = "editor";
 }
 var Module = null;
@@ -336,3 +322,19 @@ function loadModule() {
     });
   });
 }
+
+//차시 페이지 스크립트 //
+$(document).ready(function() {
+  $.ajaxSetup({cache: false});
+  if (moduleName == null) return;
+  show_progress_page(1);
+  $(".chasi ul li").click(function() {
+    if ($(this).hasClass('chasi-active')) {
+      
+    } else {
+      $(".chasi ul li").removeClass("chasi-active");
+      $(this).addClass('chasi-active');
+    }
+    show_progress_page($(this).attr('data').match(/\d+/)[0]);
+  });
+});
