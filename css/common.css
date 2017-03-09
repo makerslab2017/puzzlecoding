@@ -2354,7 +2354,7 @@ tr td:nth-child(5n-3) {
 .progress-wrapper li {
     position: relative;
     top: -20px;
-    width: 10.86%;
+    /*width: 10.86%;*/
     text-align: right;
     float: left;
 }
@@ -3194,6 +3194,24 @@ margin-top: 30px;
 
 
 /*미디어쿼리*/
+
+@media(max-width:2400px) {
+    .progress-wrapper li:before {
+        display: inline-block;
+        width: 37px;
+        height: 5px;
+        content: "";
+        background-color: #E6E6E6;
+    }
+    .progress-wrapper-2 li:after {
+        display: inline-block;
+        width: 37px;
+        height: 5px;
+        content: "";
+        background-color: #E6E6E6;
+    }
+}
+
 
 @media(max-width:1200px) {
     .progress-wrapper li:before {
