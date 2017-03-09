@@ -249,11 +249,11 @@ $.threedbot = function(module) {
 
 var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 var moduleName = null;
-if (currentPageName.includes("studying.html")) {
+if (currentPageName.includes("/studying.html")) {
   moduleName = "per_stage";
-} else if (currentPageName.includes("coding-game.html")) {
+} else if (currentPageName.includes("/coding-game.html")) {
   moduleName = "all_in_one";
-} else if (currentPageName.includes("puzzle-game.html")) {
+} else if (currentPageName.includes("/puzzle-game.html")) {
   moduleName = "editor";
 }
 var Module = null;
@@ -267,13 +267,14 @@ function loadStage(obj) {
   $(".current-playing", obj).show();
   Module.obj = $(obj);
   Module.stage = $(obj).attr('data-stage');
+  console.log(Module.stage);
   Module.nextObj = $(obj).next()[0];
 
   $.get('./stage/' + Module.stage + '.html', function(data) {
     $('.slidePage').empty().append(data);
   });
 
-  if (Module.stage != 'latest') {
+  if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
     Module.SendMessage("Level", 'setLevelWithTransition', './stage/' + Module.stage + '.json');
     return;
   }
@@ -304,6 +305,22 @@ function loadModule() {
       },
       onRuntimeInitialized: function() {
         Module.startTime = new Date().getTime();
+        setTimeout(function() 
+          {
+            if (Module.moduleName == 'editor') {
+              var puzzle_stage = localStorage.getItem('PuzzleByEditor');
+              if (puzzle_stage == null) return;
+              if (puzzle_stage == 'puzzleLatest') {
+                var stageData = localStorage.getItem('latestEditedStage');
+                if (stageData == null) return;
+                Module.SendMessage('UI', 'Load', stageData);
+                return;
+              }
+              $.get( './stage/' + puzzle_stage + '.json', function(data) {
+                Module.SendMessage('UI', 'Load', JSON.stringify(data));
+              });
+            }
+        }, 5000);
       },
       OnReady: function() {
         if (Module.moduleName === 'per_stage') {
