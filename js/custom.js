@@ -297,16 +297,18 @@ function loadModule() {
               var puzzle_stage = localStorage.getItem('PuzzleByEditor');
               if (puzzle_stage == null) return;
               if (puzzle_stage == 'puzzleLatest') {
+                $('.making-puzzle input').val('가장 최근 편집된 퍼즐');
                 var stageData = localStorage.getItem('latestEditedStage');
                 if (stageData == null) return;
                 Module.SendMessage('UI', 'Load', stageData);
                 return;
               }
+              $('.making-puzzle input').val(puzzle_stage);
               $.get( './stage/' + puzzle_stage + '.json', function(data) {
                 Module.SendMessage('UI', 'Load', JSON.stringify(data));
               });
             }
-        }, 5000);
+        }, 10000);
       },
       OnReady: function() {
         if (Module.moduleName === 'per_stage') {
