@@ -105,9 +105,12 @@ function show_progress_page(page_no)
     $("[id^=page_0]").hide();
     $("#page_0" + page_no).show();
     $('.slidePage').empty();
+
+    console.log( "show_progress_page: " + page_no);
+    console.log(Module.unityContainer);
     var unityContainer = $("#page_0" + page_no + " .unityContainer");
     if (unityContainer == null) return;
-    if ( unityContainer.find('.emscripten').length > 0) return;
+    //if ( unityContainer.find('#gameContainer').length > 0) return;
     Module.unityContainer.detach();
     unityContainer.empty().append(Module.unityContainer);
     Module.unityContainer.show();
@@ -212,26 +215,6 @@ $(document).click(function(e) {
         $('.search_button').removeClass('active');
     }
 });
-// bseo -
-$.threedbot = function(module) {
-  return { 
-      TOTAL_MEMORY: 402653184, //268435456,
-      errorhandler: null, compatibilitycheck: null,
-      splashStyle: "Light",
-      backgroundColor: "#222C36",
-      dataUrl:  "./" + module + "/Release/webbuild.data",
-      codeUrl:  "./" + module + "/Release/webbuild.js",
-      memUrl:   "./" + module + "/Release/webbuild.mem",
-      asmUrl:   "./" + module + "/Release/webbuild.asm.js",
-      dynamicLoading: false,
-      startTime: null,
-      stage: 'stage',
-      moduleName: module,
-      unityContainer: null,
-      obj: null,
-      nextObj: null
-  };
-}
 
 var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 var moduleName = null;
@@ -242,11 +225,9 @@ if (currentPageName.startsWith("studying.html")) {
 } else if (currentPageName.startsWith("puzzle-game.html")) {
   moduleName = "editor";
 }
-var Module = null;
-if (moduleName != null) {
-  Module = $.threedbot(moduleName);
-}
-  
+
+Module = null;
+
 function loadStage(obj) {
   if (obj == null) return;
   $(".ready-playing", obj).hide();
@@ -262,6 +243,10 @@ function loadStage(obj) {
 
   if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
     Module.SendMessage("Level", 'setLevelWithTransition', './stage/' + Module.stage + '.json');
+    if (Module.robotLoaded == false) {
+      Module.SendMessage("UI", 'BotInfoTest', './stage/BotInfo2.json');
+      Module.robotLoaded = true;
+    }
     return;
   }
   var stageData = localStorage.getItem('latestEditedStage');
@@ -270,16 +255,23 @@ function loadStage(obj) {
 }
 
 function loadModule() {
-  if (Module == null) return;
-  if (Module.dynamicLoading === true) return;
+  if (Module !== null && Module.dynamicLoading === true) return;
 
   // Module is not loaded yet. Please load it first.
-  Module.dynamicLoading = true;
-  $.ajax({  url: "./" + Module.moduleName + "/Release/UnityLoader.js", 
+  $.ajax({  url: "./" + moduleName + "/Build/UnityLoader.js", 
             dataType: "script", 
             cache: false})
   .done( function() {
+    Module = UnityLoader.instantiate("gameContainer", "./" + moduleName + "/Build/" + moduleName + ".json");
     $.extend(Module, {
+      dynamicLoading : true,
+      startTime : null,
+      stage :'stage',
+      moduleName : moduleName,
+      unityContainer : null,
+      obj : null,
+      nextObj : null,
+      robotLoaded : false,
       OnMissionComplete: function() {  
         if (Module.obj == null) return;
         $(".ready-playing", Module.obj[0]).show();
@@ -312,7 +304,7 @@ function loadModule() {
       },
       OnReady: function() {
         if (Module.moduleName === 'per_stage') {
-          Module.unityContainer = $('#page_01 .template');
+          Module.unityContainer = $('#page_01 .webgl-content');
         }
       },
       OnCustomizingComplete: function(name, data) {
@@ -329,7 +321,7 @@ function loadModule() {
 $(document).ready(function() {
   $.ajaxSetup({cache: false});
   if (moduleName == null) return;
-  show_progress_page(1);
+  //show_progress_page(1);
   $(".chasi ul li").click(function() {
     if ($(this).hasClass('chasi-active')) {
       
