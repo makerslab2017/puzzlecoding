@@ -218,7 +218,7 @@ $(document).click(function(e) {
 
 var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 var moduleName = null;
-if (currentPageName.startsWith("studying.html")) {
+if (currentPageName.startsWith("studying") ) {
   moduleName = "per_stage";
 } else if (currentPageName.startsWith("coding-game.html")) {
   moduleName = "all_in_one";
@@ -240,7 +240,7 @@ function loadStage(obj) {
   $.get('./stage/' + Module.stage + '.html', function(data) {
     $('.slidePage').empty().append(data);
   });
-
+ 
   if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
     Module.SendMessage("Level", 'setLevelWithTransition', './stage/' + Module.stage + '.json');
     if (Module.robotLoaded == false) {
