@@ -107,7 +107,7 @@ function show_progress_page(page_no)
     $("[id^=page_0]").hide();
     $("#page_0" + page_no).show();
     $('.slidePage').empty();
-
+	
     console.log( "show_progress_page: " + page_no);
     console.log(Module.unityContainer);
     var unityContainer = $("#page_0" + page_no + " .unityContainer");
@@ -240,6 +240,7 @@ $(document).ready(function() {
 
 function loadStage(obj) {
   if (obj == null) return;
+  if(Module.missionCompleteProcess == true) return;
   $(".ready-playing", obj).hide();
   $(".current-playing", obj).show();
   Module.obj = $(obj);
@@ -282,12 +283,15 @@ function loadModule() {
       obj : null,
       nextObj : null,
       robotLoaded : false,
-      OnMissionComplete: function() {  
+	  missionCompleteProcess : false,
+      OnMissionComplete: function() {
         if (Module.obj == null) return;
+		missionCompleteProcess = true;
         $(".ready-playing", Module.obj[0]).show();
         $(".current-playing", Module.obj[0]).hide();
         var src = Module.obj.find(".ready-playing").attr('src');
         $(".ready-playing", Module.obj[0]).attr('src', src.replace('.png', '-clear.png'));
+		missionCompleteProcess = false;
         if (Module.nextObj == null) return;
         setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
       },
@@ -342,3 +346,15 @@ $(document).ready(function() {
     show_progress_page($(this).attr('data').match(/\d+/)[0]);
   });
 });
+
+function displayText(){
+
+	var val =Math.floor(Math.random() * 4);
+	//랜덤 텍스트 배열
+	var textArr = new Array("한단계 높은 타일로 이동하거나, 낮은 타일로 이동할 때는 모두 점프 명령어를 사용해야 합니다.", "남은 오염타일이나 시추기 로봇이 있으면 귀환할 수 없어요.", "출발 타일에 따라 달라지는 로봇의 방향을 잘 확인해 주세요.", "배치한 명령어가 로봇을 어디 까지 움직일지 잘 모를 때에는 일단 플레이 버튼을 눌러보세요.");
+	var myText = textArr[val];
+
+	var div = document.getElementById("gameText");
+	div.textContent = myText;
+
+}
