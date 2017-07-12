@@ -6,10 +6,12 @@ $(document).ready(function() {
     
     $('body').hide();
     $(window).load(function(){
-        $('body').show();
+        $('body').show();		
         loadModule();
     });
 });
+
+
 //모바일 GNB스크립트//
 jQuery(document).ready(function() {
   $('#Gnb-downMenu1 span').click(function() {
@@ -227,6 +229,14 @@ if (currentPageName.startsWith("studying") ) {
 }
 
 Module = null;
+
+//초급,중급과정 시작 시, 1차시부터 마지막차시 까지 화면에 표시되는것을 막고 기본값인 1차시를 보여준다.
+$(document).ready(function() {
+	if(currentPageName.startsWith("studying")){
+		$("[id^=page_0]").hide();
+		$("#page_01").show();
+	}
+});
 
 function loadStage(obj) {
   if (obj == null) return;
