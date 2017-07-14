@@ -8,11 +8,9 @@
     <div class="studying-info">
         <div class="carousel-inner" role="listbox">
             <div class="item active" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                <div id ="gameText" class="carousel-caption" style="width:100%; bottom:5px;">
-					<script type="text/javascript">  displayText(); </script>
+                <div class="carousel-caption gameTextRandom" style="width:100%; bottom:5px;">
                 </div>
-            </div>
-                   
+            </div>                   
         </div>
     </div>
     <div class="buttons chasi-info-btns">
@@ -31,5 +29,19 @@
     $('.carousel-indicators > li').on('click', function() { 
         $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
     })
+</script>
+<script>
+	function displayText(){
+		var val =Math.floor(Math.random() * 4);
+		//랜덤 텍스트 배열
+		var textArr = new Array("한단계 높은 타일로 이동하거나, 낮은 타일로 이동할 때는 모두 점프 명령어를 사용해야 합니다.", "남은 오염타일이나 시추기 로봇이 있으면 귀환할 수 없어요.", "출발 타일에 따라 달라지는 로봇의 방향을 잘 확인해 주세요.", "배치한 명령어가 로봇을 어디 까지 움직일지 잘 모를 때에는 일단 플레이 버튼을 눌러보세요.");
+		var myText = textArr[val];
+
+		$('.gameTextRandom').html(myText);
+	}
+
+	$(document).ready(function(){
+		displayText();
+	});
 </script>
 <!--슬라이더 끝-->
