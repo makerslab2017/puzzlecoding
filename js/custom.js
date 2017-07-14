@@ -240,6 +240,7 @@ $(document).ready(function() {
 
 function loadStage(obj) {
   if (obj == null) return;
+  if (Module.missionCompleteProcessing == true) return;
   $(".ready-playing", obj).hide();
   $(".current-playing", obj).show();
   Module.obj = $(obj);
@@ -249,6 +250,11 @@ function loadStage(obj) {
 
   $.get('./stage/' + Module.stage + '.html', function(data) {
     $('.slidePage').empty().append(data);
+    $('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
+    $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
+    $('.carousel-indicators > li').on('click', function() { 
+        $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
+    });
   });
  
   if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
@@ -282,12 +288,15 @@ function loadModule() {
       obj : null,
       nextObj : null,
       robotLoaded : false,
+      missionCompleteProcessing: false,
       OnMissionComplete: function() {  
+        missionCompleteProcessing = true;
         if (Module.obj == null) return;
         $(".ready-playing", Module.obj[0]).show();
         $(".current-playing", Module.obj[0]).hide();
         var src = Module.obj.find(".ready-playing").attr('src');
         $(".ready-playing", Module.obj[0]).attr('src', src.replace('.png', '-clear.png'));
+        missionCompleteProcessing = false;
         if (Module.nextObj == null) return;
         setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
       },
