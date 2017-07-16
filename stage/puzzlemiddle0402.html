@@ -8,12 +8,9 @@
     <div class="studying-info">
         <div class="carousel-inner" role="listbox">
             <div class="item active" style="width:100%; height:100%; padding:0; background-color:rgba(0,0,0,0);">
-                <div class="carousel-caption" style="width:100%; bottom:5px;">
-				<p><img class="lecture-img" src="img/panel_right.png"></p>
-                   Dummy Message, please insert random messages                 
+                <div class="carousel-caption gameTextRandom" style="width:100%; bottom:5px;">
                 </div>
-            </div>
-                   
+            </div>                   
         </div>
     </div>
     <div class="buttons chasi-info-btns">
@@ -26,4 +23,17 @@
     </div>
 </div>
 <p class="chasi-info-character"><img src="img/character.png" alt="캐릭터이미지"></p>
+<script>
+    $('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
+    $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
+    $('.carousel-indicators > li').on('click', function() { 
+        $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
+    })
+</script>
+<script>
+	$(document).ready(function(){
+		displayText();
+	});
+</script>
+
 <!--슬라이더 끝-->
