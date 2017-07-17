@@ -1,3 +1,6 @@
+
+var	missionCompleteProcess = false;
+var gamePlayingProcess = false;
 //FOUC 스크립트
 $(function(){
   $('html').removeClass('no-js');
@@ -125,11 +128,15 @@ $(document).ready(function() {
   $(".current-playing").hide();
 
   $(".progress-org li").click(function() {
-    $(".ready-playing").show();
-    $(".ready-playing", this).hide();
-    $(".current-playing").hide();
-    $(".current-playing", this).show();
-    loadStage(this);	
+	if(missionCompleteProcess == false && gamePlayingProcess == false)
+	{
+	    console.log("flag values    ::   " +  missionCompleteProcess + "     " + gamePlayingProcess);
+		$(".ready-playing").show();
+		$(".ready-playing", this).hide();
+		$(".current-playing").hide();
+		$(".current-playing", this).show();
+		loadStage(this);	
+	}
   });
 });
 //진도 현황-반선택//
@@ -250,7 +257,6 @@ function loadStage(obj) {
 
   $.get('./stage/' + Module.stage + '.html', function(data) {
     $('.slidePage').empty().append(data);
-	console.log(data);
   });
  
   if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
@@ -283,8 +289,7 @@ function loadModule() {
       unityContainer : null,
       obj : null,
       nextObj : null,
-      robotLoaded : false,
-	  missionCompleteProcess : false,	  
+      robotLoaded : false,	  
       OnMissionComplete: function() {
         if (Module.obj == null) return;
 		missionCompleteProcess = true;
@@ -294,7 +299,7 @@ function loadModule() {
         $(".ready-playing", Module.obj[0]).attr('src', src.replace('.png', '-clear.png'));
 		missionCompleteProcess = false;
         if (Module.nextObj == null) return;
-        setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
+        //setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
       },
       onRuntimeInitialized: function() {
         Module.startTime = new Date().getTime();
@@ -327,7 +332,15 @@ function loadModule() {
       },
       OnEditComplete: function(name, data) {
         localStorage.setItem('latestEditedStage', data);
-      }	  
+      },
+	  OnGamePlaying: function()
+	  {
+		gamePlayingProcess = true;
+	  },
+	  OnGameStop: function()
+	  {
+		gamePlayingProcess = false;
+	  }
     });
   }); 
 }
