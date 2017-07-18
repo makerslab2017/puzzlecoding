@@ -9,7 +9,7 @@ $(document).ready(function() {
     
     $('body').hide();
     $(window).load(function(){
-        $('body').show();		
+        $('body').show();
         loadModule();
     });
 });
