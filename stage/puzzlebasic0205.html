@@ -24,16 +24,5 @@
     </div>
 </div>
 <p class="chasi-info-character"><img src="img/character.png" alt="캐릭터이미지"></p>
-<script>
-    $('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
-    $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
-    $('.carousel-indicators > li').on('click', function() { 
-        $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
-    })
-</script>
-<script>
-	$(document).ready(function(){
-		displayText();
-	});
 </script>
 <!--슬라이더 끝-->

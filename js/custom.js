@@ -130,7 +130,6 @@ $(document).ready(function() {
   $(".progress-org li").click(function() {
 	if(missionCompleteProcess == false && gamePlayingProcess == false)
 	{
-	    console.log("flag values    ::   " +  missionCompleteProcess + "     " + gamePlayingProcess);
 		$(".ready-playing").show();
 		$(".ready-playing", this).hide();
 		$(".current-playing").hide();
@@ -257,6 +256,13 @@ function loadStage(obj) {
 
   $.get('./stage/' + Module.stage + '.html', function(data) {
     $('.slidePage').empty().append(data);
+	$('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
+    $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
+    $('.carousel-indicators > li').on('click', function() { 
+        $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
+    });
+	disappear();
+	displayText();
   });
  
   if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
@@ -368,4 +374,12 @@ function displayText(){
 	var myText = textArr[val];
 
 	$('.gameTextRandom').html(myText);
+}
+
+function disappear()
+{
+	if($('.carousel-indicators > li:visible').length ==1)
+	{
+		$('.carousel-indicators').empty();
+	}
 }
