@@ -1,6 +1,7 @@
 
 var	missionCompleteProcess = false;
 var gamePlayingProcess = false;
+var onUnityLoad = false;
 //FOUC 스크립트
 $(function(){
   $('html').removeClass('no-js');
@@ -116,9 +117,18 @@ function show_progress_page(page_no)
     var unityContainer = $("#page_0" + page_no + " .unityContainer");
     if (unityContainer == null) return;
     //if ( unityContainer.find('#gameContainer').length > 0) return;
-    Module.unityContainer.detach();
-    unityContainer.empty().append(Module.unityContainer);
-    Module.unityContainer.show();
+	try
+	{
+		Module.unityContainer.detach();
+		unityContainer.empty().append(Module.unityContainer);
+		Module.unityContainer.show();
+	}
+	catch(exception)
+	{
+		console.log("detach error !!");
+	}
+	
+    
 }
 
 
@@ -331,6 +341,7 @@ function loadModule() {
       OnReady: function() {
         if (Module.moduleName === 'per_stage') {
           Module.unityContainer = $('#page_01 .webgl-content');
+		  onUnityLoad = true;
         }
       },
       OnCustomizingComplete: function(name, data) {
@@ -356,13 +367,15 @@ $(document).ready(function() {
   $.ajaxSetup({cache: false});
   if (moduleName == null) return;
   //show_progress_page(1);
+  
   $(".chasi ul li").click(function() {
+	if(onUnityLoad ==false) return;
     if ($(this).hasClass('chasi-active')) {
       
     } else {
       $(".chasi ul li").removeClass("chasi-active");
       $(this).addClass('chasi-active');
-    }
+    }	
     show_progress_page($(this).attr('data').match(/\d+/)[0]);
   });
 });
