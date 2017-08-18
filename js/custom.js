@@ -342,6 +342,8 @@ function loadModule() {
         if (Module.moduleName === 'per_stage') {
           Module.unityContainer = $('#page_01 .webgl-content');
 		  onUnityLoad = true;
+
+		  console.log("on unity load =  " + onUnityLoad);
         }
       },
       OnCustomizingComplete: function(name, data) {
