@@ -359,7 +359,12 @@ function loadModule() {
 	  OnGameStop: function()
 	  {
 		gamePlayingProcess = false;
+	  },
+	  SendPuzzleInfo: function()
+	  {
+		Module.SendMessage("GameManager","getStageInfo", Module.stage);
 	  }
+
     });
   }); 
 }
