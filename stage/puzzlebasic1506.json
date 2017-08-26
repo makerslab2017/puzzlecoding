@@ -758,7 +758,7 @@
 			{
 				"Name": "Tile_Column",
 				"Position": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0,
 					"z": -1.25
 				},
@@ -783,7 +783,7 @@
 				"\u003CName>k__BackingField": "Tile_Column",
 				
 				"\u003CPosition>k__BackingField": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0,
 					"z": -1.25
 				},
@@ -816,7 +816,7 @@
 			{
 				"Name": "Tile_End",
 				"Position": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0.25,
 					"z": -1.25
 				},
@@ -841,7 +841,7 @@
 				"\u003CName>k__BackingField": "Tile_End",
 				
 				"\u003CPosition>k__BackingField": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0.25,
 					"z": -1.25
 				},
@@ -981,8 +981,8 @@
 				},
 				"Scale": {
 					"x": 1,
-					"y": 1.000001,
-					"z": 1.000001
+					"y": 1.00000143,
+					"z": 1.00000143
 				},
 				"Quaternion": {
 					"x": -0.7071068,
@@ -1001,8 +1001,8 @@
 				
 				"\u003CScale>k__BackingField": {
 					"x": 1,
-					"y": 1.000001,
-					"z": 1.000001
+					"y": 1.00000143,
+					"z": 1.00000143
 				},
 				
 				"\u003CQuaternion>k__BackingField": {
@@ -1791,7 +1791,7 @@
 			{
 				"Name": "Tile_Column",
 				"Position": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0,
 					"z": -1.25
 				},
@@ -1816,7 +1816,7 @@
 				"\u003CName>k__BackingField": "Tile_Column",
 				
 				"\u003CPosition>k__BackingField": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0,
 					"z": -1.25
 				},
@@ -1849,7 +1849,7 @@
 			{
 				"Name": "Tile_End",
 				"Position": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0.25,
 					"z": -1.25
 				},
@@ -1874,7 +1874,7 @@
 				"\u003CName>k__BackingField": "Tile_End",
 				
 				"\u003CPosition>k__BackingField": {
-					"x": -0.5,
+					"x": -1,
 					"y": 0.25,
 					"z": -1.25
 				},
@@ -2015,8 +2015,8 @@
 				},
 				"Scale": {
 					"x": 1,
-					"y": 1.000001,
-					"z": 1.000001
+					"y": 1.00000143,
+					"z": 1.00000143
 				},
 				"Quaternion": {
 					"x": -0.7071068,
@@ -2035,8 +2035,8 @@
 				
 				"\u003CScale>k__BackingField": {
 					"x": 1,
-					"y": 1.000001,
-					"z": 1.000001
+					"y": 1.00000143,
+					"z": 1.00000143
 				},
 				
 				"\u003CQuaternion>k__BackingField": {
