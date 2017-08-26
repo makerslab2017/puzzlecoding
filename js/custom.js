@@ -118,8 +118,7 @@ function show_progress_page(page_no)
     if (unityContainer == null) return;
     //if ( unityContainer.find('#gameContainer').length > 0) return;
 		Module.unityContainer.detach();
-		unityContainerVal.empty().append(Module.unityContainer);
-		console.log(unityContainerVal);
+		unityContainer.empty().append(Module.unityContainer);
 		Module.unityContainer.show();
 	try
 	{
