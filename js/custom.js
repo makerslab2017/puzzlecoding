@@ -108,7 +108,7 @@ jQuery(document).ready(function() {
 //차시 버튼 스크립트//
 function show_progress_page(page_no)
 {
-    $("[id^=page_0]").hide();
+    $("[id^=page_0]:visible").hide();
     $("#page_0" + page_no).show();
     $('.slidePage').empty();
 	
@@ -117,11 +117,13 @@ function show_progress_page(page_no)
     var unityContainer = $("#page_0" + page_no + " .unityContainer");
     if (unityContainer == null) return;
     //if ( unityContainer.find('#gameContainer').length > 0) return;
+		Module.unityContainer.detach();
+		unityContainerVal.empty().append(Module.unityContainer);
+		console.log(unityContainerVal);
+		Module.unityContainer.show();
 	try
 	{
-		Module.unityContainer.detach();
-		unityContainer.empty().append(Module.unityContainer);
-		Module.unityContainer.show();
+		
 	}
 	catch(exception)
 	{
@@ -339,13 +341,19 @@ function loadModule() {
         }, 10000);
       },
       OnReady: function() {
-        if (Module.moduleName === 'per_stage') {
-          Module.unityContainer = $('#page_01 .webgl-content');
+        if (Module.moduleName === 'per_stage') {  
+		  Module.unityContainer = $('[id^=page_0]:visible .webgl-content');
 		  onUnityLoad = true;
 
-		  console.log("on unity load =  " + onUnityLoad);
         }
       },
+	  OnPuzzleReady: function()
+	  {
+		onUnityLoad = true;
+	  },
+	  OnPuzzlePrepare: function(){
+		onUnityLoad = false;
+	  },
       OnCustomizingComplete: function(name, data) {
         localStorage.setItem('latestCustomizedRobotInfo', data);
       },
