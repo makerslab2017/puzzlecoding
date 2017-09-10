@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--페이지로딩후 html 노출-->
+<html lang="ko" class="yes-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+  <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div id="page-wrapper">
+    <div class="container  main-content-wrapper">
+      <div class="row">
+        <h3>로그인 페이지</h3>
+        <div class="col-cs-13 login">
+          <input type="text" name="userid">
+          <input type="password" name="passwd">
+          <button id="Login" >로그인</button>
+          <button id="Logout" >로그아웃</button>
+          </p>
+          <p>
+          <button id="Forgot">비밀번호 찾기</button>
+          <button id="LoginTest">세션 테스트</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <h3>등록 페이지</h3>
+        <div class="col-cs-13 signup">
+          사용자 아이디: <input type="text" name="userid">
+          비밀번호: <input type="password" name="passwd">
+          이메일 주소: <input type="email" name="email">
+          <button id="SignMeUp" >사용자 등록</button>
+          <input type="number" name="confirmNumber">
+          <button id="ConfirmMe" >인증코드 입력</button>
+          
+        </div>
+      </div>
+<!--
+      <div class="row">
+        <h3>교사 페이지</h3>
+        <div class="col-cs-13">
+          <input type="text" name="userid">
+          <input type="passwd" name="passwd">
+          <button id="testMe" >사용자 등록</button>
+          <input type="number" name="confirmNumber">
+          <button id="testConfirm" >인증코드 입력</button>
+          <p>
+          <button id="testLogin" >로그인</button>
+          </p>
+          <p>
+          <button id="testForgot">비밀번호 찾기</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <h3>교사 교과과정 페이지</h3>
+        <div class="col-cs-13">
+          <input type="text" name="userid">
+          <input type="passwd" name="passwd">
+          <button id="testMe" >사용자 등록</button>
+          <input type="number" name="confirmNumber">
+          <button id="testConfirm" >인증코드 입력</button>
+          <p>
+          <button id="testLogin" >로그인</button>
+          </p>
+          <p>
+          <button id="testForgot">비밀번호 찾기</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <h3>신규 교과과정 페이지</h3>
+        <div class="col-cs-13">
+          <input type="text" name="userid">
+          <input type="passwd" name="passwd">
+          <button id="testMe" >사용자 등록</button>
+          <input type="number" name="confirmNumber">
+          <button id="testConfirm" >인증코드 입력</button>
+          <p>
+          <button id="testLogin" >로그인</button>
+          </p>
+          <p>
+          <button id="testForgot">비밀번호 찾기</button>
+          </p>
+        </div>
+      </div>
+  
+      <div class="row">
+        <h3>학생 페이지</h3>
+        <div class="col-cs-13">
+          <input type="text" name="userid">
+          <input type="passwd" name="passwd">
+          <button id="testMe" >사용자 등록</button>
+          <input type="number" name="confirmNumber">
+          <button id="testConfirm" >인증코드 입력</button>
+          <p>
+          <button id="testLogin" >로그인</button>
+          </p>
+          <p>
+          <button id="testForgot">비밀번호 찾기</button>
+          </p>
+        </div>
+      </div>
+
+    -->
+    </div>
+  </div>
+
+  <script src="js/aws-cognito-sdk.min.js"></script>
+  <script src="js/amazon-cognito-identity.min.js"></script>
+  <script src="js/aws-sdk.min.js"></script>
+  <script src="js/aws-cognito-config.js"></script>
+  <script>
+
+    AWSCognito.config.region = CognitoConfig.region;
+    var cognitoUser = null;
+    var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( {
+                    UserPoolId: CognitoConfig.userPoolId, ClientId: CognitoConfig.appClientId
+                });
+    var token = null;
+
+    const users = {
+      signUp: (userId, userPhoneNumber, userPasswd, email) => {
+        if (userId == null || userPhoneNumber == null || userPasswd == null || email == null) {
+          alert('Invalid signup request');
+          return;
+        }        
+        var attributeList = [ 
+          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'email', Value: email } ),
+          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'phone_number', Value: userPhoneNumber } ),
+          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'custom:role', Value: 'educator' } ),
+          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'custom:ReferredClassId', Value: '00-00000-0000' })
+        ];        
+        userPool.signUp(userId, userPasswd, attributeList, null, function(err, result) {
+            if (err) {
+              alert(err);
+              return;
+            }
+            console.log(result);
+            cognitoUser = result.user;
+        });
+      },
+      confirm: (activateCode) => {
+        if (cognitoUser == null) {
+          alert("You didn't sign up yet");
+          return;
+        }
+        cognitoUser.confirmRegistration(activateCode, true, function(err, result) {
+          if (err) {
+            alert(err);
+            return;
+          }
+          console.log('call: ' + result);
+        });
+      },
+      login: (userId, userPasswd)=> {
+        var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(
+          { Username: userId, Password: userPasswd } );
+        cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser( {Username: userId, Pool: userPool} );
+        cognitoUser.authenticateUser(authenticationDetails, {
+          onSuccess: function(result) {
+            console.log(result.idToken.jwtToken );
+            token = result.idToken.jwtToken;
+          },
+          onFailure: function(result) {
+            alert(result);
+          },
+          mfaRequired: function(codeDeliveryDetails) {
+            var verificationCode = prompt('Please input verification code', '');
+            cognitoUser.sendMFACode(verificationCode, this);
+          }
+        });
+      },
+      forgot: (userId) => {
+        cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser( {Username: userId, Pool: userPool} );
+        cognitoUser.forgotPassword( {
+          onSuccess: function(result) {
+            console.log('call result: ' + result);
+          },
+          onFailure: function(err) {
+            alert(err);
+          },
+          inputVerificationCode() {
+            var verificationCode = prompt('Please enter your verification code ', '');
+            var newPassword = prompt('Enter new Password ', '' );
+            cognitoUser.confirmPassword(verificationCode, newPassword, this);
+          }
+        });
+      },
+      currentUser: () => {
+        cognitoUser = userPool.getCurrentUser();
+        if (cognitoUser == null) {
+          console.log('not in session');
+          return;
+        }
+        cognitoUser.getSession(function(err, session) {
+          if (err) {
+            alert(err);
+            return;
+          }
+          console.log('session validity: ' + session.isValid());
+        });
+      },
+      logout: () => {
+        if (cognitoUser == null || token == null) {
+          console.log('not logged in yet');
+          return;
+        }
+        cognitoUser.signOut();
+      }
+    };
+
+    $('#SignMeUp').on('click', function() {
+      users.signUp($('.signup input[name="userid"]').val(), "+821059177477", $('.signup input[name="passwd"]').val(), $('.signup input[name="email"]').val() );
+    });    
+
+    $('#ConfirmMe').on('click', function() {
+      users.confirm($('input[name="confirmNumber"]').val());
+    });
+
+    $('#Login').on('click', function() {
+      users.login($('.login input[name="userid"]').val(), $('.login input[name="passwd"]').val() )
+    });
+
+    $('#LoginTest').on('click', function() {
+      users.currentUser();
+    });
+
+    $('#Forgot').on('click', function() {
+      users.forgot($('.login input[name="userid"]').val());
+    });
+
+    $('#Logout').on('click', function() {
+      users.logout();
+    });
+    
+  </script>
+</body>

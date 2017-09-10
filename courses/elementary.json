@@ -1,0 +1,201 @@
+{
+    "title": "초급과정",
+    "introduction": "초등학생을 위한 15회 교육과정",
+    "description": "이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입 니다. 각 과정들은 5 ~ 20개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학교 저학년까지도 참여할 수 있으며 학 습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다. 바로 연락주세요.",
+    "lessons": {
+        "lesson-1": {
+            "title": "1차시",
+            "description": "기본 이동 명령어와 액션 명령어의 귀환 기능을 사용하여 명령어를 순차적으로 실행할 수 있다.",
+            "stages": [
+                "puzzlebasic0101", 
+                "puzzlebasic0102",
+                "puzzlebasic0103",
+                "puzzlebasic0104",
+                "puzzlebasic0105",
+                "puzzlebasic0106",
+                "puzzlebasic0107",
+                "puzzlebasic0108",
+                "puzzlebasic0109",
+                "puzzlebasic0110"
+            ]
+        },
+        "lesson-2": {
+            "title": "2차시",
+            "description": "네가지 시점의 출발 타일에서 학습을 시작하여 시점에 따른 네가지 조건에서 학습을 시작할 수 있다.",
+            "stages": [
+                "puzzlebasic0201", 
+                "puzzlebasic0202",
+                "puzzlebasic0203",
+                "puzzlebasic0204",
+                "puzzlebasic0205",
+                "puzzlebasic0206",
+                "puzzlebasic0207",
+                "puzzlebasic0208"
+            ]
+        },
+        "lesson-3": {
+            "title": "3차시",
+            "description": "점프 명령어를 이용하여 한단계 윗쪽의 타일로 점프이동할 수 있다.",
+            "stages": [
+                "puzzlebasic0301", 
+                "puzzlebasic0302",
+                "puzzlebasic0303",
+                "puzzlebasic0304",
+                "puzzlebasic0305",
+                "puzzlebasic0306",
+                "puzzlebasic0307",
+                "puzzlebasic0308"
+            ]
+        },
+        "lesson-4": {
+            "title": "4차시",
+            "description": "액션 명령어를 이용하여 오염된 타일을 깨끗하게 정화할 수 있다.",
+            "stages": [
+                "puzzlebasic0401", 
+                "puzzlebasic0402",
+                "puzzlebasic0403",
+                "puzzlebasic0404",
+                "puzzlebasic0405",
+                "puzzlebasic0406",
+                "puzzlebasic0407",
+                "puzzlebasic0408"
+            ]
+        },
+        "lesson-5": {
+            "title": "5차시",
+            "description": "액션 명령어를 이용하여 적 시추기 로봇을 물리칠 수 있다.",
+            "stages": [
+                "puzzlebasic0501", 
+                "puzzlebasic0502",
+                "puzzlebasic0503",
+                "puzzlebasic0504",
+                "puzzlebasic0505",
+                "puzzlebasic0506"
+            ]
+        },
+        "lesson-6": {
+            "title": "6차시",
+            "description": "액션 명령어를 이용하여 워프 타일을 사용해 동일한 한가지 색상의 워프 타일로 이동할 수 있다.",
+            "stages": [
+                "puzzlebasic0601", 
+                "puzzlebasic0602",
+                "puzzlebasic0603",
+                "puzzlebasic0604",
+                "puzzlebasic0605",
+                "puzzlebasic0606",
+                "puzzlebasic0607",
+                "puzzlebasic0608"
+            ]
+        },
+        "lesson-7": {
+            "title": "7차시",
+            "description": "액션 명령어를 이용하여 워프 타일을 사용해 동일한 두가지 색상의 워프 타일로 이동할 수 있다.",
+            "stages": [
+                "puzzlebasic0701", 
+                "puzzlebasic0702",
+                "puzzlebasic0703",
+                "puzzlebasic0704",
+                "puzzlebasic0705",
+                "puzzlebasic0706",
+                "puzzlebasic0707",
+                "puzzlebasic0708"
+            ]
+        },
+        "lesson-8": {
+            "title": "8차시",
+            "description": "기본 이동, 점프, 액션 명령어를 이용하여 문제를 해결할 수 있다.",
+            "stages": [
+                "puzzlebasic0801", 
+                "puzzlebasic0802",
+                "puzzlebasic0803",
+                "puzzlebasic0804",
+                "puzzlebasic0805",
+                "puzzlebasic0806"
+            ]
+        },
+        "lesson-9": {
+            "title": "9차시",
+            "description": "기본 이동, 점프, 액션 명령어를 이용하여 문제를 해결할 수 있다.",
+            "stages": [
+                "puzzlebasic0901", 
+                "puzzlebasic0902",
+                "puzzlebasic0903",
+                "puzzlebasic0904",
+                "puzzlebasic0905",
+                "puzzlebasic0906"
+            ]
+        },
+        "lesson-10": {
+            "title": "10차시",
+            "description": "두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.",
+            "stages": [
+                "puzzlebasic1001", 
+                "puzzlebasic1002",
+                "puzzlebasic1003",
+                "puzzlebasic1004",
+                "puzzlebasic1005",
+                "puzzlebasic1006"
+            ]
+        },
+        "lesson-11": {
+            "title": "11차시",
+            "description": "두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.",
+            "stages": [
+                "puzzlebasic1101", 
+                "puzzlebasic1102",
+                "puzzlebasic1103",
+                "puzzlebasic1104",
+                "puzzlebasic1105",
+                "puzzlebasic1106"
+            ]
+        },
+        "lesson-12": {
+            "title": "12차시",
+            "description": "두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.",
+            "stages": [
+                "puzzlebasic1201", 
+                "puzzlebasic1202",
+                "puzzlebasic1203",
+                "puzzlebasic1204",
+                "puzzlebasic1205",
+                "puzzlebasic1206"
+            ]
+        },
+        "lesson-13": {
+            "title": "13차시",
+            "description": "워프타일을 기준으로 반복되는 문제를 해결할 수 있다.",
+            "stages": [
+                "puzzlebasic1301", 
+                "puzzlebasic1302",
+                "puzzlebasic1303",
+                "puzzlebasic1304",
+                "puzzlebasic1305",
+                "puzzlebasic1306"
+            ]
+        },
+        "lesson-14": {
+            "title": "14차시",
+            "description": "워프타일을 기준으로 반복되는 문제를 해결할 수 있다.",
+            "stages": [
+                "puzzlebasic1401", 
+                "puzzlebasic1402",
+                "puzzlebasic1403",
+                "puzzlebasic1404",
+                "puzzlebasic1405",
+                "puzzlebasic1406"
+            ]
+        },
+        "lesson-15": {
+            "title": "15차시",
+            "description": "워프타일을 기준으로 반복되는 문제를 해결할 수 있다",
+            "stages": [
+                "puzzlebasic1501", 
+                "puzzlebasic1502",
+                "puzzlebasic1503",
+                "puzzlebasic1504",
+                "puzzlebasic1505",
+                "puzzlebasic1506" 
+            ]
+        }
+    }
+}
