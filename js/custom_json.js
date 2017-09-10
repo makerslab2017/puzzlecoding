@@ -211,6 +211,8 @@ function loadModule()
 {
   if (Module !== null && Module.dynamicLoading === true) return;
 
+  if (moduleName == null) return;
+
   // Module is not loaded yet. Please load it first.
   $.ajax({  url: "./" + moduleName + "/Build/UnityLoader.js", 
             dataType: "script", 
@@ -384,8 +386,7 @@ const course = {
   },
   loadCourseData: (data) => {
     course_info = data;
-    course.buildCourseInfo(course_info);
-    console.log(course_info.owner);
+    course.buildCourseInfo(course_info);    
     $.each( course_info.lessons, (key, value)=> {
         course.buildLesson('.chasi ul', key, value);
         course.buildStages('.chasi-progress', value);
@@ -407,16 +408,30 @@ const course = {
         }	
         course.showLesson(course_info.lessons[$(this).attr('data')] );
     });
+  },
+  parseInput: () => {
+    console.log(document.location.search);
+    queries = {};
+    $.each(document.location.search.substr(1).split('&'), function(c,q){
+      var i = q.split('=');
+      if (i.length === 2) {
+        queries[i[0].toString()] = i[1].toString();
+      }
+    });
+    if (queries.hasOwnProperty('course')) 
+      course.loadCourse( queries.course );
+    else 
+      course.loadCourse( 'courses/elementary.json');
+
+    // you may want to load from course id
+    //course.loadCourse( 'c4924670-9537-11e7-963b-93073b4ef4e7' );
   }
 };
 
 //차시 페이지 스크립트 //
 $(document).ready(function() {
-    $.ajaxSetup({cache: false});
-    if (moduleName == null) return;
-    
-    course.loadCourse( 'courses/middle.json' );
+  $.ajaxSetup({cache: false});
+  if (moduleName == null) return;
 
-    //course.loadCourse( 'c4924670-9537-11e7-963b-93073b4ef4e7' );
-    
+  course.parseInput();    
 });
