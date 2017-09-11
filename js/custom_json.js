@@ -203,9 +203,10 @@ var course_info = null;
 var moduleName = null;
 
 var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
-if (currentPageName.startsWith("studying") )        moduleName = "per_stage";
-if (currentPageName.startsWith("coding-game.html")) moduleName = "all_in_one";
-if (currentPageName.startsWith("puzzle-game.html")) moduleName = "editor";
+if (currentPageName.startsWith("studying") )    moduleName = "per_stage";
+if (currentPageName.startsWith("coding-game"))  moduleName = "all_in_one";
+if (currentPageName.startsWith("puzzle-game"))  moduleName = "editor";
+if (currentPageName.startsWith("puzzle-view"))  moduleName = "per_stage";
 
 function loadModule() 
 {
@@ -249,19 +250,25 @@ function loadModule()
               $('.making-puzzle input').val('가장 최근 편집된 퍼즐');
               var stageData = localStorage.getItem('latestEditedStage');
               if (stageData == null) return;
-              Module.SendMessage('UI', 'Load', stageData);
+              Module.loadPuzzleData(JSON.stringify(stageData));
               return;
             }
             $('.making-puzzle input').val(puzzle_stage);
             $.get( './stage/' + puzzle_stage + '.json', function(data) {
-              Module.SendMessage('UI', 'Load', JSON.stringify(data));
+              Module.loadPuzzleData(JSON.stringify(data));
             });
           }
         }, 10000);
       },
+      OnReadyPostprocess: ()=> {
+        var puzzle_id = localStorage.getItem("currentPuzzleId");
+        if (puzzle_id == null) return;
+        Module.loadPuzzle( puzzle_id);
+      },
       OnReady: function() {
-        if (Module.moduleName === 'per_stage') {  
+        if (Module.moduleName === 'per_stage') { 
           onUnityLoad = true;
+          Module.OnReadyPostprocess();
           if (Module.obj == null) return;
 
           // just in case if someone clicked one of stages already, load it generously.
@@ -289,6 +296,23 @@ function loadModule()
       },
       SendPuzzleInfo: function() {
         Module.SendMessage("GameManager","getStageInfo", Module.stage);
+      },
+      loadPuzzle: (puzzle_id) => {
+        $.getJSON( './stage/' + puzzle_id + '.json', (data)=> Module.SendMessage('Level', 'setLevelWithTransition', './stage/' + puzzle_id + '.json') ).error(function() {
+          $.getJSON( 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/puzzles/' + puzzle_id + '?type=all', 
+            (data)=> Module.SendMessage('Level', 'setLevelWithTransition',  'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/puzzles/' + puzzle_id ) )
+        });
+      },
+      loadPuzzleData: (puzzle_data) => {
+        missionCompleteProcess = false;
+        if (puzzle_data == null) return;
+        Module.SendMessage('Level', 'setLevelWithString', puzzle_data);
+      },
+      loadRobot: (robot_id) => {
+        if (robot_id == null) {
+          Module.SendMessage("UI", 'BotInfoTest', robot_id ? robot_id : './stage/BotInfo2.json');
+        }
+        Module.robotLoaded = true;
       }
     }); // end of $.extend
   }); // end of $.ajax done function callback
@@ -330,7 +354,6 @@ const course = {
   loadStage: (obj) => {
       if (obj == null) return;
       if(Module.missionCompleteProcess == true) return;
-
       
       Module.obj = $(obj);
       Module.stage = $(obj).attr('data-stage');
@@ -351,17 +374,15 @@ const course = {
       });
       
       if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
-        Module.SendMessage("Level", 'setLevelWithTransition', './stage/' + Module.stage + '.json');
-        if (Module.robotLoaded == false) {
-          Module.SendMessage("UI", 'BotInfoTest', './stage/BotInfo2.json');
-          Module.robotLoaded = true;
-        }
+        Module.loadPuzzle(Module.stage);
+        if (Module.robotLoaded == false)
+          Module.loadRobot();
         return;
       }
       var stageData = localStorage.getItem('latestEditedStage');
       if (stageData == null) return;
-      Module.SendMessage('Level', 'setLevelWithString', stageData);
-  },
+      Module.loadPuzzleData(stageData);      
+  }, 
   showLesson: (lesson) => {
       $('.chasi-progress').empty();
       $('.slidePage').empty();
@@ -384,7 +405,7 @@ const course = {
         $.getJSON( 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/courses/' + course_id, course.loadCourseData);
       });
   },
-  loadCourseData: (data) => {
+  loadCourseData: (data) => {    
     course_info = data;
     course.buildCourseInfo(course_info);    
     $.each( course_info.lessons, (key, value)=> {
@@ -409,7 +430,7 @@ const course = {
         course.showLesson(course_info.lessons[$(this).attr('data')] );
     });
   },
-  parseInput: () => {
+  parseInput: ( key ) => {
     console.log(document.location.search);
     queries = {};
     $.each(document.location.search.substr(1).split('&'), function(c,q){
@@ -418,13 +439,9 @@ const course = {
         queries[i[0].toString()] = i[1].toString();
       }
     });
-    if (queries.hasOwnProperty('course')) 
-      course.loadCourse( queries.course );
-    else 
-      course.loadCourse( 'courses/elementary.json');
-
-    // you may want to load from course id
-    //course.loadCourse( 'c4924670-9537-11e7-963b-93073b4ef4e7' );
+    if (queries.hasOwnProperty(key)) 
+      return queries[key];      
+    return null;
   }
 };
 
@@ -433,5 +450,29 @@ $(document).ready(function() {
   $.ajaxSetup({cache: false});
   if (moduleName == null) return;
 
-  course.parseInput();    
+  if (currentPageName.startsWith("studying") ) {
+    course_id = course.parseInput('course');
+    if (course_id) course.loadCourse( course_id);
+    else course.loadCourse( 'courses/elementary.json');
+    
+    //course.loadCourse( 'c4924670-9537-11e7-963b-93073b4ef4e7' );
+  }
+  if (currentPageName.startsWith("puzzle-view")) {
+    puzzle_id = course.parseInput('puzzle');
+    if (puzzle_id) {
+      localStorage.setItem( "currentPuzzleId", puzzle_id);
+      $.getJSON( puzzle_id, (data)=> {
+        $('#puzzle-title').text( puzzle_id );
+        $('#puzzle-owner').text( '관리자' );
+      } ).error(function() {
+        $.getJSON( 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/puzzles/' + puzzle_id + '?type=info', (data) => {          
+          var date = new Date( data.timestamp );
+          $('#puzzle-title').text( data.title );
+          $('#puzzle-owner').text( data.owner );
+          $('#puzzle-date').text( date.toLocaleDateString());
+        });
+      });
+    }
+    else localStorage.removeItem( "currentPuzzleId");
+  }
 });

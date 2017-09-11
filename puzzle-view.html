@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
   <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-  <script src="js/custom.js"></script>
+  <script src="js/custom_json.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -175,27 +175,37 @@
       <div class="container">
         <section class="row">
           <div class="col-md-10 col-md-offset-1">
-            <div class="puzzle-view-contents">
-              <div class="flex-box">
-                <h2>퍼즐제목</h2>
-                <div class="flex-box-inner">
-                  <span>작성자</span>
-                  <span>16.11.13</span>
+            <div class="row">
+              <div class="puzzle-view-contents">
+                <div class="flex-box">
+                  <h2 id="puzzle-title" ></h2>
+                  <div class="flex-box-inner">
+                    <span id="puzzle-owner"></span>
+                    <span id="puzzle-date"></span>
+                  </div>
+                </div>
+                
+                <div class="flex-box">
+                  <div class="webgl-content">
+                    <div style="margin-left: 50%">
+                      <div id="gameContainer" style="width: 470px; height: 840px;"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="making-puzzle-game">
-                <!--게임나오는영역 더미 이미지 로대체함-->
-                <img src="img/dummy.png" alt="게임나오는 영역입니다." style="width:100%;">
-              </div>
+                
               <div class="current-complete">
-                <span>174,56명</span>이 이 퍼즐을 완료하였습니다!</p>
-            </div>
-            <div class="explain-coding-puzzle">
+                <span>10</span>명이 이 퍼즐을 완료하였습니다!</p>
+              </div>
+
+              <div class="explain-coding-puzzle">
               코딩퍼즐은 한국형 1 hour of Code 프로그램을 제공하며, 누구나 무료로 소프트웨어 교육을 받을 수 있도록 개발된 소프트웨어 교육 플랫폼입니다. 2013년 한국창의재단 과학융합 지원사업 연구를 모태로 하여 3년간 기획 및 연구되어 온 프로젝트이며, 국내의 최우수 대학 공학 전문 출신의 대학교수진들과 교육부 장관상수상 21세기 융합 놀이교육 전문 연구팀들이 참여하고 있습니다.
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <!--
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="row btns-view">
@@ -237,13 +247,12 @@
                 <img src="img/plus.png" alt="댓글보기 이미지">
               </div>
             </div>
-            <!--depth2댓글-->
             <div class="re-reply">
-            <form class="form-reply">
-              <input type="text">
-              <button type="submit">
-                댓글 등록</button>
-            </form>
+              <form class="form-reply">
+                <input type="text">
+                <button type="submit">
+                  댓글 등록</button>
+              </form>
             </div>
             <div class="reply">
               <div class="reply-colum-3">
@@ -275,6 +284,7 @@
           </form>
         </div>
       </div>
+    -->
     </div>
   </div>
   <!--푸터시작-->
