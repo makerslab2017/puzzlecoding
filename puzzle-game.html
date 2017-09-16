@@ -14,6 +14,10 @@
   <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
   <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="js/aws-cognito-sdk.min.js"></script>
+  <script src="js/amazon-cognito-identity.min.js"></script>
+  <script src="js/aws-sdk.min.js"></script>
+  <script src="js/aws-cognito-config.js"></script>
   <script src="js/custom_json.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
@@ -267,6 +271,9 @@
                 <div class="function-btns">
                   <img src="img/delete.png" alt="삭제하기 버튼">
                 </div>
+                <div class="function-btns" id="goto-gallery">
+                    <i class="material-icons">view_list</i>
+                </div>
                 <button id="uploadPuzzle" type="submit">
                   <img src="img/upload.png" alt="업로드버튼" class="upload-origin">
                   <img src="img/upload_hover.png" alt="업로드버튼" class="upload-hover">
@@ -274,20 +281,51 @@
                 </button>
                   
                 <script>
+                  $('#goto-gallery').on('click', ()=>window.location.href = './gallery.html');
                   $('#uploadPuzzle').on('click', ()=> {
+
+                    const json_files = [
+                      'stage/puzzlemiddle0101.json',
+                      'stage/puzzlemiddle0102.json',
+                      'stage/puzzlemiddle0103.json',
+                      'stage/puzzlemiddle0104.json',
+                      'stage/puzzlemiddle0201.json',
+                      'stage/puzzlemiddle0202.json',
+                      'stage/puzzlemiddle0203.json',
+                      'stage/puzzlemiddle0204.json',
+                      'stage/puzzlemiddle0301.json',
+                      'stage/puzzlemiddle0302.json',
+                      'stage/puzzlemiddle0303.json',
+                      'stage/puzzlemiddle0304.json',
+                      'stage/puzzlemiddle0401.json',
+                      'stage/puzzlemiddle0402.json',
+                      'stage/puzzlemiddle0403.json',
+                      'stage/puzzlemiddle0404.json'
+                    ];
                    
-                    $.getJSON( 'stage/puzzlemiddle0103.json', function(data) {
+                    $.getJSON( json_files[Math.floor(Math.random() * json_files.length)], function(data) {
                       var item = {
                         title: $('#title').val(),
                         description: $('textarea').val(),
+                        public: true,
                         data: data
                       };
-                      $.post('https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/puzzles',
-                        JSON.stringify(item), function(res) {
-                          console.log(JSON.stringify(res));
+                      puzzleAPI.currentUser();
+                      if (puzzleAPI.cognitoUser == null) return;
+                      $.ajax( { type: 'POST', url: puzzleAPI.apiUrl + 'puzzles',
+                        headers: {
+                          'Authorization' : puzzleAPI.token
+                        },
+                        data: JSON.stringify(item),
+                        success: (data) => {
+                          //window.location.href = './gallery.html';
+                          console.log(data);
+                        },
+                        fail: (err) => {
+                          console.log(err);
+                        }
                       });
                     });
-                    
                   });
                 </script>
               </div>

@@ -12,7 +12,7 @@ $(document).ready(function() {
     $('body').hide();
     $(window).load(function(){
         $('body').show();
-        loadModule();
+        //loadModule();
     });
 });
 
@@ -299,14 +299,23 @@ function loadModule()
       },
       loadPuzzle: (puzzle_id) => {
         $.getJSON( './stage/' + puzzle_id + '.json', (data)=> Module.SendMessage('Level', 'setLevelWithTransition', './stage/' + puzzle_id + '.json') ).error(function() {
-          $.getJSON( 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/puzzles/' + puzzle_id + '?type=all', 
-            (data)=> Module.SendMessage('Level', 'setLevelWithTransition',  'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/puzzles/' + puzzle_id ) )
+          puzzleAPI.currentUser();
+          if (puzzleAPI.cognitoUser == null) return;
+          $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=all',
+              headers: {
+                'Authorization' : puzzleAPI.token
+              },
+              success: (data)=> {
+                Module.loadPuzzleData(data);
+                //Module.SendMessage('Level', 'setLevelWithTransition',  puzzleAPI.apiUrl + 'puzzles/' + puzzle_id);
+              }
+            });
         });
       },
       loadPuzzleData: (puzzle_data) => {
         missionCompleteProcess = false;
         if (puzzle_data == null) return;
-        Module.SendMessage('Level', 'setLevelWithString', puzzle_data);
+        Module.SendMessage('Level', 'setLevelWithString', JSON.stringify(puzzle_data));
       },
       loadRobot: (robot_id) => {
         if (robot_id == null) {
@@ -343,6 +352,7 @@ const course = {
       });
 
       $(".progress-org li").on('click', function() {
+          if (Module == null) loadModule();
           if(missionCompleteProcess == false && gamePlayingProcess == false)
           {
               $('.progress-org img[src="img/current-status.png"]').attr('src', 'img/normal.png');                
@@ -396,13 +406,19 @@ const course = {
               "출발 타일에 따라 달라지는 로봇의 방향을 잘 확인해 주세요.", 
               "배치한 명령어가 로봇을 어디 까지 움직일지 잘 모를 때에는 일단 플레이 버튼을 눌러보세요."
       ];
+      // character info array
+      var characters = [ "img/character.png", "img/character-2.png" ];
+
       var myText = textArr[Math.floor(Math.random() * textArr.length)];
-  
+      var mySrc = characters[Math.floor(Math.random() * 2)];
+
+      $('.chasi-info-character').find("img").attr('src', mySrc);
+      $('#characterImg').attr('src', mySrc );  
       $('.gameTextRandom').html(myText);
   },
   loadCourse: (course_id) => {
       $.getJSON( course_id, course.loadCourseData ).error(function() {
-        $.getJSON( 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/courses/' + course_id, course.loadCourseData);
+        $.getJSON( puzzleAPI.apiUrl + 'courses/' + course_id, course.loadCourseData);
       });
   },
   loadCourseData: (data) => {    
@@ -459,20 +475,178 @@ $(document).ready(function() {
   }
   if (currentPageName.startsWith("puzzle-view")) {
     puzzle_id = course.parseInput('puzzle');
-    if (puzzle_id) {
-      localStorage.setItem( "currentPuzzleId", puzzle_id);
-      $.getJSON( puzzle_id, (data)=> {
-        $('#puzzle-title').text( puzzle_id );
-        $('#puzzle-owner').text( '관리자' );
-      } ).error(function() {
-        $.getJSON( 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/puzzles/' + puzzle_id + '?type=info', (data) => {          
-          var date = new Date( data.timestamp );
-          $('#puzzle-title').text( data.title );
-          $('#puzzle-owner').text( data.owner );
-          $('#puzzle-date').text( date.toLocaleDateString());
-        });
-      });
+    if (puzzle_id == null) {
+      localStorage.removeItem( "currentPuzzleId" );
+      return;
     }
-    else localStorage.removeItem( "currentPuzzleId");
+    localStorage.setItem( "currentPuzzleId", puzzle_id);
+    $.getJSON( puzzle_id, (data)=> {
+      $('#puzzle-title').text( puzzle_id );
+      $('#puzzle-owner').text( '관리자' );
+    } ).error(function() {
+      $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=info',
+        processData: false,
+        success: (data)=> {
+          $('#puzzle-title').text( puzzle_id );
+          $('#puzzle-owner').text( '관리자' );
+          if (Module == null) loadModule('per_stage');
+          //Module.loadPuzzleData(data);
+          //Module.SendMessage('Level', 'setLevelWithTransition',  puzzleAPI.apiUrl + 'puzzles/' + puzzle_id);
+        }
+      });
+    });
   }
+});
+
+AWSCognito.config.region = CognitoConfig.region;
+AWSCognito.config.update({accessKeyId: 'null', secretAccessKey: 'null'});
+const puzzleAPI = {
+  apiUrl: 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/',  
+  cognitoUser: null,
+  credentials: null,
+  userPool : new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( {
+    UserPoolId: CognitoConfig.userPoolId, ClientId: CognitoConfig.appClientId 
+  }),
+  token: null,
+  signUp: (userId, userPhoneNumber, userPasswd, email, type='educator', course_id = '') => {
+    if (userId == null || userPhoneNumber == null || userPasswd == null || email == null) {
+      alert('Invalid signup request');
+      return;
+    }        
+    var attributeList = [ 
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'email', Value: email } ),
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'phone_number', Value: userPhoneNumber } ),
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'custom:role', Value: type } ),
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'custom:ReferredClassId', Value: course_id })
+    ];        
+    puzzleAPI.userPool.signUp(userId, userPasswd, attributeList, null, function(err, result) {
+        if (err) {
+          alert(err);
+          return;
+        }
+        console.log(result);
+        puzzleAPI.cognitoUser = result.user;
+    });
+  },
+  confirm: (activateCode) => {
+    if (puzzleAPI.cognitoUser == null) {
+      alert("You didn't sign up yet");
+      return;
+    }
+    puzzleAPI.cognitoUser.confirmRegistration(activateCode, true, function(err, result) {
+      if (err) {
+        alert(err);
+        return;
+      }      
+    });
+  },
+  login: (userId, userPasswd)=> {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser != null) return;
+    var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(
+      { Username: userId, Password: userPasswd } );
+    puzzleAPI.cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser( {Username: userId, Pool: puzzleAPI.userPool} );
+    puzzleAPI.cognitoUser.authenticateUser(authenticationDetails, {
+      onSuccess: function(result) {        
+        puzzleAPI.currentUser();
+        $('#Gnb-profile-info span:nth-child(1)').text( puzzleAPI.cognitoUser.getUsername());
+        $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+      },
+      onFailure: function(result) {
+        puzzleAPI.cognitoUser = null;
+        puzzleAPI.token = null;
+        alert(result);
+      },
+      mfaRequired: function(codeDeliveryDetails) {
+        var verificationCode = prompt('Please input verification code', '');
+        puzzleAPI.cognitoUser.sendMFACode(verificationCode, this);
+      }
+    });
+  },
+  forgot: (userId) => {
+    puzzleAPI.cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser( {Username: userId, Pool: puzzleAPI.userPool} );
+    puzzleAPI.cognitoUser.forgotPassword( {
+      onSuccess: function(result) {
+        console.log('call result: ' + result);
+      },
+      onFailure: function(err) {
+        puzzleAPI.cognitoUser = null;
+        puzzleAPI.token = null;
+        alert(err);
+      },
+      inputVerificationCode() {
+        var verificationCode = prompt('Please enter your verification code ', '');
+        var newPassword = prompt('Enter new Password ', '' );
+        puzzleAPI.cognitoUser.confirmPassword(verificationCode, newPassword, this);
+      }
+    });
+  },
+  
+  currentUser: () => {
+    puzzleAPI.cognitoUser = puzzleAPI.userPool.getCurrentUser();
+    if (puzzleAPI.cognitoUser == null) {
+      return;
+    }
+    puzzleAPI.cognitoUser.getSession(function(err, session) {
+      if (err || session.isValid() == false) return;
+
+      puzzleAPI.token = session.getIdToken().getJwtToken();
+      login_addr = "cognito-idp." + CognitoConfig.region + '.amazonaws.com/' + CognitoConfig.userPoolId + "'";
+      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: CognitoConfig.userPoolId,
+        Logins: {
+          login_addr : puzzleAPI.token
+        }
+      });
+      puzzleAPI.credentials = AWS.config.credentials;
+    });
+  },
+  deletePuzzle: (puzzle_id) => {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) return;
+    
+    $.ajax( { type: 'DELETE', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id,
+      headers: {
+        'Authorization' : puzzleAPI.token
+      },
+      processData: false,
+      success: (data)=> {
+        console.log(data);
+      }
+    });
+  },
+  logout: () => {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser) {
+      if (puzzleAPI.credentials) {
+        puzzleAPI.credentials.clearCachedId();
+        puzzleAPI.credentials = new AWS.CognitoIdentityCredentials( {
+          IdentityPoolId: CognitoConfig.userPoolId
+        });
+        AWS.config.credentials = puzzleAPI.credentials;
+      }
+      puzzleAPI.cognitoUser.signOut();
+    }
+    puzzleAPI.cognitoUser = null;
+    puzzleAPI.token = null;
+    $('#Gnb-profile-info span:nth-child(1)').text("");
+    $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+  }
+};
+
+$(document).ready(function() {
+  puzzleAPI.currentUser();  
+  
+  $('#Gnb-profile-info span:nth-child(1)')
+    .text(puzzleAPI.cognitoUser ? puzzleAPI.cognitoUser.username : "");
+  $('#Gnb-menu .login img')
+    .attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+
+  $('#Gnb-menu .login img').on('click', function() {
+    if ($(this).attr('src') == 'img/login.png') {
+      puzzleAPI.login('XXX', 'XXX');
+    } else {
+      puzzleAPI.logout();
+    }
+  });
 });
