@@ -591,11 +591,13 @@ const puzzleAPI = {
       { Username: userId, Password: userPasswd } );
     puzzleAPI.cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser( {Username: userId, Pool: puzzleAPI.userPool} );
     puzzleAPI.cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: function(result) {        
+      onSuccess: function(result) {
         puzzleAPI.currentUser();
+            
         $('#Gnb-profile-info span:nth-child(1)').text( puzzleAPI.cognitoUser.getUsername());
         $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
         if (currentPageName.startsWith("studying")) {
+          puzzleAPI.refreshUserLogin();
           course_id = course.parseInput('course');
           if (course_id) course.loadCourse( course_id);
           else course.loadCourse( 'elementary');
@@ -682,8 +684,12 @@ const puzzleAPI = {
     puzzleAPI.token = null;
     course.progress_info = null;
     
+    puzzleAPI.refreshUserLogin();    
     $('#Gnb-profile-info span:nth-child(1)').text("");
     $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+    course_id = course.parseInput('course');
+    if (course_id) course.loadCourse( course_id);
+    else course.loadCourse( 'elementary');
   },
   fetchProgress: () => {
     if (course.id == null) return;
@@ -718,6 +724,20 @@ const puzzleAPI = {
         console.log(err);
       }
     });
+  },
+  refreshUserLogin: () => {
+    puzzleAPI.currentUser();  
+    
+    if (puzzleAPI.cognitoUser) {
+      $('.menu-user').hide();
+      $('.menu-login').html('<a req="logout">로그아웃</a>').show();
+      $('.menu-login-userid').html( puzzleAPI.cognitoUser.username).show();
+    } else {
+      $('.menu-user').hide();
+      $('.menu-signup').show();
+      $('.menu-login').html('<a req="login">로그인</a>').show();
+      $('.menu-user-password, .menu-user-id').show();
+    }    
   }
 };
 
@@ -748,8 +768,21 @@ const puzzleAPI = {
   });
 })(jQuery);
 
+$(document).on('click', '.menu-login a', function(e){
+  switch ($(e.currentTarget).attr('req')) {
+    case "logout":
+      puzzleAPI.logout();
+      break;
+    case "login":
+      puzzleAPI.login( $('.menu-user-id input').val(), $('.menu-user-password input').val());
+      break;
+  }
+  
+});
+
 $(document).ready(function() {
-  puzzleAPI.currentUser();  
+  
+  puzzleAPI.refreshUserLogin();
   
   $('#Gnb-profile-info span:nth-child(1)')
     .text(puzzleAPI.cognitoUser ? puzzleAPI.cognitoUser.username : "");
@@ -758,7 +791,7 @@ $(document).ready(function() {
 
   $('#Gnb-menu .login img').on('click', function() {
     if ($(this).attr('src') == 'img/login.png') {
-      puzzleAPI.login('XXX', 'XXXX');
+      //puzzleAPI.login('XXX', 'XXX');
     } else {
       puzzleAPI.logout();
     }
