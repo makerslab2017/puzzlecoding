@@ -186,15 +186,15 @@
             </div>
             <!--드랍다운끝-->
             <div class="gallery-search">
-            <div class="flex-box-inner">
-              <span>
-                <div class="search_wrap">
-                  <input type="text" placeholder="검색어를입력하세요">
-                  <div style="width:100%; height:100%">
-                    <i class="material-icons">search</i>
+              <div class="flex-box-inner">
+                <span>
+                  <div class="search_wrap">
+                    <input type="text" placeholder="검색어를 입력하세요">
+                    <div class="search_button"><i class="material-icons">search</i></div>
+                    
                   </div>
-                </div>
-              </span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -208,12 +208,21 @@
     <div class="row row-margin gallery">
 
       <div class="col-md-3 col-sm-6" id="next-button">
-        <section class="gallery-box">
-          <div>
-          <i class="material-icons">navigate_next</i>
+        <section class="gallery-box" style="visibility:hidden;">
+          <div class="gallery-image">
+            <img src="stage/gallery_dummy.png" alt="더미이미지">
+          </div>
+          <div class="gallery-list-info">
+            <span class="gallery-user-pic"><img src="img/gallery_dummy2.png" alt="더미이미지"></span>
+            <span><div class="gallery-title"></div></span>
+            <span><div class="gallery-user-name"></div></span>
+          </div>
+          <div class="gallery-social-info">
+            <div><i class="material-icons">&nbsp;</i></div>
           </div>
           
         </section>
+        <div class="next-button"><div><i class="material-icons">navigate_next</i></div></div>
       </div>
     </div>
     <button id="making-puzzle">퍼즐 만들기</button>
@@ -226,6 +235,7 @@
           html: '<section id="' + item.id + '" class="gallery-box"><div class="gallery-image" data="puzzleDeco0101"><img src="stage/gallery_dummy.png" alt="더미이미지"></div><div class="gallery-list-info"><span class="gallery-user-pic"><img src="img/gallery_dummy2.png" alt="더미이미지"></span><span><div class="gallery-title">' + item.title + '</div><div class="gallery-user-name">창작: &nbsp;<span>'+ item.owner + '</span></div></span></div><div class="gallery-social-info"><div><img src="img/share_orange.png" alt="공유하기"><span>' + item.n_sharings + '</span></div><div><img src="img/like.png" alt="좋아요"><span>' + item.n_likes + '</span></div><div><img src="img/dislike.png" alt="싫어요"><span>' + item.n_dislikes + '</span></div><div><span><i class="material-icons">delete</i></span></div></div></section>'
         }).appendTo('.gallery');
         
+        /*
         $('#' + item.id + ' .material-icons').on('click', (e)=> {
           e.stopPropagation();
           puzzleAPI.deletePuzzle(item.id);
@@ -233,7 +243,20 @@
         $('#' + item.id ).on('click', () => {
           window.location.href = 'puzzle-view.html?puzzle=' + item.id;
          });
+         */
       };
+      $(document).on('click', '.gallery-box', function(e) {
+        var id = $(e.currentTarget).attr('id');
+        if (id == null) return;
+        window.location.href = 'puzzle-view.html?puzzle=' + id;
+      });
+      $(document).on('click', '.gallery-box .material-icons', (e)=> {
+        
+        var id = $(e.currentTarget).parents('.gallery-box').attr('id');
+        e.stopPropagation();
+        if (id == null) return;
+        puzzleAPI.deletePuzzle(id);
+      });
       readFromWeb = () => {
         $.getJSON( puzzleAPI.apiUrl + 'puzzles',  pagination_info, (data)=> {
           //$('.gallery').empty();
@@ -251,26 +274,13 @@
           $('#next-button').appendTo('.gallery');
         });
       };
-
-      $('.gallery-box').on('click', function() {
-        console.log('called');
-      });
-      
+    
       readFromWeb();
       $('#next-button').on('click', readFromWeb);
       
       $('#making-puzzle').on('click', function() {
         window.location.href = 'puzzle-game.html';
       });
-      /*
-      $('.gallery-box material-icons').on('click', (e)=> {
-          console.log('first');
-          e.stopPropagation();
-         });
-      $('.gallery-box').on('click', () => {
-        console.log('next');
-      });
-      */  
     </script>
     <!--
     <div class="pagination-wrapper">

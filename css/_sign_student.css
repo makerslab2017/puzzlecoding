@@ -1,0 +1,64 @@
+body{
+    font-family: 'Noto Sans Korean', sans-serif;
+    letter-spacing: -0.05em;
+}
+#signup_title1{
+    width: 100%;
+    height: 150px;
+    font-weight: 100;
+    color: white;
+    font-size: 4.0em;
+    padding-left: 10%;
+    padding-top: 8px;
+    margin-bottom: 10px;
+    background: #FBB03B;
+}
+.signup-box{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.signup-box label{
+    display: block;
+    padding-top: 25px;
+    padding-bottom: 1px;
+}
+.signup-box b{
+    font-weight: 200;
+    color: #999999;
+    font-style: normal;
+    font-size: 1.3em;
+    letter-spacing: 0.1px;
+}
+#lab1 {
+    width: 200px;
+}
+#lab2-1{
+    width: 45px;
+}
+#lab2-2, #lab2-3{
+    width: 60px;
+}
+#lab3, #lab4 {
+    width: 180px;
+}
+
+#lab6 {
+    width:130px;
+}
+.signup-box p{
+    font-weight: 200;
+    font-size: 0.9em;
+    color: #999999;
+    padding-top: 2px;
+}
+#button_check, #check_admission{
+    background: #FBB03B;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}

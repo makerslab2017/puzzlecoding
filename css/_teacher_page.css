@@ -1,0 +1,6 @@
+.left_container {
+    margin-left: 5%;
+    background-color: aqua;
+    display: inline-block;
+    width: 100px;
+}

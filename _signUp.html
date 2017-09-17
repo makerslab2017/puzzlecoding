@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--페이지로딩후 html 노출-->
+<html lang="ko" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/_signUp.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+    <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="js/aws-cognito-sdk.min.js"></script>
+    <script src="js/amazon-cognito-identity.min.js"></script>
+    <script src="js/aws-sdk.min.js"></script>
+    <script src="js/aws-cognito-config.js"></script>
+    <script src="js/custom_json.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]--> 
+</head>
+<body>
+    <div id="page-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <label id="whichone">사용자 유형 선택</label>
+                </div>
+                <div class="select col-md-10 col-md-offset-1">
+                    <div class="selection col-md-4">
+                        <div><img src="img/id-account.png" class="select_char"></div>
+                        <div>
+                            <label>
+                                <b>교사</b>
+                                <p>
+                                    새로운 교육과정을 직접 만들 수 있으며(현재 작업 진행중) 교육과정에 등록된 학생들의 진도를 확인할 수 있습니다.
+                                </p>
+                                <p>
+                                    등록을 위해서는 유효한 이메일 주소가 필요하며 자신의 교육과정을 듣고자하는
+                                    학생에게 등록시 자신의 이메일 주소를 알려주면 학생은 추가 인증없이 바로 사용가능합니다.
+                                </p>
+                                <p>
+                                    직접 퍼즐을 만들거나 퍼즐미션을 수행할 수 있습니다.    
+                                </p>
+                            </label>
+                        </div>
+                        <div class="puzzlecoding">
+                            <button data-type="educator" class="orange">교사로 등록하기</button>
+                        </div>
+                    </div>
+                    <div class="selection col-md-4">
+                        <div><img src="img/id-account.png" class="select_char"></div>
+                        <div>
+                            <label>
+                                <b>학생</b>
+                                <p>
+                                    등록시 선생님의 이메일을 사용하여 등록하면 추가 인증없이 바로 사용가능합니다.
+                                </p>
+                                <p>
+                                    퍼즐을 직접 만들고 플레이해볼 수 있습니다.
+                                </p>
+                                <p>
+                                    새로운 교과과정을 수강할 수 잇으며 자신의 현재 작업 진도 상황을 저장할 수 있습니다.
+                                </p>
+                            </label>
+                        </div>
+                        <div class="puzzlecoding">
+                            <button data-type="student" class="green">학생으로 등록하기</button>
+                        </div>
+                    </div>
+                    <div class="selection col-md-4">
+                        <div><img src="img/id-account.png" class="select_char"></div>
+                        <div>
+                            <label>
+                                <b>학부모</b>
+                                <p>추후 지원 예정입니다.</p>
+                                <p>
+                                    자신의 자녀의 학습 진도를 바로 확인할 수 있습니다.
+                                </p>
+                            </label>
+                        </div>
+                        <div class="puzzlecoding">
+                            <button data-type="parent" disabled="disabled" class="blue">학부모로 등록하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

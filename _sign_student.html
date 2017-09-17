@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--페이지로딩후 html 노출-->
+<html lang="ko" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/_sign_student.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+    <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="js/aws-cognito-sdk.min.js"></script>
+    <script src="js/amazon-cognito-identity.min.js"></script>
+    <script src="js/aws-sdk.min.js"></script>
+    <script src="js/aws-cognito-config.js"></script>
+    <script src="js/custom_json.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]--> 
+</head>
+<body>
+    <label id="signup_title1">학생 회원가입<hr></label>
+    
+    <div class="signup-box">
+        
+        <label><hr><b>아이디</b></label>
+        <input type="text" id="register_input_id" placeholder="아이디 입력">
+        <span id="checkbox_available_id" style="color:lightgreen;"></span>
+        <span>한글로 입력할 때는 엔터키를 눌러 아이디 사용 여부를 확인해주세요.</span>
+
+        <label><b>이메일</b></label>
+        <input type="text" id="register_input_email" placeholder="이메일 주소 입력"> <span>선생님이나 이메일 주소나 부모님의 이메일 주소를 이용해야 합니다.</span>
+        
+        <label><b>패스워드</b></label>
+        <input type="password" id="register_input_password"  placeholder="패스워드">
+        
+        <label><b>패스워드 확인</b></label>
+        <input type="password" id="confirm_input_password" placeholder="패스워드 확인">
+        <button id="register_final_request_student">등록 요청</button>
+            
+        <!-- 팝업 창 연결하기-->
+        <!--<p>* 인증 방법에는 (1)핸드폰 인증과 (2)교사를 통한 인증 두 가지가 있습니다.<br/>** 교사를 통한 인증의 경우 담당 교사를 통해 받은 수업 번호를 입력하면 됩니다.</p>-->
+    </div>
+</body>
+</html>

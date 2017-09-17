@@ -198,7 +198,6 @@ $(document).click(function(e) {
 
 
 Module = null;
-var course_info = null;
 
 var moduleName = null;
 
@@ -223,14 +222,17 @@ function loadModule()
     $.extend(Module, {
       dynamicLoading : true,
       startTime : null,
-      stage :'stage',
       moduleName : moduleName,
-      obj : null,
       robotLoaded : false,
       OnMissionComplete: function() {
-        if (Module.obj == null) return;
-		    missionCompleteProcess = true;
-        $(".stage-progress", Module.obj[0]).attr('src', 'img/normal-clear.png');
+        if (course.current_puzzle_id == null) return;
+        missionCompleteProcess = true;
+        
+        $(".progress-org li[data-stage=" + course.current_puzzle_id +"]").children('.stage-progress').attr('src', 'img/normal-clear.png');
+        if (course.progress_info == null) {
+          course.progress_info = {};  
+        }
+        course.progress_info[course.current_puzzle_id] = "completed";
 		    missionCompleteProcess = false;
         
         // move to a next mission
@@ -254,7 +256,7 @@ function loadModule()
               return;
             }
             $('.making-puzzle input').val(puzzle_stage);
-            $.get( './stage/' + puzzle_stage + '.json', function(data) {
+            $.get( 'puzzles/' + puzzle_stage + '.json', function(data) {
               Module.loadPuzzleData(JSON.stringify(data));
             });
           }
@@ -269,11 +271,12 @@ function loadModule()
         if (Module.moduleName === 'per_stage') { 
           onUnityLoad = true;
           Module.OnReadyPostprocess();
-          if (Module.obj == null) return;
+          if (course.current_puzzle_id == null) return;
 
           // just in case if someone clicked one of stages already, load it generously.
-          if ( $(Module.obj).attr('src') === 'img/current-status.png')
-            course.loadStage(Module.obj);
+          var obj = $("li[data-stage=" + course.current_puzzle_id +"]");
+          if (obj.children(".stage-progress").attr('src') === 'img/current-status.png')
+            course.loadStage(obj[0]);
         }
       },
       OnPuzzleReady: function() {
@@ -295,19 +298,17 @@ function loadModule()
         gamePlayingProcess = false;
       },
       SendPuzzleInfo: function() {
-        Module.SendMessage("GameManager","getStageInfo", Module.stage);
+        Module.SendMessage("GameManager","getStageInfo", Module.id);
       },
       loadPuzzle: (puzzle_id) => {
-        $.getJSON( './stage/' + puzzle_id + '.json', (data)=> Module.SendMessage('Level', 'setLevelWithTransition', './stage/' + puzzle_id + '.json') ).error(function() {
-          puzzleAPI.currentUser();
-          if (puzzleAPI.cognitoUser == null) return;
+        $.getJSON( 'puzzles/' + puzzle_id + '.json', (data)=> {
+          Module.SendMessage('Level', 'setLevelWithTransition', 'puzzles/' + puzzle_id + '.json');
+          course.current_puzzle_id = puzzle_id;
+        }).error(function() {
           $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=all',
-              headers: {
-                'Authorization' : puzzleAPI.token
-              },
               success: (data)=> {
+                course.current_puzzle_id = puzzle_id;
                 Module.loadPuzzleData(data);
-                //Module.SendMessage('Level', 'setLevelWithTransition',  puzzleAPI.apiUrl + 'puzzles/' + puzzle_id);
               }
             });
         });
@@ -319,7 +320,7 @@ function loadModule()
       },
       loadRobot: (robot_id) => {
         if (robot_id == null) {
-          Module.SendMessage("UI", 'BotInfoTest', robot_id ? robot_id : './stage/BotInfo2.json');
+          Module.SendMessage("UI", 'BotInfoTest', robot_id ? robot_id : 'puzzles/BotInfo2.json');
         }
         Module.robotLoaded = true;
       }
@@ -328,12 +329,16 @@ function loadModule()
 } // end of loadModule()
 
 const course = {
+  id: null,
   info: null,
+  current_puzzle_id: null,
+  progress_info: null,
   buildCourseInfo: (info) => {
-      $('#course_text').text( info.title );
-      $('#course_info .status-page-title').text( info.title);
-      $('#course_info .intro-element-title').text( info.introduction );
-      $('#course_info .lh2').text( info.description );
+    course.info = info;
+    $('#course_text').text( info.title );
+    $('#course_info .status-page-title').text( info.title);
+    $('#course_info .intro-element-title').text( info.introduction );
+    $('#course_info .lh2').text( info.description );      
   },
   buildLesson: (target, key, value) => {
       $("<li/>", {
@@ -341,35 +346,29 @@ const course = {
       }).attr({"data": key}).appendTo(target);
   },
   buildStages: (target, lesson) => {
-      $('<h2/>', { html: lesson.title }).appendTo(target);
-      $('<h3/>', { html: lesson.description }).appendTo(target);
-      $('<div/>', {class: 'progress-wrapper'}).appendTo(target);
-      $('<ul/>', {class: 'progress-org'}).appendTo(target + ' .progress-wrapper');
-      $.each(lesson.stages, (key, value)=> {
-          $("<li/>", {
-              html: '<img src="img/normal.png" alt="진도현황-1" class="stage-progress">'
-          }).attr({"data-stage": value }).appendTo(target + ' .progress-org');
-      });
-
-      $(".progress-org li").on('click', function() {
-          if (Module == null) loadModule();
-          if(missionCompleteProcess == false && gamePlayingProcess == false)
-          {
-              $('.progress-org img[src="img/current-status.png"]').attr('src', 'img/normal.png');                
-              $(".stage-progress", this).attr('src', 'img/current-status.png');
-              course.loadStage(this);
-          }
-      } );
+    $('<h2/>', { html: lesson.title }).appendTo(target);
+    $('<h3/>', { html: lesson.description }).appendTo(target);
+    $('<div/>', {class: 'progress-wrapper'}).appendTo(target);
+    $('<ul/>', {class: 'progress-org'}).appendTo(target + ' .progress-wrapper');
+    $.each(lesson.stages, (key, value)=> {
+      var src = "img/normal.png";
+      if (course.progress_info && course.progress_info.hasOwnProperty(value)) {
+        if (course.progress_info[value] == "completed")
+          src = "img/normal-clear.png";
+      }
+      $("<li/>", {
+          html: '<img src="' + src + '" alt="진도현황-1" class="stage-progress">'
+      }).attr({"data-stage": value }).appendTo(target + ' .progress-org');
+    });
   },
   loadStage: (obj) => {
       if (obj == null) return;
-      if(Module.missionCompleteProcess == true) return;
+      if(missionCompleteProcess == true) return;
+
+      course.current_puzzle_id = $(obj).attr('data-stage');
+      console.log(course.current_puzzle_id);
       
-      Module.obj = $(obj);
-      Module.stage = $(obj).attr('data-stage');
-      console.log(Module.stage);
-      
-      $.get('./stage/' + Module.stage + '.html', function(data) {
+      $.get('puzzles/' + course.current_puzzle_id + '.html', function(data) {
           $('.slidePage').empty().append(data);
           $('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
           $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
@@ -383,15 +382,17 @@ const course = {
           course.displayHelpRandomly();
       });
       
-      if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
-        Module.loadPuzzle(Module.stage);
-        if (Module.robotLoaded == false)
-          Module.loadRobot();
-        return;
+      if (course.current_puzzle_id && course.current_puzzle_id != 'latest' && course.current_puzzle_id != 'puzzleLatest') {
+        if (Module) {
+          Module.loadPuzzle(course.current_puzzle_id);
+          if (Module.robotLoaded == false)
+            Module.loadRobot();
+          return;
+        }
       }
       var stageData = localStorage.getItem('latestEditedStage');
       if (stageData == null) return;
-      Module.loadPuzzleData(stageData);      
+      if (Module) Module.loadPuzzleData(stageData);
   }, 
   showLesson: (lesson) => {
       $('.chasi-progress').empty();
@@ -417,16 +418,15 @@ const course = {
       $('.gameTextRandom').html(myText);
   },
   loadCourse: (course_id) => {
-      $.getJSON( course_id, course.loadCourseData ).error(function() {
-        $.getJSON( puzzleAPI.apiUrl + 'courses/' + course_id, course.loadCourseData);
-      });
+    course.id = course_id;
+    $.getJSON( 'courses/' + course_id, course.loadCourseData ).error(function() {
+      $.getJSON( puzzleAPI.apiUrl + 'courses/' + course_id, course.loadCourseData);
+    });
   },
-  loadCourseData: (data) => {    
-    course_info = data;
-    course.buildCourseInfo(course_info);    
+  postloadCourseData: (course_info) => {
     $.each( course_info.lessons, (key, value)=> {
-        course.buildLesson('.chasi ul', key, value);
-        course.buildStages('.chasi-progress', value);
+      course.buildLesson('.chasi ul', key, value);
+      course.buildStages('.chasi-progress', value);
     });
     var firstLesson;
     for (var key in course_info.lessons) {
@@ -436,14 +436,26 @@ const course = {
       }
     }
     $(".chasi ul li").first().addClass('chasi-active');
+  },
+  loadCourseData: (course_info) => {
+    course.buildCourseInfo(course_info);
 
-    $(".chasi ul li").click(function() {
-      // if(onUnityLoad ==false) return;
-        if ($(this).hasClass('chasi-active') == false) {
-            $(".chasi ul li").removeClass("chasi-active");
-            $(this).addClass('chasi-active');
-        }	
-        course.showLesson(course_info.lessons[$(this).attr('data')] );
+    if (course.id == null) return;
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) {
+      course.postloadCourseData(course_info);
+      return;
+    }
+    // fetch progress information
+    $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'progress/' + course.id,
+      headers: { 'Authorization' : puzzleAPI.token },
+      success: (data) => {
+        course.progress_info = data.progress;
+        course.postloadCourseData(course_info);
+      },
+      fail: (err) => {
+        course.progress_info = {};
+      }
     });
   },
   parseInput: ( key ) => {
@@ -469,9 +481,7 @@ $(document).ready(function() {
   if (currentPageName.startsWith("studying") ) {
     course_id = course.parseInput('course');
     if (course_id) course.loadCourse( course_id);
-    else course.loadCourse( 'courses/elementary.json');
-    
-    //course.loadCourse( 'c4924670-9537-11e7-963b-93073b4ef4e7' );
+    else course.loadCourse( 'elementary');
   }
   if (currentPageName.startsWith("puzzle-view")) {
     puzzle_id = course.parseInput('puzzle');
@@ -480,21 +490,44 @@ $(document).ready(function() {
       return;
     }
     localStorage.setItem( "currentPuzzleId", puzzle_id);
-    $.getJSON( puzzle_id, (data)=> {
+    $.getJSON( 'puzzles/' + puzzle_id +'.json', (data)=> {
       $('#puzzle-title').text( puzzle_id );
       $('#puzzle-owner').text( '관리자' );
     } ).error(function() {
       $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=info',
         processData: false,
         success: (data)=> {
-          $('#puzzle-title').text( puzzle_id );
-          $('#puzzle-owner').text( '관리자' );
-          if (Module == null) loadModule('per_stage');
-          //Module.loadPuzzleData(data);
-          //Module.SendMessage('Level', 'setLevelWithTransition',  puzzleAPI.apiUrl + 'puzzles/' + puzzle_id);
+          $('#puzzle-title').text( data.title );
+          $('#puzzle-description').text( data.description );
+          $('#puzzle-owner').text( data.owner );
+          $('#puzzle-date').text( new Date(data.timestamp).toLocaleString() );
+          if (Module == null) loadModule('per_stage');          
         }
       });
     });
+  }
+});
+
+$(document).on('click', '.puzzlecoding button', function() {
+  window.location.href = '_sign_' + $(this).attr('data-type') + '.html';
+});
+
+$(document).on('click', ".chasi ul li", function(e) {  
+  if ($(e.currentTarget).hasClass('chasi-active') == false) {
+      $(".chasi ul li").removeClass("chasi-active");
+      $(e.currentTarget).addClass('chasi-active');
+  }	
+  course.showLesson(course.info.lessons[$(e.currentTarget).attr('data')] );
+});
+
+$(document).on('click', ".progress-org li", function(e) {
+  if (Module == null) loadModule();
+  if(missionCompleteProcess == false && gamePlayingProcess == false)
+  {
+      $('.progress-org img[src="img/current-status.png"]').attr('src', 'img/normal.png');
+      $(e.currentTarget).children(".stage-progress").attr('src', 'img/current-status.png');
+      console.log(e.currentTarget);
+      course.loadStage(e.currentTarget);
   }
 });
 
@@ -508,6 +541,17 @@ const puzzleAPI = {
     UserPoolId: CognitoConfig.userPoolId, ClientId: CognitoConfig.appClientId 
   }),
   token: null,
+  checkAvailability: (candidate_id) => {
+    $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'users/' + candidate_id,
+      processData: false,
+      success: (data)=> {
+        console.log(data);
+        $('#checkbox_available_id').html( 
+          data["is_available"] == true ? "<i class='material-icons'>check</i>" : ""
+        );
+      }
+    });
+  },
   signUp: (userId, userPhoneNumber, userPasswd, email, type='educator', course_id = '') => {
     if (userId == null || userPhoneNumber == null || userPasswd == null || email == null) {
       alert('Invalid signup request');
@@ -524,7 +568,7 @@ const puzzleAPI = {
           alert(err);
           return;
         }
-        console.log(result);
+        $('#confirm_admission').attr('visibility', 'visible');
         puzzleAPI.cognitoUser = result.user;
     });
   },
@@ -551,6 +595,11 @@ const puzzleAPI = {
         puzzleAPI.currentUser();
         $('#Gnb-profile-info span:nth-child(1)').text( puzzleAPI.cognitoUser.getUsername());
         $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+        if (currentPageName.startsWith("studying")) {
+          course_id = course.parseInput('course');
+          if (course_id) course.loadCourse( course_id);
+          else course.loadCourse( 'elementary');
+        }
       },
       onFailure: function(result) {
         puzzleAPI.cognitoUser = null;
@@ -618,6 +667,8 @@ const puzzleAPI = {
   logout: () => {
     puzzleAPI.currentUser();
     if (puzzleAPI.cognitoUser) {
+      puzzleAPI.recordProgress(false);
+      
       if (puzzleAPI.credentials) {
         puzzleAPI.credentials.clearCachedId();
         puzzleAPI.credentials = new AWS.CognitoIdentityCredentials( {
@@ -629,10 +680,73 @@ const puzzleAPI = {
     }
     puzzleAPI.cognitoUser = null;
     puzzleAPI.token = null;
+    course.progress_info = null;
+    
     $('#Gnb-profile-info span:nth-child(1)').text("");
     $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+  },
+  fetchProgress: () => {
+    if (course.id == null) return;
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) return;
+    $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'progress/' + course_id,
+      headers: { 'Authorization' : puzzleAPI.token },
+      success: (data) => {
+        course.progress_info = data.progress;
+      },
+      fail: (err) => {
+        course.progress_info = null;
+      }
+    });
+  },
+  recordProgress: (async=true) => {
+    if (course.id == null || course.progress_info == null) return;
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) return;
+    $.ajax( { type: 'POST', url: puzzleAPI.apiUrl + 'progress/' + course.id,
+      async: async,
+      headers: {
+        'Authorization' : puzzleAPI.token
+      },
+      data: JSON.stringify({ 
+        progress: course.progress_info
+      }),
+      success: (data) => {
+        console.log(data);
+      },
+      fail: (err) => {
+        console.log(err);
+      }
+    });
   }
 };
+
+(function($){
+  $.fn.extend({
+    donetyping: function(callback,timeout){
+      timeout = timeout || 1e3; // 1 second default timeout
+      var timeoutReference,
+        doneTyping = function(el){
+            if (!timeoutReference) return;
+            timeoutReference = null;
+            callback.call(el);
+        };
+      return this.each(function(i,el) {
+        var $el = $(el);
+        $el.is(':input') && $el.on('keyup keypress paste',function(e){
+          if (e.type=='keyup' && e.keyCode!=8) return;
+          
+          if (timeoutReference) clearTimeout(timeoutReference);
+          timeoutReference = setTimeout(function(){
+              doneTyping(el);
+          }, timeout);
+        }).on('blur',function(){
+          doneTyping(el);
+        });
+      });
+    }
+  });
+})(jQuery);
 
 $(document).ready(function() {
   puzzleAPI.currentUser();  
@@ -644,9 +758,48 @@ $(document).ready(function() {
 
   $('#Gnb-menu .login img').on('click', function() {
     if ($(this).attr('src') == 'img/login.png') {
-      puzzleAPI.login('XXX', 'XXX');
+      puzzleAPI.login('XXX', 'XXXX');
     } else {
       puzzleAPI.logout();
     }
   });
+
+  $('#check_admission').on('click', function() {
+    var pwd = $('#register_input_password').val();
+    var confirm_pwd = $('#confirm_input_password').val();
+    if (pwd.length == 0 || pwd != confirm_pwd) {
+      $('#confirm_input_password').val('');
+      $('#register_input_password').val('').focus();
+      return;
+    }
+    puzzleAPI.signUp($('#register_input_id').val(), "+821059177477", $('#register_input_password').val(), $('#register_input_email').val() );
+  });    
+
+  $('#register_final_request').on('click', function() {
+    puzzleAPI.confirm($('#confirmation_number').val());
+  });
+
+  $('#register_final_request_student').on('click', function() {
+    var pwd = $('#register_input_password').val();
+    var confirm_pwd = $('#confirm_input_password').val();
+    if (pwd.length == 0 || pwd != confirm_pwd) {
+      $('#confirm_input_password').val('');
+      $('#register_input_password').val('').focus();
+      return;
+    }
+    puzzleAPI.signUp($('#register_input_id').val(), "+821059177477", $('#register_input_password').val(), $('#register_input_email').val(), 'student' );
+  });
+
+  $('#register_input_id').donetyping(()=> {
+    puzzleAPI.checkAvailability($('#register_input_id').val());
+  });
 });
+
+
+
+$(window).unload(function() {
+  if (currentPageName.startsWith("studying")) {
+    localStorage.removeItem("currentPuzzleId");
+    puzzleAPI.recordProgress(false);
+  }
+})

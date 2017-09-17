@@ -1,0 +1,673 @@
+{
+	"ListOfBoxData": 
+		[
+			{
+				"Name": "Tile_Start",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -1.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": true,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Start",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -1.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": true,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1.5,
+					"y": 0,
+					"z": -2
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.5,
+					"y": 0,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Plague",
+				"Position": {
+					"x": 1.5,
+					"y": 0,
+					"z": -1.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": true,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Plague",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.5,
+					"y": 0,
+					"z": -1.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": true,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			}
+		],
+	"ListOfObjectData": 
+		[
+			{
+				"Name": "BoringMachine",
+				"Position": {
+					"x": 1.75,
+					"y": 0,
+					"z": -2
+				},
+				"Scale": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				"Quaternion": {
+					"x": -0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": 0.5
+				},
+				
+				"\u003CName>k__BackingField": "BoringMachine",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.75,
+					"y": 0,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": 0.5
+				}
+			}
+		],
+	"LimitedCount": 
+		[
+			2,
+			5,
+			0
+		],
+	"CameraPos": {
+		"x": 14.9312716,
+		"y": 18.7412529,
+		"z": -15.4346523
+	},
+	"CameraSize": 1.60000515,
+	
+	"\u003CListOfBoxData>k__BackingField": 
+		[
+			{
+				"Name": "Tile_Start",
+				"Position": {
+					"x": 1,
+					"y": 0,
+					"z": -1.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": true,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Start",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1,
+					"y": 0,
+					"z": -1.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": true,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.5
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.5
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.25,
+					"y": 0,
+					"z": -1.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Basic",
+				"Position": {
+					"x": 1.5,
+					"y": 0,
+					"z": -2
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": false,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Basic",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.5,
+					"y": 0,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": false,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			},
+			{
+				"Name": "Tile_Plague",
+				"Position": {
+					"x": 1.5,
+					"y": 0,
+					"z": -1.75
+				},
+				"Scale": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"Quaternion": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				"Start": false,
+				"Traversable": true,
+				"Contaminated": true,
+				"WarpId": null,
+				"CountOfUpper": 0,
+				
+				"\u003CName>k__BackingField": "Tile_Plague",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.5,
+					"y": 0,
+					"z": -1.75
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.50000006,
+					"y": 0.49999994,
+					"z": 0.49999994,
+					"w": 0.50000006
+				},
+				
+				"\u003CStart>k__BackingField": false,
+				
+				"\u003CTraversable>k__BackingField": true,
+				
+				"\u003CContaminated>k__BackingField": true,
+				
+				"\u003CWarpId>k__BackingField": null,
+				
+				"\u003CCountOfUpper>k__BackingField": 0
+			}
+		],
+	
+	"\u003CListOfObjectData>k__BackingField": 
+		[
+			{
+				"Name": "BoringMachine",
+				"Position": {
+					"x": 1.75,
+					"y": 0,
+					"z": -2
+				},
+				"Scale": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				"Quaternion": {
+					"x": -0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": 0.5
+				},
+				
+				"\u003CName>k__BackingField": "BoringMachine",
+				
+				"\u003CPosition>k__BackingField": {
+					"x": 1.75,
+					"y": 0,
+					"z": -2
+				},
+				
+				"\u003CScale>k__BackingField": {
+					"x": 1,
+					"y": 1.00000048,
+					"z": 1.00000048
+				},
+				
+				"\u003CQuaternion>k__BackingField": {
+					"x": -0.5,
+					"y": -0.5,
+					"z": -0.5,
+					"w": 0.5
+				}
+			}
+		],
+	
+	"\u003CLimitedCount>k__BackingField": 
+		[
+			2,
+			5,
+			0
+		],
+	
+	"\u003CCameraPos>k__BackingField": {
+		"x": 14.9312716,
+		"y": 18.7412529,
+		"z": -15.4346523
+	},
+	
+	"\u003CCameraSize>k__BackingField": 1.60000515
+}

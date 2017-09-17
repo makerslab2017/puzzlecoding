@@ -1,0 +1,76 @@
+body{
+    font-family: 'Noto Sans Korean', sans-serif;
+    letter-spacing: -0.05em;
+}
+
+.login{
+    width: 60%;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.imglogin-box {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+.login-box b{
+    font-weight: 300;
+    color: #999999;
+    font-style: normal;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+input[type=text], input[type=password] {
+    font-size: 1.3em;
+    width: 100%;
+    padding: 12px 10px;
+    margin: 0 0 12px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#button_find{
+    background-color: #cecece;
+}
+#button_login{
+    background-color: #DB5845;
+}
+#join_button{
+    background-color: #4887B0;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    font-weight: 200;
+    color: white;
+    font-size: 1.9em;
+    padding: 15px;
+    margin: 40px 0;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 5px;
+}
+
+.findnlogin_button{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.findnlogin_button button{
+    font-weight: 300;
+    color: white;
+    font-size: 1.3em;
+    padding: 10px;
+    width: 49.3%;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}

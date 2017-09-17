@@ -1,4 +1,3 @@
-@import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
 body, footer {
     font-family: 'Noto Sans Korean', sans-serif;
     letter-spacing: -0.05em;
@@ -495,9 +494,11 @@ background-size: cover;
 
 .login {
     text-align: right;
+    height: 86px;
 }
 
 .login img {
+    height: 100%;
     cursor: pointer;
 }
 
@@ -1476,16 +1477,20 @@ background-size: cover;
     background-image: url(../img/gallery_dummy.png);
     background-size: 100% 100%;
     background-position: center center;
-}
-
-.gallery-image:hover {
-    background-size: 110% 110%;
+    overflow: hidden;
 }
 
 .gallery-image img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     transition: 0.3s;
     /*opacity: 0;*/
+}
+
+.gallery-image:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .gallery-list-info {
@@ -1568,6 +1573,7 @@ background-size: cover;
     -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.8);
     -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.8);
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.8);
+    border-radius: 16px;
 }
 
 .row-margin {
@@ -3249,6 +3255,8 @@ margin-top: 30px;
     #Gnb-frame {
         display: none;
     }
+
+
 }
 
 @media(max-width:992px) {
@@ -3262,6 +3270,11 @@ margin-top: 30px;
         line-height: 84px;
         cursor: pointer;
     }
+
+    .menu-user {
+        display: none;
+    }
+
     #page-wrapper {
     clear: both;
     padding-top:84px;
@@ -3452,13 +3465,13 @@ margin-top: 30px;
         width: 100%;
     }
     .status-page-title {
-    font-size: 21px;
-    display: inline-block;
-    margin-left: 35px;
-    font-weight: 300;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-}
+        font-size: 21px;
+        display: inline-block;
+        margin-left: 35px;
+        font-weight: 300;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+    }
 }
 
 @media(max-width:500px) {
@@ -3489,6 +3502,104 @@ margin-top: 30px;
     height: 64px;
     width: 64px;
 }
+
+.menu-user {
+    float: right;
+    color: #666666;
+    /*display: float;*/
+    font-size: 14px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.menu-user a {
+    padding: 10px;
+}
+
+.menu-user:hover a {
+    border-radius: 5px;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.puzzlecoding button {
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    width: 100%;
+    max-width: 145px;
+    padding: 6px 0;
+    border-radius: 50px;
+    font-weight: 300;
+    transition: 0.3s;
+    margin-top: 30px;
+}
+
+.puzzlecoding button:hover {
+    font-weight: 700;
+}
+
+.puzzlecoding .green {
+    background-color: #1AB49F;
+}
+
+.puzzlecoding .green:hover {
+    background-color: white;
+    color: #1AB49F;
+    border: 2px solid #1AB49F;
+}
+
+.puzzlecoding .orange {
+    background-color: #F89C36;
+}
+
+.puzzlecoding .orange:hover {
+    background-color: white;
+    color:  #F89C36;
+    border: 2px solid #F89C36;
+}
+
+.puzzlecoding .red {
+    background-color: #DC5743;
+}
+
+.puzzlecoding .red:hover {
+    background-color: white;
+    color:  #DC5743;
+    border: 2px solid  #DC5743;
+}
+
+.puzzlecoding .blue {
+    background-color: #4585B0;
+}
+
+.puzzlecoding .blue:hover {
+    background-color: white;
+    color:  #4585B0;
+    border: 2px solid  #4585B0;
+}
+
+
+
+.next-button {
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.next-button i {
+    font-size: 6em;
+}
+
+.next-button i:hover {
+    color: #42a5f5;
+}
+
 /*by lhm */
 .chasi-info .lecture-longimg{
 display: inline-block;
@@ -3497,4 +3608,5 @@ display: inline-block;
     left: 0px;
     height: 30px;
     width: 180px;
+
 }
