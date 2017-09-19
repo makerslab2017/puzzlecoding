@@ -18,7 +18,7 @@
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]--> 
 </head>
 <body>
   <!-- 헤더 시작 -->
@@ -176,8 +176,8 @@
                 <span>
                   <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </span>
-                <a href="studyingmiddle.html">
-                  중급과정
+                <a href="studying.html">
+                  초급과정
                 </a>
               </p>
             </section>
@@ -188,7 +188,7 @@
         <div class="row">
           <div class="col-md-5">
             <img src="img/intro-image.png" alt="리스트 이미지">
-            <h2 class="status-page-title">중급과정</h2>
+            <h2 class="status-page-title">초급과정</h2>
             <h2 class="intro-element-title">초등학생을 위한 15회 교육과정</h2>
             <p class="lh2">이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입 니다. 각 과정들은 5 ~ 20개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학교 저학년까지도 참여할 수 있으며 학 습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다. 바로 연락주세요.</p>
           </div>
@@ -411,34 +411,50 @@
             <div id="page_01">
               <section class="chasi-progress">
                 <h2>1차시</h2>
-                <h3>초급에서 학습한 내용을 응용하여 반복되는 문제를 해결할 수 있다. 해결할 수 있다.</h3>
+                <h3>기본 이동 명령어와 액션 명령어의 귀환 기능을 사용하여 명령어를 순차적으로 실행할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0101">
+                    <li data-stage="puzzlebasic0101" >
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-                    <li data-stage="puzzlemiddle0102">
+                    <li data-stage="puzzlebasic0102">
                       <img src="img/normal.png" alt="일반완료이미지" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-                    <li data-stage="puzzlemiddle0103">
+                    <li data-stage="puzzlebasic0103">
                       <img src="img/normal.png" alt="일반이미지" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-                    <li data-stage="puzzlemiddle0104">
+                    <li data-stage="puzzlebasic0104">
                       <img src="img/normal.png" alt="도전완료이미지" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0105">
+					<li data-stage="puzzlebasic0105">
                       <img src="img/normal.png" alt="도전완료이미지" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0106">
+					<li data-stage="puzzlebasic0106">
                       <img src="img/normal.png" alt="도전완료이미지" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic0107">
+                      <img src="img/normal.png" alt="도전완료이미지" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic0108">
+                      <img src="img/normal.png" alt="도전완료이미지" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic0109">
+                      <img src="img/normal.png" alt="도전완료이미지" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic0110">
+                      <img src="img/normal.png" alt="도전완료이미지" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -461,34 +477,42 @@
             <div id="page_02">
               <section class="chasi-progress">
                 <h2>2차시</h2>
-                <h3>초급에서 학습한 내용을 응용하여 반복되는 문제를 해결할 수 있다. 해결할 수 있다.</h3>
+                <h3>네가지 시점의 출발 타일에서 학습을 시작하여 시점에 따른 네가지 조건에서 학습을 시작할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0201">
+                    <li data-stage="puzzlebasic0201">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0202">
+					<li data-stage="puzzlebasic0202">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0203">
+					<li data-stage="puzzlebasic0203">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0204">
+					<li data-stage="puzzlebasic0204">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0205">
+					<li data-stage="puzzlebasic0205">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0206">
+					<li data-stage="puzzlebasic0206">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic0207">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic0208">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -496,7 +520,10 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+					<div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
+                    <!-- <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;"> -->
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -507,34 +534,42 @@
             <div id="page_03">
               <section class="chasi-progress">
                 <h2>3차시</h2>
-                <h3>초급에서 학습한 내용을 응용하여 반복되는 문제를 해결할 수 있다. 해결할 수 있다.</h3>
+                <h3>점프 명령어를 이용하여 한단계 윗쪽의 타일로 점프이동할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0301">
+                    <li data-stage="puzzlebasic0301">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0302">
+					 <li data-stage="puzzlebasic0302">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0303">
+					 <li data-stage="puzzlebasic0303">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0304">
+					 <li data-stage="puzzlebasic0304">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0305">
+					 <li data-stage="puzzlebasic0305">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0306">
+					 <li data-stage="puzzlebasic0306">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					 
+                    </li>
+					 <li data-stage="puzzlebasic0307">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic0308">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -542,7 +577,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -553,35 +590,42 @@
             <div id="page_04">
               <section class="chasi-progress">
                 <h2>4차시</h2>
-                <h3>함수 명령어 G1에 대하여 학습하고 반복되는 명령어를 함수화하여 문제를 해결한다.</h3>
+                <h3>액션 명령어를 이용하여 오염된 타일을 깨끗하게 정화할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0401">
+                    <li data-stage="puzzlebasic0401">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0402">
+					 <li data-stage="puzzlebasic0402">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0403">
+					 <li data-stage="puzzlebasic0403">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0404">
+					 <li data-stage="puzzlebasic0404">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0405">
+					 <li data-stage="puzzlebasic0405">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0406">
+					 <li data-stage="puzzlebasic0406">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 
+					 <li data-stage="puzzlebasic0407">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic0408">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -589,7 +633,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -600,31 +646,31 @@
             <div id="page_05">
               <section class="chasi-progress">
                 <h2>5차시</h2>
-                <h3>함수 명령어 G1에 대하여 학습하고 반복되는 명령어를 함수화하여 문제를 해결한다.</h3>
+                <h3>액션 명령어를 이용하여 적 시추기 로봇을 물리칠 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0501">
+                    <li data-stage="puzzlebasic0501">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0502">
+					<li data-stage="puzzlebasic0502">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0503">
+					<li data-stage="puzzlebasic0503">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0504">
+					<li data-stage="puzzlebasic0504">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0505">
+					<li data-stage="puzzlebasic0505">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0506">
+					<li data-stage="puzzlebasic0506">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
@@ -635,7 +681,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -646,34 +694,42 @@
             <div id="page_06">
               <section class="chasi-progress">
                 <h2>6차시</h2>
-                <h3>함수 명령어 G1에 대하여 학습하고 반복되는 명령어를 함수화하여 문제를 해결한다.</h3>
+                <h3>액션 명령어를 이용하여 워프 타일을 사용해 동일한 한가지 색상의 워프 타일로 이동할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0601">
+                    <li data-stage="puzzlebasic0601">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0602">
+					 <li data-stage="puzzlebasic0602">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0603">
+					 <li data-stage="puzzlebasic0603">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0604">
+					 <li data-stage="puzzlebasic0604">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0605">
+					 <li data-stage="puzzlebasic0605">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					 <li data-stage="puzzlemiddle0606">
+					 <li data-stage="puzzlebasic0606">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					 
+                    </li>
+					 <li data-stage="puzzlebasic0607">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic0608">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>                
                 <!--웹뷰 교육과정 끝-->
@@ -681,7 +737,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -692,34 +750,42 @@
             <div id="page_07">
               <section class="chasi-progress">
                 <h2>7차시</h2>
-                <h3>함수 명령어 G1을 활용하여 반복되는 한가지 패턴을 찾아 문제를 해결한다.</h3>
+                <h3>액션 명령어를 이용하여 워프 타일을 사용해 동일한 두가지 색상의 워프 타일로 이동할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0701">
+                    <li data-stage="puzzlebasic0701">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0702">
+					<li data-stage="puzzlebasic0702">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0703">
+					<li data-stage="puzzlebasic0703">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0704">
+					<li data-stage="puzzlebasic0704">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0705">
+					<li data-stage="puzzlebasic0705">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0706">
+					<li data-stage="puzzlebasic0706">
                       <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic0707">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic0708">
+                      <img src="img/normal.png" alt="진도현황-1" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -727,7 +793,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -739,26 +807,34 @@
             <div id="page_08">
               <section class="chasi-progress">
                 <h2>8차시</h2>
-                <h3>함수 명령어 G1을 활용하여 반복되는 한가지 패턴을 찾아 문제를 해결한다.</h3>
+                <h3>기본 이동, 점프, 액션 명령어를 이용하여 문제를 해결할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0801">
+                    <li data-stage="puzzlebasic0801">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0802">
+					<li data-stage="puzzlebasic0802">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0803">
+					<li data-stage="puzzlebasic0803">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0804">
+					<li data-stage="puzzlebasic0804">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic0805">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic0806">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -766,7 +842,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -777,26 +855,34 @@
             <div id="page_09">
               <section class="chasi-progress">
                 <h2>9차시</h2>
-                <h3>함수 명령어 G1을 활용하여 반복되는 한가지 패턴을 찾아 문제를 해결한다.</h3>
+                <h3>기본 이동, 점프, 액션 명령어를 이용하여 문제를 해결할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle0901">
+                    <li data-stage="puzzlebasic0901">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0902">
+					<li data-stage="puzzlebasic0902">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0903">
+					<li data-stage="puzzlebasic0903">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle0904">
+					<li data-stage="puzzlebasic0904">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic0905">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic0906">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -804,7 +890,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -815,26 +903,34 @@
             <div id="page_010">
               <section class="chasi-progress">
                 <h2>10차시</h2>
-                <h3>함수 명령어 G1, G2를 활용하여 반복되는 두가지 패턴을 찾아 문제를 해결한다.</h3>
+                <h3>두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle1001">
+                    <li data-stage="puzzlebasic1001">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1002">
+					<li data-stage="puzzlebasic1002">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1003">
+					<li data-stage="puzzlebasic1003">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1004">
+					<li data-stage="puzzlebasic1004">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic1005">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic1006">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -842,7 +938,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -853,26 +951,34 @@
             <div id="page_011">
               <section class="chasi-progress">
                 <h2>11차시</h2>
-                <h3>함수 명령어 G1, G2를 활용하여 반복되는 두가지 패턴을 찾아 문제를 해결한다.</h3>
+                <h3>두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle1101">
+                    <li data-stage="puzzlebasic1101">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1102">
+					<li data-stage="puzzlebasic1102">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1103">
+					<li data-stage="puzzlebasic1103">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1104">
+					<li data-stage="puzzlebasic1104">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic1105">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic1106">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -880,7 +986,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -891,27 +999,31 @@
             <div id="page_012">
               <section class="chasi-progress">
                 <h2>12차시</h2>
-                <h3>함수 명령어 G1, G2를 활용하여 반복되는 두가지 패턴을 찾아 문제를 해결한다.</h3>
+                <h3>두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle1201">
+                    <li data-stage="puzzlebasic1201">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1202">
+					<li data-stage="puzzlebasic1202">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1203">
+					<li data-stage="puzzlebasic1203">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1204">
+					<li data-stage="puzzlebasic1204">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1205">
+					<li data-stage="puzzlebasic1205">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic1206">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
@@ -922,7 +1034,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -933,27 +1047,34 @@
             <div id="page_013">
               <section class="chasi-progress">
                 <h2>13차시</h2>
-                <h3>G1 명령어의 함수로 동일한 명령어를 무한반복 실행하여 문제를 해결한다.</h3>
+                <h3>워프타일을 기준으로 반복되는 문제를 해결할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle1301">
+                    <li data-stage="puzzlebasic1301">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1302">
+					<li data-stage="puzzlebasic1302">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1303">
+					<li data-stage="puzzlebasic1303">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1304">
+					<li data-stage="puzzlebasic1304">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					
+					<li data-stage="puzzlebasic1305">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic1306">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -961,7 +1082,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
@@ -972,22 +1095,34 @@
             <div id="page_014">
               <section class="chasi-progress">
                 <h2>14차시</h2>
-                <h3>G1, G2 명령어의 함수로 동일한 명령어를 무한반복 실행하여 문제를 해결한다.</h3>
+                <h3>워프타일을 기준으로 반복되는 문제를 해결할 수 있다.</h3>
                 <!--웹뷰 교육과정 시작-->
                 <div class="progress-wrapper">
                   <ul class="progress-org">
-                    <li data-stage="puzzlemiddle1401">
+                    <li data-stage="puzzlebasic1401">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1402">
+					<li data-stage="puzzlebasic1402">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
                     </li>
-					<li data-stage="puzzlemiddle1403">
+					<li data-stage="puzzlebasic1403">
                       <img src="img/normal.png" alt="전장" class="ready-playing">
                       <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
-                    </li>					
+                    </li>
+					<li data-stage="puzzlebasic1404">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic1405">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					<li data-stage="puzzlebasic1406">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
                   </ul>
                 </div>
                 <!--웹뷰 교육과정 끝-->
@@ -995,13 +1130,63 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="unityContainer" style="text-align:center">
-                    <img src="img/chasi-dummy.png" alt="더미이미지" style="width:100%;max-width:471px;">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 slidePage">
                 </div>
               </div>
-            </div>			
+            </div>
+			<!--불러오기-->
+            <div id="page_015">
+              <section class="chasi-progress">
+                <h2>15차시</h2>
+                <h3>워프타일을 기준으로 반복되는 문제를 해결할 수 있다.</h3>
+                <!--웹뷰 교육과정 시작-->
+                <div class="progress-wrapper">
+                  <ul class="progress-org">
+                    <li data-stage="puzzlebasic1501">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic1502">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic1503">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic1504">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic1505">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+					 <li data-stage="puzzlebasic1506">
+                      <img src="img/normal.png" alt="전장" class="ready-playing">
+                      <img src="img/current-status.png" alt="현재재생중 이미지" class="current-playing">
+                    </li>
+                  </ul>
+                </div>
+                <!--웹뷰 교육과정 끝-->
+              </section>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="unityContainer" style="text-align:center">
+                    <div class="webgl-content">
+                      <div id="gameContainer" style="width: 470px; height: 840px"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 slidePage">
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
