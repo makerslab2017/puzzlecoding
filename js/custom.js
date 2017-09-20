@@ -2,6 +2,7 @@
 var	missionCompleteProcess = false;
 var gamePlayingProcess = false;
 var onUnityLoad = false;
+
 //FOUC 스크립트
 $(function(){
   $('html').removeClass('no-js');
@@ -10,8 +11,7 @@ $(document).ready(function() {
     
     $('body').hide();
     $(window).load(function(){
-        $('body').show();
-        loadModule();
+        $('body').show();        
     });
 });
 
@@ -19,7 +19,23 @@ $(document).ready(function() {
 //모바일 GNB스크립트//
 jQuery(document).ready(function() {
   $('#Gnb-downMenu1 span').click(function() {
-    $('#Gnb-downMenu1').children('li').toggle()
+    $('#Gnb-downMenu1').children('li').toggle();
+    switch (puzzleAPI.user_type) {
+      case 'student':
+        $('#Gnb-downMenu1 .for-educator').hide();
+        $('#Gnb-downMenu1 .for-student').show();
+        break;
+      case 'educator':
+        $('#Gnb-downMenu1 .for-student').hide();
+        $('#Gnb-downMenu1 .for-educator').show();        
+        break;
+      
+      default:
+        $('#Gnb-downMenu1 .for-student').show();
+        $('#Gnb-downMenu1 .for-educator').show();        
+        break;
+    }
+    
   })
   $('#Gnb-downMenu2 span').click(function() {
     $('#Gnb-downMenu2').children('li').toggle()
@@ -106,49 +122,7 @@ jQuery(document).ready(function() {
 //   });
 // });
 //차시 버튼 스크립트//
-function show_progress_page(page_no)
-{
-    $("[id^=page_0]:visible").hide();
-    $("#page_0" + page_no).show();
-    $('.slidePage').empty();
-	
-    console.log( "show_progress_page: " + page_no);
-    console.log(Module.unityContainer);
-    var unityContainer = $("#page_0" + page_no + " .unityContainer");
-    if (unityContainer == null) return;
-    //if ( unityContainer.find('#gameContainer').length > 0) return;
-		Module.unityContainer.detach();
-		unityContainer.empty().append(Module.unityContainer);
-		Module.unityContainer.show();
-	try
-	{
-		
-	}
-	catch(exception)
-	{
-		console.log("detach error !!");
-	}
-	
-    
-}
 
-
-
-//진도 현황//
-$(document).ready(function() {
-  $(".current-playing").hide();
-
-  $(".progress-org li").click(function() {
-	if(missionCompleteProcess == false && gamePlayingProcess == false)
-	{
-		$(".ready-playing").show();
-		$(".ready-playing", this).hide();
-		$(".current-playing").hide();
-		$(".current-playing", this).show();
-		loadStage(this);	
-	}
-  });
-});
 //진도 현황-반선택//
 $(function() {
   $(".class-name").click(function() {
@@ -235,62 +209,24 @@ $(document).click(function(e) {
     }
 });
 
-var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
-var moduleName = null;
-if (currentPageName.startsWith("studying") ) {
-  moduleName = "per_stage";
-} else if (currentPageName.startsWith("coding-game.html")) {
-  moduleName = "all_in_one";
-} else if (currentPageName.startsWith("puzzle-game.html")) {
-  moduleName = "editor";
-}
+
+
 
 Module = null;
 
-//초급,중급과정 시작 시, 1차시부터 마지막차시 까지 화면에 표시되는것을 막고 기본값인 1차시를 보여준다.
-$(document).ready(function() {
-	if(currentPageName.startsWith("studying")){
-		$("[id^=page_0]").hide();
-		$("#page_01").show();
-	}
-});
+var moduleName = null;
 
-function loadStage(obj) {
-  if (obj == null) return;
-  if(Module.missionCompleteProcess == true) return;
-  $(".ready-playing", obj).hide();
-  $(".current-playing", obj).show();
-  Module.obj = $(obj);
-  Module.stage = $(obj).attr('data-stage');
-  console.log(Module.stage);
-  Module.nextObj = $(obj).next()[0];
+var currentPageName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+if (currentPageName.startsWith("studying") )    moduleName = "per_stage";
+if (currentPageName.startsWith("coding-game"))  moduleName = "all_in_one";
+if (currentPageName.startsWith("puzzle-game"))  moduleName = "editor";
+if (currentPageName.startsWith("puzzle-view"))  moduleName = "per_stage";
 
-  $.get('./stage/' + Module.stage + '.html', function(data) {
-    $('.slidePage').empty().append(data);
-	$('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
-    $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
-    $('.carousel-indicators > li').on('click', function() { 
-        $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
-    });
-	disappear();
-	displayText();
-  });
- 
-  if (Module.stage != 'latest' && Module.stage != 'puzzleLatest') {
-    Module.SendMessage("Level", 'setLevelWithTransition', './stage/' + Module.stage + '.json');
-    if (Module.robotLoaded == false) {
-      Module.SendMessage("UI", 'BotInfoTest', './stage/BotInfo2.json');
-      Module.robotLoaded = true;
-    }
-    return;
-  }
-  var stageData = localStorage.getItem('latestEditedStage');
-  if (stageData == null) return;
-  Module.SendMessage('Level', 'setLevelWithString', stageData);
-}
-
-function loadModule() {
+function loadModule() 
+{
   if (Module !== null && Module.dynamicLoading === true) return;
+
+  if (moduleName == null) return;
 
   // Module is not loaded yet. Please load it first.
   $.ajax({  url: "./" + moduleName + "/Build/UnityLoader.js", 
@@ -301,112 +237,701 @@ function loadModule() {
     $.extend(Module, {
       dynamicLoading : true,
       startTime : null,
-      stage :'stage',
       moduleName : moduleName,
-      unityContainer : null,
-      obj : null,
-      nextObj : null,
-      robotLoaded : false,	  
+      robotLoaded : false,
       OnMissionComplete: function() {
-        if (Module.obj == null) return;
-		missionCompleteProcess = true;
-        $(".ready-playing", Module.obj[0]).show();
-        $(".current-playing", Module.obj[0]).hide();
-        var src = Module.obj.find(".ready-playing").attr('src');
-        $(".ready-playing", Module.obj[0]).attr('src', src.replace('.png', '-clear.png'));
-		missionCompleteProcess = false;
-        if (Module.nextObj == null) return;
-        //setTimeout( function() {  loadStage(Module.nextObj); }, 4000);
+        if (course.current_puzzle_id == null) return;
+        missionCompleteProcess = true;
+        
+        $(".progress-org li[data-stage=" + course.current_puzzle_id +"]").children('.stage-progress').attr('src', 'img/normal-clear.png');
+        if (course.progress_info == null) {
+          course.progress_info = {};  
+        }
+        course.progress_info[course.current_puzzle_id] = "completed";
+		    missionCompleteProcess = false;
+        
+        // move to a next mission
+        var $next = $('.progress-org img[src="img/normal.png"]').first();
+        if ($next) {
+            $next.attr('src', 'img/current-status.png');
+            course.loadStage($next.parent()[0]);
+        }
       },
       onRuntimeInitialized: function() {
         Module.startTime = new Date().getTime();
-        setTimeout(function() 
-          {
-            if (Module.moduleName == 'editor') {
-              var puzzle_stage = localStorage.getItem('PuzzleByEditor');
-              if (puzzle_stage == null) return;
-              if (puzzle_stage == 'puzzleLatest') {
-                $('.making-puzzle input').val('가장 최근 편집된 퍼즐');
-                var stageData = localStorage.getItem('latestEditedStage');
-                if (stageData == null) return;
-                Module.SendMessage('UI', 'Load', stageData);
-                return;
-              }
-              $('.making-puzzle input').val(puzzle_stage);
-              $.get( './stage/' + puzzle_stage + '.json', function(data) {
-                Module.SendMessage('UI', 'Load', JSON.stringify(data));
-              });
+        setTimeout(function() {
+          if (Module.moduleName == 'editor') {
+            var puzzle_stage = localStorage.getItem('PuzzleByEditor');
+            if (puzzle_stage == null) return;
+            if (puzzle_stage == 'puzzleLatest') {
+              $('.making-puzzle input').val('가장 최근 편집된 퍼즐');
+              var stageData = localStorage.getItem('latestEditedStage');
+              if (stageData == null) return;
+              Module.loadPuzzleData(JSON.stringify(stageData));
+              return;
             }
+            $('.making-puzzle input').val(puzzle_stage);
+            $.get( 'puzzles/' + puzzle_stage + '.json', function(data) {
+              Module.loadPuzzleData(JSON.stringify(data));
+            });
+          }
         }, 10000);
       },
+      OnReadyPostprocess: ()=> {
+        var puzzle_id = localStorage.getItem("currentPuzzleId");
+        if (puzzle_id == null) return;
+        Module.loadPuzzle( puzzle_id);
+      },
       OnReady: function() {
-        if (Module.moduleName === 'per_stage') {  
-		  Module.unityContainer = $('[id^=page_0]:visible .webgl-content');
-		  onUnityLoad = true;
+        if (Module.moduleName === 'per_stage') { 
+          onUnityLoad = true;
+          Module.OnReadyPostprocess();
+          if (course.current_puzzle_id == null) return;
 
+          // just in case if someone clicked one of stages already, load it generously.
+          var obj = $("li[data-stage=" + course.current_puzzle_id +"]");
+          if (obj.children(".stage-progress").attr('src') === 'img/current-status.png')
+            course.loadStage(obj[0]);
         }
       },
-	  OnPuzzleReady: function()
-	  {
-		onUnityLoad = true;
-	  },
-	  OnPuzzlePrepare: function(){
-		onUnityLoad = false;
-	  },
+      OnPuzzleReady: function() {
+        onUnityLoad = true;
+      },
+      OnPuzzlePrepare: function() {
+        onUnityLoad = false;
+      },
       OnCustomizingComplete: function(name, data) {
         localStorage.setItem('latestCustomizedRobotInfo', data);
       },
       OnEditComplete: function(name, data) {
         localStorage.setItem('latestEditedStage', data);
       },
-	  OnGamePlaying: function()
-	  {
-		gamePlayingProcess = true;
-	  },
-	  OnGameStop: function()
-	  {
-		gamePlayingProcess = false;
-	  },
-	  SendPuzzleInfo: function()
-	  {
-		Module.SendMessage("GameManager","getStageInfo", Module.stage);
-	  }
+      OnGamePlaying: function() {
+        gamePlayingProcess = true;
+      },
+      OnGameStop: function() {
+        gamePlayingProcess = false;
+      },
+      SendPuzzleInfo: function() {
+        Module.SendMessage("GameManager","getStageInfo", Module.id);
+      },
+      loadPuzzle: (puzzle_id) => {
+        $.getJSON( 'puzzles/' + puzzle_id + '.json', (data)=> {
+          Module.SendMessage('Level', 'setLevelWithTransition', 'puzzles/' + puzzle_id + '.json');
+          course.current_puzzle_id = puzzle_id;
+        }).error(function() {
+          $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=all',
+              success: (data)=> {
+                course.current_puzzle_id = puzzle_id;
+                Module.loadPuzzleData(data);
+              }
+            });
+        });
+      },
+      loadPuzzleData: (puzzle_data) => {
+        missionCompleteProcess = false;
+        if (puzzle_data == null) return;
+        Module.SendMessage('Level', 'setLevelWithString', JSON.stringify(puzzle_data));
+      },
+      loadRobot: (robot_id) => {
+        if (robot_id == null) {
+          Module.SendMessage("UI", 'BotInfoTest', robot_id ? robot_id : 'puzzles/BotInfo2.json');
+        }
+        Module.robotLoaded = true;
+      }
+    }); // end of $.extend
+  }); // end of $.ajax done function callback
+} // end of loadModule()
 
+const course = {
+  id: null,
+  info: null,
+  current_puzzle_id: null,
+  progress_info: null,
+  buildCourseInfo: (info) => {
+    course.info = info;
+    $('#course_text').text( info.title );
+    $('#course_info .status-page-title').text( info.title);
+    $('#course_info .intro-element-title').text( info.introduction );
+    $('#course_info .lh2').text( info.description );      
+  },
+  buildLesson: (target, key, value) => {
+      $("<li/>", {
+          html : '<div class="chasi-child"><img src="img/chasi-1.png" alt="차시이미지" class="unselected"><img src="img/chasi-2.png" alt="차시이미지" class="selected"></div>' + value.title
+      }).attr({"data": key}).appendTo(target);
+  },
+  buildStages: (target, lesson) => {
+    $('<h2/>', { html: lesson.title }).appendTo(target);
+    $('<h3/>', { html: lesson.description }).appendTo(target);
+    $('<div/>', {class: 'progress-wrapper'}).appendTo(target);
+    $('<ul/>', {class: 'progress-org'}).appendTo(target + ' .progress-wrapper');
+    $.each(lesson.stages, (key, value)=> {
+      var src = "img/normal.png";
+      if (course.progress_info && course.progress_info.hasOwnProperty(value)) {
+        if (course.progress_info[value] == "completed")
+          src = "img/normal-clear.png";
+      }
+      $("<li/>", {
+          html: '<img src="' + src + '" alt="진도현황-1" class="stage-progress">'
+      }).attr({"data-stage": value }).appendTo(target + ' .progress-org');
     });
-  }); 
-}
+  },
+  loadStage: (obj) => {
+      if (obj == null) return;
+      if(missionCompleteProcess == true) return;
+
+      course.current_puzzle_id = $(obj).attr('data-stage');
+      console.log(course.current_puzzle_id);
+      
+      $.get('puzzles/' + course.current_puzzle_id + '.html', function(data) {
+          $('.slidePage').empty().append(data);
+          $('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
+          $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
+          $('.carousel-indicators > li').on('click', function() { 
+              $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
+          });
+        
+          if ($('.carousel-indicators > li:visible').length == 1) {
+              $('.carousel-indicators').empty();
+          }
+          course.displayHelpRandomly();
+      });
+      
+      if (course.current_puzzle_id && course.current_puzzle_id != 'latest' && course.current_puzzle_id != 'puzzleLatest') {
+        if (Module) {
+          Module.loadPuzzle(course.current_puzzle_id);
+          if (Module.robotLoaded == false)
+            Module.loadRobot();
+          return;
+        }
+      }
+      var stageData = localStorage.getItem('latestEditedStage');
+      if (stageData == null) return;
+      if (Module) Module.loadPuzzleData(stageData);
+  }, 
+  showLesson: (lesson) => {
+      $('.chasi-progress').empty();
+      $('.slidePage').empty();
+      course.buildStages('.chasi-progress', lesson);
+  },
+  displayHelpRandomly: () => {
+      //랜덤 텍스트 배열
+      var textArr = [
+              "한단계 높은 타일로 이동하거나, 낮은 타일로 이동할 때는 모두 점프 명령어를 사용해야 합니다.", 
+              "남은 오염타일이나 시추기 로봇이 있으면 귀환할 수 없어요.", 
+              "출발 타일에 따라 달라지는 로봇의 방향을 잘 확인해 주세요.", 
+              "배치한 명령어가 로봇을 어디 까지 움직일지 잘 모를 때에는 일단 플레이 버튼을 눌러보세요."
+      ];
+      // character info array
+      var characters = [ "img/character.png", "img/character-2.png" ];
+
+      var myText = textArr[Math.floor(Math.random() * textArr.length)];
+      var mySrc = characters[Math.floor(Math.random() * 2)];
+
+      $('.chasi-info-character').find("img").attr('src', mySrc);
+      $('#characterImg').attr('src', mySrc );  
+      $('.gameTextRandom').html(myText);
+  },
+  loadCourse: (course_id) => {
+    course.id = course_id;
+    $.getJSON( 'courses/' + course_id, course.loadCourseData ).error(function() {
+      $.getJSON( puzzleAPI.apiUrl + 'courses/' + course_id, course.loadCourseData);
+    });
+  },
+  postloadCourseData: (course_info) => {
+    $('.chasi ul').empty();
+    $.each( course_info.lessons, (key, value)=> {
+      course.buildLesson('.chasi ul', key, value);
+      course.buildStages('.chasi-progress', value);
+    });
+    var firstLesson;
+    for (var key in course_info.lessons) {
+      if (course_info.lessons.hasOwnProperty(key)) {
+        course.showLesson(course_info.lessons[key]);
+        break;
+      }
+    }
+    $(".chasi ul li").first().addClass('chasi-active');
+  },
+  loadCourseData: (course_info) => {
+    course.buildCourseInfo(course_info);
+
+    if (course.id == null) return;
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) {
+      course.postloadCourseData(course_info);
+      return;
+    }
+    // fetch progress information
+    $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'progress/' + course.id,
+      headers: { 'Authorization' : puzzleAPI.token },
+      success: (data) => {
+        course.progress_info = data.progress;
+        course.postloadCourseData(course_info);
+      },
+      fail: (err) => {
+        course.progress_info = {};
+      }
+    });
+  },
+  parseInput: ( key ) => {
+    console.log(document.location.search);
+    queries = {};
+    $.each(document.location.search.substr(1).split('&'), function(c,q){
+      var i = q.split('=');
+      if (i.length === 2) {
+        queries[i[0].toString()] = i[1].toString();
+      }
+    });
+    if (queries.hasOwnProperty(key)) 
+      return queries[key];      
+    return null;
+  }
+};
 
 //차시 페이지 스크립트 //
 $(document).ready(function() {
   $.ajaxSetup({cache: false});
   if (moduleName == null) return;
-  //show_progress_page(1);
-  
-  $(".chasi ul li").click(function() {
-	if(onUnityLoad ==false) return;
-    if ($(this).hasClass('chasi-active')) {
-      
-    } else {
+
+  if (currentPageName.startsWith("studying") ) {
+    course_id = course.parseInput('course');
+    if (course_id) course.loadCourse( course_id);
+    else course.loadCourse( 'elementary');
+  }
+  if (currentPageName.startsWith("puzzle-view")) {
+    puzzle_id = course.parseInput('puzzle');
+    if (puzzle_id == null) {
+      localStorage.removeItem( "currentPuzzleId" );
+      return;
+    }
+    localStorage.setItem( "currentPuzzleId", puzzle_id);
+    $.getJSON( 'puzzles/' + puzzle_id +'.json', (data)=> {
+      $('#puzzle-title').text( puzzle_id );
+      $('#puzzle-owner').text( '관리자' );
+    } ).error(function() {
+      $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=info',
+        processData: false,
+        success: (data)=> {
+          $('#puzzle-title').text( data.title );
+          $('#puzzle-description').text( data.description );
+          $('#puzzle-owner').text( data.owner );
+          $('#puzzle-date').text( new Date(data.timestamp).toLocaleString() );
+          if (Module == null) loadModule();          
+        }
+      });
+    });
+  }
+});
+
+$(document).on('click', '.puzzlecoding button', function() {
+  window.location.href = '_sign_' + $(this).attr('data-type') + '.html';
+});
+
+$(document).on('click', ".chasi ul li", function(e) {  
+  if ($(e.currentTarget).hasClass('chasi-active') == false) {
       $(".chasi ul li").removeClass("chasi-active");
-      $(this).addClass('chasi-active');
-    }	
-    show_progress_page($(this).attr('data').match(/\d+/)[0]);
+      $(e.currentTarget).addClass('chasi-active');
+  }	
+  course.showLesson(course.info.lessons[$(e.currentTarget).attr('data')] );
+});
+
+$(document).on('click', ".progress-org li", function(e) {
+  if (Module == null) loadModule();
+  if(missionCompleteProcess == false && gamePlayingProcess == false)
+  {
+      $('.progress-org img[src="img/current-status.png"]').attr('src', 'img/normal.png');
+      $(e.currentTarget).children(".stage-progress").attr('src', 'img/current-status.png');
+      console.log(e.currentTarget);
+      course.loadStage(e.currentTarget);
+  }
+});
+
+AWSCognito.config.region = CognitoConfig.region;
+AWSCognito.config.update({accessKeyId: 'null', secretAccessKey: 'null'});
+const puzzleAPI = {
+  apiUrl: 'https://me5w1vvmz1.execute-api.us-east-1.amazonaws.com/test/',  
+  cognitoUser: null,
+  credentials: null,
+  user_type: null,
+  userPool : new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( {
+    UserPoolId: CognitoConfig.userPoolId, ClientId: CognitoConfig.appClientId 
+  }),
+  token: null,
+  checkAvailability: (candidate_id) => {
+    $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'users/' + candidate_id,
+      processData: false,
+      success: (data)=> {
+        console.log(data);
+        $('#checkbox_available_id').html( 
+          data["is_available"] == true ? "<i class='material-icons'>check</i>" : ""
+        );
+      }
+    });
+  },
+  signUp: (userId, userPhoneNumber, userPasswd, email, type='educator', course_id = '') => {
+    if (userId == null || userPhoneNumber == null || userPasswd == null || email == null) {
+      alert('Invalid signup request');
+      return;
+    }        
+    var attributeList = [ 
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'email', Value: email } ),
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'phone_number', Value: userPhoneNumber } ),
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'custom:role', Value: type } ),
+      new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute( { Name: 'custom:ReferredClassId', Value: course_id })
+    ];        
+    puzzleAPI.userPool.signUp(userId, userPasswd, attributeList, null, function(err, result) {
+        if (err) {
+          alert(err);
+          return;
+        }
+        puzzleAPI.cognitoUser = result.user;
+        if (type == 'educator')
+          $('#confirm_admission').css('visibility', 'visible');
+        else 
+          window.location.href = 'index.html';
+    });
+  },
+  confirm: (activateCode) => {
+    if (puzzleAPI.cognitoUser == null) {
+      alert("You didn't sign up yet");
+      return;
+    }
+    puzzleAPI.cognitoUser.confirmRegistration(activateCode, true, function(err, result) {
+      if (err) {
+        alert('인증번호가 틀렸습니다. 다시 입력하세요.');
+        //alert(err);
+        return;
+      }
+      window.location.href = 'index.html';
+    });
+  },
+  login: (userId, userPasswd)=> {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser != null) return;
+    var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(
+      { Username: userId, Password: userPasswd } );
+    puzzleAPI.cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser( {Username: userId, Pool: puzzleAPI.userPool} );
+    puzzleAPI.cognitoUser.authenticateUser(authenticationDetails, {
+      onSuccess: function(result) {
+        puzzleAPI.currentUser();
+            
+        $('#Gnb-profile-info span:nth-child(1)').text( puzzleAPI.cognitoUser.getUsername());
+        $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+        if (currentPageName.startsWith("studying")) {
+          puzzleAPI.refreshPage();
+          course_id = course.parseInput('course');
+          if (course_id) course.loadCourse( course_id);
+          else course.loadCourse( 'elementary');
+        }
+      },
+      onFailure: function(result) {
+        puzzleAPI.cognitoUser = null;
+        puzzleAPI.token = null;
+        puzzleAPI.user_type = null;
+        alert('잘못된 사용자 아이디이거나 틀린 비밀번호입니다.');
+      },
+      mfaRequired: function(codeDeliveryDetails) {
+        var verificationCode = prompt('Please input verification code', '');
+        puzzleAPI.cognitoUser.sendMFACode(verificationCode, this);
+      }
+    });
+  },
+  forgot: (userId) => {
+    puzzleAPI.cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser( {Username: userId, Pool: puzzleAPI.userPool} );
+    puzzleAPI.cognitoUser.forgotPassword( {
+      onSuccess: function(result) {
+        console.log('call result: ' + result);
+      },
+      onFailure: function(err) {
+        puzzleAPI.cognitoUser = null;
+        puzzleAPI.token = null;
+        alert(err);
+      },
+      inputVerificationCode() {
+        var verificationCode = prompt('Please enter your verification code ', '');
+        var newPassword = prompt('Enter new Password ', '' );
+        puzzleAPI.cognitoUser.confirmPassword(verificationCode, newPassword, this);
+      }
+    });
+  },
+  
+  currentUser: () => {
+    puzzleAPI.cognitoUser = puzzleAPI.userPool.getCurrentUser();
+    if (puzzleAPI.cognitoUser == null) {      
+      return;
+    }
+    
+    puzzleAPI.cognitoUser.getSession(function(err, session) {
+      if (err || session.isValid() == false) return;
+
+      puzzleAPI.token = session.getIdToken().getJwtToken();
+      login_addr = "cognito-idp." + CognitoConfig.region + '.amazonaws.com/' + CognitoConfig.userPoolId + "'";
+      AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: CognitoConfig.userPoolId,
+        Logins: {
+          login_addr : puzzleAPI.token
+        }
+      });
+      puzzleAPI.credentials = AWS.config.credentials;
+      if (puzzleAPI.user_type == null) {
+        puzzleAPI.cognitoUser.getUserAttributes((err,res)=> {
+          if (err) {
+            alert(err);
+            return;
+          }
+          for (i=0; i< res.length;i++) {
+            if (res[i].getName() != "custom:role") continue;
+            puzzleAPI.user_type = res[i].getValue();
+            puzzleAPI.refreshPage();
+            break;
+          }
+        });
+      }
+      
+    });
+  },
+  deletePuzzle: (puzzle_id) => {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) return;
+    
+    $.ajax( { type: 'DELETE', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id,
+      headers: {
+        'Authorization' : puzzleAPI.token
+      },
+      processData: false,
+      success: (data)=> {
+        if (currentPageName.startsWith("gallery")) {
+          $('div:has(> #' + puzzle_id + ')').detach();
+          $('.gallery').remove('div:has(> #' + puzzle_id + ')');
+        }
+      }
+    });
+  },
+  logout: () => {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser) {
+      puzzleAPI.recordProgress(false);
+      
+      if (puzzleAPI.credentials) {
+        puzzleAPI.credentials.clearCachedId();
+        puzzleAPI.credentials = new AWS.CognitoIdentityCredentials( {
+          IdentityPoolId: CognitoConfig.userPoolId
+        });
+        AWS.config.credentials = puzzleAPI.credentials;
+      }
+      puzzleAPI.cognitoUser.signOut();
+    }
+    puzzleAPI.cognitoUser = null;
+    puzzleAPI.user_type = null;    
+    puzzleAPI.token = null;
+    course.progress_info = null;
+        
+    puzzleAPI.refreshPage();
+    course_id = course.parseInput('course');
+    if (course_id) course.loadCourse( course_id);
+    else course.loadCourse( 'elementary');
+  },
+  fetchProgress: () => {
+    if (course.id == null) return;
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) return;
+    $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'progress/' + course_id,
+      headers: { 'Authorization' : puzzleAPI.token },
+      success: (data) => {
+        course.progress_info = data.progress;
+      },
+      fail: (err) => {
+        course.progress_info = null;
+      }
+    });
+  },
+  recordProgress: (async=true) => {
+    if (course.id == null || course.progress_info == null) return;
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null) return;
+    $.ajax( { type: 'POST', url: puzzleAPI.apiUrl + 'progress/' + course.id,
+      async: async,
+      headers: {
+        'Authorization' : puzzleAPI.token
+      },
+      data: JSON.stringify({ 
+        progress: course.progress_info
+      }),
+      success: (data) => {
+        console.log(data);
+      },
+      fail: (err) => {
+        console.log(err);
+      }
+    });
+  },
+  refreshPage: () => {
+
+    // refresh mobile profile info
+    $('#Gnb-profile-info span:nth-child(1)')
+    .text(puzzleAPI.cognitoUser ? puzzleAPI.cognitoUser.username : "");
+    $('#Gnb-menu .login img')
+    .attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
+    
+    // refresh user login tool bars
+    if (puzzleAPI.cognitoUser) {
+      $('.menu-user').hide();
+      $('.menu-user-password, .menu-user-id').hide();
+      $('.menu-login').html('<a req="logout">로그아웃</a>').show();
+      $('.menu-login-userid').html( puzzleAPI.cognitoUser.username).show();
+    } else {
+      $('.menu-user').hide();
+      $('.menu-user-password, .menu-user-id').hide();
+      $('.menu-signup').show();
+      $('.menu-login').html('<a req="login">로그인</a>').show();
+      
+    }    
+
+    // display different information for different user type
+    if (currentPageName.startsWith("index.html") || currentPageName.startsWith("") ) {
+      switch (puzzleAPI.user_type) {
+        case "student":
+          $('.for-student').show();
+          $('.for-educator').hide();
+          break;
+
+        case "educator":
+          $('.for-student').hide();
+          $('.for-educator').show();
+          break;
+        
+        default:
+          $('.for-student').show();
+          $('.for-educator').show();
+      }
+    }
+    
+
+
+
+  }
+};
+
+(function($){
+  $.fn.extend({
+    donetyping: function(callback,timeout){
+      timeout = timeout || 1e3; // 1 second default timeout
+      var timeoutReference,
+        doneTyping = function(el){
+            if (!timeoutReference) return;
+            timeoutReference = null;
+            callback.call(el);
+        };
+      return this.each(function(i,el) {
+        var $el = $(el);
+        $el.is(':input') && $el.on('keyup keypress paste',function(e){
+          if (e.type=='keyup' && e.keyCode!=8) return;
+          
+          if (timeoutReference) clearTimeout(timeoutReference);
+          timeoutReference = setTimeout(function(){
+              doneTyping(el);
+          }, timeout);
+        }).on('blur',function(){
+          doneTyping(el);
+        });
+      });
+    }
+  });
+})(jQuery);
+
+$(document).on('click', '.menu-login a', function(e){
+  switch ($(e.currentTarget).attr('req')) {
+    case "logout":
+      puzzleAPI.logout();
+      break;
+    case "login":
+      if ($('.menu-user-id').css('display') == 'none') {
+        $('.menu-user-id, .menu-user-password').show();
+        $('.menu-user-id').focus();
+        break;
+      }
+      if ($('.menu-user-id input').val() == "") {
+        $('.menu-user-id, .menu-user-password').hide();
+        return;
+      }
+      puzzleAPI.login( $('.menu-user-id input').val(), $('.menu-user-password input').val());
+      break;
+  }
+});
+
+$(document).on('click', '#Gnb-menu .login img', function(e) {
+  if ($(e.currentTarget).attr('src') == 'img/login.png') {
+
+  } else {
+    puzzleAPI.logout();
+  }
+});
+
+$(document).ready(function() {
+  
+  puzzleAPI.currentUser();
+  puzzleAPI.refreshPage();
+
+  $('#check_admission').on('click', function() {
+    var pwd = $('#register_input_password').val();
+    var confirm_pwd = $('#confirm_input_password').val();
+    if (pwd.length == 0 || pwd != confirm_pwd) {
+      alert('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
+      $('#confirm_input_password').val('');
+      $('#register_input_password').val('').focus();
+      return;
+    }
+    if (pwd.length <= 7) {
+      alert('비밀번호는 최소 8자리 이상을 입력해야 합니다.')
+      $('#confirm_input_password').val('');
+      $('#register_input_password').val('').focus();
+      return;
+    }
+    if (pwd.match(/[0-9]/g) != null && pwd.match(/[a-z]/g) != null ) {
+      puzzleAPI.signUp($('#register_input_id').val(), "+821059177477", pwd, $('#register_input_email').val() );
+      return;
+    }
+
+    
+  });    
+
+  $('#register_final_request').on('click', function() {
+    puzzleAPI.confirm($('#confirmation_number').val());
+  });
+
+  $('#register_final_request_student').on('click', function() {
+    var pwd = $('#register_input_password').val();
+    var confirm_pwd = $('#confirm_input_password').val();
+    if (pwd.length == 0 || pwd != confirm_pwd) {
+      alert('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
+      $('#confirm_input_password').val('');
+      $('#register_input_password').val('').focus();
+      return;
+    }
+    if (pwd.length <= 7) {
+      alert('비밀번호는 최소 8자리 이상을 입력해야 합니다.')
+      $('#confirm_input_password').val('');
+      $('#register_input_password').val('').focus();
+      return;
+    }
+    if (pwd.match(/[0-9]/g) != null && pwd.match(/[a-z]/g) != null ) {
+      puzzleAPI.signUp($('#register_input_id').val(), "+821059177477", $('#register_input_password').val(), $('#register_input_email').val(), 'student' );
+      return;
+    }
+    alert('비밀번호는 영문 소문자와 숫자가 반드시 포함되어 있어야 합니다.');
+    $('#confirm_input_password').val('');
+    $('#register_input_password').val('').focus();    
+  });
+
+  $('#register_input_id').donetyping(()=> {
+    puzzleAPI.checkAvailability($('#register_input_id').val());
   });
 });
 
-function displayText(){
-	var val =Math.floor(Math.random() * 4);
-	//랜덤 텍스트 배열
-	var textArr = new Array("한단계 높은 타일로 이동하거나, 낮은 타일로 이동할 때는 모두 점프 명령어를 사용해야 합니다.", "남은 오염타일이나 시추기 로봇이 있으면 귀환할 수 없어요.", "출발 타일에 따라 달라지는 로봇의 방향을 잘 확인해 주세요.", "배치한 명령어가 로봇을 어디 까지 움직일지 잘 모를 때에는 일단 플레이 버튼을 눌러보세요.");
-	var myText = textArr[val];
-
-	$('.gameTextRandom').html(myText);
-}
-
-function disappear()
-{
-	if($('.carousel-indicators > li:visible').length ==1)
-	{
-		$('.carousel-indicators').empty();
-	}
-}
+$(window).unload(function() {
+  if (currentPageName.startsWith("studying")) {
+    localStorage.removeItem("currentPuzzleId");
+    puzzleAPI.recordProgress(false);
+  }
+})

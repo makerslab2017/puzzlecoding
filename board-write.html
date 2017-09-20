@@ -18,7 +18,7 @@
   <script src="js/amazon-cognito-identity.min.js"></script>
   <script src="js/aws-sdk.min.js"></script>
   <script src="js/aws-cognito-config.js"></script>
-  <script src="js/custom_json.js"></script>
+  <script src="js/custom.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -94,75 +94,77 @@
     </div>
     <!--모바일 GNB-->
     <div id="Gnb-frame">
-      <div id="Gnb-profile">
-        <div id="Gnb-profile-photo-frame">
-          <div id="Gnb-profile-photo">
-            <img src="./img/gnb-photo.jpg">
+        <div id="Gnb-profile">
+          <div id="Gnb-profile-photo-frame">
+            <div id="Gnb-profile-photo">
+              <img src="./img/gnb-photo.jpg">
+            </div>
+          </div>
+          <div id="Gnb-profile-info">
+            <span>
+              isslea
+            </span>
+          </div>
+          <div id="gnb-nav-close">
+            <i class="fa fa-bars" aria-hidden="true"></i>
           </div>
         </div>
-        <div id="Gnb-profile-info">
-          <span>
-            isslea
-          </span>
-          <span>
-            ceqretcer@naver.com
-          </span>
-        </div>
-        <div id="gnb-nav-close">
-          <i class="fa fa-bars" aria-hidden="true"></i>
+    
+        <div id="Gnb-menu">
+          <!--
+          <div class="login">
+            <img src="img/logout.png">
+          </div>
+          -->
+          <ul>
+            <span>
+              <a href="about-coding-puzzle.html">About 코딩 퍼즐</a>
+            </span>
+          </ul>
+    
+          <ul id="Gnb-downMenu1">
+            <span>코딩퍼즐 학습</span>
+            <li>
+              <a href="introduce.html">교육과정 소개</a>
+            </li>
+            <li class="for-educator">
+              <a href="progress-status.html">학습진도 현황</a>
+            </li>
+          </ul>
+          <!--
+          <ul>
+            <span>
+              <a href="1hour-coding-game.html">1Hour of Code</a>
+            </span>
+          </ul>
+          -->
+    
+          <ul id="Gnb-downMenu2">
+            <span>퍼즐메이커</span>
+            <li>
+              <a href="puzzle-intro.html">퍼즐메이커 소개</a>
+            </li>
+            <li>
+              <a href="puzzle-game.html">퍼즐 만들기</a>
+            </li>
+            <li>
+              <a href="gallery.html">퍼즐 공유하기</a>
+            </li>
+          </ul>
+    
+          <!--
+          <ul id="Gnb-downMenu3">
+            <span>커뮤니티</span>
+            <li>
+              <a href="board-list.html">자유게시판</a>
+            </li>
+            <li>
+              <a href="qa-board-list.html">Q&amp;A</a>
+            </li>
+          </ul>
+          -->
         </div>
       </div>
-
-      <div id="Gnb-menu">
-        <div class="login">
-  <img src="img/logout.png">
-        </div>
-        <ul>
-          <span>
-            <a href="about-coding-puzzle.html">About 코딩 퍼즐</a>
-          </span>
-        </ul>
-
-        <ul id="Gnb-downMenu1">
-          <span>코딩퍼즐 학습</span>
-          <li>
-            <a href="introduce.html">교육과정 소개</a>
-          </li>
-          <li>
-            <a href="progress-status.html">학습진도 현황</a>
-          </li>
-        </ul>
-
-        <ul>
-          <span>
-            <a href="1hour-coding-game.html">1Hour of Code</a>
-          </span>
-        </ul>
-
-        <ul id="Gnb-downMenu2">
-          <span>퍼즐메이커</span>
-          <li>
-            <a href="puzzle-intro.html">퍼즐메이커 소개</a>
-          </li>
-          <li>
-            <a href="puzzle-game.html">퍼즐메이커</a>
-          </li>
-          <li>
-            <a href="gallery.html">퍼즐 공유하기</a>
-          </li>
-        </ul>
-
-        <ul id="Gnb-downMenu3">
-          <span>커뮤니티</span>
-          <li>
-            <a href="board-list.html">자유게시판</a>
-          </li>
-          <li>
-            <a href="qa-board-list.html">Q&A</a>
-          </li>
-        </ul>
-      </div>
-    </div>
     <!--헤더 끝-->
     <!--페이지 시작-->
     <div id="page-wrapper" class="board-write-wrapper">
