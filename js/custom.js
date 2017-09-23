@@ -31,8 +31,9 @@ jQuery(document).ready(function() {
         break;
       
       default:
+        $('.not-for-non-member').hide();
         $('#Gnb-downMenu1 .for-student').show();
-        $('#Gnb-downMenu1 .for-educator').show();        
+        $('#Gnb-downMenu1 .for-educator').show();  
         break;
     }
     
@@ -313,7 +314,16 @@ function loadModule()
         gamePlayingProcess = false;
       },
       SendPuzzleInfo: function() {
-        Module.SendMessage("GameManager","getStageInfo", Module.id);
+        if (currentPageName.startsWith("studying")) {
+          Module.SendMessage("GameManager","getStageInfo", course.current_puzzle_id);
+          return;
+        } 
+        if (currentPageName.startsWith("puzzle-view")) {
+          if (localStorage.getItem('currentPuzzleId') == null) return;
+          Module.SendMessage("GameManager","getStageInfo", 
+                  localStorage.getItem('currentPuzzleId'));
+          return;
+        }
       },
       loadPuzzle: (puzzle_id) => {
         $.getJSON( 'puzzles/' + puzzle_id + '.json', (data)=> {
@@ -357,7 +367,7 @@ const course = {
   },
   buildLesson: (target, key, value) => {
       $("<li/>", {
-          html : '<div class="chasi-child"><img src="img/chasi-1.png" alt="차시이미지" class="unselected"><img src="img/chasi-2.png" alt="차시이미지" class="selected"></div>' + value.title
+          html : '<div class="chasi-child"><img alt="차시이미지" ></div><div>' + value.title + '</div>'
       }).attr({"data": key}).appendTo(target);
   },
   buildStages: (target, lesson) => {
@@ -385,16 +395,13 @@ const course = {
       
       $.get('puzzles/' + course.current_puzzle_id + '.html', function(data) {
           $('.slidePage').empty().append(data);
-          $('.chasi-info-prev').on('click', function() { $('.carousel').carousel('prev');});
-          $('.chasi-info-next').on('click', function() { $('.carousel').carousel('next');});
-          $('.carousel-indicators > li').on('click', function() { 
-              $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
-          });
-        
-          if ($('.carousel-indicators > li:visible').length == 1) {
-              $('.carousel-indicators').empty();
+          if ($('.carousel-indicators > li:visible').length <= 1) {
+            $('.carousel-indicators').empty();
+            $('.chasi-info-prev').hide();
+            $('.chasi-info-next').hide();
           }
           course.displayHelpRandomly();
+          
       });
       
       if (course.current_puzzle_id && course.current_puzzle_id != 'latest' && course.current_puzzle_id != 'puzzleLatest') {
@@ -473,19 +480,6 @@ const course = {
         course.progress_info = {};
       }
     });
-  },
-  parseInput: ( key ) => {
-    console.log(document.location.search);
-    queries = {};
-    $.each(document.location.search.substr(1).split('&'), function(c,q){
-      var i = q.split('=');
-      if (i.length === 2) {
-        queries[i[0].toString()] = i[1].toString();
-      }
-    });
-    if (queries.hasOwnProperty(key)) 
-      return queries[key];      
-    return null;
   }
 };
 
@@ -495,12 +489,12 @@ $(document).ready(function() {
   if (moduleName == null) return;
 
   if (currentPageName.startsWith("studying") ) {
-    course_id = course.parseInput('course');
+    course_id = puzzleAPI.parseInput('course');
     if (course_id) course.loadCourse( course_id);
     else course.loadCourse( 'elementary');
   }
   if (currentPageName.startsWith("puzzle-view")) {
-    puzzle_id = course.parseInput('puzzle');
+    puzzle_id = puzzleAPI.parseInput('puzzle');
     if (puzzle_id == null) {
       localStorage.removeItem( "currentPuzzleId" );
       return;
@@ -514,7 +508,14 @@ $(document).ready(function() {
         processData: false,
         success: (data)=> {
           $('#puzzle-title').text( data.title );
-          $('#puzzle-description').text( data.description );
+          
+          if (data.description != null && data.description.length > 0) {
+            var s = new Sanitize(Sanitize.Config.RELAXED);
+            var test = '<div>' + data.description + '</div>';
+            $('#puzzle-description').html( s.clean_node( $(test)[0] ) );
+          }
+          else 
+            $('#puzzle-description').html( "" );
           $('#puzzle-owner').text( data.owner );
           $('#puzzle-date').text( new Date(data.timestamp).toLocaleString() );
           if (Module == null) loadModule();          
@@ -547,6 +548,13 @@ $(document).on('click', ".progress-org li", function(e) {
   }
 });
 
+$(document).on('click', 'chasi-info-prev', function() { $('.carousel').carousel('prev');});
+$(document).on('click', '.chasi-info-next', function() { $('.carousel').carousel('next');});
+$(document).on('click', '.carousel-indicators > li', function() { 
+    $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
+});
+
+
 AWSCognito.config.region = CognitoConfig.region;
 AWSCognito.config.update({accessKeyId: 'null', secretAccessKey: 'null'});
 const puzzleAPI = {
@@ -569,9 +577,21 @@ const puzzleAPI = {
       }
     });
   },
+  parseInput: ( key ) => {
+    queries = {};
+    $.each(document.location.search.substr(1).split('&'), function(c,q){
+      var i = q.split('=');
+      if (i.length === 2) {
+        queries[i[0].toString()] = i[1].toString();
+      }
+    });
+    if (queries.hasOwnProperty(key)) 
+      return queries[key];      
+    return null;
+  },
   signUp: (userId, userPhoneNumber, userPasswd, email, type='educator', course_id = '') => {
     if (userId == null || userPhoneNumber == null || userPasswd == null || email == null) {
-      alert('Invalid signup request');
+      swal('등록 요청가 잘못되었습니다. 다시 확인해보세요.');
       return;
     }        
     var attributeList = [ 
@@ -582,7 +602,7 @@ const puzzleAPI = {
     ];        
     puzzleAPI.userPool.signUp(userId, userPasswd, attributeList, null, function(err, result) {
         if (err) {
-          alert(err);
+          swal(err);
           return;
         }
         puzzleAPI.cognitoUser = result.user;
@@ -594,13 +614,12 @@ const puzzleAPI = {
   },
   confirm: (activateCode) => {
     if (puzzleAPI.cognitoUser == null) {
-      alert("You didn't sign up yet");
+      swal("등록이 완료되지 않았습니다.");
       return;
     }
     puzzleAPI.cognitoUser.confirmRegistration(activateCode, true, function(err, result) {
       if (err) {
-        alert('인증번호가 틀렸습니다. 다시 입력하세요.');
-        //alert(err);
+        swal('인증번호가 틀렸습니다. 다시 입력하세요.');
         return;
       }
       window.location.href = 'index.html';
@@ -620,7 +639,7 @@ const puzzleAPI = {
         $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
         if (currentPageName.startsWith("studying")) {
           puzzleAPI.refreshPage();
-          course_id = course.parseInput('course');
+          course_id = puzzleAPI.parseInput('course');
           if (course_id) course.loadCourse( course_id);
           else course.loadCourse( 'elementary');
         }
@@ -629,7 +648,7 @@ const puzzleAPI = {
         puzzleAPI.cognitoUser = null;
         puzzleAPI.token = null;
         puzzleAPI.user_type = null;
-        alert('잘못된 사용자 아이디이거나 틀린 비밀번호입니다.');
+        swal('잘못된 사용자 아이디이거나 틀린 비밀번호입니다.');
       },
       mfaRequired: function(codeDeliveryDetails) {
         var verificationCode = prompt('Please input verification code', '');
@@ -646,7 +665,7 @@ const puzzleAPI = {
       onFailure: function(err) {
         puzzleAPI.cognitoUser = null;
         puzzleAPI.token = null;
-        alert(err);
+        swal(err);
       },
       inputVerificationCode() {
         var verificationCode = prompt('Please enter your verification code ', '');
@@ -677,7 +696,7 @@ const puzzleAPI = {
       if (puzzleAPI.user_type == null) {
         puzzleAPI.cognitoUser.getUserAttributes((err,res)=> {
           if (err) {
-            alert(err);
+            swal('사용자의 추가 정보를 찾을 수 없습니다.');
             return;
           }
           for (i=0; i< res.length;i++) {
@@ -728,7 +747,7 @@ const puzzleAPI = {
     course.progress_info = null;
         
     puzzleAPI.refreshPage();
-    course_id = course.parseInput('course');
+    course_id = puzzleAPI.parseInput('course');
     if (course_id) course.loadCourse( course_id);
     else course.loadCourse( 'elementary');
   },
@@ -792,18 +811,20 @@ const puzzleAPI = {
     if (currentPageName.startsWith("index.html") || currentPageName.startsWith("") ) {
       switch (puzzleAPI.user_type) {
         case "student":
+          $('.for-non-member, .for-educator').hide();
           $('.for-student').show();
-          $('.for-educator').hide();
+          
           break;
 
         case "educator":
-          $('.for-student').hide();
+          $('.for-non-member, .for-student').hide();
           $('.for-educator').show();
           break;
         
         default:
           $('.for-student').show();
           $('.for-educator').show();
+          $('.for-non-member').show();
       }
     }
     
@@ -860,6 +881,15 @@ $(document).on('click', '.menu-login a', function(e){
   }
 });
 
+$(document).keyup(function(e) {
+  // allow users to automatic login trial after pressing an "enter" key after typing password
+  if ( $('input[name="menu-user-password"]:focus') && e.keyCode === 13 ) {
+    puzzleAPI.login( $('.menu-user-id input').val(), $('.menu-user-password input').val());
+    e.preventDefault();
+    return false;
+  }
+});
+
 $(document).on('click', '#Gnb-menu .login img', function(e) {
   if ($(e.currentTarget).attr('src') == 'img/login.png') {
 
@@ -877,13 +907,13 @@ $(document).ready(function() {
     var pwd = $('#register_input_password').val();
     var confirm_pwd = $('#confirm_input_password').val();
     if (pwd.length == 0 || pwd != confirm_pwd) {
-      alert('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
+      swal('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
       $('#confirm_input_password').val('');
       $('#register_input_password').val('').focus();
       return;
     }
     if (pwd.length <= 7) {
-      alert('비밀번호는 최소 8자리 이상을 입력해야 합니다.')
+      swal('비밀번호는 최소 8자리 이상을 입력해야 합니다.')
       $('#confirm_input_password').val('');
       $('#register_input_password').val('').focus();
       return;
@@ -891,9 +921,7 @@ $(document).ready(function() {
     if (pwd.match(/[0-9]/g) != null && pwd.match(/[a-z]/g) != null ) {
       puzzleAPI.signUp($('#register_input_id').val(), "+821059177477", pwd, $('#register_input_email').val() );
       return;
-    }
-
-    
+    }    
   });    
 
   $('#register_final_request').on('click', function() {
@@ -904,13 +932,13 @@ $(document).ready(function() {
     var pwd = $('#register_input_password').val();
     var confirm_pwd = $('#confirm_input_password').val();
     if (pwd.length == 0 || pwd != confirm_pwd) {
-      alert('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
+      swal('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
       $('#confirm_input_password').val('');
       $('#register_input_password').val('').focus();
       return;
     }
     if (pwd.length <= 7) {
-      alert('비밀번호는 최소 8자리 이상을 입력해야 합니다.')
+      swal('비밀번호는 최소 8자리 이상을 입력해야 합니다.')
       $('#confirm_input_password').val('');
       $('#register_input_password').val('').focus();
       return;
@@ -919,13 +947,54 @@ $(document).ready(function() {
       puzzleAPI.signUp($('#register_input_id').val(), "+821059177477", $('#register_input_password').val(), $('#register_input_email').val(), 'student' );
       return;
     }
-    alert('비밀번호는 영문 소문자와 숫자가 반드시 포함되어 있어야 합니다.');
+    swal('비밀번호는 영문 소문자와 숫자가 반드시 포함되어 있어야 합니다.');
     $('#confirm_input_password').val('');
     $('#register_input_password').val('').focus();    
   });
 
   $('#register_input_id').donetyping(()=> {
     puzzleAPI.checkAvailability($('#register_input_id').val());
+  });
+});
+
+$(document).on('click', '.main-progress-status', function(e) {
+  puzzleAPI.currentUser();
+  if (puzzleAPI.cognitoUser) {
+    window.location.href = "progress-status.html";
+    return;
+  }
+  swal('본 메뉴는 교육자로 등록한 사용자만 이용할 수 있습니다.', { 
+    buttons: {
+      cancel: '진도현황 예시페이지 이동',
+      catch: {
+        text: '등록페이지 이동',
+        value: 'catch'
+      }
+    }
+  }).then( (value) => {
+    if (value == null) window.location.href = "progress-status.html";
+    if (value == "catch") window.location.href = "_sign_educator.html";
+  });
+});
+
+$(document).on('click', '.main-puzzle-intro', function(e) {
+  puzzleAPI.currentUser();
+  if (puzzleAPI.cognitoUser) {
+    window.location.href = "puzzle-intro.html";
+    return;
+  }
+
+  swal('등록하지 않은 사용자는 퍼즐만들기 및 풀어보기를 일부 체험할 수 있으나 자신이 만든 퍼즐 정보를 저장할 수는 없습니다.', 
+    { buttons: {
+      cancel: '퍼즐만들기 간이 체험하기',
+      catch: {
+        text: '등록페이지 이동',
+        value: 'catch'
+      }
+    }
+  }).then( (value) => {
+    if (value == null) window.location.href = "puzzle-intro.html";
+    if (value == "catch") window.location.href = "_signUp.html";
   });
 });
 

@@ -6,12 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="icon/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/jquery.bxslider.css" rel="stylesheet"/>
   <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+  <link href="css/summernote.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
   <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
   <script src="js/aws-cognito-sdk.min.js"></script>
@@ -22,6 +23,10 @@
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="js/summernote.min.js"></script>
+  <script src="js/summernote-ko-KR.js"></script>
+
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
 </head>
   <body>
@@ -34,7 +39,7 @@
               <a href="index.html" style="float: left;line-height: 84px;"><img src="img/logo.png" alt="로고이미지"></a>
               <ul class="zeta-menu">
                   <li>
-                    <a href="about-coding-puzzle.html" class="gnb-info">Info</a>
+                    <a href="about-coding-puzzle.html" class="gnb-info">소개</a>
                   </li>
                   <li>
                     <a href="#" class="gnb-education">코딩퍼즐학습</a>
@@ -123,7 +128,7 @@
           -->
           <ul>
             <span>
-              <a href="about-coding-puzzle.html">About 코딩 퍼즐</a>
+              <a href="about-coding-puzzle.html">코딩퍼즐 소개</a>
             </span>
           </ul>
     
@@ -259,7 +264,7 @@
                 <div class="flex-box">
                   <div class="webgl-content">
                     <div style="margin-left: 50%">
-                      <div id="gameContainer" style="width: 470px; height: 840px;"></div>
+                      <div id="gameContainer"></div>
                     </div>
                   </div>
                 </div>
@@ -268,13 +273,16 @@
                 <div class="flex-box">
                   <label>퍼즐내용</label>
                   <div class="flex-box-inner">
-                    <span>TEXT</span>
-                    <span class="active">HTML</span>
+                    <!--<span>TEXT</span>-->
+                    <span class="text-active">HTML</span>
                   </div>
                 </div>
+                <div id="summernote">
+                </div>
+                
+                  <!--<textarea placeholder="소개글을 써주세요." style="display:none;"></textarea>-->
               </div>
-
-              <textarea placeholder="소개글을 써주세요!"></textarea>
+              
               <div class="functions">
                 <div class="function-btns">
                     <img src="img/share.png" alt="공유하기 버튼">
@@ -299,28 +307,28 @@
                   $('#uploadPuzzle').on('click', ()=> {
 
                     const json_files = [
-                      'stage/puzzlemiddle0101.json',
-                      'stage/puzzlemiddle0102.json',
-                      'stage/puzzlemiddle0103.json',
-                      'stage/puzzlemiddle0104.json',
-                      'stage/puzzlemiddle0201.json',
-                      'stage/puzzlemiddle0202.json',
-                      'stage/puzzlemiddle0203.json',
-                      'stage/puzzlemiddle0204.json',
-                      'stage/puzzlemiddle0301.json',
-                      'stage/puzzlemiddle0302.json',
-                      'stage/puzzlemiddle0303.json',
-                      'stage/puzzlemiddle0304.json',
-                      'stage/puzzlemiddle0401.json',
-                      'stage/puzzlemiddle0402.json',
-                      'stage/puzzlemiddle0403.json',
-                      'stage/puzzlemiddle0404.json'
+                      'puzzles/puzzlemiddle0101.json',
+                      'puzzles/puzzlemiddle0102.json',
+                      'puzzles/puzzlemiddle0103.json',
+                      'puzzles/puzzlemiddle0104.json',
+                      'puzzles/puzzlemiddle0201.json',
+                      'puzzles/puzzlemiddle0202.json',
+                      'puzzles/puzzlemiddle0203.json',
+                      'puzzles/puzzlemiddle0204.json',
+                      'puzzles/puzzlemiddle0301.json',
+                      'puzzles/puzzlemiddle0302.json',
+                      'puzzles/puzzlemiddle0303.json',
+                      'puzzles/puzzlemiddle0304.json',
+                      'puzzles/puzzlemiddle0401.json',
+                      'puzzles/puzzlemiddle0402.json',
+                      'puzzles/puzzlemiddle0403.json',
+                      'puzzles/puzzlemiddle0404.json'
                     ];
                    
                     $.getJSON( json_files[Math.floor(Math.random() * json_files.length)], function(data) {
                       var item = {
                         title: $('#title').val(),
-                        description: $('textarea').val(),
+                        description: $('#summernote').summernote('code'),
                         public: true,
                         data: data
                       };
@@ -332,13 +340,22 @@
                         },
                         data: JSON.stringify(item),
                         success: (data) => {
-                          //window.location.href = './gallery.html';
+                          window.location.href = './gallery.html';
                           console.log(data);
                         },
                         fail: (err) => {
                           console.log(err);
                         }
                       });
+                    });
+                  });
+                  $(document).ready(function() {
+                    $('#summernote').summernote({
+                      lang: 'ko-KR',
+                      height: 300,                      
+                      minHeight: null,
+                      maxHeight: null,
+                      placeholder: '소개글을 써주세요.'
                     });
                   });
                 </script>
@@ -353,20 +370,20 @@
 
     <!--푸터시작-->
     <footer>
-      <div class="tail-row">
-        <div class="tail-colum-1">
-          <img src="img/logo2.png" alt="메이커스랩 로고이미지">
+        <div class="tail-row">
+          <div class="tail-colum-1">
+            <img src="img/logo.png" alt="메이커스랩 로고이미지">
+          </div>
+          <div class="tail-colum-2">
+            <p>30016 세종특별자치시 조치원읍 세종로 2639 B동 233호</p>
+            <p>책임자: 서범주 / 연락처: 044-860-2870, 이메일: <a href="mailto:bseo@hongik.ac.kr"> bseo@hongik.ac.kr</a></a></p>
+          </div>
+          <div class="tail-colum-3">
+            <p>본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단이용하는 경우,</p>
+            <p>저작권법 등에 따라 법적책임을 질 수 있습니다.</p>
+            <p>Copyright © 2016 - 2017 MakersLab, Inc.  기업부설연구소. All rights reserved.</p>
+          </div>
         </div>
-        <div class="tail-colum-2">
-          <p>30018 세종특별자치시 조치원읍 돌마루5길 2 세영오피스텔 메이커스랩© 401호</p>
-          <p>전화: 010-5305-8680 이메일: <a href="mailto:thenayoung@gmail.com">김나영</a></p>
-        </div>
-        <div class="tail-colum-3">
-          <p>본 콘텐츠의 저작권은 제공처에 있으며, 이를 무단이용하는 경우,</p>
-          <p>저작권법 등에 따라 법적책임을 질 수 있습니다.</p>
-          <p>Copyright © 2014 - 2017 MakersLab, Inc. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
     <!--푸터 끝-->
   </body>

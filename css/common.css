@@ -101,10 +101,10 @@ a:focus, a:hover {
     right: 0;
     text-align: left;
 }
-@media(min-width:992px) and (max-width:1200px){
-.carousel-caption{
-    bottom:179px;
-}
+@media(min-width:992px) and (max-width:1200px) {
+    .carousel-caption{
+        bottom:179px;
+    }
 }
 @media (max-width:992px) {
     .col-cs-13 {
@@ -213,15 +213,37 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
-.slider1{
-    position: relative;
+.partners-slide {
+    display: flex;
+    justify-content: flext-start;
+    align-items: center;
+    padding: 0 0px;
+    height: 45px;
+    width: 100%;
+}
+
+.partners-slide .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100%;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.partners-slide .container div {
+    height:100%;
+    padding: 0 10px;
+}
+
+.partners-slide .container div img {
+    height:100%;    
 }
 
 
 /*구름끝*/
-.swiper-slide img{
-  width:100%;
-}
+
+
 
 /*GNB css시작*/
 
@@ -1135,6 +1157,12 @@ background-size: cover;
     font-size: 24px;
     font-weight: 300;
     padding: 20px;
+    color: #777777;
+}
+
+.note-editable.panel-body, .making-puzzle .modal-dialog label {
+    font-size: 24px;
+    font-weight: 300;
     color: #777777;
 }
 
@@ -2167,19 +2195,21 @@ tr td:nth-child(5n-3) {
 }
 
 .chasi ul {
-    padding: 20px 0;
+    padding: 15px 0px;
     background-color: #fff;
     border-radius: 15px;
-    margin-top: -10px;
 }
 
 .chasi ul li {
     background-color: #fff;
     padding: 12px;
     color: #666666;
-    font-size: 22px;
+    font-size: 1.4em;
     cursor: pointer;
     transition: 0.2s;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .chasi ul li:hover {
@@ -2189,7 +2219,11 @@ tr td:nth-child(5n-3) {
 
 .chasi-child {
     display: inline-block;
-    padding: 0px 16px;
+    padding: 0;
+}
+
+.chasi-child img {
+    content: url('../img/chasi-1.png');
 }
 
 .selected {
@@ -2201,18 +2235,20 @@ tr td:nth-child(5n-3) {
     color: #fff !important;
 }
 
+.chasi-child img {
+    width: 29px; 
+    height: 29px;
+}
+
+.chasi-active .chasi-child img {
+    content: url('../img/chasi-2.png');
+}
+
 .coding .chasi-active {
     background-color: #5C6BC0 !important;
     color: #fff !important;
 }
 
-.chasi-active .chasi-child .selected {
-    display: inline-block !important;
-}
-
-.chasi-active .chasi-child .unselected {
-    display: none !important;
-}
 
 .chasi-progress {
     background-color: #fff;
@@ -2720,6 +2756,10 @@ tr td:nth-child(5n-3) {
     background-size: 110%;
 }
 
+.main-box-1:hover {
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.8);
+}
+
 .main-box-pic-1 {
     background-image: url('../img/main-pic-1.png');
 }
@@ -2768,11 +2808,19 @@ tr td:nth-child(5n-3) {
     .main-about-coding-button {
         margin-top: 119px;
     }
+
+    .main-box-1 h3 {
+        font-size: 1.15em;
+    }
 }
 
 @media(max-width:992px) {
     .main-about-coding-button {
         margin-top: 15px;
+    }
+
+    .main-box-1 h3 {
+        font-size: 1.2em;
     }
 }
 
@@ -3600,6 +3648,11 @@ margin-top: 30px;
     color: #42a5f5;
 }
 
+.note-editable-panel-body {
+    font-size: 24px;
+    font-weight: 300;
+}
+
 /*by lhm */
 .chasi-info .lecture-longimg{
 display: inline-block;
@@ -3610,3 +3663,5 @@ display: inline-block;
     width: 180px;
 
 }
+
+
