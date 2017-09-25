@@ -180,8 +180,8 @@
     <!--페이지 시작-->
     <div id="page-wrapper">
       <div class="bg-blue">
-        <div class="container">
-          <section class="banner-text">
+        <div class="container row">
+          <section class="banner-text col-md-10">
             <p><a href="puzzle-intro.html">퍼즐메이커</a>
               <span>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -260,15 +260,7 @@
             <div class="making-puzzle">
               <label>퍼즐제목</label>
               <input id="title" type="text" placeholder="퍼즐의 제목을 써주세요!"></input>
-              <div class="making-puzzle-game">
-                <div class="flex-box">
-                  <div class="webgl-content">
-                    <div style="margin-left: 50%">
-                      <div id="gameContainer"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
               <div class="text-html">
                 <div class="flex-box">
                   <label>퍼즐내용</label>
@@ -281,6 +273,19 @@
                 </div>
                 
                   <!--<textarea placeholder="소개글을 써주세요." style="display:none;"></textarea>-->
+              </div>
+
+              <div class="making-puzzle-game">
+                <p>다음 버튼을 누르면 퍼즐에디터가 나옵니다. 로딩시 시간이 소요될 수 있으니 기다려주세요.</p>
+                <p>맨 왼쪽 메뉴 버튼을 누르면 메뉴 화면이 나옵니다.</p>
+                <div class="main-about-coding-button" id="puzzle-editor-loader" style="margin-top:10px">퍼즐에디터 로드하기</div>
+                <div class="flex-box" style="justify-content: center">
+                  <div class="webgl-content">
+                    <div>
+                      <div id="gameContainer" style="width: 1280px; height: 720px;"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
               
               <div class="functions">
@@ -303,6 +308,7 @@
                 </button>
                   
                 <script>
+                  $('#puzzle-editor-loader').on('click', ()=>loadModule('editor') );
                   $('#goto-gallery').on('click', ()=>window.location.href = './gallery.html');
                   $('#uploadPuzzle').on('click', ()=> {
 
@@ -324,30 +330,64 @@
                       'puzzles/puzzlemiddle0403.json',
                       'puzzles/puzzlemiddle0404.json'
                     ];
-                   
-                    $.getJSON( json_files[Math.floor(Math.random() * json_files.length)], function(data) {
-                      var item = {
+
+                    var json_file = json_files[Math.floor(Math.random() * json_files.length)];
+                    json_file = "puzzles/testcase.json";                   
+                    
+                    data = localStorage.getItem('latestEditedPuzzle');
+                    if (data == null) {
+                      swal("아직 퍼즐을 만들지 않았습니다. 먼저 퍼즐을 만들어주세요.")
+                      return;
+                    }
+                    json_data = JSON.parse(data);
+                    var item = {
                         title: $('#title').val(),
                         description: $('#summernote').summernote('code'),
                         public: true,
-                        data: data
-                      };
-                      puzzleAPI.currentUser();
-                      if (puzzleAPI.cognitoUser == null) return;
-                      $.ajax( { type: 'POST', url: puzzleAPI.apiUrl + 'puzzles',
-                        headers: {
-                          'Authorization' : puzzleAPI.token
-                        },
-                        data: JSON.stringify(item),
-                        success: (data) => {
-                          window.location.href = './gallery.html';
-                          console.log(data);
-                        },
-                        fail: (err) => {
-                          console.log(err);
-                        }
+                        data: json_data
+                    };
+                    puzzleAPI.currentUser();
+                    if (puzzleAPI.cognitoUser == null) {
+                      swal('등록한 사용자만이 퍼즐을 게시할 수 있습니다.', { 
+                          buttons: {
+                            cancel: '계속 퍼즐 만들기',
+                            catch: {
+                              text: '등록 페이지로 이동',
+                              value: 'catch'
+                            }
+                          }
+                      }).then( (value) => {
+                        localStorage.removeItem('latestEditedPuzzle');
+                        if (value == "catch") window.location.href = "_signUp.html";
                       });
+                      return;                   
+                    }
+                    $.ajax( { type: 'POST', url: puzzleAPI.apiUrl + 'puzzles',
+                      headers: {
+                        'Authorization' : puzzleAPI.token
+                      },
+                      data: JSON.stringify(item),
+                      success: (data) => {
+                        //window.location.href = './gallery.html';
+                        swal('퍼즐을 성공적으로 등록하였습니다.', { 
+                          buttons: {
+                            cancel: '계속 퍼즐 만들기',
+                            catch: {
+                              text: '퍼즐 갤러리로 이동',
+                              value: 'catch'
+                            }
+                          }
+                        }).then( (value) => {
+                          localStorage.removeItem('latestEditedPuzzle');
+                          if (value == "catch") window.location.href = "gallery.html";
+                        });
+                      },
+                      fail: (err) => {
+                        swal('안에 제목, 내용이 비었거나 퍼즐을 만들지 않았네요. 퍼즐에디터 오른쪽 상단 메뉴를 누르시고 저장하기를 선택해주세요. 다시 시도해보세요.');
+                      }
                     });
+
+
                   });
                   $(document).ready(function() {
                     $('#summernote').summernote({

@@ -131,7 +131,7 @@ $(function() {
 
     } else {
       $(".class-name").removeClass("chasi-active");
-      $(this).addClass('chasi-active');
+      $(this).addClass('chasi-active');      
     }
   });
 });
@@ -249,6 +249,9 @@ function loadModule()
           course.progress_info = {};  
         }
         course.progress_info[course.current_puzzle_id] = "completed";
+        if (currentPageName.startsWith("studying")) {
+          puzzleAPI.recordProgress();
+        }
 		    missionCompleteProcess = false;
         
         // move to a next mission
@@ -266,7 +269,7 @@ function loadModule()
             if (puzzle_stage == null) return;
             if (puzzle_stage == 'puzzleLatest') {
               $('.making-puzzle input').val('가장 최근 편집된 퍼즐');
-              var stageData = localStorage.getItem('latestEditedStage');
+              var stageData = localStorage.getItem('latestEditedPuzzle');
               if (stageData == null) return;
               Module.loadPuzzleData(JSON.stringify(stageData));
               return;
@@ -293,7 +296,14 @@ function loadModule()
           var obj = $("li[data-stage=" + course.current_puzzle_id +"]");
           if (obj.children(".stage-progress").attr('src') === 'img/current-status.png')
             course.loadStage(obj[0]);
+          return;
         }
+        if (Module.moduleName == 'per_stage_v2') {
+          onUnityLoad = true;
+          Module.OnReadyPostprocess();
+          return;
+        }
+        
       },
       OnPuzzleReady: function() {
         onUnityLoad = true;
@@ -305,13 +315,16 @@ function loadModule()
         localStorage.setItem('latestCustomizedRobotInfo', data);
       },
       OnEditComplete: function(name, data) {
-        localStorage.setItem('latestEditedStage', data);
+        localStorage.setItem('latestEditedPuzzle', data); //by editor
       },
       OnGamePlaying: function() {
         gamePlayingProcess = true;
       },
       OnGameStop: function() {
         gamePlayingProcess = false;
+      },
+      OnLoad: function(name) {
+        localStorage.getItem('latestEditedPuzzle');
       },
       SendPuzzleInfo: function() {
         if (currentPageName.startsWith("studying")) {
@@ -510,15 +523,26 @@ $(document).ready(function() {
           $('#puzzle-title').text( data.title );
           
           if (data.description != null && data.description.length > 0) {
-            var s = new Sanitize(Sanitize.Config.RELAXED);
-            var test = '<div>' + data.description + '</div>';
-            $('#puzzle-description').html( s.clean_node( $(test)[0] ) );
+            $('#puzzle-description').html( DOMPurify.sanitize( data.description ) );
           }
           else 
             $('#puzzle-description').html( "" );
+
           $('#puzzle-owner').text( data.owner );
           $('#puzzle-date').text( new Date(data.timestamp).toLocaleString() );
-          if (Module == null) loadModule();          
+
+          $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=thumbnail', 
+            processData: false,
+            contentType: 'image/png'
+          }).done(function(data) {
+            console.log(data);
+            $('#puzzle-thumbnail').attr('src', 'https://codingpuzzle.org/puzzles/thumbnails/' + puzzle_id);
+            moduleName = "per_stage_v2";
+          }).fail(function() { 
+            moduleName = "per_stage";
+          }).always(function() {
+            if (Module == null) loadModule();
+          });
         }
       });
     });
@@ -530,11 +554,42 @@ $(document).on('click', '.puzzlecoding button', function() {
 });
 
 $(document).on('click', ".chasi ul li", function(e) {  
-  if ($(e.currentTarget).hasClass('chasi-active') == false) {
-      $(".chasi ul li").removeClass("chasi-active");
-      $(e.currentTarget).addClass('chasi-active');
-  }	
-  course.showLesson(course.info.lessons[$(e.currentTarget).attr('data')] );
+  var $active_one = $('.chasi ul .chasi-active');
+  if ($(this).hasClass('chasi-active') == false) {
+    i = 0;
+    if ($('.progress-org img[src!="img/normal-clear.png"]').length > 0) {
+      for (i=0; i< $active_one.prevAll().length; i++) {
+        if (this === $active_one.prevAll()[i]) 
+          break;
+      }
+    }
+    if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
+      swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+      return;
+    }
+
+    if ( $(this).attr('data') != $active_one.next().attr('data') ) {
+      if ( $active_one.prevAll().length == 0 ) {
+        swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+        return;
+      }
+      for (i=0; i< $active_one.prevAll().length; i++) {
+        if (this === $active_one.prevAll()[i]) 
+          break;
+      }
+      if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
+        swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+        return;
+      }
+    }
+    
+    $(".chasi ul li").removeClass("chasi-active");
+    $(e.currentTarget).addClass('chasi-active');
+    course.showLesson(course.info.lessons[$(e.currentTarget).attr('data')] );
+  } else {
+    console.log("wrong: " + this);
+  }
+  
 });
 
 $(document).on('click', ".progress-org li", function(e) {
@@ -548,7 +603,7 @@ $(document).on('click', ".progress-org li", function(e) {
   }
 });
 
-$(document).on('click', 'chasi-info-prev', function() { $('.carousel').carousel('prev');});
+$(document).on('click', '.chasi-info-prev', function() { $('.carousel').carousel('prev');});
 $(document).on('click', '.chasi-info-next', function() { $('.carousel').carousel('next');});
 $(document).on('click', '.carousel-indicators > li', function() { 
     $('.carousel').carousel( $(this).parent('.carousel-indicators').find('li').index( $(this) ) );
@@ -591,7 +646,7 @@ const puzzleAPI = {
   },
   signUp: (userId, userPhoneNumber, userPasswd, email, type='educator', course_id = '') => {
     if (userId == null || userPhoneNumber == null || userPasswd == null || email == null) {
-      swal('등록 요청가 잘못되었습니다. 다시 확인해보세요.');
+      swal('등록 요청이 잘못되었습니다. 다시 확인해보세요.');
       return;
     }        
     var attributeList = [ 
