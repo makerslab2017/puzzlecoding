@@ -378,7 +378,8 @@
                             }
                           }
                         }).then( (value) => {
-                          localStorage.removeItem('latestEditedPuzzle');
+                          console.log(data);
+                          //localStorage.removeItem('latestEditedPuzzle');
                           if (value == "catch") window.location.href = "gallery.html";
                         });
                       },
