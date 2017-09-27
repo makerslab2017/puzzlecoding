@@ -297,13 +297,7 @@ function loadModule()
           if (obj.children(".stage-progress").attr('src') === 'img/current-status.png')
             course.loadStage(obj[0]);
           return;
-        }
-        if (Module.moduleName == 'per_stage_v2') {
-          onUnityLoad = true;
-          Module.OnReadyPostprocess();
-          return;
-        }
-        
+        }     
       },
       OnPuzzleReady: function() {
         onUnityLoad = true;
@@ -535,12 +529,10 @@ $(document).ready(function() {
             processData: false,
             contentType: 'image/png'
           }).done(function(data) {
-            console.log(data);
             $('#puzzle-thumbnail').attr('src', 'https://codingpuzzle.org/puzzles/thumbnails/' + puzzle_id);
-            moduleName = "per_stage_v2";
-          }).fail(function() { 
-            moduleName = "per_stage";
+          }).fail(function() {             
           }).always(function() {
+            moduleName = "per_stage";
             if (Module == null) loadModule();
           });
         }

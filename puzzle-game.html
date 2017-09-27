@@ -278,7 +278,7 @@
               <div class="making-puzzle-game">
                 <p>다음 버튼을 누르면 퍼즐에디터가 나옵니다. 로딩시 시간이 소요될 수 있으니 기다려주세요.</p>
                 <p>맨 왼쪽 메뉴 버튼을 누르면 메뉴 화면이 나옵니다.</p>
-                <div class="main-about-coding-button" id="puzzle-editor-loader" style="margin-top:10px">퍼즐에디터 로드하기</div>
+                <div class="main-about-coding-button" id="puzzle-editor-loader" style="margin: 20px auto;">퍼즐에디터 로드하기</div>
                 <div class="flex-box" style="justify-content: center">
                   <div class="webgl-content">
                     <div>
@@ -312,28 +312,6 @@
                   $('#goto-gallery').on('click', ()=>window.location.href = './gallery.html');
                   $('#uploadPuzzle').on('click', ()=> {
 
-                    const json_files = [
-                      'puzzles/puzzlemiddle0101.json',
-                      'puzzles/puzzlemiddle0102.json',
-                      'puzzles/puzzlemiddle0103.json',
-                      'puzzles/puzzlemiddle0104.json',
-                      'puzzles/puzzlemiddle0201.json',
-                      'puzzles/puzzlemiddle0202.json',
-                      'puzzles/puzzlemiddle0203.json',
-                      'puzzles/puzzlemiddle0204.json',
-                      'puzzles/puzzlemiddle0301.json',
-                      'puzzles/puzzlemiddle0302.json',
-                      'puzzles/puzzlemiddle0303.json',
-                      'puzzles/puzzlemiddle0304.json',
-                      'puzzles/puzzlemiddle0401.json',
-                      'puzzles/puzzlemiddle0402.json',
-                      'puzzles/puzzlemiddle0403.json',
-                      'puzzles/puzzlemiddle0404.json'
-                    ];
-
-                    var json_file = json_files[Math.floor(Math.random() * json_files.length)];
-                    json_file = "puzzles/testcase.json";                   
-                    
                     data = localStorage.getItem('latestEditedPuzzle');
                     if (data == null) {
                       swal("아직 퍼즐을 만들지 않았습니다. 먼저 퍼즐을 만들어주세요.")
@@ -368,7 +346,6 @@
                       },
                       data: JSON.stringify(item),
                       success: (data) => {
-                        //window.location.href = './gallery.html';
                         swal('퍼즐을 성공적으로 등록하였습니다.', { 
                           buttons: {
                             cancel: '계속 퍼즐 만들기',
@@ -378,8 +355,7 @@
                             }
                           }
                         }).then( (value) => {
-                          console.log(data);
-                          //localStorage.removeItem('latestEditedPuzzle');
+                          localStorage.removeItem('latestEditedPuzzle');
                           if (value == "catch") window.location.href = "gallery.html";
                         });
                       },
