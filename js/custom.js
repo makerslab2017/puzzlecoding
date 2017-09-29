@@ -547,41 +547,43 @@ $(document).on('click', '.puzzlecoding button', function() {
 
 $(document).on('click', ".chasi ul li", function(e) {  
   var $active_one = $('.chasi ul .chasi-active');
-  if ($(this).hasClass('chasi-active') == false) {
-    i = 0;
-    if ($('.progress-org img[src!="img/normal-clear.png"]').length > 0) {
-      for (i=0; i< $active_one.prevAll().length; i++) {
-        if (this === $active_one.prevAll()[i]) 
-          break;
-      }
+  if ($(this).hasClass('chasi-active') == true) {
+    return;
+  }
+  i = 0;
+  if ($('.progress-org img[src!="img/normal-clear.png"]').length > 0) {
+    for (i=0; i< $active_one.prevAll().length; i++) {
+      if (this === $active_one.prevAll()[i]) 
+        break;
+    }
+    if ($active_one.prevAll().length == 0) {
+      swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+      return;  
+    }
+  }
+  if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
+    swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+    return;
+  }
+
+  if ( $(this).attr('data') != $active_one.next().attr('data') ) {
+    if ( $active_one.prevAll().length == 0 ) {
+      swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+      return;
+    }
+    for (i=0; i< $active_one.prevAll().length; i++) {
+      if (this === $active_one.prevAll()[i]) 
+        break;
     }
     if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
       swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
       return;
     }
-
-    if ( $(this).attr('data') != $active_one.next().attr('data') ) {
-      if ( $active_one.prevAll().length == 0 ) {
-        swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
-        return;
-      }
-      for (i=0; i< $active_one.prevAll().length; i++) {
-        if (this === $active_one.prevAll()[i]) 
-          break;
-      }
-      if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
-        swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
-        return;
-      }
-    }
-    
-    $(".chasi ul li").removeClass("chasi-active");
-    $(e.currentTarget).addClass('chasi-active');
-    course.showLesson(course.info.lessons[$(e.currentTarget).attr('data')] );
-  } else {
-    console.log("wrong: " + this);
   }
   
+  $(".chasi ul li").removeClass("chasi-active");
+  $(e.currentTarget).addClass('chasi-active');
+  course.showLesson(course.info.lessons[$(e.currentTarget).attr('data')] );  
 });
 
 $(document).on('click', ".progress-org li", function(e) {

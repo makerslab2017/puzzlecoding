@@ -224,7 +224,6 @@
   <div class="container">
     <!--갤러리 로우-->
     <div class="row row-margin gallery">
-
       <div class="col-md-3 col-sm-6" id="next-button">
         <section class="gallery-box" style="visibility:hidden;">
           <div class="gallery-image">
@@ -240,7 +239,9 @@
           </div>
           
         </section>
-        <div class="next-button"><div><i class="material-icons">navigate_next</i></div></div>
+        <div class="next-button">
+          <div><i class="material-icons">navigate_next</i></div>
+        </div>
       </div>
     </div>
     <script>
@@ -277,7 +278,6 @@
       readFromWeb = (n_trials) => {
         if (n_trials == 0) return;
         $.getJSON( puzzleAPI.apiUrl + 'puzzles',  pagination_info, (data)=> {
-          console.log(data);
           if (data.hasOwnProperty('items')) {
             $.each(data.items, function(key, value) {
               buildItem({id: value.puzzle_id, title: value.title, owner: value.owner_id, description: value.description, n_sharings: 1 + "", n_likes: 1 + "", n_dislikes: 1 + "" } );          
@@ -287,9 +287,12 @@
               last_elapsed_days: data.last_elapsed_days,
               last_created_at: data.last_created_at,
             };
+            readFromWeb(n_trials - 1);
+            /*
             if (data.items.length == 0 && pagination_info.last_puzzle_id == null && pagination_info.last_elapsed_days ) {
               readFromWeb(n_trials - 1);
             }
+            */
           }
           $('#next-button').appendTo('.gallery');
         });
@@ -297,25 +300,6 @@
       readFromWeb(7);
       $('#next-button').on('click', () => readFromWeb(7) );
     </script>
-    <!--
-    <div class="pagination-wrapper">
-      <ul class="pagination">
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
-        <li class="active">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
-      </ul>
-    </div>
-    -->
-    </div>
   </div>
   <!--푸터시작-->
   <footer>
@@ -335,13 +319,3 @@
       </div>
     </footer>
 </body>
-<script>
-/*
-$(document).ready(function(){
-  $('.gallery-image').click(function() {
-    localStorage.setItem("PuzzleByEditor", $(this).attr("data"));
-    window.location.href = "./puzzle-game.html";
-  });
-});
-*/
-</script>
