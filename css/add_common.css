@@ -1,0 +1,58 @@
+.material-box-detail {
+    background-color: #fff;
+    padding: 20px;
+    line-height: 2;
+    
+}
+
+@media (min-width: 1200px) {
+    .material-container {
+        width: 1200px !important;
+        position: relative;
+    }
+}
+
+.material-container {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;	
+}
+
+.material-box {
+	background-color: #777777;
+    ;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 50px;
+}
+.matrial-intro-cloud-left {
+    position: absolute;
+	z-index: 0;
+	bottom: 0;
+	left: 0px;
+}
+
+.matrial-intro-cloud-right {
+    position: absolute;
+	z-index: 0;
+	bottom: 0;
+	right: -48px;
+}
+
+.material-intro-background {
+    background-color: #00ACC1;
+    color: #fff;   
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+.material-intro-detail{
+	padding-left: 10px;
+    padding-right: 10px;
+	padding-bottom: 120px;
+}
+
+
+
