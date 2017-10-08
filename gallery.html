@@ -287,7 +287,9 @@
               last_elapsed_days: data.last_elapsed_days,
               last_created_at: data.last_created_at,
             };
-            readFromWeb(n_trials - 1);
+            if ($('.gallery-box').length <= 10)
+              readFromWeb(n_trials);
+            else readFromWeb(n_trials - 1);
             /*
             if (data.items.length == 0 && pagination_info.last_puzzle_id == null && pagination_info.last_elapsed_days ) {
               readFromWeb(n_trials - 1);
