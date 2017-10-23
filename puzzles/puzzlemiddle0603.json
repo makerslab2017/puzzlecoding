@@ -234,25 +234,7 @@
 					"z": 0,
 					"w": 0.7071068
 				}
-			},
-			{
-				"IsStart": false,
-				"IsPlague": false,
-				"IsTransport": false,
-				"IsEnd": false,
-				"Name": "Tile_Column",
-				"Pos": {
-					"x": 0,
-					"y": 0.25,
-					"z": 0.25
-				},
-				"Rotation": {
-					"x": -0.7071068,
-					"y": 0,
-					"z": 0,
-					"w": 0.7071068
-				}
-			},
+			},			
 			{
 				"IsStart": false,
 				"IsPlague": false,
@@ -261,7 +243,7 @@
 				"Name": "Tile_End",
 				"Pos": {
 					"x": 0,
-					"y": 0.5,
+					"y": 0.25,
 					"z": 0.25
 				},
 				"Rotation": {
