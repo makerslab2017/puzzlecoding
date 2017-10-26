@@ -2144,10 +2144,11 @@ tr td:nth-child(5n-3) {
 }
 
 .intro-box-detail {
+	overflow:hidden;
     background-color: #fff;
     padding: 20px;
     line-height: 2;
-    height: 588px;
+    height: auto;
 }
 
 .intro-box-detail img {
@@ -3663,10 +3664,11 @@ display: inline-block;
 }
 
 .material-box-detail {
+	overflow:hidden;
     background-color: #fff;
     padding: 20px;
     line-height: 2;
-    
+	height:auto;    
 }
 
 @media (min-width: 1200px) {
@@ -3684,11 +3686,13 @@ display: inline-block;
 }
 
 .material-box {
-	background-color: #777777;
-    ;
+	background-color: #777777;    
     padding: 15px;
     border-radius: 12px;
     margin-top: 50px;
+}
+.matierial-download-button{
+	float:right;
 }
 .matrial-intro-cloud-left {
     position: absolute;
@@ -3742,6 +3746,16 @@ display: inline-block;
     border-radius: 25px;
 	margin-bottom: 15px;
 	margin-right: 10px;
+}
+
+.introduce-content{
+	padding-left: 20px !important;
+}
+
+.intro-box-detail p img{
+	position:absoulte !important;
+	width:auto !important;
+	height:322.46px !important;
 }
 
 
