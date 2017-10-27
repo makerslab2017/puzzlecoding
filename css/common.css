@@ -326,6 +326,7 @@ background-size: cover;
 
 #gnb-wrapper {
     position: fixed;
+	top:0px;	
     background: #fff;
     width: 100%;
     z-index: 9999;
@@ -3717,12 +3718,12 @@ display: inline-block;
 }
 
 .material-intro-detail{
-	padding-left: 20px;
+	padding-left: 20px !important;
     padding-right: 10px;
 	padding-bottom: 120px;	
 }
 
-.banner_wraper { 
+.banner_wrapper { 
 	height: 60px; 
 	width: 1130px; 
 	position: absolute; 
@@ -3730,7 +3731,7 @@ display: inline-block;
 
 }
 
-.banner_wraper img { 
+.banner_wrapper img { 
 	height: 45px;	
 	position: absolute; 
 	margin-left: 5px;

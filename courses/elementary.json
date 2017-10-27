@@ -4,7 +4,7 @@
     "description": "이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입 니다. 각 과정들은 5 ~ 20개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학교 저학년까지도 참여할 수 있으며 학 습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다. 바로 연락주세요.",
     "lessons": {
         "lesson-1": {
-            "title": "1차시",
+            "title": "1단원",
             "description": "기본 이동 명령어와 액션 명령어의 귀환 기능을 사용하여 명령어를 순차적으로 실행할 수 있다.",
             "stages": [
                 "puzzlebasic0101", 
@@ -20,7 +20,7 @@
             ]
         },
         "lesson-2": {
-            "title": "2차시",
+            "title": "2단원",
             "description": "네가지 시점의 출발 타일에서 학습을 시작하여 시점에 따른 네가지 조건에서 학습을 시작할 수 있다.",
             "stages": [
                 "puzzlebasic0201", 
@@ -34,7 +34,7 @@
             ]
         },
         "lesson-3": {
-            "title": "3차시",
+            "title": "3단원",
             "description": "점프 명령어를 이용하여 한단계 윗쪽의 타일로 점프이동할 수 있다.",
             "stages": [
                 "puzzlebasic0301", 
@@ -48,7 +48,7 @@
             ]
         },
         "lesson-4": {
-            "title": "4차시",
+            "title": "4단원",
             "description": "액션 명령어를 이용하여 오염된 타일을 깨끗하게 정화할 수 있다.",
             "stages": [
                 "puzzlebasic0401", 
@@ -62,7 +62,7 @@
             ]
         },
         "lesson-5": {
-            "title": "5차시",
+            "title": "5단원",
             "description": "액션 명령어를 이용하여 적 시추기 로봇을 물리칠 수 있다.",
             "stages": [
                 "puzzlebasic0501", 
@@ -74,7 +74,7 @@
             ]
         },
         "lesson-6": {
-            "title": "6차시",
+            "title": "6단원",
             "description": "액션 명령어를 이용하여 워프 타일을 사용해 동일한 한가지 색상의 워프 타일로 이동할 수 있다.",
             "stages": [
                 "puzzlebasic0601", 
@@ -88,7 +88,7 @@
             ]
         },
         "lesson-7": {
-            "title": "7차시",
+            "title": "7단원",
             "description": "액션 명령어를 이용하여 워프 타일을 사용해 동일한 두가지 색상의 워프 타일로 이동할 수 있다.",
             "stages": [
                 "puzzlebasic0701", 
@@ -102,7 +102,7 @@
             ]
         },
         "lesson-8": {
-            "title": "8차시",
+            "title": "8단원",
             "description": "기본 이동, 점프, 액션 명령어를 이용하여 문제를 해결할 수 있다.",
             "stages": [
                 "puzzlebasic0801", 
@@ -114,7 +114,7 @@
             ]
         },
         "lesson-9": {
-            "title": "9차시",
+            "title": "9단원",
             "description": "기본 이동, 점프, 액션 명령어를 이용하여 문제를 해결할 수 있다.",
             "stages": [
                 "puzzlebasic0901", 
@@ -126,7 +126,7 @@
             ]
         },
         "lesson-10": {
-            "title": "10차시",
+            "title": "10단원",
             "description": "두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.",
             "stages": [
                 "puzzlebasic1001", 
@@ -138,7 +138,7 @@
             ]
         },
         "lesson-11": {
-            "title": "11차시",
+            "title": "11단원",
             "description": "두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.",
             "stages": [
                 "puzzlebasic1101", 
@@ -150,7 +150,7 @@
             ]
         },
         "lesson-12": {
-            "title": "12차시",
+            "title": "12단원",
             "description": "두 덩어리로 나뉘어있는 문제와 하나로 연결되어있는 문제를 해결하며 분해의 기초 개념을 학습한다.",
             "stages": [
                 "puzzlebasic1201", 
@@ -162,7 +162,7 @@
             ]
         },
         "lesson-13": {
-            "title": "13차시",
+            "title": "13단원",
             "description": "워프타일을 기준으로 반복되는 문제를 해결할 수 있다.",
             "stages": [
                 "puzzlebasic1301", 
@@ -174,7 +174,7 @@
             ]
         },
         "lesson-14": {
-            "title": "14차시",
+            "title": "14단원",
             "description": "워프타일을 기준으로 반복되는 문제를 해결할 수 있다.",
             "stages": [
                 "puzzlebasic1401", 
@@ -186,7 +186,7 @@
             ]
         },
         "lesson-15": {
-            "title": "15차시",
+            "title": "15단원",
             "description": "워프타일을 기준으로 반복되는 문제를 해결할 수 있다",
             "stages": [
                 "puzzlebasic1501", 

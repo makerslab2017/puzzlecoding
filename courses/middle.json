@@ -4,7 +4,7 @@
     "description": "이 과정은 자기 주도 및 자기 진도에 맞춰 학습할 수 있는 한 학기 분량의 교과과정입 니다. 각 과정들은 5 ~ 20개의 레슨으로 구성되어 있으며 레슨 전체 분량은 한 학기에 해당합니다. 유치원에 다니는 아이들부터 중학교 저학년까지도 참여할 수 있으며 학 습을 돕기 위해 무료로 전문적인 워크샵을 제공합니다. 바로 연락주세요.",
     "lessons": {
         "lesson-1": {
-            "title": "1차시",
+            "title": "1단원",
             "description": "초급에서 학습한 내용을 응용하여 반복되는 문제를 해결할 수 있다.",
             "stages": [
                 "puzzlemiddle0101", 
@@ -16,7 +16,7 @@
             ]
         },
         "lesson-2": {
-            "title": "2차시",
+            "title": "2단원",
             "description": "초급에서 학습한 내용을 응용하여 반복되는 문제를 해결할 수 있다.",
             "stages": [
                 "puzzlemiddle0201", 
@@ -28,7 +28,7 @@
             ]
         },
         "lesson-3": {
-            "title": "3차시",
+            "title": "3단원",
             "description": "초급에서 학습한 내용을 응용하여 반복되는 문제를 해결할 수 있다.", 
             "stages": [
                 "puzzlemiddle0301", 
@@ -40,7 +40,7 @@
             ]
         },
         "lesson-4": {
-            "title": "4차시",
+            "title": "4단원",
             "description": "함수 명령어 G1에 대하여 학습하고 반복되는 명령어를 함수화하여 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle0401", 
@@ -52,7 +52,7 @@
             ]
         },
         "lesson-5": {
-            "title": "5차시",
+            "title": "5단원",
             "description": "함수 명령어 G1에 대하여 학습하고 반복되는 명령어를 함수화하여 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle0501", 
@@ -64,7 +64,7 @@
             ]
         },
         "lesson-6": {
-            "title": "6차시",
+            "title": "6단원",
             "description": "함수 명령어 G1에 대하여 학습하고 반복되는 명령어를 함수화하여 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle0601", 
@@ -76,7 +76,7 @@
             ]
         },
         "lesson-7": {
-            "title": "7차시",
+            "title": "7단원",
             "description": "함수 명령어 G1을 활용하여 반복되는 한가지 패턴을 찾아 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle0701", 
@@ -88,7 +88,7 @@
             ]
         },
         "lesson-8": {
-            "title": "8차시",
+            "title": "8단원",
             "description": "함수 명령어 G1을 활용하여 반복되는 한가지 패턴을 찾아 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle0801", 
@@ -98,7 +98,7 @@
             ]
         },
         "lesson-9": {
-            "title": "9차시",
+            "title": "9단원",
             "description": "함수 명령어 G1을 활용하여 반복되는 한가지 패턴을 찾아 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle0901", 
@@ -107,7 +107,7 @@
                 "puzzlemiddle0904"            ]
         },
         "lesson-10": {
-            "title": "10차시",
+            "title": "10단원",
             "description": "함수 명령어 G1, G2를 활용하여 반복되는 두가지 패턴을 찾아 문제를 해결한다",
             "stages": [
                 "puzzlemiddle1001", 
@@ -117,7 +117,7 @@
             ]
         },
         "lesson-11": {
-            "title": "11차시",
+            "title": "11단원",
             "description": "함수 명령어 G1, G2를 활용하여 반복되는 두가지 패턴을 찾아 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle1101", 
@@ -127,7 +127,7 @@
             ]
         },
         "lesson-12": {
-            "title": "12차시",
+            "title": "12단원",
             "description": "함수 명령어 G1, G2를 활용하여 반복되는 두가지 패턴을 찾아 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle1201", 
@@ -138,7 +138,7 @@
             ]
         },
         "lesson-13": {
-            "title": "13차시",
+            "title": "13단원",
             "description": "G1 명령어의 함수로 동일한 명령어를 무한반복 실행하여 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle1301", 
@@ -148,7 +148,7 @@
             ]
         },
         "lesson-14": {
-            "title": "14차시",
+            "title": "14단원",
             "description": "G1, G2 명령어의 함수로 동일한 명령어를 무한반복 실행하여 문제를 해결한다.",
             "stages": [
                 "puzzlemiddle1401", 

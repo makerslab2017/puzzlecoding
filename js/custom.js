@@ -415,7 +415,7 @@ const course = {
   },
   buildLesson: (target, key, value) => {
       $("<li/>", {
-          html : '<div class="chasi-child"><img alt="차시이미지" ></div><div>' + value.title + '</div>'
+          html : '<div class="chasi-child"><img alt="단원이미지" ></div><div>' + value.title + '</div>'
       }).attr({"data": key}).appendTo(target);
   },
   buildStages: (target, lesson) => {
@@ -598,18 +598,18 @@ $(document).on('click', ".chasi ul li", function(e) {
         break;
     }
     if ($active_one.prevAll().length == 0) {
-      swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
       return;  
     }
   }
   if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
-    swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+    swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
     return;
   }
 
   if ( $(this).attr('data') != $active_one.next().attr('data') ) {
     if ( $active_one.prevAll().length == 0 ) {
-      swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
       return;
     }
     for (i=0; i< $active_one.prevAll().length; i++) {
@@ -617,7 +617,7 @@ $(document).on('click', ".chasi ul li", function(e) {
         break;
     }
     if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
-      swal("이전 차시의 모든 미션을 완수해야 다음 차시로 넘어갈 수 있습니다.");
+      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
       return;
     }
   }
