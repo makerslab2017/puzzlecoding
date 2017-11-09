@@ -183,27 +183,39 @@ $(document).ready(function() {
   var first=1;
   var last;
   var imgCnt=0;
-  var $img = $(".banner_wraper img");
+  var $img = $(".banner_wrapper img");
   var $first;
   var $last;
-  
 
-  $img.each(function(){   // 5px 간격으로 배너 처음 위치 시킴       
-    $(this).css("left",bannerLeft);      
-    console.log($(this).width());
-    bannerLeft += $(this).width()+17;
+  $img.each(function(){   // 5px 간격으로 배너 처음 위치 시킴
+    $(this).css("left",bannerLeft);
+    bannerLeft += $(this).width() + 17;
     $(this).attr("id", "banner"+(++imgCnt));  // img에 id 속성 추가
   });
 
-  if( imgCnt > 7){                //배너 9개 이상이면 이동시킴
+  $img.each(function(){
+    if( imgCnt >7 ){
+      $(this).css("position","absolute");
+    }    
+    else{
+      $(this).css("position","relative");
+      bannerLeft =0;
+      $(this).css("left",bannerLeft);
+      bannerLeft += 17;
+    }
+  });
+   
+  
+  if( imgCnt > 7){                //배너 8개 이상이면 이동시킴
 
       last = imgCnt;
+      
       setInterval(function() {
           $img.each(function(){
-              $(this).css("left", $(this).position().left-1); // 1px씩 왼쪽으로 이동
+              $(this).css("left", $(this).position().left - 1); // 1px씩 왼쪽으로 이동
           });
           $first = $("#banner"+first);
-          $last = $("#banner"+last);
+          $last = $("#banner"+last);          
           if($first.position().left < -200) {    // 제일 앞에 배너 제일 뒤로 옮김
               $first.css("left", $last.position().left + $last.width()+17 );
               first++;
@@ -211,9 +223,10 @@ $(document).ready(function() {
               if(last > imgCnt) { last=1; }   
               if(first > imgCnt) { first=1; }
           }
-      }, 50);   //여기 값을 조정하면 속도를 조정할 수 있다.(위에 1px 이동하는 부분도 조정하면 
-//깔끔하게 변경가능하다           
+      }, 50);   //여기 값을 조정하면 속도를 조정할 수 있다.(위에 1px 이동하는 부분도 조정하면 깔끔하게 변경가능하다   
+           
   }
+  
 });
 
 
