@@ -595,43 +595,42 @@ $(document).ready(function() {
   }
 });
 
+
+
+/* following two functions are necessary to enable or disable keyboard focus to unity webbuild.
+ * otherwise, all keyboard inputs are delivered to unity NOT any web elements.
+ */
+$(document).on('click', ':not(canvas)', function(e) {  
+  e.stopPropagation();
+  if (Module == null) return;
+  Module.SendMessage("UI", "ToggleInput", 0);
+});
+$(document).on('click', 'canvas', function(e) {  
+  e.stopPropagation();
+  if (Module == null) return;
+  Module.SendMessage("UI", "ToggleInput", 1);
+});
+
 $(document).on('click', '.puzzlecoding button', function() {
   window.location.href = '_sign_' + $(this).attr('data-type') + '.html';
 });
 
 $(document).on('click', ".chasi ul li", function(e) {  
-  var $active_one = $('.chasi ul .chasi-active');
-  if ($(this).hasClass('chasi-active') == true) {
-    return;
-  }
-  i = 0;
-  if ($('.progress-org img[src!="img/normal-clear.png"]').length > 0) {
-    for (i=0; i< $active_one.prevAll().length; i++) {
-      if (this === $active_one.prevAll()[i]) 
-        break;
-    }
-    if ($active_one.prevAll().length == 0) {
-      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-      return;  
-    }
-  }
-  if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
-    swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-    return;
-  }
+  if ($(this).hasClass('chasi-active') == true) return;
 
-  if ( $(this).attr('data') != $active_one.next().attr('data') ) {
-    if ( $active_one.prevAll().length == 0 ) {
-      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-      return;
-    }
-    for (i=0; i< $active_one.prevAll().length; i++) {
-      if (this === $active_one.prevAll()[i]) 
-        break;
-    }
-    if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
-      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-      return;
+  /* BUG fix : BY beomjoo90 2018.1.18
+   * after completing all stages, user couldn't direct to any completed lessons.
+   * To solve this bug, I examined whether a previous lesson was completed when a user click a lesson.
+   */
+  var $prev = $(this).prev();
+  if ($prev.length > 0) {
+    var lesson = $prev.attr('data');
+    var stages = course.info.lessons[lesson].stages;
+    for (i=0; i< stages.length; i++) {
+      if (!course.progress_info.hasOwnProperty(stages[i]) || course.progress_info[stages[i]] !== "completed") {
+        swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
+        return;
+      }
     }
   }
   
