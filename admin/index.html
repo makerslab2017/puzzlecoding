@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>puzzlecoding ㅣ 퍼즐코딩</title>
+	<meta name="description" content="puzzlecoding admin">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	
+	<!-- Open Graph -->
+	<meta property="og:type"               content="website" />
+	<meta property="og:title"              content="puzzlecoding" />
+	<meta property="og:url"                content="http://puzzlecoding.com" />
+	<meta property="og:image"              content="/img/main.png" />
+	<meta property="og:description"        content="puzzlecoding" />
+	<!-- Open Graph -->
+	
+	<link rel="stylesheet" type="text/css" href="css/Insert-Image.css">
+	<link rel="stylesheet" type="text/css" href="css/puzzlecoding-admin.css" media="all">
+	
+	<script defer type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script defer type="text/javascript" src="js/Velocity.js"></script>
+	<script defer type="text/javascript" src='js/PlugIn.js'></script>
+	<script defer type="text/javascript" src='js/PlugIn_Fn.js'></script>
+	<script defer type="text/javascript" src='js/jquery-ui-effectcore.min.js'></script>
+	<script defer type="text/javascript" src='js/jquery-ui-sortable.min.js'></script>
+	<script defer type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script defer type="text/javascript" src='js/jquery-ui-sortable-animation.js'></script>
+	<script defer type="text/javascript" src="js/Insert-Image.js"></script>
+</head>
+<body>
+
+<div id="container">
+	<div id="wrapper">
+	
+		<div id="main-banner">
+			<div id="insert-image-container">
+				<div id="iia00" class="insert-image-area File-upload-area">	
+					<div id="insert-image-wrap" class="File-upload-wrap">
+						<div class="ii-upload-title"><span>Banner Image</span></div>
+						<div class="add-btn button1 color1">
+							<div class="icon">
+								<svg viewBox="0 0 16 16">
+									<path d="M8 2 l0 12"   />
+									<path d="M2 8 l12 0" />
+								</svg>
+							</div>
+							<span>Add Image</span>
+						</div>
+						<div class="remove-btn button1 color2">
+							<div class="icon">
+								<svg viewBox="0 0 16 16">
+									<path d="M3 3 l10 10"  />
+									<path d="M13 3 l-10 10"  />
+								</svg>
+							</div>
+							<span>Remove</span>
+						</div>
+						<div class="upload-btn button1 color5">
+							<div class="icon">
+								<svg viewBox="0 0 16 16">
+									<path d="M2 2 l12 0" />
+									<path d="M2 10 l6 -6 l6 6"  />
+									<path d="M8 4 l0 11"  />
+								</svg>
+							</div>
+							<span>Upload</span>
+						</div>
+						<form enctype="multipart/form-data" name="UploadImgForm" class="fileform" id="insert-image-uploadform">
+					        <label for="imgupload">Image:</label>
+					        <input type="file" multiple="multiple" name="imgupload" id="imgupload" />
+					    </form>
+					    <div class="result"></div>
+					    <div class="progress">
+				    	 	<div class="progview">	    	
+								<span class="bar"></span>
+								<div class="per"></div>
+							</div>
+					    </div>
+					    <div class="file_preview_area">
+					    	<div class="file-total"></div>
+					    	<ul class="file_preview"></ul>
+					    </div>
+					</div>
+				</div>
+				
+				<div id="iia01" class="insert-image-area File-upload-area">
+					<div id="insert-image-wrap2" class="File-upload-wrap">
+						<div class="ii-upload-title"><span>Count Set</span></div>
+						<form id="setform">
+							<fieldset>
+								<label>KIDS</label>
+								<input type="text" class="data">
+							</fieldset>
+							<fieldset>
+								<label>SCHOOL</label>
+								<input type="text" class="data">
+							</fieldset>
+							<fieldset>
+								<label>LINES OF CODE</label>
+								<input type="text" class="data">
+							</fieldset>
+							<fieldset class="btn-area">
+								<input type="button" class="btn" value="저장">
+							</fieldset>
+						</form>
+						<div class="result"></div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		<div id="main-count"></div>
+	</div>
+</div>
+</body>
+</html>

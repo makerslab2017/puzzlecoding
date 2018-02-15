@@ -2,32 +2,77 @@ body{
     font-family: 'Noto Sans Korean', sans-serif;
     letter-spacing: -0.05em;
 }
-#signup_title1{
-    width: 100%;
-    height: 150px;
-    font-weight: 100;
-    color: white;
-    font-size: 4.0em;
-    padding-left: 10%;
-    padding-top: 8px;
-    margin-bottom: 10px;
-    background: #1EB49E;
+.title-area {
+	background: #FBB03B;
 }
-.signup-box{
-    width: 80%;
-    margin-right: auto;
-    margin-left: auto;
+#signup_title1,
+.signup-box {
+	display: block;
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+#signup_title1 {
+    color: white;
+    font-size: 2.4em;
+    padding: 40px 20px;
+}
+#signup_title1 p {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #fff;
+}
+.signup-box {
+	padding: 40px 20px;
+}
+.signup-box .highlight {
+	font-weight: 900;
+	color: #ff0000;
+}
+.signup-box .signup-flex {
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	
+	-webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+	
+	flex-wrap: wrap;
+   	-webkit-flex-wrap: wrap;
+   	-ms-flex-wrap: wrap;
+   	
+   	padding: 20px 0;
+   	border-top: 1px solid #ddd;
+}
+.signup-box .signup-flex .input-wrap {
+	width: 45%;
+	padding: 10px 0;
+}
+.signup-box .signup-flex .input-wrap.wide {
+	width: 100%;
+}
+.signup-box .signup-flex .input-wrap input {
+	width: 100%;
+	margin: 5px 0;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+.signup-box .signup-flex .input-wrap .comment {
+	font-size: .9em;
 }
 .signup-box label{
     display: block;
-    padding-top: 25px;
-    padding-bottom: 1px;
 }
-.signup-box b{
+.signup-box b {
     font-weight: 200;
     color: #999999;
     font-style: normal;
-    font-size: 1.3em;
+    font-size: 1.1em;
     letter-spacing: 0.1px;
 }
 #lab1 {
@@ -46,11 +91,19 @@ body{
     width:130px;
 }
 #button_check, #check_admission{
-    background: #1EB49E;
+	padding: 5px 10px;
+    background: #FBB03B;
     color: white;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
 }
 button:hover {
     opacity: 0.8;
+}
+
+@media ( max-width: 800px ) {
+	.signup-box .signup-flex .input-wrap {
+		width: 100%;
+	}
 }

@@ -3,21 +3,17 @@ var	missionCompleteProcess = false;
 var gamePlayingProcess = false;
 var onUnityLoad = false;
 
-//FOUC 스크립트
-$(function(){
-  $('html').removeClass('no-js');
-});
-$(document).ready(function() {
-    
-    $('body').hide();
-    $(window).load(function(){
-        $('body').show();        
-    });
-});
+function configureMenu()
+{ 
+  // configure zeta menu bar and dropdown menus.
+  /*$(".zeta-menu li").hover(function() {
+    $('ul:first', this).show();
+  }, function() {
+    $('ul:first', this).hide();
+  });*/
+  $(".zeta-menu ul li:has(ul)").find("a:first").append("<p style='float:right;margin:-3px'>&#9656;</p>");
 
-
-//모바일 GNB스크립트//
-jQuery(document).ready(function() {
+  //모바일 GNB스크립트//
   $('#Gnb-downMenu1 span').click(function() {
     $('#Gnb-downMenu1').children('li').toggle();
     switch (puzzleAPI.user_type) {
@@ -35,44 +31,51 @@ jQuery(document).ready(function() {
         $('#Gnb-downMenu1 .for-student').show();
         $('#Gnb-downMenu1 .for-educator').show();  
         break;
-    }
-    
-  })
+    }    
+  });
   $('#Gnb-downMenu2 span').click(function() {
     $('#Gnb-downMenu2').children('li').toggle()
-  })
+  });
   $('#Gnb-downMenu3 span').click(function() {
     $('#Gnb-downMenu3').children('li').toggle()
-  })
-    });
-jQuery(document).ready(function() {
-    $("#gnb-nav-btn").on("click", function() {
-      $("#Gnb-frame").addClass("gnb-active");
-      $(this).hide();
-    });
-    $("#gnb-nav-close").on("click", function() {
-      $("#Gnb-frame").removeClass("gnb-active");
-      $("#gnb-nav-btn").show();
-    });
   });
-//GNB스크립트//
-$(function(){
-  $(".zeta-menu li").hover(function() {
-    $('ul:first', this).show();
-  }, function() {
-    $('ul:first', this).hide();
+  $("#gnb-nav-btn").on("click", function() {
+    $("#Gnb-frame").addClass("gnb-active");
+    $(this).hide();
   });
-  $(".zeta-menu ul li:has(ul)").find("a:first").append("<p style='float:right;margin:-3px'>&#9656;</p>");
-})
-//텍스트 입력기 html,text 선택스크립트//
-$(function() {
+  $("#gnb-nav-close").on("click", function() {
+    $("#Gnb-frame").removeClass("gnb-active");
+    $("#gnb-nav-btn").show();
+  });
+
   $(".text-html .flex-box-inner span").click(function() {
     if ($(this).hasClass('text-active')) {} else {
       $(".flex-box-inner span").removeClass("text-active");
       $(this).addClass("text-active");
     }
   });
+
+}
+
+
+//Main Script
+$(function(){
+  $('html').removeClass('no-js');
 });
+$(document).ready(function() {
+  $('body').hide();
+  $.get('header.html', function(data) {
+    $('body').prepend(data);
+    puzzleAPI.currentUser();
+    puzzleAPI.refreshPage();  
+    configureMenu();
+    $.get('footer.html', function(data) {
+      $('footer').html(data);
+      $('body').show();
+    })
+  });
+});
+
 //리플 기능 스크립트//
 $(function() {
   $(".show-reply").click(function() {
@@ -92,8 +95,9 @@ $(function() {
     $(".re-reply").show();
   });
 });
+
 //검색 버튼 스크립트//
-jQuery(document).ready(function() {
+$(document).ready(function() {
   $(".search_button").on("click", function() {
     if ($(this).hasClass("active")) {
       // $(this).removeClass("active");
@@ -110,32 +114,17 @@ jQuery(document).ready(function() {
   });
 });
 
-//
-// jQuery(document).ready(function() {
-//   $("body").on("click", function() {
-// if ($(".search_button").hasClass("active")){
-//        $("span").removeClass("active");
-//      $(".search-span").removeClass("active");
-//        $(".search_wrap").removeClass("active");
-//           $(".search_button").removeClass("active");
-//      $("input").removeClass("active");
-//    }
-//   });
-// });
-//차시 버튼 스크립트//
-
-//진도 현황-반선택//
 $(function() {
   $(".class-name").click(function() {
     if ($(this).hasClass('active')) {
-
-    } else {
+    } 
+    else {
       $(".class-name").removeClass("chasi-active");
       $(this).addClass('chasi-active');      
     }
   });
 });
-// //
+
 $(document).ready(function() {
 
   $("div.select > a").click(function() {
@@ -148,6 +137,7 @@ $(document).ready(function() {
     //    $(this).prependTo($(this).parent());
   });
 });
+
 //메인슬라이더
 $(document).ready(function() {
   var swiper = new Swiper('.swiper-container', {
@@ -178,6 +168,60 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	
+	//IsMobile Plugin
+	$.extend({
+		IsMobile: (function () {
+			var mobileArr= new Array("iPhone", "iPod","iPad", "BlackBerry", "Android", "Windows CE", "LG", "MOT", "SAMSUNG", "SonyEricsson"),
+				navg;
+			var check= (function () {
+				$.support.touch = 'ontouchend' in document;
+				for(var txt in mobileArr){
+				    if(navigator.userAgent.match(mobileArr[txt]) != null){
+				    	navg= mobileArr[txt];
+				    	return true;
+				        break;
+				    }
+				}
+				return false;
+			})();
+			return {
+		    	is: check,
+		    	nav: navg,
+		    	SetEvt: function (pc,mobile) {
+		    		return check ? mobile : pc;
+		    	},
+		    	click: check ? 'touchend' : 'click'
+		    };
+		})(),
+		isBrowserCheck: function() {
+			var agt = navigator.userAgent.toLowerCase();
+			if (agt.indexOf("edge") != -1) return 'Edge';
+			if (agt.indexOf("chrome") != -1) return 'Chrome';
+			if (agt.indexOf("opera") != -1) return 'Opera';
+			if (agt.indexOf("staroffice") != -1) return 'Star Office';
+			if (agt.indexOf("webtv") != -1) return 'WebTV';
+			if (agt.indexOf("beonex") != -1) return 'Beonex';
+			if (agt.indexOf("chimera") != -1) return 'Chimera';
+			if (agt.indexOf("netpositive") != -1) return 'NetPositive';
+			if (agt.indexOf("phoenix") != -1) return 'Phoenix';
+			if (agt.indexOf("firefox") != -1) return 'Firefox';
+			if (agt.indexOf("safari") != -1) return 'Safari';
+			if (agt.indexOf("skipstone") != -1) return 'SkipStone';
+			if (agt.indexOf("netscape") != -1) return 'Netscape';
+			if (agt.indexOf("mozilla/5.0") != -1) return 'Mozilla';
+			
+			if (agt.indexOf("msie") != -1) { // 익스플로러 일 경우 
+				var rv = -1;
+				if (navigator.appName == 'Microsoft Internet Explorer') {
+					var ua = navigator.userAgent;
+					var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+					if (re.exec(ua) != null) rv = parseFloat(RegExp.$1);
+				} return 'Internet Explorer '+rv; 
+			}
+		}
+	});
+	
   //window.onload = function(){    
   var bannerLeft=0;
   var first=1;
@@ -204,7 +248,6 @@ $(document).ready(function() {
       bannerLeft += 17;
     }
   });
-   
   
   if( imgCnt > 7){                //배너 8개 이상이면 이동시킴
 
@@ -224,26 +267,36 @@ $(document).ready(function() {
               if(first > imgCnt) { first=1; }
           }
       }, 50);   //여기 값을 조정하면 속도를 조정할 수 있다.(위에 1px 이동하는 부분도 조정하면 깔끔하게 변경가능하다   
-           
   }
-  
 });
 
 
-출처: http://ssamlee.tistory.com/13 [쌈리군's life story]
+//출처: http://ssamlee.tistory.com/13 [쌈리군's life story]
 
 //갤러리 드랍다운//
+/*
 $(document).ready(function() {
   $('.select-label').click(function() {
-    $('.dropdown').toggleClass('active');
-    $('.dropdown-list li').toggleClass('show');
+    
   });
   $('.dropdown-list li').click(function() {
     $('.select-label').text($(this).text());
     $('.dropdown').removeClass('active');
       $('.dropdown-list li').toggleClass('show');
   });
+});*/
+
+$(document).on('click', '.select-label', function() {
+  $('.dropdown').toggleClass('active');
+  $('.dropdown-list li').toggleClass('show');
 });
+
+$(document).on('click', '.dropdown-list li', function() {
+  $('.select-label').text($(this).text());
+  $('.dropdown').removeClass('active');
+  $('.dropdown-list li').toggleClass('show');
+});
+
 //드랍다운,검색버튼 이외의 버튼을 눌렀을때 disable
 $(document).click(function(e) {
     var target = e.target;
@@ -265,7 +318,10 @@ $(document).click(function(e) {
 });
 
 
-
+//
+// CODINGPUZZLE SPECIFIC JAVASCRIPT OBJECTS
+//
+//
 
 Module = null;
 
@@ -295,6 +351,16 @@ function loadModule()
       moduleName : moduleName,
       robotLoaded : false,
       OnMissionComplete: function() {
+        
+        if (currentPageName.startsWith("puzzle-view")) {
+          current_puzzle_id = localStorage.getItem('currentPuzzleId');
+          if (current_puzzle_id == null) return;
+          puzzleAPI.recordPuzzleLog(current_puzzle_id, ()=> {
+            $('#n-completed-users').text( parseInt($('#n-completed-users').text()) + 1 );
+          }, "completed");
+          return;
+        }
+
         if (course.current_puzzle_id == null) return;
         missionCompleteProcess = true;
         
@@ -422,8 +488,8 @@ const course = {
   buildCourseInfo: (info) => {
     course.info = info;
     $('#course_text').text( info.title );
-    $('#course_info .status-page-title').text( info.title);
-    $('#course_info .intro-element-title').text( info.introduction );
+    $('#subpage-top-wrap .status-page-title').text( info.title);
+    $('#subpage-top-wrap .intro-element-title').text( info.introduction );
     $('#course_info .lh2').text( info.description );      
   },
   buildLesson: (target, key, value) => {
@@ -578,6 +644,7 @@ $(document).ready(function() {
 
           $('#puzzle-owner').text( data.owner );
           $('#puzzle-date').text( new Date(data.timestamp).toLocaleString() );
+          $('#n-completed-users').text(data.n_solved);
 
           $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=thumbnail', 
             processData: false,
@@ -600,38 +667,46 @@ $(document).on('click', '.puzzlecoding button', function() {
 });
 
 $(document).on('click', ".chasi ul li", function(e) {  
-  var $active_one = $('.chasi ul .chasi-active');
-  if ($(this).hasClass('chasi-active') == true) {
-    return;
-  }
-  i = 0;
-  if ($('.progress-org img[src!="img/normal-clear.png"]').length > 0) {
-    for (i=0; i< $active_one.prevAll().length; i++) {
-      if (this === $active_one.prevAll()[i]) 
-        break;
-    }
-    if ($active_one.prevAll().length == 0) {
-      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-      return;  
-    }
-  }
-  if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
-    swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-    return;
-  }
+	var body= $('body'),
+		fixedPopup= $('#fixed-popup'),
+		target= fixedPopup.find('.target'),
+		isMobile= $.IsMobile.is,
+		isBrowser= $.isBrowserCheck(),
+		closeBtn= fixedPopup.find('.btn');
+	
+	closeBtn.on('click', function(e) {
+		body[0].style.overflow= 'visible';
+		fixedPopup[0].style.display= 'none';
+	});
+	if(isMobile) {
+		popUp('모바일 혹은 테블릿');
+		return;
+	}
+	if(isBrowser !== 'Chrome') {
+		popUp('크롬이외의 브라우저');
+		return;
+	}
+	function popUp( str ) {
+		body[0].style.overflow= 'hidden';
+		target[0].innerHTML= str;
+		fixedPopup[0].style.display= 'block';
+	}
 
-  if ( $(this).attr('data') != $active_one.next().attr('data') ) {
-    if ( $active_one.prevAll().length == 0 ) {
-      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-      return;
-    }
-    for (i=0; i< $active_one.prevAll().length; i++) {
-      if (this === $active_one.prevAll()[i]) 
-        break;
-    }
-    if ($active_one.prevAll().length && i == $active_one.prevAll().length) {
-      swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
-      return;
+  if ($(this).hasClass('chasi-active') == true) return;
+
+  /* BUG fix : BY beomjoo90 2018.1.18
+   * after completing all stages, user couldn't direct to any completed lessons.
+   * To solve this bug, I examined whether a previous lesson was completed when a user click a lesson.
+   */
+  var $prev = $(this).prev();
+  if ($prev.length > 0) {
+    var lesson = $prev.attr('data');
+    var stages = course.info.lessons[lesson].stages;
+    for (i=0; i< stages.length; i++) {
+      if (!course.progress_info.hasOwnProperty(stages[i]) || course.progress_info[stages[i]] !== "completed") {
+        swal("이전 단원의 모든 미션을 완수해야 다음 단원으로 넘어갈 수 있습니다.");
+        return;
+      }
     }
   }
   
@@ -888,6 +963,23 @@ const puzzleAPI = {
       }
     });
   },
+  recordPuzzleLog: (current_puzzle_id, callback, action='completed') => {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null || current_puzzle_id == null) return;
+    $.ajax( { type: 'PUT', 
+      url: puzzleAPI.apiUrl + 'puzzles/' + current_puzzle_id + '?action=' + action,
+      headers: {
+        'Authorization' : puzzleAPI.token
+      },
+      success: (data) => {
+        console.log(data);
+        callback();        
+      },
+      fail: (err) => {
+        console.log(err);
+      }
+    });
+  },
   refreshPage: () => {
 
     // refresh mobile profile info
@@ -896,15 +988,18 @@ const puzzleAPI = {
     $('#Gnb-menu .login img')
     .attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
     
+    $('#log-toggle').on('click', function(e) {
+    	$('#gnb-wrapper').toggleClass('open');
+    });
     // refresh user login tool bars
     if (puzzleAPI.cognitoUser) {
-      $('.menu-user').hide();
-      $('.menu-user-password, .menu-user-id').hide();
+//      $('.menu-user').hide();
+//      $('.menu-user-password, .menu-user-id').hide();
       $('.menu-login').html('<a req="logout">로그아웃</a>').show();
       $('.menu-login-userid').html( puzzleAPI.cognitoUser.username).show();
     } else {
-      $('.menu-user').hide();
-      $('.menu-user-password, .menu-user-id').hide();
+//      $('.menu-user').hide();
+//      $('.menu-user-password, .menu-user-id').hide();
       $('.menu-signup').show();
       $('.menu-login').html('<a req="login">로그인</a>').show();
       
@@ -976,7 +1071,8 @@ $(document).on('click', '.menu-login a', function(e){
         break;
       }
       if ($('.menu-user-id input').val() == "") {
-        $('.menu-user-id, .menu-user-password').hide();
+//        $('.menu-user-id, .menu-user-password').hide();
+    	  alert('아이디를 입력해 주십시오');
         return;
       }
       puzzleAPI.login( $('.menu-user-id input').val(), $('.menu-user-password input').val());
@@ -1002,7 +1098,6 @@ $(document).on('click', '#Gnb-menu .login img', function(e) {
 });
 
 $(document).ready(function() {
-  
   puzzleAPI.currentUser();
   puzzleAPI.refreshPage();
 

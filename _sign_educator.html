@@ -24,37 +24,73 @@
     <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]--> 
 </head>
 <body>
-    <label id="signup_title1">교사 회원가입<hr></label>
-    
-    <div class="signup-box">
-        
-        <label><hr><b>아이디</b></label>
-        <input type="text" id="register_input_id" placeholder="아이디 입력">
-        <span id="checkbox_available_id" style="color:lightgreen;"></span>
-        <span>한글로 입력할 때는 엔터키를 눌러 아이디 사용 여부를 확인해주세요.</span>
-
-        <label><b>이메일</b></label>
-        <input type="text" id="register_input_email" placeholder="이메일 주소 입력">
-        
-        <label><b>패스워드</b></label>
-        <input type="password" id="register_input_password"  placeholder="패스워드">
-        <span>비밀번호는 최소 8글자 이상, 영문 소문자와 숫자를 포함해야 합니다.</span>
-        
-        
-        <label><b>패스워드 확인</b></label>
-        <input type="password" id="confirm_input_password" placeholder="패스워드 확인">
-        <button id="check_admission">인증번호 요청하기</button>
-        
-        <div id="confirm_admission" style="visibility:hidden;">
-            <label><b>인증번호 입력</b></label>
-            <input type="text" id="confirmation_number" placeholder="인증번호 입력">
-            <button id="register_final_request">최종 등록 요청</button>
+    <div id="page-wrapper">
+    	<div id="subpage-top" class="orange">
+		 	<div id="subpage-top-wrap">
+			 	<div class="index-area">
+			 		<span><a href="_signUp.html">사용자 등록</a></span>
+			 		<span>
+		              <i class="fa fa-angle-right" aria-hidden="true"></i>
+		            </span>
+			 		<span><a href="_sign_educator.html">교사 회원가입</a></span>
+			 	</div>
+			 	<div class="title-area">
+			 		<img src="img/intro-image.png" alt="리스트 이미지">
+			 		<h1>교사 회원가입</h1>
+			 	</div>
+			 	<div class="inst-area">
+			 		<span>
+			 		교사 회원가입 정보를 작성해 주세요.
+			 		</span>
+			 	</div>
+		 	</div>
+		 	<div class="bg-area">
+		 	</div>
+		 </div>
+    	<!-- <div class="title-area">
+        	<label id="signup_title1"><p>교사 회원가입</p></span></label>
+        </div> -->
+        <div class="signup-box">
+            <div class="signup-flex">
+            	<div class="input-wrap">
+		            <label><b>아이디</b></label>
+		            <input type="text" id="register_input_id" placeholder="아이디 입력">
+		            <span id="checkbox_available_id" style="color:lightgreen;"></span>
+		            <p class="comment"><span class="highlight">* </span>한글로 입력할 때는 엔터키를 눌러 아이디 사용 여부를 확인해주세요.</p>
+	            </div>
+	            
+	            <div class="input-wrap">
+		            <label><b>이메일</b></label>
+		            <input type="text" id="register_input_email" placeholder="이메일 주소 입력">
+	            </div>
+	            
+	            <div class="input-wrap">
+		            <label><b>패스워드</b></label>
+		            <input type="password" id="register_input_password"  placeholder="패스워드">
+		            <p class="comment"><span class="highlight">* </span>비밀번호는 최소 8글자 이상, 영문 소문자와 숫자를 포함해야 합니다.</p>
+	            </div>
+	            
+	            <div class="input-wrap">
+		            <label><b>패스워드 확인</b></label>
+		            <input type="password" id="confirm_input_password" placeholder="패스워드 확인">
+	            </div>
+	            <div class="input-wrap wide">
+	            	<button id="check_admission">인증번호 요청하기</button>
+	            </div>
+	            <div class="input-wrap">
+		            <div id="confirm_admission" style="visibility:hidden;">
+		                <label><b>인증번호 입력</b></label>
+		                <input type="text" id="confirmation_number" placeholder="인증번호 입력">
+		                <button id="register_final_request">최종 등록 요청</button>
+		            </div>
+	            </div>
+            </div>
+            <!-- 팝업 창 연결하기-->
         </div>
-        
-        <!-- 팝업 창 연결하기-->
     </div>
+    <footer>
+    </footer>
 </body>
 </html>

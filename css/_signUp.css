@@ -3,42 +3,104 @@ body{
     letter-spacing: -0.05em;
 }
 .select{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	
+	-webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+	
+	padding: 0 20px;
 }
 
-img.select_char {
+/* img.select_char {
     width: 100%;
-}
+} */
 .selection {
-    padding: 15px;
+	position: relative;
+	width: 48%;
+    padding: 40px 40px 100px;
     text-align: center;
     display: inline-block;
+    margin: 40px 0;
+    border-radius: 25px;
+	border: 1px solid #ddd;
 }
 #whichone {
     display: block;
     text-align: center;
-    font-size: 5em;
-    font-weight: 100;
+    font-size: 3em;
+    font-weight: 400;
+    padding-top: 20px;
 }
 .selection label {
     display: block;
     margin-right: auto;
     margin-left: auto;
 }
+.selection .image-flex {
+	width: 100%;
+	max-width: 300px;
+	margin: auto;
+}
+.selection .image-area {
+	position: relative;
+	width: 100%;
+	padding-top: 100%;
+}
+.selection .image-area .image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.selection .inst-area {
+	padding: 20px 0;
+}
+.selection  .puzzlecoding {
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	width: 100%;
+}
+.selection  .puzzlecoding button {
+	margin: 0;
+}
 .selection b {
-    font-size: 3em;
+	display: block;
+    font-size: 2em;
     font-weight: 700;
     color: #4887B0;
+    padding: 10px 0;
 }
 .selection p {
     font-size: 1.0em;
     font-weight: 400;
+    line-height: 1.6em;
     text-align: left;
 }
 
 .selection:hover {
     color: #FBB03B;
     opacity: 0.8;
+}
+
+@media ( max-width: 600px ) {
+	.select {
+		flex-direction: column;
+		-webkit-flex-direction: column;
+    	-ms-flex-direction: column;
+	}
+	.selection {
+		width: 100%;
+	}
 }

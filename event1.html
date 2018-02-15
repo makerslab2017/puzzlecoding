@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--페이지로딩후 html 노출-->
+<html lang="ko" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/jquery.bxslider.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+  <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="js/aws-cognito-sdk.min.js"></script>
+  <script src="js/amazon-cognito-identity.min.js"></script>
+  <script src="js/aws-sdk.min.js"></script>
+  <script src="js/aws-cognito-config.js"></script>
+  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
+</head>
+<body>
+  <!--페이지 시작-->
+  <div id="page-wrapper" class="intro-page-wrapper event">
+  	<div id="subpage-top" class="event">
+	 	<div id="subpage-top-wrap">
+		 	<div class="index-area">
+		 		<span><a href="puzzle-intro.html">코딩파티</a></span>
+		 		<span>
+	              <i class="fa fa-angle-right" aria-hidden="true"></i>
+	            </span>
+		 		<span><a href="event1.html">첫번째 이벤트</a></span>
+		 	</div>
+		 	<div class="title-area">
+		 		<img src="img/intro-image-grey.png" alt="리스트 이미지">
+		 		<h1>코딩파티</h1>
+		 	</div>
+		 	<div class="inst-area">
+		 		<span>
+				 코딩퍼즐에서 처음으로 주최하는 코딩파티입니다. 다음에 나와있는 임무를 모두 완수하고 근사한 로봇 배지를 얻어가세요.<br>이번 파티는 2018년 2월 19일부터 3월 5일까지 운영합니다.
+		 		</span>
+		 	</div>
+	 	</div>
+	 	<div class="bg-icon">
+    		<div class="icon no1"></div>
+    		<div class="icon no2"></div>
+		</div>
+		<style>
+			.mission-completed {
+				color: red !important;
+			}
+		</style>
+	 	<div id="event1-container" class="container">
+	      <div class="row center no1">
+	        <div class="try-button">
+	        <a id="login-event" href="_signUp.html">학생 사용자로 등록하여 로그인하기</a>
+	        </div>
+	      </div>
+	      <div class="row no2">
+	        <div class="try-button">
+	          <a id="solve-puzzles" href="studying.html?course=event20180219">이벤트용 퍼즐 문제들 풀기</a>
+	        </div>
+	      </div>
+	      <div class="row no3">
+	        <div class="try-button">
+	          <a id="make-puzzle" href="puzzle-game.html">직접 퍼즐을 만들어 퍼즐 갤러리에 올려보기</a>
+	        </div>
+				</div>
+
+				<div class="row no4">
+	        <div class="try-button">
+	          <a id="invite-friends" href="gallery.html">내 퍼즐을 친구가 풀기</a>
+	        </div>
+				</div>
+				
+				<div class="row no5">
+	        <div class="try-button">
+	          <a id="get-certificate">인증서받기</a>
+	        </div>
+	      </div>
+	   </div>
+	 </div>
+	 <script>
+		 $(document).ready(function(){
+			 puzzleAPI.currentUser();
+			 if (puzzleAPI.cognitoUser) $('#login-event').addClass('mission-completed');
+
+			 course.loadCourse('event20180219');
+			 var completed_all = true;
+
+			 setTimeout( function() {
+				for (var key in course.info.lessons) {
+					var lesson = course.info.lessons[key];
+					$.each(lesson.stages, (k, v)=> {
+						if (course.progress_info && course.progress_info.hasOwnProperty(v)) {
+							if (course.progress_info[v] != "completed") {
+								completed_all = false;
+								return;
+							}
+						}
+					});
+					if (completed_all == false) return;
+				}
+				if (completed_all == true) $('#solve-puzzles').addClass('mission-completed');
+
+				$.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'search',
+      		headers: { 'Authorization' : puzzleAPI.token },
+      		success: (data) => {
+						if (data.hasOwnProperty('items')) {
+            	$.each(data.items, function(key, value) {
+								if (value.n_solved > 0) {
+									$('#invite-friends').addClass('mission-completed');
+								}
+							});
+							$('#make-puzzle').addClass('mission-completed');
+						}
+      		},
+      		fail: (err) => {
+        		console.log(err);
+      		}
+    		});
+			}, 3000 );
+		 });
+		 $(document).on('click', '#get-certificate', (e)=> {
+			if ($('.mission-completed').length !== 4) {
+				swal('모든 과제를 수행해야 인증서를 받을 수 있습니다..', {button: false});
+				return;
+			}
+			var canvas = $('#certificate')[0];
+			var context = canvas.getContext('2d');
+			var img = new Image();
+			img.onload = ()=> {
+				context.drawImage(img, 0, 0);
+				context.font = "30pt Calibri";
+				context.textAlign = "center";
+				context.fillText( puzzleAPI.cognitoUser.getUsername(), 300, 50 );
+				var now = new Date();
+				var date = now.getFullYear() + '년' + (now.getMonth() + 1) + '월' + now.getDate() + '일';
+				context.fillText( date, 500, 150 );
+			}
+			img.src = 'img/gnb-background.png';
+		 });
+	 
+	 </script>
+	 <div class="row center">
+	 	<canvas id="certificate" width="4000" height="300"></canvas>
+	 </div>
+
+    <!-- <div class="material-intro-background event">
+    	<div class="bg-area">
+    		<div class="icon no1"></div>
+    		<div class="icon no2"></div>
+    	</div>
+      <div class="container">
+        <section class="banner-text col-md-10" style="max-width:100%">
+          <p>
+            코딩파티
+            <span>
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </span>
+            <a href="event1.html">
+              첫번째 이벤트
+            </a>
+          </p>
+          <p style="display:none"></p>
+        </section>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 introduce-content">  style='padding-left:20px;'
+            <img src="img/intro-image.png" alt="리스트 이미지">
+            <h2 class="status-page-title">코딩파티</h2>
+          </div>
+          <div class="material-intro-detail">
+            코딩퍼즐에서 처음으로 주최하는 코딩파티입니다. 다음에 나와있는 임무를 모두 완수하고 근사한 로봇배치를 얻어가세요. 이번 파티는 2018년 2월 1일부터 2월 28일까지 한시적으로 운영합니다.
+          </div>
+        </div>
+      </div>
+      <img src="img/cloud_left.png" class="matrial-intro-cloud-left">
+      <img src="img/cloud04.png" class="matrial-intro-cloud-right">
+      
+      
+      <div id="event1-container" class="container">
+	      <div class="row center no1">
+	        <div class="try-button">
+	        <a href="_signUp.html">학생 사용자로 등록하기</a>
+	        </div>
+	      </div>
+	      <div class="row no2">
+	        <div class="try-button">
+	          <a href="#">학생 사용자로 로그인하기</a>
+	        </div>
+	      </div>
+	      <div class="row no3">
+	        <div class="try-button">
+	          <a href="">이벤트용 퍼즐 풀어보기</a>
+	        </div>
+	      </div>
+	      <div class="row no4">
+	        <div class="try-button">
+	          <a href="">직접 퍼즐을 만들어 퍼즐 갤러리에 올려보기</a>
+	        </div>
+	      </div>
+	      <div class="row no5">
+	        <div class="try-button">
+	          <a href="">인증서받기</a>
+	        </div>
+	      </div>
+	   </div>
+    </div> -->
+    
+  </div>
+  <!--푸터시작-->
+  <footer>
+  </footer>  
+  <!--푸터 끝-->
+</body>
