@@ -662,6 +662,22 @@ $(document).ready(function() {
   }
 });
 
+
+
+/* following two functions are necessary to enable or disable keyboard focus to unity webbuild.
+ * otherwise, all keyboard inputs are delivered to unity NOT any web elements.
+ */
+$(document).on('click', ':not(canvas)', function(e) {  
+  e.stopPropagation();
+  if (Module == null) return;
+  Module.SendMessage("UI", "ToggleInput", 0);
+});
+$(document).on('click', 'canvas', function(e) {  
+  e.stopPropagation();
+  if (Module == null) return;
+  Module.SendMessage("UI", "ToggleInput", 1);
+});
+
 $(document).on('click', '.puzzlecoding button', function() {
   window.location.href = '_sign_' + $(this).attr('data-type') + '.html';
 });
