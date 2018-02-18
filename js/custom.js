@@ -41,7 +41,7 @@ function configureMenu()
   });
   $("#gnb-nav-btn").on("click", function() {
     $("#Gnb-frame").addClass("gnb-active");
-    $(this).hide();
+//    $(this).hide();
   });
   $("#gnb-nav-close").on("click", function() {
     $("#Gnb-frame").removeClass("gnb-active");
@@ -55,6 +55,10 @@ function configureMenu()
     }
   });
 
+  $('#log-toggle').on('click', '.toggle', function(e) {
+    	var gnbWraper= $('#gnb-wrapper');
+    	gnbWraper.toggleClass('open');
+    });
 }
 
 
@@ -351,7 +355,6 @@ function loadModule()
       moduleName : moduleName,
       robotLoaded : false,
       OnMissionComplete: function() {
-        
         if (currentPageName.startsWith("puzzle-view")) {
           current_puzzle_id = localStorage.getItem('currentPuzzleId');
           if (current_puzzle_id == null) return;
@@ -360,7 +363,6 @@ function loadModule()
           }, "completed");
           return;
         }
-
         if (course.current_puzzle_id == null) return;
         missionCompleteProcess = true;
         
@@ -646,6 +648,7 @@ $(document).ready(function() {
           $('#puzzle-date').text( new Date(data.timestamp).toLocaleString() );
           $('#n-completed-users').text(data.n_solved);
 
+
           $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=thumbnail', 
             processData: false,
             contentType: 'image/png'
@@ -662,52 +665,11 @@ $(document).ready(function() {
   }
 });
 
-
-
-/* following two functions are necessary to enable or disable keyboard focus to unity webbuild.
- * otherwise, all keyboard inputs are delivered to unity NOT any web elements.
- */
-$(document).on('click', ':not(canvas)', function(e) {  
-  e.stopPropagation();
-  if (Module == null) return;
-  Module.SendMessage("UI", "ToggleInput", 0);
-});
-$(document).on('click', 'canvas', function(e) {  
-  e.stopPropagation();
-  if (Module == null) return;
-  Module.SendMessage("UI", "ToggleInput", 1);
-});
-
 $(document).on('click', '.puzzlecoding button', function() {
   window.location.href = '_sign_' + $(this).attr('data-type') + '.html';
 });
 
 $(document).on('click', ".chasi ul li", function(e) {  
-	var body= $('body'),
-		fixedPopup= $('#fixed-popup'),
-		target= fixedPopup.find('.target'),
-		isMobile= $.IsMobile.is,
-		isBrowser= $.isBrowserCheck(),
-		closeBtn= fixedPopup.find('.btn');
-	
-	closeBtn.on('click', function(e) {
-		body[0].style.overflow= 'visible';
-		fixedPopup[0].style.display= 'none';
-	});
-	if(isMobile) {
-		popUp('모바일 혹은 테블릿');
-		return;
-	}
-	if(isBrowser !== 'Chrome') {
-		popUp('크롬이외의 브라우저');
-		return;
-	}
-	function popUp( str ) {
-		body[0].style.overflow= 'hidden';
-		target[0].innerHTML= str;
-		fixedPopup[0].style.display= 'block';
-	}
-
   if ($(this).hasClass('chasi-active') == true) return;
 
   /* BUG fix : BY beomjoo90 2018.1.18
@@ -732,6 +694,19 @@ $(document).on('click', ".chasi ul li", function(e) {
 });
 
 $(document).on('click', ".progress-org li", function(e) {
+	var loadingArea= $('#loading-area'), 
+		closeBtn= loadingArea.find('.btn'),
+    term;
+  if (loadingArea && loadingArea.length > 0) {
+    loadingArea[0].style.opacity= 1;
+    term= setTimeout(function() {
+      loadingArea.remove();
+    }, 10000);
+    closeBtn.on('click', function(e){
+      clearTimeout(term);
+      loadingArea.remove();
+    });
+  }
   if (Module == null) loadModule();
   if(missionCompleteProcess == false && gamePlayingProcess == false)
   {
@@ -820,6 +795,7 @@ const puzzleAPI = {
     });
   },
   login: (userId, userPasswd)=> {
+	  
     puzzleAPI.currentUser();
     if (puzzleAPI.cognitoUser != null) return;
     var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(
@@ -829,6 +805,8 @@ const puzzleAPI = {
       onSuccess: function(result) {
         puzzleAPI.currentUser();
             
+        $('#gnb-wrapper').toggleClass('open');
+        $('#log-toggle').removeClass('logout-active').addClass('login-active');
         $('#Gnb-profile-info span:nth-child(1)').text( puzzleAPI.cognitoUser.getUsername());
         $('#Gnb-menu .login img').attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
         if (currentPageName.startsWith("studying")) {
@@ -1004,20 +982,21 @@ const puzzleAPI = {
     $('#Gnb-menu .login img')
     .attr('src', puzzleAPI.cognitoUser ? 'img/logout.png' : 'img/login.png');
     
-    $('#log-toggle').on('click', function(e) {
-    	$('#gnb-wrapper').toggleClass('open');
-    });
     // refresh user login tool bars
     if (puzzleAPI.cognitoUser) {
+    	
 //      $('.menu-user').hide();
 //      $('.menu-user-password, .menu-user-id').hide();
-      $('.menu-login').html('<a req="logout">로그아웃</a>').show();
+//      $('.menu-login').html('<a req="logout">로그아웃</a>').show();
       $('.menu-login-userid').html( puzzleAPI.cognitoUser.username).show();
+      $('#log-toggle').removeClass('logout-active').addClass('login-active');
     } else {
 //      $('.menu-user').hide();
 //      $('.menu-user-password, .menu-user-id').hide();
       $('.menu-signup').show();
       $('.menu-login').html('<a req="login">로그인</a>').show();
+      $('.menu-login-userid').html('');
+      $('#log-toggle').removeClass('login-active').addClass('logout-active');
       
     }    
 
@@ -1048,6 +1027,7 @@ const puzzleAPI = {
   }
 };
 
+
 (function($){
   $.fn.extend({
     donetyping: function(callback,timeout){
@@ -1075,11 +1055,12 @@ const puzzleAPI = {
   });
 })(jQuery);
 
+
 $(document).on('click', '.menu-login a', function(e){
   switch ($(e.currentTarget).attr('req')) {
-    case "logout":
-      puzzleAPI.logout();
-      break;
+//    case "logout":
+//      puzzleAPI.logout();
+//      break;
     case "login":
       if ($('.menu-user-id').css('display') == 'none') {
         $('.menu-user-id, .menu-user-password').show();
@@ -1094,6 +1075,9 @@ $(document).on('click', '.menu-login a', function(e){
       puzzleAPI.login( $('.menu-user-id input').val(), $('.menu-user-password input').val());
       break;
   }
+});
+$(document).on('click', '#logout-btn', function(e){
+	puzzleAPI.logout();
 });
 
 $(document).keyup(function(e) {

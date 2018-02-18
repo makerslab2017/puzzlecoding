@@ -24,198 +24,230 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
+  <style>
+	  .mission-completed {
+		  color: yellowgreen !important;
+	  }
+  </style>
 </head>
 <body>
   <!--페이지 시작-->
-  <div id="page-wrapper" class="intro-page-wrapper event">
-  	<div id="subpage-top" class="event">
-	 	<div id="subpage-top-wrap">
-		 	<div class="index-area">
-		 		<span><a href="puzzle-intro.html">코딩파티</a></span>
-		 		<span>
-	              <i class="fa fa-angle-right" aria-hidden="true"></i>
-	            </span>
-		 		<span><a href="event1.html">첫번째 이벤트</a></span>
-		 	</div>
-		 	<div class="title-area">
-		 		<img src="img/intro-image-grey.png" alt="리스트 이미지">
-		 		<h1>코딩파티</h1>
-		 	</div>
-		 	<div class="inst-area">
-		 		<span>
-				 코딩퍼즐에서 처음으로 주최하는 코딩파티입니다. 다음에 나와있는 임무를 모두 완수하고 근사한 로봇 배지를 얻어가세요.<br>이번 파티는 2018년 2월 19일부터 3월 5일까지 운영합니다.
-		 		</span>
-		 	</div>
-	 	</div>
-	 	<div class="bg-icon">
-    		<div class="icon no1"></div>
-    		<div class="icon no2"></div>
-		</div>
-		<style>
-			.mission-completed {
-				color: red !important;
-			}
-		</style>
-	 	<div id="event1-container" class="container">
-	      <div class="row center no1">
-	        <div class="try-button">
-	        <a id="login-event" href="_signUp.html">학생 사용자로 등록하여 로그인하기</a>
-	        </div>
-	      </div>
-	      <div class="row no2">
-	        <div class="try-button">
-	          <a id="solve-puzzles" href="studying.html?course=event20180219">이벤트용 퍼즐 문제들 풀기</a>
-	        </div>
-	      </div>
-	      <div class="row no3">
-	        <div class="try-button">
-	          <a id="make-puzzle" href="puzzle-game.html">직접 퍼즐을 만들어 퍼즐 갤러리에 올려보기</a>
-	        </div>
-				</div>
-
-				<div class="row no4">
-	        <div class="try-button">
-	          <a id="invite-friends" href="gallery.html">내 퍼즐을 친구가 풀기</a>
-	        </div>
-				</div>
-				
-				<div class="row no5">
-	        <div class="try-button">
-	          <a id="get-certificate">인증서받기</a>
-	        </div>
-	      </div>
-	   </div>
-	 </div>
-	 <script>
-		 $(document).ready(function(){
-			 puzzleAPI.currentUser();
-			 if (puzzleAPI.cognitoUser) $('#login-event').addClass('mission-completed');
-
-			 course.loadCourse('event20180219');
-			 var completed_all = true;
-
-			 setTimeout( function() {
-				for (var key in course.info.lessons) {
-					var lesson = course.info.lessons[key];
-					$.each(lesson.stages, (k, v)=> {
-						if (course.progress_info && course.progress_info.hasOwnProperty(v)) {
-							if (course.progress_info[v] != "completed") {
-								completed_all = false;
-								return;
-							}
-						}
-					});
-					if (completed_all == false) return;
-				}
-				if (completed_all == true) $('#solve-puzzles').addClass('mission-completed');
-
-				$.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'search',
-      		headers: { 'Authorization' : puzzleAPI.token },
-      		success: (data) => {
-						if (data.hasOwnProperty('items')) {
-            	$.each(data.items, function(key, value) {
-								if (value.n_solved > 0) {
-									$('#invite-friends').addClass('mission-completed');
-								}
-							});
-							$('#make-puzzle').addClass('mission-completed');
-						}
-      		},
-      		fail: (err) => {
-        		console.log(err);
-      		}
-    		});
-			}, 3000 );
-		 });
-		 $(document).on('click', '#get-certificate', (e)=> {
-			if ($('.mission-completed').length !== 4) {
-				swal('모든 과제를 수행해야 인증서를 받을 수 있습니다..', {button: false});
-				return;
-			}
-			var canvas = $('#certificate')[0];
-			var context = canvas.getContext('2d');
-			var img = new Image();
-			img.onload = ()=> {
-				context.drawImage(img, 0, 0);
-				context.font = "30pt Calibri";
-				context.textAlign = "center";
-				context.fillText( puzzleAPI.cognitoUser.getUsername(), 300, 50 );
-				var now = new Date();
-				var date = now.getFullYear() + '년' + (now.getMonth() + 1) + '월' + now.getDate() + '일';
-				context.fillText( date, 500, 150 );
-			}
-			img.src = 'img/gnb-background.png';
-		 });
-	 
-	 </script>
-	 <div class="row center">
-	 	<canvas id="certificate" width="4000" height="300"></canvas>
-	 </div>
-
-    <!-- <div class="material-intro-background event">
-    	<div class="bg-area">
-    		<div class="icon no1"></div>
-    		<div class="icon no2"></div>
-    	</div>
-      <div class="container">
-        <section class="banner-text col-md-10" style="max-width:100%">
-          <p>
-            코딩파티
-            <span>
-              <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </span>
-            <a href="event1.html">
-              첫번째 이벤트
-            </a>
-          </p>
-          <p style="display:none"></p>
-        </section>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 introduce-content">  style='padding-left:20px;'
-            <img src="img/intro-image.png" alt="리스트 이미지">
-            <h2 class="status-page-title">코딩파티</h2>
-          </div>
-          <div class="material-intro-detail">
-            코딩퍼즐에서 처음으로 주최하는 코딩파티입니다. 다음에 나와있는 임무를 모두 완수하고 근사한 로봇배치를 얻어가세요. 이번 파티는 2018년 2월 1일부터 2월 28일까지 한시적으로 운영합니다.
-          </div>
-        </div>
-      </div>
-      <img src="img/cloud_left.png" class="matrial-intro-cloud-left">
-      <img src="img/cloud04.png" class="matrial-intro-cloud-right">
-      
-      
-      <div id="event1-container" class="container">
-	      <div class="row center no1">
-	        <div class="try-button">
-	        <a href="_signUp.html">학생 사용자로 등록하기</a>
-	        </div>
-	      </div>
-	      <div class="row no2">
-	        <div class="try-button">
-	          <a href="#">학생 사용자로 로그인하기</a>
-	        </div>
-	      </div>
-	      <div class="row no3">
-	        <div class="try-button">
-	          <a href="">이벤트용 퍼즐 풀어보기</a>
-	        </div>
-	      </div>
-	      <div class="row no4">
-	        <div class="try-button">
-	          <a href="">직접 퍼즐을 만들어 퍼즐 갤러리에 올려보기</a>
-	        </div>
-	      </div>
-	      <div class="row no5">
-	        <div class="try-button">
-	          <a href="">인증서받기</a>
-	        </div>
-	      </div>
-	   </div>
-    </div> -->
+  <div id="page-wrapper" class="event-wrapper">
+  	<div class="section no0">
+  		<div class="image-area">
+  			<div class="image" style="background-image: url('img/main-banner-bg3.png');"></div>
+  		</div>
+  		<div class="section-wrap">
+	  		<div class="inst">
+	  			<h1>코딩 탐험가 여러분을 환영합니다!</h1>
+	  			<p>코딩캠프는 어린이들이 코딩을 쉽게 이해할 수 있도록 돕는 온라인 교육 행사입니다.</p>
+	  			<p>코딩캠프는 코딩을 놀이방식으로 즐길 수 있도록 다양한 미션을 제공합니다.</p>
+	  			<p>어린이들은 스스로 미션을 해결하는 과정에서 자연스레 코딩 논리를 배우게 됩니다.</p><br>
+	  			<p>지금 바로 코딩캠프에 참여해 보세요!</p>
+	  		</div>
+	  		<div class="image-wrap">
+		  		<div class="image-area">
+		  			<div class="image" style="background-image: url('img/onehour-robot.png');"></div>
+		  		</div>
+	  		</div>
+  		</div>
+  		
+  	</div>
     
+    <div class="section no1">
+    	<div class="section-wrap">
+    		<h2>코딩캠프 미션 참여 방법</h2>
+    		<div class="inst">
+    			<p>코딩캠프 미션은 회원가입부터 인증서 발급까지 네 가지의 미션으로 구성되어 있습니다.</p>
+    			<p>모든 미션을 완료하면 코딩캠프 인증서를 발급받게 됩니다.</p>
+    			<p class="comment">* 3단계, 4단계 미션에 참여하기 위해서는 회원가입이 꼭 필요합니다.</p>
+    		</div>
+    		<div class="flex-wrap">
+    			<div id="login-event" class="step arrow">
+    				<h3>1단계</h3>
+    				<p>회원가입 및 로그인</p>
+    			</div>
+    			<div id="solve-puzzles" class="step arrow">
+    				<h3>2단계</h3>
+    				<p>코딩캠프 문제 풀기</p>
+    			</div>
+    			<div id="make-puzzle" class="step arrow">
+    				<h3>3단계</h3>
+    				<p>퍼즐메이커 맵 만들기</p>
+    			</div>
+    			<div id="get-certificate" class="step">
+    				<h3>4단계</h3>
+    				<p>인증서 발급 받기</p>
+    			</div>
+    		</div>
+    		<div class="inst">
+    			<p>코딩미션이 끝난 후에도 코딩을 더 공부해 보고 싶은 학생은 <span class="highlight">'코딩퍼즐 학습' </span>과<span class="highlight"> '퍼즐메이커'</span>를 통해 더욱 체계적인 코딩 학습을 할 수 있습니다.</p>
+    		</div>
+    		<h2 class="bg">코딩캠프 미션 참여 방법</h2>
+    		<div class="flex-wrap">
+    			<div class="part left">
+    				<div class="image-area">
+			  			<div class="image" style="background-image: url('img/main-pic-1.png');"></div>
+			  		</div>
+			  		<div class="inst">
+			  			<h3>코딩캠프 문제 풀기</h3>
+		    			<p>코딩 행성을 탐험하며 주어진 문제를 해결하는 미션</p>
+		    			<p>기본적인 SW 코딩 알고리즘을</p>
+		    			<p>재미있고 체계적으로 익혀 코딩 논리를 배우고</p>
+		    			<p>학습에 대한 흥미가 생깁니다.</p>
+		    		</div>
+    			</div>
+    			<div class="part right">
+    				<div class="image-area">
+			  			<div class="image" style="background-image: url('img/main-pic-2.jpg');"></div>
+			  		</div>
+			  		<div class="inst">
+			  			<h3>퍼즐메이커로 맵 만들기</h3>
+		    			<p>퍼즐메이커를 활용하여 직접 맵을 만드는 미션</p>
+		    			<p>나만의 코딩 행성은 어떤 모습일까요?</p>
+		    			<p>코딩교육에 필요한 순차, 반복,</p>
+		    			<p>분해, 함수, 무한반복을 배울 수 있도록 돕습니다.</p>
+		    		</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="section no1 sub1">
+    	<h1 class="title"><span></span>SPECIAL EVENT</h1>
+    	<div class="section-bg">
+	    	<div class="section-wrap">
+	    	
+	    		<div class="flex-wrap no1">
+	    			<div class="title-area">
+	    				<h1>EVENT 1</h1>
+	    				<h3>닥터 서범주의 코딩 미로를 탈출하라!</h3>
+	    			</div>
+	    			<div class="image-area">
+			  			<div class="image" style="background-image: url('img/jane.png');"></div>
+			  		</div>
+			  		<div class="inst">
+		    			<p>홍익대 게임학부 교수, 서범주 박사님이 만든 코딩 미로를 탈출해 보세요!</p>
+		    			<p>더욱 어려워진 코딩 문제에 도전하여 문제를 해결하다 보면,</p>
+		    			<p>코딩 논리와 창의적 사고가 한층 더 쑥쑥!</p>
+		    			<p>학습에 대한 흥미가 생깁니다.</p><br>
+		    			<span class="comment icon">코딩 미로를 클리어한 탐험가 중 추첨을 통해 5명에게 상품을 지급합니다.</span>
+		    		</div>
+	    		</div>
+	    		
+	    		<div class="flex-wrap no2">
+	    			<div class="title-area">
+	    				<h1>EVENT 2</h1>
+	    				<h3>도전, 최강 퍼즐 만들기</h3>
+	    			</div>
+	    			<div class="image-area">
+			  			<div class="image" style="background-image: url('img/intro-img-2-rev.png');"></div>
+			  		</div>
+			  		<div class="inst">
+		    			<p>퍼즐메이커를 이용하여 가장 어려운 맵을 만들어 보세요!</p>
+		    			<p>다른 친구가 만든 퍼즐 풀기도 도전해 봅시다!</p><br>
+		    			<span class="comment icon">가장 어려운 맵을 만든 3명에게 상품을 지급합니다.</span>
+		    			<p class="comment">* 클리어 회수 기준</p>
+		    		</div>
+	    		</div>
+	    		
+	    		<div class="flex-wrap no3">
+	    			<div class="title-area">
+	    				<h1>EVENT 3</h1>
+	    				<h3>코딩 행성 탐험 완-료</h3>
+	    			</div>
+			  		<div class="inst">
+		    			<p>코딩캠프 미션 네가지를 모두 수행했나요?</p>
+		    			<p>"회원가입 - 코딩캠프 문제풀기 - 퍼즐메이커로 맵 만들기 - 인증서 발급"</p>
+		    			<p>총 네 단계를 완료해야 이벤트 참여가 가능합니다.</p><br>
+		    			<p class="comment icon">미션을 완료한 탐험가 중 추첨을 통해 20명에게 상품을 지급합니다.</p>
+		    		</div>
+	    		</div>
+	    		
+	    	</div>
+    	</div>
+    	<div class="bottom-area">
+    		<p>주최 : 홍익대학교산학협력단</p>
+    		<p>주관 : 홍익대학교산학협력단, 메이커스랩, 디지털플레이연구원</p>
+    		<p>후원 : 한국과학창의재단</p>
+    	</div>
+    </div>
   </div>
+  <script>
+	$(document).ready(function(){
+		$('#login-event').on('click', function() {
+			location.href = '_signUp.html';
+		});
+		$('#solve-puzzles').on('click', function() {
+			location.href = 'studying.html?course=event20180219';
+		});
+		$('#make-puzzle').on('click', function() {
+			location.href = 'puzzle-game.html';
+		});
+		puzzleAPI.currentUser();
+		if (puzzleAPI.cognitoUser) $('#login-event').addClass('mission-completed');
+
+		course.loadCourse('event20180219');
+		var completed_all = true;
+
+		setTimeout( function() {
+		   for (var key in course.info.lessons) {
+			   var lesson = course.info.lessons[key];
+			   $.each(lesson.stages, (k, v)=> {
+				   if (course.progress_info && course.progress_info.hasOwnProperty(v)) {
+					   if (course.progress_info[v] != "completed") {
+						   completed_all = false;
+						   return;
+					   }
+				   }
+			   });
+			   if (completed_all == false) return;
+		   }
+		   if (completed_all == true) $('#solve-puzzles').addClass('mission-completed');
+
+		   $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'search',
+		 headers: { 'Authorization' : puzzleAPI.token },
+		 success: (data) => {
+				   if (data.hasOwnProperty('items')) {
+		   $.each(data.items, function(key, value) {
+						   if (value.n_solved > 0) {
+							   //$('#invite-friends').addClass('mission-completed');
+						   }
+					   });
+					   $('#make-puzzle').addClass('mission-completed');
+				   }
+		 },
+		 fail: (err) => {
+		   console.log(err);
+		 }
+	   });
+	   }, 3000 );
+	});
+	$(document).on('click', '#get-certificate', (e)=> {
+	   if ($('.mission-completed').length !== 3) {
+		   swal('모든 과제를 수행해야 인증서를 받을 수 있습니다.', {button: false});
+		   return;
+	   }
+	   var canvas = $('#certificate')[0];
+	   var context = canvas.getContext('2d');
+	   var img = new Image();
+	   img.onload = ()=> {
+		   context.drawImage(img, 0, 0);
+		   context.font = "30pt Calibri";
+		   context.textAlign = "center";
+		   context.fillText( puzzleAPI.cognitoUser.getUsername(), 300, 50 );
+		   var now = new Date();
+		   var date = now.getFullYear() + '년' + (now.getMonth() + 1) + '월' + now.getDate() + '일';
+		   context.fillText( date, 500, 150 );
+	   }
+	   img.src = 'img/gnb-background.png';
+	});
+
+</script>
+<div class="row center">
+	<canvas id="certificate" width="4000" height="300"></canvas>
+</div>
+
   <!--푸터시작-->
   <footer>
   </footer>  

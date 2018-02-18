@@ -1,5 +1,5 @@
 {
-"TOTAL_MEMORY": 268435456,
+"TOTAL_MEMORY": 536870912,
 "dataUrl": "per_stage.data.unityweb",
 "asmCodeUrl": "per_stage.asm.code.unityweb",
 "asmMemoryUrl": "per_stage.asm.memory.unityweb",

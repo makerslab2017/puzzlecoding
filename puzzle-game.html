@@ -175,15 +175,32 @@
                 		</div>
                 		<h1>죄송합니다.</h1>
                 		<h1><span class="target"></span>에서는 지원되지 않는 기능입니다.</h1>
-                		<span class="btn">닫기</span>
+                		<span class="btn">뒤로 가기</span>
                 	</div>
                 </div>
                 
                 <div class="flex-box" style="justify-content: center">
-                
+                  <div id="loading-area">
+                    <div id="loading-wrap">
+                      <div class="loader">
+                        <div class="loader-icon">
+                          <svg viewBox="0 0 50 50">
+                            <path fill="#ddd" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="text-area">
+                          <h2>잠시만 기다려 주세요...</h2>
+                        </div>
+                        <div class="btn-area">
+                          <span class="btn">닫기</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="webgl-content">
                     <div>
-                      <div id="gameContainer" style="width: 1280px; height: 720px;"></div>
+                      <div id="gameContainer" style="width: 1024px; height: 576px;"></div>
                     </div>
                   </div>
                 </div>
@@ -209,7 +226,20 @@
                 </button>
                   
                 <script>
-                  $('#puzzle-editor-loader').on('click', ()=>loadModule('editor') );
+                  $('#puzzle-editor-loader').on('click', ()=> {
+                	  var loadingArea= $('#loading-area'),
+                	  	  closeBtn= loadingArea.find('.btn'),
+            			  term;
+                    loadingArea[0].style.opacity= 1;
+                    term= setTimeout(function() {
+                      loadingArea.remove();
+                    }, 10000);
+                    closeBtn.on('click', function(e) {
+                      clearTimeout(term);
+                      loadingArea.remove();
+                    });
+                	  loadModule('editor');
+                  });
                   $('#goto-gallery').on('click', ()=>window.location.href = './gallery.html');
                   $('#uploadPuzzle').on('click', ()=> {
 

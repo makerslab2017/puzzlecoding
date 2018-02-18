@@ -8,7 +8,6 @@
          	<div id="login-input-area">
          		<span class="menu-user menu-user-id"><input type="type" name="menu-user-id" placeholder="사용자명" size="10" tabindex=1></span>
 		        <span class="menu-user menu-user-password"><input type="password" name="menu-user-password" placeholder="비밀번호" size="10" tabindex=2></span>
-		        <span class="menu-user menu-login-userid"></span>
 	        </div>
         </div>
         <div class="col-xs-12">
@@ -76,14 +75,21 @@
               </li>
 			        -->
             </ul>
-            <div id="log-toggle">
-            	<span class="on">로그인</span>
-            	<span class="off">
+            <div id="log-toggle" class="logout-active">
+            	<span id="login-btn" class="toggle on">로그인</span>
+            	<span class="toggle off">
             		<svg viewBox="0 0 32 32">
-						<path d="M 0 0 l 32 32" />
-						<path d="M 32 0 l -32 32" />
-					</svg>
-            	</span>
+						      <path d="M 0 0 l 32 32" />
+						      <path d="M 32 0 l -32 32" />
+					      </svg>
+              </span>
+              <span class="menu-user menu-login-userid"></span>
+              <span id="logout-btn" class="on">로그아웃</span>
+            </div>
+              
+              <div id="gnb-nav-btn">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </div>
             </div>
             
             
@@ -103,11 +109,11 @@
   <!--모바일 GNB-->
   <div id="Gnb-frame">
     <div id="Gnb-profile">
-      <div id="Gnb-profile-photo-frame">
+      <!--<div id="Gnb-profile-photo-frame">
         <div id="Gnb-profile-photo">
           <img src="./img/gnb-photo.jpg">
         </div>
-      </div>
+      </div>-->
       <div id="Gnb-profile-info">
         <span>
           isslea
@@ -135,8 +141,12 @@
         <li>
           <a href="introduce.html">교육과정 소개</a>
         </li>
-        <li class="for-educator">
+        <!--<li class="for-educator">-->
+        <li></li>
           <a href="progress-status.html">학습진도 현황</a>
+        </li>
+        <li></li>
+          <a href="studying_materials.html">학습교재</a>
         </li>
       </ul>
       <!--
@@ -156,7 +166,7 @@
           <a href="puzzle-game.html">퍼즐 만들기</a>
         </li>
         <li>
-          <a href="gallery.html">퍼즐 공유하기</a>
+          <a href="gallery.html">퍼즐 갤러리</a>
         </li>
       </ul>
       

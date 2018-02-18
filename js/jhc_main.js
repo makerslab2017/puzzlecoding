@@ -1,12 +1,13 @@
 $(function() {
 	var countArea= $('#count-print-area'),
 		countUl= countArea.find('.count-wrap'),
+		visitCount= countUl[0].dataset.count,
 		countList= countUl.find('li'),
 		countData= countList.find('h1'),
 		len= countData.length-1,
 		countVal;
 	$.ajax({
-		url: 'admin/js/count.json',
+		url: 'admin/js/setcount.json',
 		dataType: 'JSON',
 		async: false,
 		success: function(data) {
@@ -14,7 +15,12 @@ $(function() {
 		}
 	});
 	$.each( countData, function(i,v) {
-		this.dataset.count= countVal[i];
+		if( i === 0 ) {
+			this.dataset.count= Number(visitCount) + Number(countVal[i]);
+		} else {
+			this.dataset.count= countVal[i];
+		}
+		
 		if( len === 0 ) {
 			countUp();
 		}
