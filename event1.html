@@ -193,12 +193,15 @@
 		setTimeout( function() {
 		   for (var key in course.info.lessons) {
 			   var lesson = course.info.lessons[key];
-			   $.each(lesson.stages, (k, v)=> {
+			   $.each(lesson.stages, function(k, v) {
 				   if (course.progress_info && course.progress_info.hasOwnProperty(v)) {
 					   if (course.progress_info[v] != "completed") {
 						   completed_all = false;
 						   return;
 					   }
+				   } else {
+					   completed_all = false;
+					   return;
 				   }
 			   });
 			   if (completed_all == false) return;
@@ -207,7 +210,7 @@
 
 		   $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'search',
 		 headers: { 'Authorization' : puzzleAPI.token },
-		 success: (data) => {
+		 success: function(data) {
 				   if (data.hasOwnProperty('items')) {
 		   $.each(data.items, function(key, value) {
 						   if (value.n_solved > 0) {
@@ -217,13 +220,13 @@
 					   $('#make-puzzle').addClass('mission-completed');
 				   }
 		 },
-		 fail: (err) => {
+		 fail: function(err) {
 		   console.log(err);
 		 }
 	   });
 	   }, 3000 );
 	});
-	$(document).on('click', '#get-certificate', (e)=> {
+	$(document).on('click', '#get-certificate', function(e) {
 	   if ($('.mission-completed').length !== 3) {
 		   swal('모든 과제를 수행해야 인증서를 받을 수 있습니다.', {button: false});
 		   return;
@@ -231,7 +234,7 @@
 	   var canvas = $('#certificate')[0];
 	   var context = canvas.getContext('2d');
 	   var img = new Image();
-	   img.onload = ()=> {
+	   img.onload = function() {
 		   context.drawImage(img, 0, 0);
 		   context.font = "30pt Calibri";
 		   context.textAlign = "center";

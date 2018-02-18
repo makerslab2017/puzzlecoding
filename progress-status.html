@@ -190,11 +190,11 @@
     $(document).ready(function() {
       $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'courses',
         headers: { 'Authorization' : puzzleAPI.token },
-        success: (data) => {
+        success: function(data) {
           console.log(data);
           users_progress.users = data.enrolled_students;
         },
-        fail: (err) => {
+        fail: function(err) {
           users_progress.users = null;
           users_progress.elementary = {};
           users_progress.middle = {};
@@ -207,7 +207,7 @@
     var chart_element = null;
     
     
-    var show_progress = () => {
+    var show_progress = function() {
       if (chart_element)
         chart_element.destroy();
       var labels = [];
@@ -275,7 +275,7 @@
         course_data = data;
         $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'courses/' + course_id,
           headers: { 'Authorization' : puzzleAPI.token },
-          success: (data) => {
+          success: function(data) {
             console.log(data);
             users_progress[course_id] = {};
             stat = {};
@@ -299,7 +299,7 @@
             console.log(stat);
             show_progress();
           },
-          fail: (err) => {
+          fail: function(err) {
             users_progress[course_id] = null;
           }
         }); 

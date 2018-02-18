@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
 	var countArea= $('#count-print-area'),
 		countUl= countArea.find('.count-wrap'),
 		visitCount= countUl[0].dataset.count,
@@ -7,24 +7,23 @@ $(function() {
 		len= countData.length-1,
 		countVal;
 	$.ajax({
-		url: 'admin/js/setcount.json',
+		url: 'count.json',
 		dataType: 'JSON',
-		async: false,
 		success: function(data) {
-			countVal= data.count;
+			countVal = data.count;
+			$.each(countData, function(i,v) {
+				if( i === 0 ) {
+					this.dataset.count= Number(visitCount) + Number(countVal[i]);
+				} else {
+					this.dataset.count= countVal[i];
+				}
+				
+				if( len === 0 ) {
+					countUp();
+				}
+				len--;
+			});
 		}
-	});
-	$.each( countData, function(i,v) {
-		if( i === 0 ) {
-			this.dataset.count= Number(visitCount) + Number(countVal[i]);
-		} else {
-			this.dataset.count= countVal[i];
-		}
-		
-		if( len === 0 ) {
-			countUp();
-		}
-		len--;
 	});
 	
 	function countUp() {
@@ -48,5 +47,4 @@ $(function() {
 			  });  
 		});
 	}
-	
 });

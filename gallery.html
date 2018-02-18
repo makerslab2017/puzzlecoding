@@ -144,11 +144,11 @@
     </div>
     <script>
       var pagination_info = null;
-      buildItem = (item) => {
+      buildItem = function(item) {
         if ($('#' + item.id).length) return;
         $('<div>', {
           class: "col-md-3 col-sm-6",
-          html: '<section id="' + item.id + '" class="gallery-box"><div class="gallery-image" data="puzzleDeco0101"><img src="https://codingpuzzle.org/puzzles/thumbnails/' + item.id + '" alt="더미이미지"></div><div class="gallery-list-info"><span class="gallery-user-pic"><img src="img/gallery_dummy2.png" alt="더미이미지"></span><span><div class="gallery-title">' + item.title + '</div><div class="gallery-user-name">창작: &nbsp;<span>'+ item.owner + '</span></div></span></div><div class="gallery-social-info"><div><img src="img/share_orange.png" alt="공유하기"><span>' + item.n_shared + '</span></div><div class="like-puzzle"><img src="img/like.png" alt="좋아요"><span class="n-likes">' + item.n_like + '</span></div><div class="dislike-puzzle"><img src="img/dislike.png" alt="싫어요"><span class="n-dislikes">' + item.n_dislike + '</span></div><div><span><i class="material-icons delete-puzzle">delete</i></span></div></div></section>'
+          html: '<section id="' + item.id + '" class="gallery-box"><div class="gallery-image" data="puzzleDeco0101"><img src="https://codingpuzzle.org/puzzles/thumbnails/' + item.id + '" alt="더미이미지"></div><div class="gallery-list-info"><span class="gallery-user-pic"><img src="img/gallery_dummy2.png" alt="더미이미지"></span><span><div class="gallery-title">' + item.title + '</div><div class="gallery-user-name">창작: &nbsp;<span>'+ item.owner + '</span></div></span></div><div class="gallery-social-info"><div><img src="img/coding-challenge-clear.png" alt="퍼즐풀기"><span>' + item.n_solved + '</span></div><div class="like-puzzle"><img src="img/like.png" alt="좋아요"><span class="n-likes">' + item.n_like + '</span></div><div class="dislike-puzzle"><img src="img/dislike.png" alt="싫어요"><span class="n-dislikes">' + item.n_dislike + '</span></div><div><span><i class="material-icons delete-puzzle">delete</i></span></div></div></section>'
         }).appendTo('.gallery');
         $('div:has(> > .delete-puzzle)').css({'cursor': 'pointer'});
       };
@@ -158,7 +158,7 @@
         if (id == null) return;
         window.location.href = 'puzzle-view.html?puzzle=' + id;
       });
-      $(document).on('click', '.gallery-box .like-puzzle', (e)=> {        
+      $(document).on('click', '.gallery-box .like-puzzle', function(e) {        
         var id = $(e.currentTarget).parents('.gallery-box').attr('id');
         e.stopPropagation();
         if (id == null) return;
@@ -166,12 +166,12 @@
           return;
         }
         if ($('.gallery-user-name span', $('#' + id)).html() !== puzzleAPI.cognitoUser.username) {
-          puzzleAPI.recordPuzzleLog( id, ()=> {
+          puzzleAPI.recordPuzzleLog( id, function() {
             $('#' + id + " .n-likes").text( parseInt($('#' + id + " .n-likes").text()) + 1 );
           }, "liked" );
         }        
       });
-      $(document).on('click', '.gallery-box .dislike-puzzle', (e)=> {        
+      $(document).on('click', '.gallery-box .dislike-puzzle', function(e) {        
         var id = $(e.currentTarget).parents('.gallery-box').attr('id');
         e.stopPropagation();
         if (id == null) return;
@@ -179,33 +179,33 @@
           return;
         }
         if ($('.gallery-user-name span', $('#' + id)).html() !== puzzleAPI.cognitoUser.username) {
-          puzzleAPI.recordPuzzleLog( id, ()=> {
+          puzzleAPI.recordPuzzleLog( id, function() {
             $('#' + id + " .n-dislikes").text( parseInt($('#' + id + " .n-dislikes").text()) + 1 );
           }, "disliked" );
         }        
       });
-      $(document).on('click', '.gallery-box .delete-puzzle', (e)=> {        
+      $(document).on('click', '.gallery-box .delete-puzzle', function(e) {        
         var id = $(e.currentTarget).parents('.gallery-box').attr('id');
         e.stopPropagation();
         if (id == null) return;
-        if (puzzleAPI.cognitoUser.username == null) {
+        if (puzzleAPI.cognitoUser == null || puzzleAPI.cognitoUser.username == null) {
           return;
         }
         if ($('.gallery-user-name span', $('#' + id)).html() !== puzzleAPI.cognitoUser.username) {
           swal('퍼즐 제작자만이 삭제할 수 있습니다.', {button: false});
           return;
         }
-        swal('삭제하시겠습니까?').then((value)=> {
+        swal('삭제하시겠습니까?').then( function(value) {
           if (value === true) puzzleAPI.deletePuzzle(id);
         });
       });
-      readFromWeb = (n_trials) => {
+      readFromWeb = function(n_trials) {
         if (n_trials == 0) return;
-        $.getJSON( puzzleAPI.apiUrl + 'puzzles',  pagination_info, (data)=> {
+        $.getJSON( puzzleAPI.apiUrl + 'puzzles',  pagination_info, function(data) {
           console.log(data);
           if (data.hasOwnProperty('items')) {
             $.each(data.items, function(key, value) {
-              buildItem({id: value.puzzle_id, title: value.title, owner: value.owner_id, description: value.description, n_shared: value.n_shared + "", n_like: value.n_like + "", n_dislike: value.n_shared + "" } );          
+              buildItem({id: value.puzzle_id, title: value.title, owner: value.owner_id, description: value.description, n_solved: value.n_solved + "", n_shared: value.n_shared + "", n_like: value.n_like + "", n_dislike: value.n_dislike + "" } );          
             });
             pagination_info = {
               last_puzzle_id: data.last_puzzle_id,
@@ -225,7 +225,7 @@
         });
       };
       readFromWeb(7);
-      $('#next-button').on('click', () => readFromWeb(7) );
+      $('#next-button').on('click', function() { readFromWeb(7);} );
     </script>
   </div>
   <!--푸터시작-->

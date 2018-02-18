@@ -226,7 +226,7 @@
                 </button>
                   
                 <script>
-                  $('#puzzle-editor-loader').on('click', ()=> {
+                  $('#puzzle-editor-loader').on('click', function() {
                 	  var loadingArea= $('#loading-area'),
                 	  	  closeBtn= loadingArea.find('.btn'),
             			  term;
@@ -240,8 +240,8 @@
                     });
                 	  loadModule('editor');
                   });
-                  $('#goto-gallery').on('click', ()=>window.location.href = './gallery.html');
-                  $('#uploadPuzzle').on('click', ()=> {
+                  $('#goto-gallery').on('click', function() {window.location.href = './gallery.html'; });
+                  $('#uploadPuzzle').on('click', function() {
 
                     data = localStorage.getItem('latestEditedPuzzle');
                     if (data == null) {
@@ -265,7 +265,7 @@
                               value: 'catch'
                             }
                           }
-                      }).then( (value) => {
+                      }).then( function(value) {
                         localStorage.removeItem('latestEditedPuzzle');
                         if (value == "catch") window.location.href = "_signUp.html";
                       });
@@ -276,7 +276,7 @@
                         'Authorization' : puzzleAPI.token
                       },
                       data: JSON.stringify(item),
-                      success: (data) => {
+                      success: function(data) {
                         swal('퍼즐을 성공적으로 등록하였습니다.', { 
                           buttons: {
                             cancel: '계속 퍼즐 만들기',
@@ -285,12 +285,12 @@
                               value: 'catch'
                             }
                           }
-                        }).then( (value) => {
+                        }).then( function(value) {
                           localStorage.removeItem('latestEditedPuzzle');
                           if (value == "catch") window.location.href = "gallery.html";
                         });
                       },
-                      fail: (err) => {
+                      fail: function(err) {
                         swal('안에 제목, 내용이 비었거나 퍼즐을 만들지 않았네요. 퍼즐에디터 오른쪽 상단 메뉴를 누르시고 저장하기를 선택해주세요. 다시 시도해보세요.');
                       }
                     });
