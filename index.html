@@ -42,24 +42,25 @@
 
       <div class="carousel-inner">
         <!--슬라이드1-->
-        <div class="item active" style="background-image:url('admin/banner/0_banner_image.jpg')">
-       	 	<img src="admin/banner/0_banner_image.jpg" alt="메인이미지-1">
-          <!-- <img src="img/main-banner-bg.png" alt="메인이미지-1"> -->
+        <div class="item active" style="background-image:url('banner/mainconcept.jpg')">
+       	 	<img src="banner/mainconcept.jpg" alt="메인이미지-1">
           <div class="container">
             <div class="carousel-caption">
               <div class="main-banner-bg">
-                <p>CODING PUZZLE</P>
-                <P>소프트웨어 교육의 첫걸음, 코딩퍼즐<br> 누구나 쉽고 재밌게 소프트웨어를 배울 수 있습니다.<br> 지금 바로 시작해보세요!
-                </p>
+                  <p>신나는 코딩캠프 이벤트</P>
+                    <P>흥미진진한 코딩 세계로 모험을 떠나자!<br>누구나 참여가능한 무료 온라인 코딩캠프<br>지금 접속하여 코딩학습도 하고 상품도 받자!<br>
+                    <a href="event1.html" class="btn btn-inline btn-large btn-danger"><span>코딩캠프 참여하기</span></a></p>
+                  </div>
+                <!--<p><a href="event1.html" class="btn btn-inline btn-large btn-danger"><span>Go~!</span></a></p>-->
               </div>
             </div>
           </div>
         </div>
         <!--슬라이드1-->
         <!--슬라이드2-->
+        <!--
         <div class="item" style="background-image:url('admin/banner/1_banner_image.jpg')">
        	 	<img src="admin/banner/1_banner_image.jpg" alt="메인이미지-2">
-          <!-- <img src="img/main-banner-bg3.png" alt="메인이미지-2"> -->
           <div class="container">
             <div class="carousel-caption">
               <div class="main-banner-bg">
@@ -70,11 +71,12 @@
             </div>
           </div>
         </div>
-        <!--슬라이드2-->
+      -->
+              <!--슬라이드2-->
         <!--슬라이드3-->
+        <!--
         <div class="item" style="background-image:url('admin/banner/2_banner_image.jpg')">
         	<img src="admin/banner/2_banner_image.jpg" alt="메인이미지-3">
-          <!-- <img src="img/main-banner-bg4.png" alt="메인이미지-2"> -->
           <div class="container">
             <div class="carousel-caption">
               <div class="main-banner-bg">
@@ -85,6 +87,7 @@
             </div>
           </div>
         </div>
+      -->
         <!--슬라이드3-->
 
       </div>
@@ -168,15 +171,15 @@
 		<ul class="count-wrap" data-count="0">
 			<li class="no1">
 				<h1 data-count=""></h1>
-				<h2>KIDS</h2>
+				<h2>VISITORS</h2>
 			</li>
 			<li class="no2">
 				<h1 data-count=""></h1>
-				<h2>SCHOOL</h2>
+				<h2>KIDS</h2>
 			</li>
 			<li class="no3">
 				<h1 data-count=""></h1>
-				<h2>LINES OF CODE</h2>
+				<h2>SCHOOLS</h2>
 			</li>
 		</ul>
       </div>
@@ -366,6 +369,17 @@
     </div>
   -->
   </div>
+  <script>
+    $(document).ready(function(){
+      $.ajax( { type: 'PUT', url: puzzleAPI.apiUrl + 'stats/count?action=visit',
+        success: function(data) {
+          console.log(data);
+        }
+      });
+
+    });
+  
+  </script>
   
 
   <!--푸터시작-->

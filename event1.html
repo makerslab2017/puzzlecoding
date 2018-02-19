@@ -23,10 +23,11 @@
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script> 
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
   <style>
-	  .mission-completed {
-		  color: yellowgreen !important;
+	  .certificate-wrap {
+		  width: 636px; /* 576+20+20 */
 	  }
   </style>
 </head>
@@ -81,7 +82,7 @@
     			</div>
     		</div>
     		<div class="inst">
-    			<p>코딩미션이 끝난 후에도 코딩을 더 공부해 보고 싶은 학생은 <span class="highlight">'코딩퍼즐 학습' </span>과<span class="highlight"> '퍼즐메이커'</span>를 통해 더욱 체계적인 코딩 학습을 할 수 있습니다.</p>
+    			<p>코딩미션이 끝난 후에도 코딩을 더 공부해 보고 싶은 학생은<br/> <span class="highlight">'코딩퍼즐 학습' </span>과<span class="highlight"> '퍼즐메이커'</span>를 통해 더욱 체계적인 코딩 학습을 할 수 있습니다.</p>
     		</div>
     		<h2 class="bg">코딩캠프 미션 참여 방법</h2>
     		<div class="flex-wrap">
@@ -114,9 +115,11 @@
     </div>
     
     <div class="section no1 sub1">
-    	<h1 class="title"><span></span>SPECIAL EVENT</h1>
     	<div class="section-bg">
+			<h1>&nbsp;</h1>
+			
 	    	<div class="section-wrap">
+					<h1 class="title"><span></span>SPECIAL EVENT</h1>
 	    	
 	    		<div class="flex-wrap no1">
 	    			<div class="title-area">
@@ -130,7 +133,8 @@
 		    			<p>홍익대 게임학부 교수, 서범주 박사님이 만든 코딩 미로를 탈출해 보세요!</p>
 		    			<p>더욱 어려워진 코딩 문제에 도전하여 문제를 해결하다 보면,</p>
 		    			<p>코딩 논리와 창의적 사고가 한층 더 쑥쑥!</p>
-		    			<p>학습에 대한 흥미가 생깁니다.</p><br>
+						<p>학습에 대한 흥미가 생깁니다.</p><br>
+						<span class="comment icon">서범주 박사님이 만든 미로는 공식 카페를 통해 캠프 기간 중 공개됩니다.</span>
 		    			<span class="comment icon">코딩 미로를 클리어한 탐험가 중 추첨을 통해 5명에게 상품을 지급합니다.</span>
 		    		</div>
 	    		</div>
@@ -147,7 +151,7 @@
 		    			<p>퍼즐메이커를 이용하여 가장 어려운 맵을 만들어 보세요!</p>
 		    			<p>다른 친구가 만든 퍼즐 풀기도 도전해 봅시다!</p><br>
 		    			<span class="comment icon">가장 어려운 맵을 만든 3명에게 상품을 지급합니다.</span>
-		    			<p class="comment">* 클리어 회수 기준</p>
+		    			<p class="comment">* 클리어 가능한 퍼즐중 클리어 회수가 가장 낮은 기준</p>
 		    		</div>
 	    		</div>
 	    		
@@ -160,7 +164,7 @@
 		    			<p>코딩캠프 미션 네가지를 모두 수행했나요?</p>
 		    			<p>"회원가입 - 코딩캠프 문제풀기 - 퍼즐메이커로 맵 만들기 - 인증서 발급"</p>
 		    			<p>총 네 단계를 완료해야 이벤트 참여가 가능합니다.</p><br>
-		    			<p class="comment icon">미션을 완료한 탐험가 중 추첨을 통해 20명에게 상품을 지급합니다.</p>
+		    			<p class="comment icon">미션을 완료한 탐험가 중 추첨을 통해 2명에게 상품을 지급합니다.</p>
 		    		</div>
 	    		</div>
 	    		
@@ -227,29 +231,56 @@
 	   }, 3000 );
 	});
 	$(document).on('click', '#get-certificate', function(e) {
+
 	   if ($('.mission-completed').length !== 3) {
 		   swal('모든 과제를 수행해야 인증서를 받을 수 있습니다.', {button: false});
 		   return;
 	   }
-	   var canvas = $('#certificate')[0];
-	   var context = canvas.getContext('2d');
-	   var img = new Image();
-	   img.onload = function() {
-		   context.drawImage(img, 0, 0);
-		   context.font = "30pt Calibri";
-		   context.textAlign = "center";
-		   context.fillText( puzzleAPI.cognitoUser.getUsername(), 300, 50 );
-		   var now = new Date();
-		   var date = now.getFullYear() + '년' + (now.getMonth() + 1) + '월' + now.getDate() + '일';
-		   context.fillText( date, 500, 150 );
-	   }
-	   img.src = 'img/gnb-background.png';
+	   
+		var canvas = document.createElement('canvas');
+		canvas.width = 595;
+		canvas.height = 842;
+		var context = canvas.getContext('2d');
+		var img = new Image();
+		img.onload = function() {
+			context.drawImage(img, 0, 0);
+			context.font = "30pt Calibri";
+			context.textAlign = "center";
+			context.fillText( puzzleAPI.cognitoUser.getUsername(), 300, 330 );
+			context.font = "18pt Calibri";
+			context.textAlign = "right";
+			var now = new Date();
+			context.fillText( now.getFullYear() + "", 260, 613);
+			context.fillText( (now.getMonth()) + 1 + "", 308, 613);
+			context.fillText( now.getDate() + "", 367, 613);
+		}
+		img.src = 'img/certificate-template.png';
+		swal({
+			content: canvas,
+			className: 'certificate-wrap',
+			buttons: { down: '인증서 다운받기', ok: true }
+		}).then( function(value){
+			switch (value) {
+				case "down":
+					var imgData = canvas.toDataURL("image/jpg", 1.0);
+					var pdf = new jsPDF("p", "mm", "a4");
+
+					var pdf_width = pdf.internal.pageSize.width;
+					var pdf_height = pdf.internal.pageSize.height;
+
+					pdf.addImage(imgData, 'JPEG', 0, 0, pdf_width, pdf_height);
+					pdf.save(puzzleAPI.cognitoUser.getUsername() + "_certificate.pdf");
+					break;
+				default:
+					break;
+			}
+		});
+
 	});
 
 </script>
-<div class="row center">
-	<canvas id="certificate" width="4000" height="300"></canvas>
-</div>
+
+
 
   <!--푸터시작-->
   <footer>

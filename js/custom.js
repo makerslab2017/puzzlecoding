@@ -45,6 +45,9 @@ function configureMenu()
   $('#Gnb-downMenu3 span').click(function() {
     $('#Gnb-downMenu3').children('li').toggle()
   });
+  $('#Gnb-downMenu4 span').click(function() {
+    $('#Gnb-downMenu4').children('li').toggle()
+  });
   $("#gnb-nav-btn").on("click", function() {
     $("#Gnb-frame").addClass("gnb-active");
 //    $(this).hide();

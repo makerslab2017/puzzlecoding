@@ -7,17 +7,16 @@ $(document).ready(function() {
 		len= countData.length-1,
 		countVal;
 	$.ajax({
-		url: 'count.json',
+		url: 'https://codingpuzzle.org/counts.json',
 		dataType: 'JSON',
 		success: function(data) {
-			countVal = data.count;
+			countVal = data.counts;
 			$.each(countData, function(i,v) {
 				if( i === 0 ) {
 					this.dataset.count= Number(visitCount) + Number(countVal[i]);
 				} else {
 					this.dataset.count= countVal[i];
-				}
-				
+				}				
 				if( len === 0 ) {
 					countUp();
 				}

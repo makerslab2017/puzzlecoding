@@ -1,4 +1,4 @@
-{
+﻿{
     "title": "2018-1 코딩캠프 ",
     "introduction": "2018년도 1회 코딩캠프 학습미션",
     "description": "이 과정은 코딩퍼즐 초급과정의 학습내용을 포함하고 있습니다. 코딩퍼즐의 다양한 캐릭터들과 학습하다보면 코딩의 순차, 분해, 반복 개념을 학습할 수 있습니다.",
@@ -7,53 +7,53 @@
             "title": "초급 미션",
             "description": "미션을 해결할 수 있는 코딩퍼즐의 기초 명령어를 학습합니다.",
             "stages": [
-                "puzzlebasic0101", 
-                "puzzlebasic0103",
-                "puzzlebasic0105",
-                "puzzlebasic0107",
-                "puzzlebasic0110"
+                "201801codingcamp0101",
+                "201801codingcamp0102",
+                "201801codingcamp0103",
+                "201801codingcamp0104",
+                "201801codingcamp0105"
             ]
         },
         "lesson-2": {
             "title": "중급 미션",
             "description": "더욱 다양한 코딩퍼즐의 명령어를 학습합니다. 점프와 액션 명령어를 익혀 미션을 해결해봅시다.",
             "stages": [
-                "puzzlebasic0301", 
-                "puzzlebasic0302",
-                "puzzlebasic0308",
-                "puzzlebasic0401",
-                "puzzlebasic0405",
-                "puzzlebasic0408",
-                "puzzlebasic0501",
-                "puzzlebasic0505",
-                "puzzlebasic0506",
-                "puzzlebasic0601",
-                "puzzlebasic0604",
-                "puzzlebasic0701"
+                "201801codingcamp0201",
+                "201801codingcamp0202",
+                "201801codingcamp0203",
+                "201801codingcamp0204",
+                "201801codingcamp0205",
+                "201801codingcamp0206",
+                "201801codingcamp0207",
+                "201801codingcamp0208",
+                "201801codingcamp0209",
+                "201801codingcamp0210",
+                "201801codingcamp0211",
+                "201801codingcamp0212"
             ]
         },
         "lesson-3": {
             "title": "상급 미션",
-            "description": "초급, 중급 미션을 통해 익인 명령어를 활용하여 미션을 해결합시다.",
+            "description": "초급, 중급 미션을 통해 익힌 명령어를 활용하여 미션을 해결합시다.",
             "stages": [
-                "puzzlebasic0707", 
-                "puzzlebasic0708", 
-                "puzzlebasic0804", 
-                "puzzlebasic0901", 
-                "puzzlebasic0906"
+                "201801codingcamp0301",
+                "201801codingcamp0302",
+                "201801codingcamp0303",
+                "201801codingcamp0304",
+                "201801codingcamp0305"
             ]
         },
         "lesson-4": {
             "title": "도전 미션",
-            "description": "초급, 중급 미션을 통해 익인 명령어를 활용하여 마지막 코딩캠프 미션을 해결합시다.",
+            "description": "초급, 중급, 상급 미션을 통해 익힌 명령어를 활용하여 마지막 코딩캠프 미션을 해결합시다.",
             "stages": [
-                "puzzlebasic1101", 
-                "puzzlebasic1102", 
-                "puzzlebasic1201", 
-                "puzzlebasic1202", 
-                "puzzlebasic1401", 
-                "puzzlebasic1501", 
-                "puzzlebasic1502"
+                "201801codingcamp0401",
+                "201801codingcamp0402",
+                "201801codingcamp0403",
+                "201801codingcamp0404",
+                "201801codingcamp0405",
+                "201801codingcamp0406",
+                "201801codingcamp0407"
             ]
         }
     }
