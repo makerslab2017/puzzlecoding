@@ -739,9 +739,10 @@ const puzzleAPI = {
       processData: false,
       success: function(data) {
         console.log(data);
+        /*
         $('#checkbox_available_id').html( 
           data["is_available"] == true ? "<i class='material-icons'>check</i>" : ""
-        );
+        );*/
       }
     });
   },
@@ -772,7 +773,7 @@ const puzzleAPI = {
     ];        
     puzzleAPI.userPool.signUp(userId, userPasswd, attributeList, null, function(err, result) {
         if (err) {
-          swal(err);
+          swal('중복된 아이디인 경우, 등록할 수 없습니다. 아이디 항목에서 엔터키를 눌르면 중복된 아이디 사용 여부를 확인할 수 있습니다.');
           return;
         }
         puzzleAPI.cognitoUser = result.user;
@@ -822,7 +823,7 @@ const puzzleAPI = {
         puzzleAPI.cognitoUser = null;
         puzzleAPI.token = null;
         puzzleAPI.user_type = null;
-        swal('잘못된 사용자 아이디이거나 틀린 비밀번호입니다.');
+        swal('사용할 수 없는 아이디거나 틀린 패스워드입니다.');
       },
       mfaRequired: function(codeDeliveryDetails) {
         var verificationCode = prompt('Please input verification code', '');
@@ -1074,7 +1075,7 @@ $(document).on('click', '.menu-login a', function(e){
       }
       if ($('.menu-user-id input').val() == "") {
 //        $('.menu-user-id, .menu-user-password').hide();
-    	  alert('아이디를 입력해 주십시오');
+    	  swal('아이디를 입력해 주십시오');
         return;
       }
       puzzleAPI.login( $('.menu-user-id input').val(), $('.menu-user-password input').val());
