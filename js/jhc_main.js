@@ -7,7 +7,7 @@ $(document).ready(function() {
 		len= countData.length-1,
 		countVal;
 	$.ajax({
-		url: 'https://codingpuzzle.org/counts.json',
+		url: 'counts.json',
 		dataType: 'JSON',
 		success: function(data) {
 			countVal = data.counts;
