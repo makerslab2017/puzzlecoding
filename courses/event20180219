@@ -1,30 +1,59 @@
 {
-    "title": "퍼즐파티 이벤트",
-    "introduction": "퍼즐파티 이벤트용 과정들",
-    "description": "이 과정은 2018년 2월 19일부터 3월 5일까지 운영하는 퍼즐파티 이벤트에서 사용하는 코딩퍼즐들입니다.",
+    "title": "2018-1 코딩캠프 ",
+    "introduction": "2018년도 1회 코딩캠프 학습미션",
+    "description": "이 과정은 코딩퍼즐 초급과정의 학습내용을 포함하고 있습니다. 코딩퍼즐의 다양한 캐릭터들과 학습하다보면 코딩의 순차, 분해, 반복 개념을 학습할 수 있습니다.",
     "lessons": {
         "lesson-1": {
-            "title": "1단원",
-            "description": "기본 이동 명령어와 액션 명령어의 귀환 기능을 사용하여 명령어를 순차적으로 실행할 수 있다.",
+            "title": "초급 미션",
+            "description": "미션을 해결할 수 있는 코딩퍼즐의 기초 명령어를 학습합니다.",
             "stages": [
                 "puzzlebasic0101", 
-                "puzzlebasic0102"
+                "puzzlebasic0103",
+                "puzzlebasic0105",
+                "puzzlebasic0107",
+                "puzzlebasic0110"
             ]
         },
         "lesson-2": {
-            "title": "2단원",
-            "description": "네가지 시점의 출발 타일에서 학습을 시작하여 시점에 따른 네가지 조건에서 학습을 시작할 수 있다.",
+            "title": "중급 미션",
+            "description": "더욱 다양한 코딩퍼즐의 명령어를 학습합니다. 점프와 액션 명령어를 익혀 미션을 해결해봅시다.",
             "stages": [
-                "puzzlebasic0201", 
-                "puzzlebasic0202"
+                "puzzlebasic0301", 
+                "puzzlebasic0302",
+                "puzzlebasic0308",
+                "puzzlebasic0401",
+                "puzzlebasic0405",
+                "puzzlebasic0408",
+                "puzzlebasic0501",
+                "puzzlebasic0505",
+                "puzzlebasic0506",
+                "puzzlebasic0601",
+                "puzzlebasic0604",
+                "puzzlebasic0701"
             ]
         },
         "lesson-3": {
-            "title": "3단원",
-            "description": "점프 명령어를 이용하여 한단계 윗쪽의 타일로 점프이동할 수 있다.",
+            "title": "상급 미션",
+            "description": "초급, 중급 미션을 통해 익인 명령어를 활용하여 미션을 해결합시다.",
             "stages": [
-                "puzzlebasic0301", 
-                "puzzlebasic0302"
+                "puzzlebasic0707", 
+                "puzzlebasic0708", 
+                "puzzlebasic0804", 
+                "puzzlebasic0901", 
+                "puzzlebasic0906"
+            ]
+        },
+        "lesson-4": {
+            "title": "도전 미션",
+            "description": "초급, 중급 미션을 통해 익인 명령어를 활용하여 마지막 코딩캠프 미션을 해결합시다.",
+            "stages": [
+                "puzzlebasic1101", 
+                "puzzlebasic1102", 
+                "puzzlebasic1201", 
+                "puzzlebasic1202", 
+                "puzzlebasic1401", 
+                "puzzlebasic1501", 
+                "puzzlebasic1502"
             ]
         }
     }

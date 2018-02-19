@@ -488,7 +488,7 @@ const course = {
     $('#course_text').text( info.title );
     $('#subpage-top-wrap .status-page-title').text( info.title);
     $('#subpage-top-wrap .intro-element-title').text( info.introduction );
-    $('#course_info .lh2').text( info.description );      
+    $('#subpage-top-wrap .inst-area span').text( info.description );      
   },
   buildLesson: function(target, key, value) {
       $("<li/>", {

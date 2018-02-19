@@ -144,11 +144,40 @@
             <div class="making-puzzle">
                 <label>퍼즐 만들기 순서</label>
                 <p>1. 제목과 내용을 작성합니다.</p>
-                <p>2. 퍼즐메이커를 로드합니다.</p>
-                <p>3. 퍼즐을 만들고 저장합니다. <a href ="https://youtu.be/LR6RU8PvAfY" target="_blank" ><font color="blue">[퍼즐메이커 사용법]</font></a></p>
-                <p></p>4. 업로드 버튼을 눌러 제목과 내용, 퍼즐을 업로드 합니다.</p>
+                <p>2. 퍼즐을 만들고 저장합니다. <a href ="https://youtu.be/LR6RU8PvAfY" target="_blank" ><font color="blue">[퍼즐메이커 사용법]</font></a></p>
+                <p>3. 업로드 버튼을 눌러 제목과 내용, 퍼즐을 업로드 합니다.</p>
+                <p>주의: 퍼즐메이커의 로딩시간이 지연될 수 있습니다. 잠시만 기다려주세요.</p>
+
               <label>퍼즐제목</label>
               <input id="title" type="text" placeholder="퍼즐의 제목을 써주세요!"></input>
+              
+
+              <div class="flex-box" style="justify-content: center; margin-top: 2em;">
+                <div id="loading-area">
+                  <div id="loading-wrap">
+                    <div class="loader">
+                      <div class="loader-icon">
+                        <svg viewBox="0 0 50 50">
+                          <path fill="#ddd" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="text-area">
+                        <h2>잠시만 기다려 주세요...</h2>
+                      </div>
+                      <div class="btn-area">
+                        <span class="btn">닫기</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="webgl-content">
+                  <div>
+                    <div id="gameContainer" style="width: 1024px; height: 576px;"></div>
+                  </div>
+                </div>
+              </div>
+
               
               <div class="text-html">
                 <div class="flex-box">
@@ -165,9 +194,9 @@
               </div>
 
               <div class="making-puzzle-game">
-                <p>다음 버튼을 누르면 퍼즐에디터가 나옵니다. 로딩시 시간이 소요될 수 있으니 기다려주세요.</p>
+                <!--<p>다음 버튼을 누르면 퍼즐에디터가 나옵니다. 로딩시 시간이 소요될 수 있으니 기다려주세요.</p>
                 <p>맨 왼쪽 메뉴 버튼을 누르면 메뉴 화면이 나옵니다.</p>
-                <div class="main-about-coding-button" id="puzzle-editor-loader" style="margin: 20px auto;">퍼즐에디터 로드하기</div>
+                <div class="main-about-coding-button" id="puzzle-editor-loader" style="margin: 20px auto;">퍼즐에디터 로드하기</div>-->
                 
                 <div id="fixed-popup">
                 	<div id="fixed-popup-wrap">
@@ -177,32 +206,6 @@
                 		<h1><span class="target"></span>에서는 지원되지 않는 기능입니다.</h1>
                 		<span class="btn">뒤로 가기</span>
                 	</div>
-                </div>
-                
-                <div class="flex-box" style="justify-content: center">
-                  <div id="loading-area">
-                    <div id="loading-wrap">
-                      <div class="loader">
-                        <div class="loader-icon">
-                          <svg viewBox="0 0 50 50">
-                            <path fill="#ddd" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
-                            </path>
-                          </svg>
-                        </div>
-                        <div class="text-area">
-                          <h2>잠시만 기다려 주세요...</h2>
-                        </div>
-                        <div class="btn-area">
-                          <span class="btn">닫기</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="webgl-content">
-                    <div>
-                      <div id="gameContainer" style="width: 1024px; height: 576px;"></div>
-                    </div>
-                  </div>
                 </div>
               </div>
               
@@ -226,20 +229,7 @@
                 </button>
                   
                 <script>
-                  $('#puzzle-editor-loader').on('click', function() {
-                	  var loadingArea= $('#loading-area'),
-                	  	  closeBtn= loadingArea.find('.btn'),
-            			  term;
-                    loadingArea[0].style.opacity= 1;
-                    term= setTimeout(function() {
-                      loadingArea.remove();
-                    }, 10000);
-                    closeBtn.on('click', function(e) {
-                      clearTimeout(term);
-                      loadingArea.remove();
-                    });
-                	  loadModule('editor');
-                  });
+                  
                   $('#goto-gallery').on('click', function() {window.location.href = './gallery.html'; });
                   $('#uploadPuzzle').on('click', function() {
 
@@ -305,6 +295,19 @@
                       maxHeight: null,
                       placeholder: '소개글을 써주세요.'
                     });
+                    
+                	  var loadingArea= $('#loading-area'),
+                	  	  closeBtn= loadingArea.find('.btn'),
+            			  term;
+                    loadingArea[0].style.opacity= 1;
+                    term= setTimeout(function() {
+                      loadingArea.remove();
+                    }, 10000);
+                    closeBtn.on('click', function(e) {
+                      clearTimeout(term);
+                      loadingArea.remove();
+                    });
+                	  loadModule('editor');
                   });
 
                   /* following two functions are necessary to enable or disable keyboard focus to unity webbuild.

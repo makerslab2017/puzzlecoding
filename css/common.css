@@ -1723,6 +1723,7 @@ background-size: cover;
     white-space:nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-left: 1em;
     font-size: 18px;
     font-weight: bold;
 }
@@ -3140,7 +3141,8 @@ tr td:nth-child(5n-3) {
 #loading-wrap .btn {
 	font-weight: 900;
 	margin: 20px auto;
-	background-color: #fff000;
+    /*background-color: #fff000;*/
+    background-color: #eee;
 }
 #loading-area {
 	z-index: 99;
