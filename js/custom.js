@@ -773,7 +773,7 @@ const puzzleAPI = {
     ];        
     puzzleAPI.userPool.signUp(userId, userPasswd, attributeList, null, function(err, result) {
         if (err) {
-          swal('중복된 아이디인 경우, 등록할 수 없습니다. 아이디 항목에서 엔터키를 눌르면 중복된 아이디 사용 여부를 확인할 수 있습니다.');
+          swal('중복된 아이디인 경우, 등록할 수 없습니다. 아이디 항목에서 엔터키를 누르면 중복된 아이디 사용 여부를 확인할 수 있습니다.');
           return;
         }
         puzzleAPI.cognitoUser = result.user;
@@ -1111,7 +1111,7 @@ $(document).ready(function() {
     var pwd = $('#register_input_password').val();
     var confirm_pwd = $('#confirm_input_password').val();
     if (pwd.length == 0 || pwd != confirm_pwd) {
-      swal('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
+      swal('비밀번호를 입력하지 않았거나 비밀번호 재확인이 일치하지 않습니다.')
       $('#confirm_input_password').val('');
       $('#register_input_password').val('').focus();
       return;
@@ -1136,7 +1136,7 @@ $(document).ready(function() {
     var pwd = $('#register_input_password').val();
     var confirm_pwd = $('#confirm_input_password').val();
     if (pwd.length == 0 || pwd != confirm_pwd) {
-      swal('비밀번호를 적지 않거나 비밀번호 확인이 틀림니다.')
+      swal('비밀번호를 입력하지 않았거나 비밀번호 재확인이 일치하지 않습니다.')
       $('#confirm_input_password').val('');
       $('#register_input_password').val('').focus();
       return;

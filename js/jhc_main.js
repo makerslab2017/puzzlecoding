@@ -16,6 +16,8 @@ $(document).ready(function() {
 					this.dataset.count= Number(visitCount) + Number(countVal[i]);
 				} else {
 					this.dataset.count= countVal[i];
+					if ( i === 2)
+						this.dataset.count= '-';
 				}				
 				if( len === 0 ) {
 					countUp();
@@ -28,7 +30,11 @@ $(document).ready(function() {
 	function countUp() {
 		countData.each(function(i,v) {
 			  var $this = $(this),
-			      countTo = this.dataset.count;
+						countTo = this.dataset.count;
+				if (countTo === '-') {
+					$this.text(countTo);
+					return;
+				}
 			  
 			  $({ countNum: $this.text()}).animate({
 			    countNum: countTo
