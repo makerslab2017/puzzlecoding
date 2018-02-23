@@ -23,7 +23,8 @@
   <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script> 
+  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script> -->
+  <script src="js/reimg.js"></script>
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
   <style>
 	  .certificate-wrap {
@@ -262,7 +263,8 @@
 		}).then( function(value){
 			switch (value) {
 				case "down":
-					var imgData = canvas.toDataURL("image/jpg", 1.0);
+					var imgData = canvas.toDataURL("image/png");
+					/*
 					var pdf = new jsPDF("p", "mm", "a4");
 
 					var pdf_width = pdf.internal.pageSize.width;
@@ -270,6 +272,8 @@
 
 					pdf.addImage(imgData, 'JPEG', 0, 0, pdf_width, pdf_height);
 					pdf.save(puzzleAPI.cognitoUser.getUsername() + "_certificate.pdf");
+					*/
+					ReImg.fromCanvas(canvas).downloadPng(puzzleAPI.cognitoUser.getUsername() + "_certificate.png");
 					break;
 				default:
 					break;

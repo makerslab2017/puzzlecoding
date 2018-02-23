@@ -198,7 +198,7 @@ $(document).ready(function() {
       
 
       if (agt.indexOf("msie") != -1 || agt.indexOf("trident/") != -1) { // 익스플로러 일 경우 
-        swal("현재 사용하는 인터넷 탐색기는 퍼즐코딩 사이트의 다양한 기능들을 충분히 즐길 수 없습니다.\n\n에지 브라우저나 구글의 크롬브라우저를 사용해 주세요.");
+        swal("현재 사용하는 인터넷 탐색기는 퍼즐코딩 사이트의 다양한 기능들을 충분히 즐길 수 없습니다.\n\n구글의 크롬브라우저를 사용해 주세요.");
 				var rv = -1;
 				if (navigator.appName == 'Microsoft Internet Explorer') {
 					var ua = navigator.userAgent;
@@ -738,11 +738,8 @@ const puzzleAPI = {
     $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'users/' + candidate_id,
       processData: false,
       success: function(data) {
-        console.log(data);
-        /*
-        $('#checkbox_available_id').html( 
-          data["is_available"] == true ? "<i class='material-icons'>check</i>" : ""
-        );*/
+        
+        $('#register_input_id').css("background-color", (data["is_available"] == true) ? 'lightgreen': 'lightcoral');
       }
     });
   },
@@ -797,8 +794,7 @@ const puzzleAPI = {
     });
   },
   login: function(userId, userPasswd) {
-	  
-    puzzleAPI.currentUser();
+	  puzzleAPI.currentUser();
     if (puzzleAPI.cognitoUser != null) return;
     var authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(
       { Username: userId, Password: userPasswd } );
@@ -1088,7 +1084,7 @@ $(document).on('click', '#logout-btn', function(e){
 
 $(document).keyup(function(e) {
   // allow users to automatic login trial after pressing an "enter" key after typing password
-  if ( $('input[name="menu-user-password"]:focus') && e.keyCode === 13 ) {
+  if ( $('input[name="menu-user-password"]:focus').length > 0 && e.keyCode === 13 ) {
     puzzleAPI.login( $('.menu-user-id input').val(), $('.menu-user-password input').val());
     e.preventDefault();
     return false;
@@ -1156,7 +1152,7 @@ $(document).ready(function() {
     $('#register_input_password').val('').focus();    
   });
 
-  $('#register_input_id').donetyping( function() {
+  $('#register_input_id').donetyping( function() {    
     puzzleAPI.checkAvailability($('#register_input_id').val());
   });
 });
