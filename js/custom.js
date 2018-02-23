@@ -867,7 +867,7 @@ const puzzleAPI = {
       if (puzzleAPI.user_type == null) {
         puzzleAPI.cognitoUser.getUserAttributes(function(err,res) {
           if (err) {
-            swal('사용자의 추가 정보를 찾을 수 없습니다.');
+            //swal('사용자의 추가 정보를 찾을 수 없습니다.');
             return;
           }
           for (i=0; i< res.length;i++) {
