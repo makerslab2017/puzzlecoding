@@ -73,6 +73,94 @@ ul {
     opacity: .5;
 }
 
+#popup-area {
+	z-index: 999;
+	position: fixed;
+	top: 93px;
+	left: 0;
+	min-width: 300px;
+	max-width: 90%;
+}
+#popup-wrap {
+	padding: 10px 10px 0;
+	background-color: #fff;
+}
+#popup-area .image-area li img {
+	display: block;
+	width: 100%;
+}
+#popup-area .close-wrap {
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	
+	align-items: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	
+	-webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    
+	background: #fff;
+}
+#popup-form {
+	padding: 10px;
+	text-align: left;
+}
+#popup-form input[type="checkbox"] {
+	display:none;
+}
+#popup-form label {
+	cursor: pointer;
+}
+#popup-form input[type="checkbox"] + label {
+	display:inline-block;
+	position: relative;
+	width: 18px;
+	height: 18px;
+	margin-right: 3px;
+	border: 1px solid #333;
+	vertical-align: middle;
+}
+#popup-form input[type="checkbox"]:checked + label::before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 1px;
+	width: 12px;
+	height: 6px;
+	box-sizing: content-box;
+	border-left: 2px solid #ff0000;
+	border-bottom: 2px solid #ff0000;
+	transform: rotateZ(-45deg);
+}
+#popup-form fieldset span {
+	vertical-align: middle;
+	text-decoration: underline;
+}
+#popup-area .close-area {
+	display: block;
+	z-index: 111;
+	position: relative;
+	padding: 10px;
+	box-sizing: border-box;
+}
+#popup-area .close-area .close-btn {
+	cursor: pointer;
+}
+#popup-area .close-area .close-btn span {
+	font-weight: bold;
+}
+/* #popup-area .close-area .close-btn svg {
+	stroke: #ff0000;
+	stroke-width: 3;
+} */
+
 .container {
     /* padding-right: 10px;
     padding-left: 10px; */
@@ -590,7 +678,7 @@ background-size: cover;
     position: relative;
 }
 
-#Gnb-downMenu1 span:after, #Gnb-downMenu2 span:after, #Gnb-downMenu3 span:after, #Gnb-downMenu4 span:after {
+#Gnb-downMenu0 span:after, #Gnb-downMenu1 span:after, #Gnb-downMenu2 span:after, #Gnb-downMenu3 span:after, #Gnb-downMenu4 span:after {
     top: 48%;
     right: 8%;
     border: solid transparent;
@@ -610,6 +698,10 @@ background-size: cover;
 
 #Gnb-menu ul li:hover, #Gnb-menu ul span:hover {
     background-color: #E0E0E0;
+}
+
+#Gnb-downMenu0 li {
+    display: none;
 }
 
 #Gnb-downMenu1 li {
@@ -805,6 +897,11 @@ background-size: cover;
     letter-spacing: 0.4em;
 }
 
+.puzzle-intro-title img {
+	width: 90%;
+	max-width: 360px;
+}
+
 .puzzle-intro-sub {
     color: #F15A24;
     font-size: 23px;
@@ -885,6 +982,95 @@ background-size: cover;
     font-size: 16px;
     line-height: 2;
     font-weight: 400;
+}
+
+#supporters section {
+	padding: 40px 0;
+}
+#supporters .highlight {
+	font-weight: 900;
+}
+#supporters .underline {
+	text-decoration: underline;
+}
+#supporters .inst {
+	padding: 20px 0;
+}
+#supporters .inst .notice {
+	font-size: 1.2em;
+	padding-left: 34px;
+	background-image: url('../img/coding-current-status.png');
+	background-size: contain;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+#supporters .title {
+	font-weight: 900;
+    letter-spacing: 0em;
+}
+#supporters .subject {
+	line-height: 1.5;
+}
+#supporters .flex-box {
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+
+	flex-wrap: wrap;
+   	-webkit-flex-wrap: wrap;
+   	-ms-flex-wrap: wrap;
+}
+#supporters .item-box {
+	width: 20%;
+	padding: 10px;
+}
+#supporters .image-area {
+	position: relative;
+	width: 100%;
+	padding-top: 100%;
+}
+#supporters .image-area .image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#supporters .cont-area {
+	padding-top: 10px;
+}
+#supporters .post {
+	padding-bottom: 30px;
+}
+#supporters .post img {
+	width: 100%;
+}
+#supporters .post p {
+	font-weight: 600;
+}
+@media screen and (max-width: 800px) {
+	#supporters .item-box {
+		width: 33.3333%;
+	}
+	#supporters .subject {
+		font-size: 1em;
+	}
+	#supporters .inst {
+		font-size: .9em;
+	}
+	
+}
+@media screen and (max-width: 800px) {
+	#supporters .item-box {
+		width: 50%;
+	}
 }
 
 .circle-red {
@@ -1664,11 +1850,12 @@ background-size: cover;
     font-weight: bold;
 }
 
-.form-reply input {
+.form-reply textarea {
     width: 100%;
     min-height: 100px;
     border-radius: 10px;
     border: 1px solid #999999;
+    padding: 8px;
 }
 
 .re-reply .form-reply {
