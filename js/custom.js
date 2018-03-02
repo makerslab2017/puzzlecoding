@@ -39,6 +39,9 @@ function configureMenu()
         break;
     }    
   });
+  $('#Gnb-downMenu0 span').click(function() {
+    $('#Gnb-downMenu0').children('li').toggle()
+  });
   $('#Gnb-downMenu2 span').click(function() {
     $('#Gnb-downMenu2').children('li').toggle()
   });
@@ -73,25 +76,7 @@ function configureMenu()
 
 
 
-//리플 기능 스크립트//
-$(function() {
-  $(".show-reply").click(function() {
-    if ($(this).hasClass('active')) {
-      $(".reply").addClass('hidden');
-      $(".close-reply").addClass('hidden');
-      $(".open-reply").removeClass('hidden');
-      $(this).removeClass("active");
-    } else {
-      $(".open-reply").addClass('hidden');
-      $(".close-reply").removeClass('hidden');
-      $(".reply").removeClass("hidden");
-      $(this).addClass("active");
-    }
-  });
-  $(".reply-colum-2 img").click(function() {
-    $(".re-reply").show();
-  });
-});
+
 
 //검색 버튼 스크립트//
 $(document).ready(function() {
@@ -621,6 +606,7 @@ $(document).ready(function() {
     if (course_id) course.loadCourse( course_id);
     else course.loadCourse( 'elementary');
   }
+  /*
   if (currentPageName.startsWith("puzzle-view")) {
     puzzle_id = puzzleAPI.parseInput('puzzle');
     if (puzzle_id == null) {
@@ -662,6 +648,7 @@ $(document).ready(function() {
       });
     });
   }
+  */
 });
 
 $(document).on('click', '.puzzlecoding button', function() {

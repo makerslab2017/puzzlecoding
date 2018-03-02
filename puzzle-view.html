@@ -29,225 +29,345 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
  
 </head>
-  <body>
-    <script src=js/puzzle-game.js"></script>
-    <!--페이지 시작-->
-    <div id="page-wrapper">
-      <div id="fixed-popup">
-        <div id="fixed-popup-wrap">
-          <div class="icon">
-          </div>
-          <h1>죄송합니다.</h1>
-          <h1><span class="target"></span>에서는 지원되지 않는 기능입니다.</h1>
-          <span class="btn">뒤로가기</span>
+<body>
+  <script src="js/puzzle-game.js">
+  </script>
+  <div id="page-wrapper">
+    <div id="fixed-popup">
+      <div id="fixed-popup-wrap">
+        <div class="icon">
+        </div>
+        <h1>죄송합니다.</h1>
+        <h1><span class="target"></span>에서는 지원되지 않는 기능입니다.</h1>
+        <span class="btn">뒤로가기</span>
+      </div>
+    </div>
+    <div id="subpage-top" class="sky">
+      <div id="subpage-top-wrap">
+        <div class="index-area">
+          <span><a href="puzzle-intro.html">퍼즐메이커</a></span>
+          <span>
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </span>
+          <span><a href="gallery.html">퍼즐 갤러리</a></span>
+        </div>
+        <div class="title-area">
+          <img src="img/gear.png" alt="톱니바퀴 이미지">
+          <h1>퍼즐 갤러리</h1>
+        </div>
+        <div class="inst-area">
         </div>
       </div>
-    	<div id="subpage-top" class="sky">
-		 	<div id="subpage-top-wrap">
-			 	<div class="index-area">
-			 		<span><a href="puzzle-intro.html">퍼즐메이커</a></span>
-			 		<span>
-		              <i class="fa fa-angle-right" aria-hidden="true"></i>
-		            </span>
-			 		<span><a href="gallery.html">퍼즐 갤러리</a></span>
-			 	</div>
-			 	<div class="title-area">
-			 		<img src="img/gear.png" alt="톱니바퀴 이미지">
-			 		<h1>퍼즐 갤러리</h1>
-			 	</div>
-			 	<div class="inst-area">
-	          	</div>
-		 	</div>
-		 	<div class="bg-area">
-		 	</div>
-		 </div>
-    	
-      <!-- <div class="bg-blue" style="background-image:none">
-        <div class="container">
-          <section class="banner-text">
-            <p><a href="puzzle-intro.html">퍼즐메이커</a>
-              <span>
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-              </span>
-              <a href="gallery.html">
-              퍼즐 갤러리</a></p>
-            <h2><img src="img/gear.png" alt="톱니바퀴 이미지">
-              퍼즐 갤러리
-            </h2>
-          </section>
-        </div>
-        <img src="img/cloud01.png" class="main-cloud-01" style="top:250px;">
-        <img src="img/cloud02.png" class="main-cloud-02" style="top:250px;">
-      </div> -->
-      <div class="container">
-        <section class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <div class="row">
-              <div class="puzzle-view-contents">
-                <div class="flex-box" style="justify-content: center;">
-                  <h2 id="puzzle-title" ></h2>
+      <div class="bg-area">
+      </div>
+    </div>
+    
+    <div class="container">
+      <section class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="row write-box">
+            <div class="puzzle-view-contents">
+              <div class="flex-box" style="justify-content: center;">
+                <h2 id="puzzle-title" ></h2>
+              </div>
+              <div class="flex-box" style="justify-content: center;">
+                <h3 id="puzzle-description" ></h3>
+              </div>
+              <div class="flex-box" style="justify-content: flex-end;">
+                <div class="flex-box-inner">
+                  <span id="puzzle-owner"></span>
+                  <span id="puzzle-date"></span>
                 </div>
-                <div class="flex-box" style="justify-content: center;">
-                  <h3 id="puzzle-description" ></h3>
-                </div>
-                <div class="flex-box" style="justify-content: flex-end;">
-                  <div class="flex-box-inner">
-                    <span id="puzzle-owner"></span>
-                    <span id="puzzle-date"></span>
-                  </div>
-                </div>
-				<!-- 퍼즐 갤러리 플레이어에 사용되는 썸네일 제거
-                <div class="flex-box" style="justify-content: center;">
-                  <img id="puzzle-thumbnail">
-                </div>
-				-->
-                <div class="flex-box" style="justify-content: center;">
-                  <div class="webgl-content">
-                    <div id="loading-area">
-                      <div id="loading-wrap">
-                        <div class="loader">
-                          <div class="loader-icon">
-                            <svg viewBox="0 0 50 50">
-                              <path fill="#ddd" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
-                              </path>
-                            </svg>
-                          </div>
-                          <div class="text-area">
-                            <h2>잠시만 기다려 주세요...</h2>
-                          </div>
-                          <div class="btn-area">
-                            <span class="btn">닫기</span>
-                          </div>
+              </div>
+              <br>
+              <div class="flex-box" style="justify-content: center;">
+                <div class="webgl-content">
+                  <div id="loading-area">
+                    <div id="loading-wrap">
+                      <div class="loader">
+                        <div class="loader-icon">
+                          <svg viewBox="0 0 50 50">
+                            <path fill="#ddd" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="text-area">
+                          <h2>잠시만 기다려 주세요...</h2>
+                        </div>
+                        <div class="btn-area">
+                          <span class="btn">닫기</span>
                         </div>
                       </div>
                     </div>
-                    <div>
-                      <div id="gameContainer" style="width: 470px; height: 840px;"></div>
+                  </div>
+                  <div>
+                    <div id="gameContainer" style="width: 470px; height: 840px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            <div class="current-complete">
+              <span id="n-completed-users">0</span>명이 이 퍼즐을 완료하였습니다!</p>
+            </div>
+            <div class="row btns-view">
+              <div class="col-xs-4 text-center">
+                <img class="n-likes-img" src="img/like.png" alt="좋아요이미지">
+                <p class="red n-likes">0</p>
+              </div>
+              <div class="col-xs-4 text-center">
+                <img class="n-dislikes-img" src="img/dislike.png" alt="싫어요이미지">
+                <p class="black n-dislikes">0</p>
+              </div>
+              <div class="col-xs-4 text-center">
+                <a href="gallery.html"><img src="img/list.png" alt="좋아요이미지">
+                <p class="blue">퍼즐갤러리 보기</p>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <form class="form-reply">
+                  <p>댓글 남기기</p>
+                  <textarea></textarea>
+                  <div class="puzzle-view-reply">
+                    <button type="submit">
+                      댓글 등록</button>
+                  </div>
+                </form>
+                <div class="reply-row">
+                  <div class="show-reply">
+                    <span class="open-reply hidden"><img src="img/plus.png" alt="댓글열기이미지">댓글보기</span>
+                    <span class="close-reply"><img src="img/minus.png" alt="댓글접기이미지">댓글접기</span>
+                  </div>
+                  <!--
+                  <div class="reply">
+                    <div class="reply-colum-1">
+                      <div class="flex-box">
+                        <span><img src="img/dummy.png" alt="사진영역" style="width:30px;height:30px">amtle</span>
+                        <div class="flex-box-inner">
+                          <span>16.11.13</span>
+                        </div>
+                      </div>
+                      <div class="reply-content">
+                        코딩퍼즐은 한국형 1 hour of Code 프로그램을 제공하며, 누구나 무료로 소프트웨어 교육을 받을 수 있도록 개발된 소프트웨어 교육 플랫폼입니다. 2013년 한국 창의재단 과학융합 지원사업 연구를 모태로 하여 3년간 기획 및 연구되어 온 프로젝트이며,
+                      </div>
+                    </div>
+                    <div class="reply-colum-2">
+                      <img src="img/plus.png" alt="댓글보기 이미지">
                     </div>
                   </div>
-                </div>
-              </div>
-                
-              <div class="current-complete">
-                <span id="n-completed-users">0</span>명이 이 퍼즐을 완료하였습니다!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="row btns-view">
-            <div class="col-xs-3 text-center">
-              <img src="img/like.png" alt="좋아요이미지">
-              <p class="red">21,302</p>
-            </div>
-            <div class="col-xs-3 text-center">
-              <img src="img/dislike.png" alt="싫어요이미지">
-              <p class="black">21,302</p>
-            </div>
-            <div class="col-xs-3 text-center">
-              <img src="img/share_orange.png" alt="좋아요이미지">
-              <p class="orange">21,302</p>
-            </div>
-            <div class="col-xs-3 text-center">
-              <img src="img/list.png" alt="좋아요이미지">
-              <p class="blue">목록보기</p>
-            </div>
-          </div>
-          <div class="reply-row">
-            <div class="show-reply active">
-              <span class="open-reply hidden"><img src="img/plus.png" alt="댓글열기이미지">댓글보기</span>
-              <span class="close-reply"><img src="img/minus.png" alt="댓글접기이미지">댓글접기</span>
-            </div>
-            <div class="reply">
-              <div class="reply-colum-1">
-                <div class="flex-box">
-                  <span><img src="img/dummy.png" alt="사진영역" style="width:30px;height:30px">amtle</span>
-                  <div class="flex-box-inner">
-                    <span>16.11.13</span>
+                  <div class="re-reply">
+                    <form class="form-reply">
+                      <input type="text">
+                      <button type="submit">
+                        댓글 등록</button>
+                    </form>
                   </div>
-                </div>
-                <div class="reply-content">
-                  코딩퍼즐은 한국형 1 hour of Code 프로그램을 제공하며, 누구나 무료로 소프트웨어 교육을 받을 수 있도록 개발된 소프트웨어 교육 플랫폼입니다. 2013년 한국 창의재단 과학융합 지원사업 연구를 모태로 하여 3년간 기획 및 연구되어 온 프로젝트이며,
-                </div>
-              </div>
-              <div class="reply-colum-2">
-                <img src="img/plus.png" alt="댓글보기 이미지">
-              </div>
-            </div>
-            <div class="re-reply">
-              <form class="form-reply">
-                <input type="text">
-                <button type="submit">
-                  댓글 등록</button>
-              </form>
-            </div>
-            <div class="reply">
-              <div class="reply-colum-3">
-                <img src="img/reply.png" alt="리플이미지">
-              </div>
-              <div class="reply-colum-4">
-                <div class="flex-box">
-                  <span><img src="img/dummy.png" alt="사진영역" style="width:30px;height:30px">amtle</span>
-                  <div class="flex-box-inner">
-                    <span>16.11.13</span>
+                  <div class="reply">
+                    <div class="reply-colum-3">
+                      <img src="img/reply.png" alt="리플이미지">
+                    </div>
+                    <div class="reply-colum-4">
+                      <div class="flex-box">
+                        <span><img src="img/dummy.png" alt="사진영역" style="width:30px;height:30px">amtle</span>
+                        <div class="flex-box-inner">
+                          <span>16.11.13</span>
+                        </div>
+                      </div>
+                      <div class="reply-content">
+                        코딩퍼즐은 한국형 1 hour of Code 프로그램을 제공하며, 누구나 무료로 소프트웨어 교육을 받을 수 있도록 개발된 소프트웨어 교육 플랫폼입니다. 2013년 한국 창의재단 과학융합 지원사업 연구를 모태로 하여 3년간 기획 및 연구되어 온 프로젝트이며,
+                      </div>
+                    </div>
+                    <div class="reply-colum-5">
+                      <img src="img/plus.png" alt="댓글보기 이미지">
+                    </div>
                   </div>
-                </div>
-                <div class="reply-content">
-                  코딩퍼즐은 한국형 1 hour of Code 프로그램을 제공하며, 누구나 무료로 소프트웨어 교육을 받을 수 있도록 개발된 소프트웨어 교육 플랫폼입니다. 2013년 한국 창의재단 과학융합 지원사업 연구를 모태로 하여 3년간 기획 및 연구되어 온 프로젝트이며,
-                </div>
-              </div>
-              <div class="reply-colum-5">
-                <img src="img/plus.png" alt="댓글보기 이미지">
+                -->
+                </div>                
               </div>
             </div>
           </div>
-          <form class="form-reply">
-            <p>댓글 남기기</p>
-            <input type="text">
-            <div class="puzzle-view-reply">
-              <button type="submit">
-                댓글 등록</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    -->
+      </section>      
     </div>
   </div>
-  <!--푸터시작-->
-  <script>
-  
-  
-  var loadingArea= $('#loading-area'),
-  	closeBtn= loadingArea.find('.btn'),
-	  term;
-	loadingArea[0].style.opacity= 1;
-	term= setTimeout(function() {
-		loadingArea.remove();
-	}, 10000);
-	closeBtn.on('click', function(e){
-    clearTimeout(term);
-    loadingArea.remove();
-  });
 
-  /* following two functions are necessary to enable or disable keyboard focus to unity webbuild.
-  * otherwise, all keyboard inputs are delivered to unity NOT any web elements.
-  */
-  $(document).on('click', ':not(canvas)', function(e) {  
-    e.stopPropagation();
-    if (Module == null) return;
-    Module.SendMessage("Level", "ToggleInput", 0);
-  });
-  $(document).on('click', 'canvas', function(e) {  
-    e.stopPropagation();
-    if (Module == null) return;
-    Module.SendMessage("Level", "ToggleInput", 1);
-  });
+  <script>
+
+
+    var loadingArea= $('#loading-area'),
+      closeBtn= loadingArea.find('.btn'),
+      term;
+    loadingArea[0].style.opacity= 1;
+    term= setTimeout(function() {
+      loadingArea.remove();
+    }, 10000);
+    closeBtn.on('click', function(e){
+      clearTimeout(term);
+      loadingArea.remove();
+    });
+
+    /* following two functions are necessary to enable or disable keyboard focus to unity webbuild.
+    * otherwise, all keyboard inputs are delivered to unity NOT any web elements.
+    */
+    $(document).on('click', ':not(canvas)', function(e) {  
+      e.stopPropagation();
+      if (Module == null) return;
+      Module.SendMessage("GameManager", "ToggleInput", 0);
+    });
+    $(document).on('click', 'canvas', function(e) {  
+      e.stopPropagation();
+      if (Module == null) return;
+      Module.SendMessage("GameManager", "ToggleInput", 1);
+    });
+    
+    $(document).on('click', '.n-likes-img', function(e) {        
+      var id = puzzleAPI.parseInput('puzzle');
+      e.stopPropagation();
+      if (id == null) return;
+      if (puzzleAPI.cognitoUser.username == null) return;
+      
+      if ($('#puzzle-owner').html() !== puzzleAPI.cognitoUser.username) {
+        puzzleAPI.recordPuzzleLog( id, function() {
+          $(".n-likes").text( parseInt($(".n-likes").text()) + 1 );
+        }, "liked" );
+      }        
+    });
+    $(document).on('click', 'n-dislikes-img', function(e) {        
+      var id = puzzleAPI.parseInput('puzzle');
+      e.stopPropagation();
+      if (id == null) return;
+      if (puzzleAPI.cognitoUser.username == null) return;
+      
+      if ($('#puzzle-owner').html() !== puzzleAPI.cognitoUser.username) {
+        puzzleAPI.recordPuzzleLog( id, function() {
+          $(".n-dislikes").text( parseInt($(".n-dislikes").text()) + 1 );
+        }, "disliked" );
+      }
+    });
+
+    $(document).ready(function() {      
+      puzzle_id = puzzleAPI.parseInput('puzzle');
+      if (puzzle_id == null) {
+        localStorage.removeItem( "currentPuzzleId" );
+        return;
+      }
+      localStorage.setItem( "currentPuzzleId", puzzle_id);
+      $.getJSON( 'puzzles/' + puzzle_id +'.json', function(data) {
+        $('#puzzle-title').text( puzzle_id );
+        $('#puzzle-owner').text( '관리자' );
+      } ).error(function() {
+        $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=info',
+          processData: false,
+          success: function(data) {
+            $('#puzzle-title').text( data.title );
+            
+            if (data.description != null && data.description.length > 0) {
+              $('#puzzle-description').html( DOMPurify.sanitize( data.description ) );
+            }
+            else 
+              $('#puzzle-description').html( "" );
+  
+            $('#puzzle-owner').text( data.owner );
+            $('#puzzle-date').text( new Date(data.timestamp).toLocaleString() );
+            $('#n-completed-users').text(data.n_solved);
+            $('.n-likes').text(data.n_like);
+            $('.n-dislikes').text(data.n_dislike);
+  
+  
+            $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=thumbnail', 
+              processData: false,
+              contentType: 'image/png'
+            }).done(function(data) {
+              $('#puzzle-thumbnail').attr('src', 'https://codingpuzzle.org/puzzles/thumbnails/' + puzzle_id);
+            }).fail(function() {             
+            }).always(function() {
+              moduleName = "per_stage";
+              if (Module == null) loadModule();
+            });
+          }
+        });
+      });
+    });
+    $(document).on('click', '.puzzle-view-reply button', function(e) {
+      e.preventDefault();
+      puzzleAPI.currentUser();
+      if (puzzleAPI.cognitoUser == null) {
+        swal('로그인한 사용자만 댓글을 달 수 있습니다.');
+        return;
+      }
+      var puzzle_id = puzzleAPI.parseInput('puzzle');
+      var message = $('.form-reply textarea').val();
+      
+      $.ajax( { type: 'PUT', url: puzzleAPI.apiUrl + 'comments/' + puzzle_id,
+        headers: {
+          'Authorization' : puzzleAPI.token
+        },
+        data: JSON.stringify({ 
+          comment: {
+            message : message
+          }
+        }),
+        success: function(data) {
+          console.log(data);
+          $('.form-reply textarea').val("");
+          pagination_info = null;
+          readComments();
+        },
+        fail: function(err) {
+          console.log("failed due to ");
+          console.log(err);
+        }    
+      });
+    });
+    var pagination_info = null;
+    buildComment = function(item) {
+      $('<div>', {
+        class: "reply",
+        id: item.ts + "",
+        html: '<div class="reply-colum-1"><div class="flex-box"><span><img src="img/dummy.png" alt="사진영역" style="width:30px;height:30px">' + item.owner_id + '</span><div class="flex-box-inner"><span>' + new Date(item.ts).toLocaleString('ko-KR', { timeZone: 'UTC', year: 'numeric', month: '2-digit', day: '2-digit' }) + '</span></div></div><div class="reply-content">' + DOMPurify.sanitize(item.msg) + '</div></div>'}).appendTo('.reply-row');
+    }
+    readComments = function() {
+      $('.reply-row .reply').detach();
+      $('.reply-row').remove('.reply');
+      $.getJSON( puzzleAPI.apiUrl + 'comments/' + puzzle_id, pagination_info, function(data) {
+        console.log(data);
+        if (data.hasOwnProperty('items') == false) return;
+        $.each(data.items, function(key, value){
+          buildComment({ts: value.ts, owner_id: value.owner_id, msg: value.message, n_like: value.n_like + "", n_dislike: value.n_dislike + "" });
+        });
+        if (data.last_uploaded_ts != null)
+        {
+          pagination_info = {
+            last_uploaded_ts: data.last_uploaded_ts
+          }
+        }
+      });
+    };
+    $(document).ready(function() {
+      readComments();
+    });
+    //리플 기능 스크립트//
+    $('.show-reply').on('click', function() {
+      if ($(this).hasClass('active')) {
+        $(".reply").addClass('hidden');
+        $(".close-reply").addClass('hidden');
+        $(".open-reply").removeClass('hidden');
+        $(this).removeClass("active");
+      } else {
+        $(".open-reply").addClass('hidden');
+        $(".close-reply").removeClass('hidden');
+        $(".reply").removeClass("hidden");
+        $(this).addClass("active");
+        readComments();
+      }
+    });
+    $(".reply-colum-2 img").on('click', function() {
+      $(".re-reply").show();
+    });
   </script>
+  <!--푸터시작-->
   <footer>
   </footer>
-  <!--푸터 끝-->
-  </body>
+<!--푸터 끝-->
+</body>

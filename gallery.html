@@ -192,6 +192,12 @@
         if (puzzleAPI.cognitoUser == null || puzzleAPI.cognitoUser.username == null) {
           return;
         }
+        if (puzzleAPI.cognitoUser.username === 'codingpuzzle_01') {
+          swal('삭제하시겠습니까?').then( function(value) {
+            if (value === true) puzzleAPI.deletePuzzle(id);
+          });
+          return;
+        }
         if ($('.gallery-user-name span', $('#' + id)).html() !== puzzleAPI.cognitoUser.username) {
           swal('퍼즐 제작자만이 삭제할 수 있습니다.', {button: false});
           return;
