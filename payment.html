@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="icon/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+    <link rel="stylesheet" href="js/Swiper-3.3.1/dist/css/swiper.min.css">
+    <script src="js/Swiper-3.3.1/dist/js/swiper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="js/aws-cognito-sdk.min.js"></script>
+    <script src="js/amazon-cognito-identity.min.js"></script>
+    <script src="js/aws-sdk.min.js"></script>
+    <script src="js/aws-cognito-config.js"></script>
+    <script src="js/custom.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
+</head>
+<body>
+    <div id="page-wrapper">
+    </div>
+    <div class="container  main-content-wrapper">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div id="payment" class="main-about-coding-button">코딩퍼즐 결제하기</button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+    <footer>
+   
+    </footer>
+<script>
+    $("#payment").on("click", function() {
+            IMP.request_pay({ // param
+            pg: "inicis",
+            pay_method: "card",
+            merchant_uid: "merchant_" + new Date().getTime(),
+            name: "주문명:결제테스트",
+            amount: 1000,
+            buyer_email: "beomjoo90@gmail.com",
+            buyer_name: "서범주",
+            buyer_tel: "010-5917-7477",
+            buyer_addr: "세종시 조치원읍 도원로 16",
+            buyer_postcode: "30039"
+        }, function (rsp) { // callback
+            if (rsp.success) {
+                console.log('success');
+                // 결제 성공 시 로직,
+                
+            } else {
+                console.log('failure');
+                // 결제 실패 시 로직,
+            }
+        });
+    });
+    $(document).ready(function() {
+        IMP.init('imp81725116');
+    });
+    
+</script>
+
+</body>
+
+</html>

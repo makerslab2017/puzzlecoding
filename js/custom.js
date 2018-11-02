@@ -338,6 +338,31 @@ function loadModule()
       startTime : null,
       moduleName : moduleName,
       robotLoaded : false,
+      OnPuzzleSolutionStatReady: function(solutionStat) {
+        if (solutionStat == null) return;
+        if (course.current_puzzle_id == null) return;
+        puzzleAPI.currentUser();
+        if (puzzleAPI.cognitoUser == null) return;
+        console.log(solutionStat);
+        puzzleAPI.recordPuzzleSolutionLog(course.current_puzzle_id, function() {
+          $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + course.current_puzzle_id + '?type=cost',
+            success: function(data) {
+              solutionCost = JSON.parse(solutionStat);
+              console.log(data);
+              var textResult = '코드 구조 성취도: ' + Math.fround(100.0 * data.cost.structure/solutionCost.cost.structure) + ' (%)\n' +
+              '코드 성능 성취도: ' + Math.fround(100.0 * data.cost.performance.total/solutionCost.cost.performance.total) + ' (%)\n';
+              if (solutionCost.cost.performance.n_nops > data.cost.performance.n_nops) {
+                textResult += '\n불필요한 명령어 갯수가 최적의 솔루션보다 ' + (solutionCost.cost.performance.n_nops - data.cost.performance.n_nops)  + '개 많습니다.\n';
+              }
+              swal({
+                title: '코드 품질', text:  textResult
+              });
+            },
+            fail: function(err) {
+            }
+          });
+        }, solutionStat);
+      },
       OnMissionComplete: function() {
         if (currentPageName.startsWith("puzzle-view")) {
           current_puzzle_id = localStorage.getItem('currentPuzzleId');
@@ -384,6 +409,8 @@ function loadModule()
             $.get( 'puzzles/' + puzzle_stage + '.json', function(data) {
               Module.loadPuzzleData(JSON.stringify(data));
             });
+          } else if (Module.moduleName == 'per_stage') {
+            
           }
         }, 10000);
       },
@@ -397,6 +424,15 @@ function loadModule()
           onUnityLoad = true;
           Module.OnReadyPostprocess();
           if (course.current_puzzle_id == null) return;
+
+          $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'character',
+            headers: { 'Authorization' : puzzleAPI.token },
+            success: function(data) {
+              Module.SendMessage("GameManager","GetUnlockedCharacterInfo", JSON.stringify(data.unlocked_character_info));
+            },
+            fail: function(err) {
+            }
+          });
 
           // just in case if someone clicked one of stages already, load it generously.
           var obj = $("li[data-stage=" + course.current_puzzle_id +"]");
@@ -442,11 +478,27 @@ function loadModule()
         $.getJSON( 'puzzles/' + puzzle_id + '.json', function(data) {
           Module.SendMessage('Level', 'setLevelWithTransition', 'puzzles/' + puzzle_id + '.json');
           course.current_puzzle_id = puzzle_id;
+          $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'character',
+            headers: { 'Authorization' : puzzleAPI.token },
+            success: function(data) {
+              Module.SendMessage("GameManager","GetUnlockedCharacterInfo", JSON.stringify(data.unlocked_character_info));
+            },
+            fail: function(err) {
+            }
+          });
         }).error(function() {
           $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'puzzles/' + puzzle_id + '?type=all',
               success: function(data) {
                 course.current_puzzle_id = puzzle_id;
                 Module.loadPuzzleData(data);
+                $.ajax( { type: 'GET', url: puzzleAPI.apiUrl + 'character',
+                  headers: { 'Authorization' : puzzleAPI.token },
+                  success: function(data) {
+                    Module.SendMessage("GameManager","GetUnlockedCharacterInfo", JSON.stringify(data.unlocked_character_info));
+                  },
+                  fail: function(err) {
+                  }
+                });
               }
             });
         });
@@ -459,7 +511,7 @@ function loadModule()
       loadRobot: function(robot_id) {
         if (robot_id == null) {
           Module.SendMessage("UI", 'BotInfoTest', robot_id ? robot_id : 'puzzles/BotInfo2.json');
-        }
+        }        
         Module.robotLoaded = true;
       }
     }); // end of $.extend
@@ -939,6 +991,25 @@ const puzzleAPI = {
       }),
       success: function(data) {
         console.log(data);
+      },
+      fail: function(err) {
+        console.log(err);
+      }
+    });
+  },
+  recordPuzzleSolutionLog: function(current_puzzle_id, callback, solutionStat) {
+    puzzleAPI.currentUser();
+    if (puzzleAPI.cognitoUser == null || current_puzzle_id == null) return;
+    $.ajax( { type: 'PUT', 
+      url: puzzleAPI.apiUrl + 'puzzles/' + current_puzzle_id + '?action=cost',
+      headers: {
+        'Authorization' : puzzleAPI.token
+      },
+      dataType: 'json',
+      data: solutionStat,
+      success: function(data) {
+        console.log(data);
+        callback();        
       },
       fail: function(err) {
         console.log(err);

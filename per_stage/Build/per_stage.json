@@ -1,9 +1,13 @@
 {
-"TOTAL_MEMORY": 536870912,
+"companyName": "MakersLab",
+"productName": "3DBot",
 "dataUrl": "per_stage.data.unityweb",
 "asmCodeUrl": "per_stage.asm.code.unityweb",
 "asmMemoryUrl": "per_stage.asm.memory.unityweb",
 "asmFrameworkUrl": "per_stage.asm.framework.unityweb",
+"TOTAL_MEMORY": 536870912,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
 "splashScreenStyle": "Dark",
-"backgroundColor": "#222C36"
+"backgroundColor": "#231F20"
 }
